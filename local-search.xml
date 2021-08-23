@@ -121,9 +121,9 @@
     
     <tags>
       
-      <tag>lpe</tag>
-      
       <tag>windows</tag>
+      
+      <tag>lpe</tag>
       
       <tag>L0ch</tag>
       
@@ -251,11 +251,11 @@
     
     <tags>
       
-      <tag>exchange</tag>
+      <tag>j0ker</tag>
       
       <tag>microsoft</tag>
       
-      <tag>j0ker</tag>
+      <tag>exchange</tag>
       
       <tag>ssrf</tag>
       
@@ -288,11 +288,11 @@
     
     <tags>
       
-      <tag>lpe</tag>
+      <tag>windows</tag>
       
       <tag>kernel</tag>
       
-      <tag>windows</tag>
+      <tag>lpe</tag>
       
       <tag>L0ch</tag>
       
@@ -331,9 +331,9 @@
       
       <tag>cve</tag>
       
-      <tag>lpe</tag>
-      
       <tag>eop</tag>
+      
+      <tag>lpe</tag>
       
       <tag>intel</tag>
       
@@ -362,9 +362,9 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
-      
       <tag>microsoft</tag>
+      
+      <tag>Fabu1ous</tag>
       
       <tag>npm</tag>
       
@@ -424,17 +424,17 @@
     
     <tags>
       
+      <tag>j0ker</tag>
+      
       <tag>eop</tag>
       
       <tag>exchange</tag>
       
-      <tag>misconfiguration</tag>
-      
-      <tag>j0ker</tag>
-      
       <tag>ad</tag>
       
       <tag>schema</tag>
+      
+      <tag>misconfiguration</tag>
       
       <tag>CVE-2021-34470</tag>
       
@@ -529,11 +529,11 @@
     
     <tags>
       
+      <tag>kernel</tag>
+      
       <tag>lpe</tag>
       
       <tag>linux</tag>
-      
-      <tag>kernel</tag>
       
       <tag>Fabu1ous</tag>
       
@@ -593,15 +593,15 @@
     
     <tags>
       
-      <tag>kernel</tag>
+      <tag>j0ker</tag>
       
       <tag>windows</tag>
-      
-      <tag>j0ker</tag>
       
       <tag>ntfs</tag>
       
       <tag>wnf</tag>
+      
+      <tag>kernel</tag>
       
       <tag>cve-2021-31956</tag>
       
@@ -628,9 +628,9 @@
     
     <tags>
       
-      <tag>cve</tag>
-      
       <tag>windows</tag>
+      
+      <tag>cve</tag>
       
       <tag>idioth</tag>
       
@@ -663,11 +663,11 @@
     
     <tags>
       
-      <tag>lpe</tag>
+      <tag>windows</tag>
       
       <tag>kernel</tag>
       
-      <tag>windows</tag>
+      <tag>lpe</tag>
       
       <tag>L0ch</tag>
       
@@ -706,11 +706,11 @@
       
       <tag>cve</tag>
       
+      <tag>kernel</tag>
+      
       <tag>lpe</tag>
       
       <tag>linux</tag>
-      
-      <tag>kernel</tag>
       
       <tag>integer overflow</tag>
       
@@ -739,11 +739,11 @@
     
     <tags>
       
-      <tag>bof</tag>
+      <tag>eop</tag>
       
       <tag>kernel</tag>
       
-      <tag>eop</tag>
+      <tag>bof</tag>
       
       <tag>Fabu1ous</tag>
       
@@ -807,11 +807,11 @@
     
     <tags>
       
+      <tag>j0ker</tag>
+      
       <tag>windows</tag>
       
       <tag>eop</tag>
-      
-      <tag>j0ker</tag>
       
       <tag>sam</tag>
       
@@ -912,9 +912,9 @@
       
       <tag>oob</tag>
       
-      <tag>linux</tag>
-      
       <tag>kernel</tag>
+      
+      <tag>linux</tag>
       
       <tag>L0ch</tag>
       
@@ -1013,13 +1013,13 @@
     
     <tags>
       
-      <tag>windows</tag>
-      
-      <tag>eop</tag>
-      
       <tag>j0ker</tag>
       
+      <tag>windows</tag>
+      
       <tag>token</tag>
+      
+      <tag>eop</tag>
       
       <tag>createprocesswithlogon</tag>
       
@@ -1079,11 +1079,11 @@
     
     <tags>
       
-      <tag>lpe</tag>
+      <tag>windows</tag>
       
       <tag>kernel</tag>
       
-      <tag>windows</tag>
+      <tag>lpe</tag>
       
       <tag>L0ch</tag>
       
@@ -1151,11 +1151,11 @@
     
     <tags>
       
+      <tag>microsoft</tag>
+      
       <tag>Fabu1ous</tag>
       
       <tag>rce</tag>
-      
-      <tag>microsoft</tag>
       
       <tag>conflict</tag>
       
@@ -1250,9 +1250,9 @@
     
     <tags>
       
-      <tag>windows</tag>
-      
       <tag>j0ker</tag>
+      
+      <tag>windows</tag>
       
       <tag>defender</tag>
       
@@ -1318,13 +1318,13 @@
     
     <tags>
       
-      <tag>cve</tag>
-      
       <tag>windows</tag>
       
-      <tag>rce</tag>
+      <tag>cve</tag>
       
       <tag>microsoft</tag>
+      
+      <tag>rce</tag>
       
       <tag>L0ch</tag>
       
@@ -1386,15 +1386,15 @@
     
     <tags>
       
-      <tag>windows</tag>
+      <tag>j0ker</tag>
       
-      <tag>eop</tag>
+      <tag>windows</tag>
       
       <tag>microsoft</tag>
       
-      <tag>j0ker</tag>
-      
       <tag>defender</tag>
+      
+      <tag>eop</tag>
       
       <tag>file_deletion</tag>
       
@@ -1491,11 +1491,11 @@
     
     <tags>
       
+      <tag>microsoft</tag>
+      
       <tag>side-channel attack</tag>
       
       <tag>authentication bypass</tag>
-      
-      <tag>microsoft</tag>
       
       <tag>idioth</tag>
       
@@ -1524,13 +1524,13 @@
     
     <tags>
       
-      <tag>cve</tag>
-      
       <tag>windows</tag>
       
-      <tag>rce</tag>
+      <tag>cve</tag>
       
       <tag>microsoft</tag>
+      
+      <tag>rce</tag>
       
       <tag>L0ch</tag>
       
@@ -1592,13 +1592,13 @@
     
     <tags>
       
+      <tag>windows</tag>
+      
       <tag>cve</tag>
       
       <tag>oob</tag>
       
       <tag>kernel</tag>
-      
-      <tag>windows</tag>
       
       <tag>driver</tag>
       
@@ -1664,11 +1664,11 @@
     
     <tags>
       
+      <tag>windows</tag>
+      
       <tag>cve</tag>
       
       <tag>kernel</tag>
-      
-      <tag>windows</tag>
       
       <tag>malware</tag>
       
@@ -1699,9 +1699,9 @@
     
     <tags>
       
-      <tag>bypass</tag>
-      
       <tag>j0ker</tag>
+      
+      <tag>bypass</tag>
       
       <tag>arm64</tag>
       
@@ -1765,13 +1765,13 @@
     
     <tags>
       
+      <tag>windows</tag>
+      
       <tag>cve</tag>
       
       <tag>lpe</tag>
       
       <tag>uaf</tag>
-      
-      <tag>windows</tag>
       
       <tag>L0ch</tag>
       
@@ -1833,9 +1833,9 @@
     
     <tags>
       
-      <tag>linux</tag>
-      
       <tag>kernel</tag>
+      
+      <tag>linux</tag>
       
       <tag>uaf</tag>
       
@@ -1864,11 +1864,11 @@
     
     <tags>
       
+      <tag>windows</tag>
+      
       <tag>cve</tag>
       
       <tag>lpe</tag>
-      
-      <tag>windows</tag>
       
       <tag>msi</tag>
       
@@ -1967,11 +1967,11 @@
     
     <tags>
       
+      <tag>j0ker</tag>
+      
       <tag>windows</tag>
       
       <tag>bypass</tag>
-      
-      <tag>j0ker</tag>
       
       <tag>loadimage</tag>
       
@@ -2004,9 +2004,9 @@
     
     <tags>
       
-      <tag>cve</tag>
-      
       <tag>windows</tag>
+      
+      <tag>cve</tag>
       
       <tag>eop</tag>
       
@@ -2176,6 +2176,43 @@
   
   
   <entry>
+    <title>[하루한줄] JOOMLA PASSWORD RESET VULNERABILITY AND A STORED XSS FOR FULL COMPROMISE</title>
+    <link href="/2021/06/13/j0ker/2021-06-13/"/>
+    <url>/2021/06/13/j0ker/2021-06-13/</url>
+    
+    <content type="html"><![CDATA[<p>6&#xC6D4; 7&#xC77C;, Joomla &#xCDE8;&#xC57D;&#xC810; &#xB450; &#xAC1C;&#xC758; &#xC0C1;&#xC138; &#xB0B4;&#xC6A9;&#xC774; &#xACF5;&#xAC1C;&#xB418;&#xC5C8;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p>&#xCCAB; &#xBC88;&#xC9F8; &#xCDE8;&#xC57D;&#xC810;&#xC740; &#xC784;&#xC758; &#xACC4;&#xC815; &#xD328;&#xC2A4;&#xC6CC;&#xB4DC; &#xCD08;&#xAE30;&#xD654; &#xCDE8;&#xC57D;&#xC810;&#xC785;&#xB2C8;&#xB2E4;. Joomla &#xACC4;&#xC815;&#xC740; &#xB450; &#xAC00;&#xC9C0;&#xB85C; &#xB098;&#xB258;&#xB294;&#xB370;, &#xD558;&#xB098;&#xB294; &#xC77C;&#xBC18;&#xC801;&#xC778; admin &#xACC4;&#xC815;&#xC774;&#xACE0;, &#xB2E4;&#xB978; &#xD558;&#xB098;&#xB294; super admin &#xC785;&#xB2C8;&#xB2E4;. &#xC774; &#xCDE8;&#xC57D;&#xC810;&#xC73C;&#xB85C;&#xB294; admin &#xACC4;&#xC815;&#xC758; &#xBE44;&#xBC00;&#xBC88;&#xD638;&#xB97C; &#xCD08;&#xAE30;&#xD654;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p>&#xBA3C;&#xC800; Joomla&#xC5D0; &#xD2B9;&#xC815; &#xACC4;&#xC815;&#xC758; &#xD328;&#xC2A4;&#xC6CC;&#xB4DC; &#xCD08;&#xAE30;&#xD654;&#xB97C; &#xC694;&#xCCAD;&#xD558;&#xBA74; &#xD574;&#xB2F9; &#xACC4;&#xC815; &#xC774;&#xBA54;&#xC77C;&#xB85C; &#xD328;&#xC2A4;&#xC6CC;&#xD2B8; &#xCD08;&#xAE30;&#xD654; &#xB9C1;&#xD06C;&#xB97C; &#xC804;&#xC1A1;&#xD569;&#xB2C8;&#xB2E4;.</p><pre><code class="hljs php"><span class="hljs-keyword">if</span> (!<span class="hljs-keyword">empty</span>($_SERVER[<span class="hljs-string">&apos;PHP_SELF&apos;</span>]) &amp;&amp; !<span class="hljs-keyword">empty</span>($_SERVER[<span class="hljs-string">&apos;REQUEST_URI&apos;</span>])){  <span class="hljs-comment">// To build the entire URI we need to prepend the protocol, and the http host</span>  <span class="hljs-comment">// to the URI string.</span>   $theURI = <span class="hljs-string">&apos;http&apos;</span> . $https . $_SERVER[<span class="hljs-string">&apos;HTTP_HOST&apos;</span>] . $_SERVER[<span class="hljs-string">&apos;REQUEST_URI&apos;</span>];}</code></pre><p>&#xD328;&#xC2A4;&#xC6CC;&#xB4DC; &#xCD08;&#xAE30;&#xD654; &#xB9C1;&#xD06C;&#xB97C; &#xAD6C;&#xC131;&#xD560; &#xB54C;, Joomla&#xC758; URI.php&#xC5D0;&#xC11C; &#xC11C;&#xBC84;&#xC758; IP&#xB97C; HOST &#xD5E4;&#xB354;&#xC5D0;&#xC11C; &#xAC00;&#xC838;&#xC624;&#xB294;&#xB370;, &#xC774;&#xB97C; HOST header poisoning&#xC744; &#xD1B5;&#xD574; &#xC870;&#xC791;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xADF8;&#xB807;&#xAC8C; &#xB418;&#xBA74; &#xD574;&#xCEE4;&#xB294; &#xBCF4;&#xB0B4;&#xB294; &#xB9C1;&#xD06C;&#xB97C; &#xD574;&#xCEE4;&#xC758; &#xC11C;&#xBC84;&#xB85C; &#xC870;&#xC791;&#xD55C; &#xB2E4;&#xC74C; &#xD53C;&#xD574;&#xC790;&#xC5D0;&#xAC8C; &#xBCF4;&#xB0B4;&#xACE0;, &#xD53C;&#xD574;&#xC790;&#xB294; &#xD574;&#xB2F9; &#xB9C1;&#xD06C;&#xB97C; &#xD074;&#xB9AD;&#xD558;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;. &#xADF8; &#xC21C;&#xAC04; &#xD574;&#xCEE4;&#xC758; &#xC11C;&#xBC84;&#xB85C; &#xD328;&#xC2A4;&#xC6CC;&#xB4DC; &#xCD08;&#xAE30;&#xD654;&#xB97C; &#xC704;&#xD55C; &#xD1A0;&#xD070;&#xC774; &#xC804;&#xC1A1;&#xB418;&#xC5B4; &#xD574;&#xCEE4;&#xB294; &#xD574;&#xB2F9; &#xD1A0;&#xD070;&#xC744; &#xC774;&#xC6A9;&#xD574; &#xD328;&#xC2A4;&#xC6CC;&#xB4DC;&#xB97C; &#xCD08;&#xAE30;&#xD654;&#xD560; &#xC218; &#xC788;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.</p><p>&#xB450; &#xBC88;&#xC9F8; &#xCDE8;&#xC57D;&#xC810;&#xC740; stored XSS&#xC744; &#xD1B5;&#xD55C; admin to super admin &#xAD8C;&#xD55C; &#xC0C1;&#xC2B9; &#xCDE8;&#xC57D;&#xC810;&#xC785;&#xB2C8;&#xB2E4;.</p><p>&#xC77C;&#xBC18;&#xC801;&#xC778; &#xC0C1;&#xD669;&#xC5D0;&#xC11C; Joomla&#xC5D0;&#xC11C;&#xB294; &#xBE14;&#xB799;&#xB9AC;&#xC2A4;&#xD2B8;&#xB97C; &#xD1B5;&#xD574; &#xC5C5;&#xB85C;&#xB4DC;&#xD560; &#xC218; &#xC788;&#xB294; &#xD30C;&#xC77C; &#xD655;&#xC7A5;&#xC790;&#xB4E4;&#xC744; &#xAD00;&#xB9AC;&#xD569;&#xB2C8;&#xB2E4;. php, php5 &#xB4F1; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB97C; &#xC0BD;&#xC785;&#xD560; &#xC218; &#xC788;&#xB294; &#xB300;&#xBD80;&#xBD84;&#xC758; &#xD655;&#xC7A5;&#xC790;&#xB4E4;&#xC744; &#xB9C9;&#xC544;&#xB193;&#xC558;&#xB294;&#xB370;, &#xC5EC;&#xAE30;&#xC5D0; .html&#xC774; &#xBE60;&#xC838;&#xC788;&#xC5B4; html &#xD30C;&#xC77C;&#xC744; &#xC5C5;&#xB85C;&#xB4DC;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xB530;&#xB77C;&#xC11C; html &#xD30C;&#xC77C;&#xC5D0; XSS &#xD398;&#xC774;&#xB85C;&#xB4DC;&#xB97C; &#xB123;&#xACE0; &#xB313;&#xAE00;&#xC774;&#xB098; &#xAE00;&#xC5D0; &#xB123;&#xACE0; &#xC5C5;&#xB85C;&#xB4DC;&#xB97C; &#xD558;&#xACE0;, super admin&#xC774; &#xADF8;&#xAC83;&#xC744; &#xBCF4;&#xAC8C; &#xB418;&#xBA74; super admin &#xAD8C;&#xD55C;&#xC73C;&#xB85C; XSS &#xD398;&#xC774;&#xB85C;&#xB4DC;&#xAC00; &#xC2E4;&#xD589;&#xB418;&#xC5B4; &#xAD8C;&#xD55C;&#xC0C1;&#xC2B9;&#xC744; &#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>1day1line</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>j0ker</tag>
+      
+      <tag>joomla</tag>
+      
+      <tag>password</tag>
+      
+      <tag>reset</tag>
+      
+      <tag>xss</tag>
+      
+      <tag>server</tag>
+      
+      <tag>CVE-2021-26032</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>[Research] WinAFL로 마구 퍼징하기 Part2</title>
     <link href="/2021/06/13/fabu1ous/winafl-2/"/>
     <url>/2021/06/13/fabu1ous/winafl-2/</url>
@@ -2201,43 +2238,6 @@
       <tag>harness</tag>
       
       <tag>bug bounty</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>[하루한줄] JOOMLA PASSWORD RESET VULNERABILITY AND A STORED XSS FOR FULL COMPROMISE</title>
-    <link href="/2021/06/13/j0ker/2021-06-13/"/>
-    <url>/2021/06/13/j0ker/2021-06-13/</url>
-    
-    <content type="html"><![CDATA[<p>6&#xC6D4; 7&#xC77C;, Joomla &#xCDE8;&#xC57D;&#xC810; &#xB450; &#xAC1C;&#xC758; &#xC0C1;&#xC138; &#xB0B4;&#xC6A9;&#xC774; &#xACF5;&#xAC1C;&#xB418;&#xC5C8;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p>&#xCCAB; &#xBC88;&#xC9F8; &#xCDE8;&#xC57D;&#xC810;&#xC740; &#xC784;&#xC758; &#xACC4;&#xC815; &#xD328;&#xC2A4;&#xC6CC;&#xB4DC; &#xCD08;&#xAE30;&#xD654; &#xCDE8;&#xC57D;&#xC810;&#xC785;&#xB2C8;&#xB2E4;. Joomla &#xACC4;&#xC815;&#xC740; &#xB450; &#xAC00;&#xC9C0;&#xB85C; &#xB098;&#xB258;&#xB294;&#xB370;, &#xD558;&#xB098;&#xB294; &#xC77C;&#xBC18;&#xC801;&#xC778; admin &#xACC4;&#xC815;&#xC774;&#xACE0;, &#xB2E4;&#xB978; &#xD558;&#xB098;&#xB294; super admin &#xC785;&#xB2C8;&#xB2E4;. &#xC774; &#xCDE8;&#xC57D;&#xC810;&#xC73C;&#xB85C;&#xB294; admin &#xACC4;&#xC815;&#xC758; &#xBE44;&#xBC00;&#xBC88;&#xD638;&#xB97C; &#xCD08;&#xAE30;&#xD654;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p>&#xBA3C;&#xC800; Joomla&#xC5D0; &#xD2B9;&#xC815; &#xACC4;&#xC815;&#xC758; &#xD328;&#xC2A4;&#xC6CC;&#xB4DC; &#xCD08;&#xAE30;&#xD654;&#xB97C; &#xC694;&#xCCAD;&#xD558;&#xBA74; &#xD574;&#xB2F9; &#xACC4;&#xC815; &#xC774;&#xBA54;&#xC77C;&#xB85C; &#xD328;&#xC2A4;&#xC6CC;&#xD2B8; &#xCD08;&#xAE30;&#xD654; &#xB9C1;&#xD06C;&#xB97C; &#xC804;&#xC1A1;&#xD569;&#xB2C8;&#xB2E4;.</p><pre><code class="hljs php"><span class="hljs-keyword">if</span> (!<span class="hljs-keyword">empty</span>($_SERVER[<span class="hljs-string">&apos;PHP_SELF&apos;</span>]) &amp;&amp; !<span class="hljs-keyword">empty</span>($_SERVER[<span class="hljs-string">&apos;REQUEST_URI&apos;</span>])){  <span class="hljs-comment">// To build the entire URI we need to prepend the protocol, and the http host</span>  <span class="hljs-comment">// to the URI string.</span>   $theURI = <span class="hljs-string">&apos;http&apos;</span> . $https . $_SERVER[<span class="hljs-string">&apos;HTTP_HOST&apos;</span>] . $_SERVER[<span class="hljs-string">&apos;REQUEST_URI&apos;</span>];}</code></pre><p>&#xD328;&#xC2A4;&#xC6CC;&#xB4DC; &#xCD08;&#xAE30;&#xD654; &#xB9C1;&#xD06C;&#xB97C; &#xAD6C;&#xC131;&#xD560; &#xB54C;, Joomla&#xC758; URI.php&#xC5D0;&#xC11C; &#xC11C;&#xBC84;&#xC758; IP&#xB97C; HOST &#xD5E4;&#xB354;&#xC5D0;&#xC11C; &#xAC00;&#xC838;&#xC624;&#xB294;&#xB370;, &#xC774;&#xB97C; HOST header poisoning&#xC744; &#xD1B5;&#xD574; &#xC870;&#xC791;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xADF8;&#xB807;&#xAC8C; &#xB418;&#xBA74; &#xD574;&#xCEE4;&#xB294; &#xBCF4;&#xB0B4;&#xB294; &#xB9C1;&#xD06C;&#xB97C; &#xD574;&#xCEE4;&#xC758; &#xC11C;&#xBC84;&#xB85C; &#xC870;&#xC791;&#xD55C; &#xB2E4;&#xC74C; &#xD53C;&#xD574;&#xC790;&#xC5D0;&#xAC8C; &#xBCF4;&#xB0B4;&#xACE0;, &#xD53C;&#xD574;&#xC790;&#xB294; &#xD574;&#xB2F9; &#xB9C1;&#xD06C;&#xB97C; &#xD074;&#xB9AD;&#xD558;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;. &#xADF8; &#xC21C;&#xAC04; &#xD574;&#xCEE4;&#xC758; &#xC11C;&#xBC84;&#xB85C; &#xD328;&#xC2A4;&#xC6CC;&#xB4DC; &#xCD08;&#xAE30;&#xD654;&#xB97C; &#xC704;&#xD55C; &#xD1A0;&#xD070;&#xC774; &#xC804;&#xC1A1;&#xB418;&#xC5B4; &#xD574;&#xCEE4;&#xB294; &#xD574;&#xB2F9; &#xD1A0;&#xD070;&#xC744; &#xC774;&#xC6A9;&#xD574; &#xD328;&#xC2A4;&#xC6CC;&#xB4DC;&#xB97C; &#xCD08;&#xAE30;&#xD654;&#xD560; &#xC218; &#xC788;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.</p><p>&#xB450; &#xBC88;&#xC9F8; &#xCDE8;&#xC57D;&#xC810;&#xC740; stored XSS&#xC744; &#xD1B5;&#xD55C; admin to super admin &#xAD8C;&#xD55C; &#xC0C1;&#xC2B9; &#xCDE8;&#xC57D;&#xC810;&#xC785;&#xB2C8;&#xB2E4;.</p><p>&#xC77C;&#xBC18;&#xC801;&#xC778; &#xC0C1;&#xD669;&#xC5D0;&#xC11C; Joomla&#xC5D0;&#xC11C;&#xB294; &#xBE14;&#xB799;&#xB9AC;&#xC2A4;&#xD2B8;&#xB97C; &#xD1B5;&#xD574; &#xC5C5;&#xB85C;&#xB4DC;&#xD560; &#xC218; &#xC788;&#xB294; &#xD30C;&#xC77C; &#xD655;&#xC7A5;&#xC790;&#xB4E4;&#xC744; &#xAD00;&#xB9AC;&#xD569;&#xB2C8;&#xB2E4;. php, php5 &#xB4F1; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB97C; &#xC0BD;&#xC785;&#xD560; &#xC218; &#xC788;&#xB294; &#xB300;&#xBD80;&#xBD84;&#xC758; &#xD655;&#xC7A5;&#xC790;&#xB4E4;&#xC744; &#xB9C9;&#xC544;&#xB193;&#xC558;&#xB294;&#xB370;, &#xC5EC;&#xAE30;&#xC5D0; .html&#xC774; &#xBE60;&#xC838;&#xC788;&#xC5B4; html &#xD30C;&#xC77C;&#xC744; &#xC5C5;&#xB85C;&#xB4DC;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xB530;&#xB77C;&#xC11C; html &#xD30C;&#xC77C;&#xC5D0; XSS &#xD398;&#xC774;&#xB85C;&#xB4DC;&#xB97C; &#xB123;&#xACE0; &#xB313;&#xAE00;&#xC774;&#xB098; &#xAE00;&#xC5D0; &#xB123;&#xACE0; &#xC5C5;&#xB85C;&#xB4DC;&#xB97C; &#xD558;&#xACE0;, super admin&#xC774; &#xADF8;&#xAC83;&#xC744; &#xBCF4;&#xAC8C; &#xB418;&#xBA74; super admin &#xAD8C;&#xD55C;&#xC73C;&#xB85C; XSS &#xD398;&#xC774;&#xB85C;&#xB4DC;&#xAC00; &#xC2E4;&#xD589;&#xB418;&#xC5B4; &#xAD8C;&#xD55C;&#xC0C1;&#xC2B9;&#xC744; &#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>]]></content>
-    
-    
-    <categories>
-      
-      <category>1day1line</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>xss</tag>
-      
-      <tag>j0ker</tag>
-      
-      <tag>joomla</tag>
-      
-      <tag>password</tag>
-      
-      <tag>reset</tag>
-      
-      <tag>server</tag>
-      
-      <tag>CVE-2021-26032</tag>
       
     </tags>
     
@@ -2326,9 +2326,9 @@
     
     <tags>
       
-      <tag>information disclosure</tag>
-      
       <tag>ssrf</tag>
+      
+      <tag>information disclosure</tag>
       
       <tag>idioth</tag>
       
@@ -2427,11 +2427,11 @@
       
       <tag>bypass</tag>
       
-      <tag>malware</tag>
-      
       <tag>defender</tag>
       
       <tag>antivirus</tag>
+      
+      <tag>malware</tag>
       
       <tag>idioth</tag>
       
@@ -2495,15 +2495,15 @@
     
     <tags>
       
-      <tag>oob</tag>
+      <tag>j0ker</tag>
       
       <tag>windows</tag>
       
       <tag>microsoft</tag>
       
-      <tag>j0ker</tag>
-      
       <tag>WindowsCodecsRaw</tag>
+      
+      <tag>oob</tag>
       
     </tags>
     
@@ -2563,9 +2563,9 @@
       
       <tag>cve</tag>
       
-      <tag>information disclosure</tag>
-      
       <tag>kernel</tag>
+      
+      <tag>information disclosure</tag>
       
       <tag>ios</tag>
       
@@ -2602,9 +2602,9 @@
       
       <tag>cve</tag>
       
-      <tag>rce</tag>
-      
       <tag>microsoft</tag>
+      
+      <tag>rce</tag>
       
       <tag>idioth</tag>
       
@@ -2635,11 +2635,11 @@
       
       <tag>cve</tag>
       
+      <tag>xss</tag>
+      
       <tag>Fabu1ous</tag>
       
       <tag>rce</tag>
-      
-      <tag>xss</tag>
       
       <tag>sandbox escape</tag>
       
@@ -2668,9 +2668,9 @@
       
       <tag>cve</tag>
       
-      <tag>rce</tag>
-      
       <tag>microsoft</tag>
+      
+      <tag>rce</tag>
       
       <tag>L0ch</tag>
       
@@ -2736,9 +2736,9 @@
     
     <tags>
       
-      <tag>kernel</tag>
-      
       <tag>windows</tag>
+      
+      <tag>kernel</tag>
       
       <tag>L0ch</tag>
       
@@ -2775,13 +2775,13 @@
     
     <tags>
       
-      <tag>cve</tag>
-      
-      <tag>bypass</tag>
-      
       <tag>j0ker</tag>
       
+      <tag>cve</tag>
+      
       <tag>smap</tag>
+      
+      <tag>bypass</tag>
       
       <tag>freebsd</tag>
       
@@ -2812,11 +2812,11 @@
       
       <tag>oob</tag>
       
+      <tag>kernel</tag>
+      
       <tag>lpe</tag>
       
       <tag>linux</tag>
-      
-      <tag>kernel</tag>
       
       <tag>Fabu1ous</tag>
       
@@ -2843,11 +2843,11 @@
     
     <tags>
       
+      <tag>windows</tag>
+      
       <tag>cve</tag>
       
       <tag>lpe</tag>
-      
-      <tag>windows</tag>
       
       <tag>L0ch</tag>
       
@@ -2919,11 +2919,11 @@
     
     <tags>
       
+      <tag>misconfiguration</tag>
+      
       <tag>Fabu1ous</tag>
       
       <tag>router</tag>
-      
-      <tag>misconfiguration</tag>
       
       <tag>firmware patch</tag>
       
@@ -3004,6 +3004,41 @@
   
   
   <entry>
+    <title>[하루한줄] Dumping Stored Credentials with SeTrustedCredmanAccessPrivilege</title>
+    <link href="/2021/05/23/j0ker/2021-05-23/"/>
+    <url>/2021/05/23/j0ker/2021-05-23/</url>
+    
+    <content type="html"><![CDATA[<h2 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h2><p><a href="https://www.tiraniddo.dev/2021/05/dumping-stored-credentials-with.html">Dumping Stored Credentials with SeTrustedCredmanAccessPrivilege</a></p><h2 id="Target"><a href="#Target" class="headerlink" title="Target"></a><strong>Target</strong></h2><p>Windows</p><h2 id="Explain"><a href="#Explain" class="headerlink" title="Explain"></a><strong>Explain</strong></h2><p>Windows&#xC5D0;&#xC11C;&#xB294; <code>Credential Manager</code>&#xB97C; &#xD1B5;&#xD574; credential&#xB97C; &#xC870;&#xC791;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. Credential&#xB4E4;&#xC740; DPAPI&#xB97C; &#xD1B5;&#xD574; &#xBCF4;&#xD638;&#xB418;&#xBA70;, &#xC2DC;&#xC2A4;&#xD15C;&#xC5D0; &#xC778;&#xC99D;&#xB41C; &#xC0AC;&#xC6A9;&#xC790;&#xB9CC; &#xC811;&#xADFC;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p>&#xC608;&#xB97C; &#xB4E4;&#xC5B4;, Remote Desktop Client&#xC5D0;&#xC11C;&#xB294; <code>CredWrite</code>&#xB77C;&#xB294; API&#xB97C; &#xD1B5;&#xD574; domain credential&#xC744; &#xC800;&#xC7A5;&#xD569;&#xB2C8;&#xB2E4;. &#xC774; &#xB54C; <code>CREDENTIAL</code> &#xAD6C;&#xC870;&#xCCB4;&#xC5D0; &#xC720;&#xC800;&#xBA85;&#xACFC; &#xBE44;&#xBC00;&#xBC88;&#xD638;&#xB97C; &#xC800;&#xC7A5;&#xD558;&#xAC8C; &#xB418;&#xBA70; type&#xC740; <code>CRED_TYPE_DOMAIN_PASSWORD</code>&#xC73C;&#xB85C; &#xC138;&#xD305;&#xB429;&#xB2C8;&#xB2E4;. &#xC774;&#xB807;&#xAC8C; &#xC800;&#xC7A5;&#xB41C; credential&#xB4E4;&#xC740; <code>CredRead</code>, <code>CredEnumerate</code> &#xAC19;&#xC740; API&#xB97C; &#xD1B5;&#xD574; &#xC77D;&#xC5B4;&#xC62C; &#xC218; &#xC788;&#xC9C0;&#xB9CC;, <code>CRED_TYPE_DOMAIN_PASSWORD</code>&#xB85C; type&#xC774; &#xC138;&#xD305;&#xB418;&#xBA74; credential&#xC744; &#xC77D;&#xC5B4;&#xC640;&#xB3C4; &#xAD6C;&#xC870;&#xC801;&#xC73C;&#xB85C; &#xBE44;&#xBC00;&#xBC88;&#xD638;&#xB97C; &#xC77D;&#xC744; &#xC218; &#xC5C6;&#xAC8C; &#xAD6C;&#xD604;&#xB418;&#xC5B4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. NTLM, Kerberos, TSSSP &#xAC19;&#xC774; LSASS &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xB418;&#xB294; &#xBCF4;&#xC548; &#xD328;&#xD0A4;&#xC9C0;&#xB4E4;&#xC740; &#xB0B4;&#xBD80; API&#xB97C; &#xD1B5;&#xD574; &#xC774;&#xB7F0; &#xC81C;&#xC57D; &#xC5C6;&#xC774; credential &#xBE44;&#xBC00;&#xBC88;&#xD638;&#xC5D0; &#xC811;&#xADFC;&#xC774; &#xAC00;&#xB2A5;&#xD569;&#xB2C8;&#xB2E4;.</p><p>Credential&#xC740; &#xC0AC;&#xC6A9;&#xC790;&#xC758; <code>DPAPI</code> &#xD0A4;&#xB85C; &#xC554;&#xD638;&#xD654;&#xB418;&#xC5B4; &#xD30C;&#xC77C; &#xD615;&#xC2DD;&#xC73C;&#xB85C; &#xC800;&#xC7A5;&#xB429;&#xB2C8;&#xB2E4;. &#xC774;&#xB97C; &#xC9C1;&#xC811;&#xC801;&#xC73C;&#xB85C; &#xBCF5;&#xD638;&#xD654;&#xD558;&#xC5EC; &#xBE44;&#xBC00;&#xBC88;&#xD638;&#xB97C; &#xC77D;&#xC5B4;&#xC62C;<code>&#xC218; &#xC5C6;&#xB294; &#xC774;&#xC720;&#xB294; &#xC0AC;&#xC6A9;&#xC790;&#xC758;</code>DPAPI<code>&#xD0A4;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xB354;&#xB77C;&#xB3C4; LSASS&#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xB418;&#xB294; &#xCF54;&#xB4DC;&#xC5D0;&#xC11C;&#xB9CC; DPAPI&#xB97C; &#xD638;&#xCD9C;&#xD558;&#xC5EC; &#xBCF5;&#xD638;&#xD654;&#xD560; &#xC218; &#xC788;&#xB3C4;&#xB85D; &#xAD6C;&#xD604;&#xB418;&#xC5B4; &#xC788;&#xAE30; &#xB54C;&#xBB38;&#xC785;&#xB2C8;&#xB2E4;. &#xB530;&#xB77C;&#xC11C;</code>Mimikatz<code>&#xAC19;&#xC740; &#xD234;&#xC5D0;&#xC11C;&#xB294;</code>LSASS`&#xC5D0; &#xCF54;&#xB4DC;&#xB97C; &#xC0BD;&#xC785;&#xD558;&#xAC70;&#xB098; &#xBA54;&#xBAA8;&#xB9AC;&#xB97C; &#xBC14;&#xB85C; &#xC77D;&#xC5B4;&#xB4E4;&#xC774;&#xB294; &#xB4F1; &#xBC29;&#xC2DD;&#xC744; &#xD1B5;&#xD574; credential&#xC744; &#xC77D;&#xC5B4;&#xB4E4;&#xC785;&#xB2C8;&#xB2E4;.</p><p>&#xC774; &#xAE00;&#xC5D0;&#xC11C; James Forshaw&#xB294; <code>LSASS</code>&#xC5D0; &#xCF54;&#xB4DC;&#xB97C; &#xC0BD;&#xC785;&#xD558;&#xC9C0; &#xC54A;&#xACE0; <code>SeTrustedCredmanAccessPrivilege</code> &#xAD8C;&#xD55C;&#xC744; &#xC774;&#xC6A9;&#xD574; credential&#xC744; &#xBCF5;&#xD638;&#xD654;&#xD558;&#xB294; &#xC0C8;&#xB85C;&#xC6B4; &#xBC29;&#xBC95;&#xC744; &#xC81C;&#xC548;&#xD569;&#xB2C8;&#xB2E4;.</p><p><code>SeTrustedCredmanAccessPrivilege</code>&#xAD8C;&#xD55C;&#xC740; &#xC0AC;&#xC6A9;&#xC790;&#xAC00; &#xC778;&#xC99D;&#xB41C; &#xC0AC;&#xC6A9;&#xC790;&#xB85C;&#xC11C; <code>Credential Manager</code>&#xC5D0; &#xC811;&#xADFC;&#xD560; &#xC218; &#xC788;&#xB3C4;&#xB85D; &#xD558;&#xB294; &#xAD8C;&#xD55C;&#xC785;&#xB2C8;&#xB2E4;. LSASRV.dll&#xC5D0; &#xAD6C;&#xD604;&#xB418;&#xC5B4; &#xC788;&#xB294; &#xCF54;&#xB4DC;&#xB97C; &#xBCF4;&#xBA74; <code>CredpIsRpcClientTrusted</code> &#xD568;&#xC218;&#xC5D0;&#xC11C; &#xD574;&#xB2F9; &#xAD8C;&#xD55C;&#xC744; &#xCCB4;&#xD06C;&#xD558;&#xB294;&#xB370;, &#xC774; &#xD568;&#xC218;&#xB294; <code>CredrReadByTokenHandle</code>&#xC640; <code>CredrBackupCredentials</code> &#xC774; &#xB450; &#xD568;&#xC218;&#xC5D0;&#xC11C;&#xB9CC; &#xD638;&#xCD9C;&#xB429;&#xB2C8;&#xB2E4;. &#xC774; &#xC911; <code>CredBackupCredentials</code> &#xD568;&#xC218;&#xB294; &#xC0AC;&#xC6A9;&#xC790;&#xC758; credential&#xC744; &#xBC31;&#xC5C5;&#xD558;&#xB294; &#xAE30;&#xB2A5;&#xC744; &#xC81C;&#xACF5;&#xD558;&#xBA70; <code>SeTrustedCredmanAccessPrivilege</code> &#xAD8C;&#xD55C;&#xB9CC; &#xAC00;&#xC9C0;&#xACE0; &#xC788;&#xC73C;&#xBA74; &#xD638;&#xCD9C;&#xC774; &#xAC00;&#xB2A5;&#xD569;&#xB2C8;&#xB2E4;. <code>CREDWIZ.exe</code> &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC5D0;&#xC11C; &#xD574;&#xB2F9; &#xD568;&#xC218;&#xB97C; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;. <code>CREDWIZ.exe</code>&#xB97C; &#xC2E4;&#xD589;&#xD558;&#xBA74; &#xBC31;&#xC5C5;&#xD560; &#xACBD;&#xB85C;&#xB97C; &#xC9C0;&#xC815;&#xD558;&#xACE0; <code>Winlogon</code> &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC5D0; RPC&#xB97C; &#xD638;&#xCD9C;&#xD558;&#xC5EC; credential&#xC744; &#xBC31;&#xC5C5;&#xD558;&#xB294;&#xB370;, &#xC774; &#xB54C; &#xBC31;&#xC5C5;&#xD558;&#xB294; &#xB370;&#xC774;&#xD130;&#xC5D0;&#xB294; &#xBAA8;&#xB4E0; &#xC815;&#xBCF4;&#xAC00; &#xD3EC;&#xD568;&#xB418;&#xC5B4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC774;&#xB97C; &#xB2E4;&#xC2DC; &#xBCF5;&#xAD6C;&#xD558;&#xBA70; &#xBAA8;&#xB4E0; &#xC815;&#xBCF4;&#xAC00; &#xB2F4;&#xACA8; &#xC788;&#xB294; credential&#xC744; &#xC5BB;&#xC744; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p>&#xB530;&#xB77C;&#xC11C; &#xAD00;&#xB9AC;&#xC790; &#xAD8C;&#xD55C;&#xC73C;&#xB85C; &#xC544;&#xB798; &#xACFC;&#xC815;&#xC744; &#xD1B5;&#xD574; &#xBAA8;&#xB4E0; &#xC0AC;&#xC6A9;&#xC790;&#xC758; credential&#xC744; &#xD68D;&#xB4DD;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><ol><li><code>WinLogon</code> &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC5D0; &#xC811;&#xADFC;&#xD574; &#xD1A0;&#xD070;&#xC758; &#xD578;&#xB4E4;&#xC744; &#xD68D;&#xB4DD;&#xD569;&#xB2C8;&#xB2E4;.</li><li>&#xD68D;&#xB4DD;&#xD55C; &#xD1A0;&#xD070;&#xC744; Impersonation &#xD1A0;&#xD070;&#xC73C;&#xB85C; &#xBCF5;&#xC0AC;&#xD558;&#xACE0; <code>SeTrustedCredmanAccessPrivilege</code> &#xAD8C;&#xD55C;&#xC744; &#xD65C;&#xC131;&#xD654;&#xD569;&#xB2C8;&#xB2E4;.</li><li>&#xC778;&#xC99D;&#xB41C; &#xC0AC;&#xC6A9;&#xC790;&#xC758; &#xD1A0;&#xD070;&#xC744; Open &#xD569;&#xB2C8;&#xB2E4;.</li><li>Impersonation&#xB41C; <code>WinLogon</code> &#xD1A0;&#xD070;&#xC744; &#xD65C;&#xC6A9;&#xD558;&#xC5EC; <code>CredBackupCredentials</code> &#xD568;&#xC218;&#xB97C; &#xD638;&#xCD9C;&#xD558;&#xACE0; &#xC6D0;&#xD558;&#xB294; &#xACBD;&#xB85C;&#xC5D0; crendential&#xC744; &#xC800;&#xC7A5;&#xD569;&#xB2C8;&#xB2E4;. &#xC774; &#xB54C; &#xBC31;&#xC5C5; &#xC2DC; &#xBE44;&#xBC00;&#xBC88;&#xD638;&#xB294; NULL&#xB85C; &#xC124;&#xC815;&#xD560; &#xC218; &#xC788;&#xC5B4; &#xCD94;&#xAC00;&#xC801;&#xC778; &#xBCF5;&#xD638;&#xD654;&#xD560; &#xC218;&#xACE0;&#xB97C; &#xB35C; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</li><li>Impersonation &#xC0C1;&#xD0DC;&#xC5D0;&#xC11C; <code>CryptUnprotectData</code> &#xD568;&#xC218;&#xB97C; &#xD1B5;&#xD574; credential&#xC744; &#xBCF5;&#xD638;&#xD654;&#xD569;&#xB2C8;&#xB2E4;.</li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>1day1line</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>j0ker</tag>
+      
+      <tag>windows</tag>
+      
+      <tag>token</tag>
+      
+      <tag>privileges</tag>
+      
+      <tag>setrustedcredmanaccessprivilege</tag>
+      
+      <tag>credentials</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>[Research] WinAFL로 마구 퍼징하기 Part1</title>
     <link href="/2021/05/23/fabu1ous/winafl-1/"/>
     <url>/2021/05/23/fabu1ous/winafl-1/</url>
@@ -3029,41 +3064,6 @@
       <tag>harness</tag>
       
       <tag>bug bounty</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>[하루한줄] Dumping Stored Credentials with SeTrustedCredmanAccessPrivilege</title>
-    <link href="/2021/05/23/j0ker/2021-05-23/"/>
-    <url>/2021/05/23/j0ker/2021-05-23/</url>
-    
-    <content type="html"><![CDATA[<h2 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h2><p><a href="https://www.tiraniddo.dev/2021/05/dumping-stored-credentials-with.html">Dumping Stored Credentials with SeTrustedCredmanAccessPrivilege</a></p><h2 id="Target"><a href="#Target" class="headerlink" title="Target"></a><strong>Target</strong></h2><p>Windows</p><h2 id="Explain"><a href="#Explain" class="headerlink" title="Explain"></a><strong>Explain</strong></h2><p>Windows&#xC5D0;&#xC11C;&#xB294; <code>Credential Manager</code>&#xB97C; &#xD1B5;&#xD574; credential&#xB97C; &#xC870;&#xC791;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. Credential&#xB4E4;&#xC740; DPAPI&#xB97C; &#xD1B5;&#xD574; &#xBCF4;&#xD638;&#xB418;&#xBA70;, &#xC2DC;&#xC2A4;&#xD15C;&#xC5D0; &#xC778;&#xC99D;&#xB41C; &#xC0AC;&#xC6A9;&#xC790;&#xB9CC; &#xC811;&#xADFC;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p>&#xC608;&#xB97C; &#xB4E4;&#xC5B4;, Remote Desktop Client&#xC5D0;&#xC11C;&#xB294; <code>CredWrite</code>&#xB77C;&#xB294; API&#xB97C; &#xD1B5;&#xD574; domain credential&#xC744; &#xC800;&#xC7A5;&#xD569;&#xB2C8;&#xB2E4;. &#xC774; &#xB54C; <code>CREDENTIAL</code> &#xAD6C;&#xC870;&#xCCB4;&#xC5D0; &#xC720;&#xC800;&#xBA85;&#xACFC; &#xBE44;&#xBC00;&#xBC88;&#xD638;&#xB97C; &#xC800;&#xC7A5;&#xD558;&#xAC8C; &#xB418;&#xBA70; type&#xC740; <code>CRED_TYPE_DOMAIN_PASSWORD</code>&#xC73C;&#xB85C; &#xC138;&#xD305;&#xB429;&#xB2C8;&#xB2E4;. &#xC774;&#xB807;&#xAC8C; &#xC800;&#xC7A5;&#xB41C; credential&#xB4E4;&#xC740; <code>CredRead</code>, <code>CredEnumerate</code> &#xAC19;&#xC740; API&#xB97C; &#xD1B5;&#xD574; &#xC77D;&#xC5B4;&#xC62C; &#xC218; &#xC788;&#xC9C0;&#xB9CC;, <code>CRED_TYPE_DOMAIN_PASSWORD</code>&#xB85C; type&#xC774; &#xC138;&#xD305;&#xB418;&#xBA74; credential&#xC744; &#xC77D;&#xC5B4;&#xC640;&#xB3C4; &#xAD6C;&#xC870;&#xC801;&#xC73C;&#xB85C; &#xBE44;&#xBC00;&#xBC88;&#xD638;&#xB97C; &#xC77D;&#xC744; &#xC218; &#xC5C6;&#xAC8C; &#xAD6C;&#xD604;&#xB418;&#xC5B4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. NTLM, Kerberos, TSSSP &#xAC19;&#xC774; LSASS &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xB418;&#xB294; &#xBCF4;&#xC548; &#xD328;&#xD0A4;&#xC9C0;&#xB4E4;&#xC740; &#xB0B4;&#xBD80; API&#xB97C; &#xD1B5;&#xD574; &#xC774;&#xB7F0; &#xC81C;&#xC57D; &#xC5C6;&#xC774; credential &#xBE44;&#xBC00;&#xBC88;&#xD638;&#xC5D0; &#xC811;&#xADFC;&#xC774; &#xAC00;&#xB2A5;&#xD569;&#xB2C8;&#xB2E4;.</p><p>Credential&#xC740; &#xC0AC;&#xC6A9;&#xC790;&#xC758; <code>DPAPI</code> &#xD0A4;&#xB85C; &#xC554;&#xD638;&#xD654;&#xB418;&#xC5B4; &#xD30C;&#xC77C; &#xD615;&#xC2DD;&#xC73C;&#xB85C; &#xC800;&#xC7A5;&#xB429;&#xB2C8;&#xB2E4;. &#xC774;&#xB97C; &#xC9C1;&#xC811;&#xC801;&#xC73C;&#xB85C; &#xBCF5;&#xD638;&#xD654;&#xD558;&#xC5EC; &#xBE44;&#xBC00;&#xBC88;&#xD638;&#xB97C; &#xC77D;&#xC5B4;&#xC62C;<code>&#xC218; &#xC5C6;&#xB294; &#xC774;&#xC720;&#xB294; &#xC0AC;&#xC6A9;&#xC790;&#xC758;</code>DPAPI<code>&#xD0A4;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xB354;&#xB77C;&#xB3C4; LSASS&#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xB418;&#xB294; &#xCF54;&#xB4DC;&#xC5D0;&#xC11C;&#xB9CC; DPAPI&#xB97C; &#xD638;&#xCD9C;&#xD558;&#xC5EC; &#xBCF5;&#xD638;&#xD654;&#xD560; &#xC218; &#xC788;&#xB3C4;&#xB85D; &#xAD6C;&#xD604;&#xB418;&#xC5B4; &#xC788;&#xAE30; &#xB54C;&#xBB38;&#xC785;&#xB2C8;&#xB2E4;. &#xB530;&#xB77C;&#xC11C;</code>Mimikatz<code>&#xAC19;&#xC740; &#xD234;&#xC5D0;&#xC11C;&#xB294;</code>LSASS`&#xC5D0; &#xCF54;&#xB4DC;&#xB97C; &#xC0BD;&#xC785;&#xD558;&#xAC70;&#xB098; &#xBA54;&#xBAA8;&#xB9AC;&#xB97C; &#xBC14;&#xB85C; &#xC77D;&#xC5B4;&#xB4E4;&#xC774;&#xB294; &#xB4F1; &#xBC29;&#xC2DD;&#xC744; &#xD1B5;&#xD574; credential&#xC744; &#xC77D;&#xC5B4;&#xB4E4;&#xC785;&#xB2C8;&#xB2E4;.</p><p>&#xC774; &#xAE00;&#xC5D0;&#xC11C; James Forshaw&#xB294; <code>LSASS</code>&#xC5D0; &#xCF54;&#xB4DC;&#xB97C; &#xC0BD;&#xC785;&#xD558;&#xC9C0; &#xC54A;&#xACE0; <code>SeTrustedCredmanAccessPrivilege</code> &#xAD8C;&#xD55C;&#xC744; &#xC774;&#xC6A9;&#xD574; credential&#xC744; &#xBCF5;&#xD638;&#xD654;&#xD558;&#xB294; &#xC0C8;&#xB85C;&#xC6B4; &#xBC29;&#xBC95;&#xC744; &#xC81C;&#xC548;&#xD569;&#xB2C8;&#xB2E4;.</p><p><code>SeTrustedCredmanAccessPrivilege</code>&#xAD8C;&#xD55C;&#xC740; &#xC0AC;&#xC6A9;&#xC790;&#xAC00; &#xC778;&#xC99D;&#xB41C; &#xC0AC;&#xC6A9;&#xC790;&#xB85C;&#xC11C; <code>Credential Manager</code>&#xC5D0; &#xC811;&#xADFC;&#xD560; &#xC218; &#xC788;&#xB3C4;&#xB85D; &#xD558;&#xB294; &#xAD8C;&#xD55C;&#xC785;&#xB2C8;&#xB2E4;. LSASRV.dll&#xC5D0; &#xAD6C;&#xD604;&#xB418;&#xC5B4; &#xC788;&#xB294; &#xCF54;&#xB4DC;&#xB97C; &#xBCF4;&#xBA74; <code>CredpIsRpcClientTrusted</code> &#xD568;&#xC218;&#xC5D0;&#xC11C; &#xD574;&#xB2F9; &#xAD8C;&#xD55C;&#xC744; &#xCCB4;&#xD06C;&#xD558;&#xB294;&#xB370;, &#xC774; &#xD568;&#xC218;&#xB294; <code>CredrReadByTokenHandle</code>&#xC640; <code>CredrBackupCredentials</code> &#xC774; &#xB450; &#xD568;&#xC218;&#xC5D0;&#xC11C;&#xB9CC; &#xD638;&#xCD9C;&#xB429;&#xB2C8;&#xB2E4;. &#xC774; &#xC911; <code>CredBackupCredentials</code> &#xD568;&#xC218;&#xB294; &#xC0AC;&#xC6A9;&#xC790;&#xC758; credential&#xC744; &#xBC31;&#xC5C5;&#xD558;&#xB294; &#xAE30;&#xB2A5;&#xC744; &#xC81C;&#xACF5;&#xD558;&#xBA70; <code>SeTrustedCredmanAccessPrivilege</code> &#xAD8C;&#xD55C;&#xB9CC; &#xAC00;&#xC9C0;&#xACE0; &#xC788;&#xC73C;&#xBA74; &#xD638;&#xCD9C;&#xC774; &#xAC00;&#xB2A5;&#xD569;&#xB2C8;&#xB2E4;. <code>CREDWIZ.exe</code> &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC5D0;&#xC11C; &#xD574;&#xB2F9; &#xD568;&#xC218;&#xB97C; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;. <code>CREDWIZ.exe</code>&#xB97C; &#xC2E4;&#xD589;&#xD558;&#xBA74; &#xBC31;&#xC5C5;&#xD560; &#xACBD;&#xB85C;&#xB97C; &#xC9C0;&#xC815;&#xD558;&#xACE0; <code>Winlogon</code> &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC5D0; RPC&#xB97C; &#xD638;&#xCD9C;&#xD558;&#xC5EC; credential&#xC744; &#xBC31;&#xC5C5;&#xD558;&#xB294;&#xB370;, &#xC774; &#xB54C; &#xBC31;&#xC5C5;&#xD558;&#xB294; &#xB370;&#xC774;&#xD130;&#xC5D0;&#xB294; &#xBAA8;&#xB4E0; &#xC815;&#xBCF4;&#xAC00; &#xD3EC;&#xD568;&#xB418;&#xC5B4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC774;&#xB97C; &#xB2E4;&#xC2DC; &#xBCF5;&#xAD6C;&#xD558;&#xBA70; &#xBAA8;&#xB4E0; &#xC815;&#xBCF4;&#xAC00; &#xB2F4;&#xACA8; &#xC788;&#xB294; credential&#xC744; &#xC5BB;&#xC744; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p>&#xB530;&#xB77C;&#xC11C; &#xAD00;&#xB9AC;&#xC790; &#xAD8C;&#xD55C;&#xC73C;&#xB85C; &#xC544;&#xB798; &#xACFC;&#xC815;&#xC744; &#xD1B5;&#xD574; &#xBAA8;&#xB4E0; &#xC0AC;&#xC6A9;&#xC790;&#xC758; credential&#xC744; &#xD68D;&#xB4DD;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><ol><li><code>WinLogon</code> &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC5D0; &#xC811;&#xADFC;&#xD574; &#xD1A0;&#xD070;&#xC758; &#xD578;&#xB4E4;&#xC744; &#xD68D;&#xB4DD;&#xD569;&#xB2C8;&#xB2E4;.</li><li>&#xD68D;&#xB4DD;&#xD55C; &#xD1A0;&#xD070;&#xC744; Impersonation &#xD1A0;&#xD070;&#xC73C;&#xB85C; &#xBCF5;&#xC0AC;&#xD558;&#xACE0; <code>SeTrustedCredmanAccessPrivilege</code> &#xAD8C;&#xD55C;&#xC744; &#xD65C;&#xC131;&#xD654;&#xD569;&#xB2C8;&#xB2E4;.</li><li>&#xC778;&#xC99D;&#xB41C; &#xC0AC;&#xC6A9;&#xC790;&#xC758; &#xD1A0;&#xD070;&#xC744; Open &#xD569;&#xB2C8;&#xB2E4;.</li><li>Impersonation&#xB41C; <code>WinLogon</code> &#xD1A0;&#xD070;&#xC744; &#xD65C;&#xC6A9;&#xD558;&#xC5EC; <code>CredBackupCredentials</code> &#xD568;&#xC218;&#xB97C; &#xD638;&#xCD9C;&#xD558;&#xACE0; &#xC6D0;&#xD558;&#xB294; &#xACBD;&#xB85C;&#xC5D0; crendential&#xC744; &#xC800;&#xC7A5;&#xD569;&#xB2C8;&#xB2E4;. &#xC774; &#xB54C; &#xBC31;&#xC5C5; &#xC2DC; &#xBE44;&#xBC00;&#xBC88;&#xD638;&#xB294; NULL&#xB85C; &#xC124;&#xC815;&#xD560; &#xC218; &#xC788;&#xC5B4; &#xCD94;&#xAC00;&#xC801;&#xC778; &#xBCF5;&#xD638;&#xD654;&#xD560; &#xC218;&#xACE0;&#xB97C; &#xB35C; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</li><li>Impersonation &#xC0C1;&#xD0DC;&#xC5D0;&#xC11C; <code>CryptUnprotectData</code> &#xD568;&#xC218;&#xB97C; &#xD1B5;&#xD574; credential&#xC744; &#xBCF5;&#xD638;&#xD654;&#xD569;&#xB2C8;&#xB2E4;.</li></ol>]]></content>
-    
-    
-    <categories>
-      
-      <category>1day1line</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>windows</tag>
-      
-      <tag>j0ker</tag>
-      
-      <tag>token</tag>
-      
-      <tag>privileges</tag>
-      
-      <tag>setrustedcredmanaccessprivilege</tag>
-      
-      <tag>credentials</tag>
       
     </tags>
     
@@ -3191,9 +3191,9 @@
     
     <tags>
       
-      <tag>cve</tag>
-      
       <tag>windows</tag>
+      
+      <tag>cve</tag>
       
       <tag>Fabu1ous</tag>
       
@@ -3354,11 +3354,11 @@
     
     <tags>
       
+      <tag>kernel</tag>
+      
       <tag>lpe</tag>
       
       <tag>linux</tag>
-      
-      <tag>kernel</tag>
       
       <tag>Fabu1ous</tag>
       
@@ -3612,11 +3612,11 @@
     
     <tags>
       
+      <tag>windows</tag>
+      
       <tag>cve</tag>
       
       <tag>lpe</tag>
-      
-      <tag>windows</tag>
       
       <tag>arbitrary read</tag>
       
@@ -3746,11 +3746,11 @@
       
       <tag>cve</tag>
       
+      <tag>microsoft</tag>
+      
       <tag>lpe</tag>
       
       <tag>toctou</tag>
-      
-      <tag>microsoft</tag>
       
       <tag>idioth</tag>
       
@@ -3907,9 +3907,9 @@
     
     <tags>
       
-      <tag>kernel</tag>
-      
       <tag>windows</tag>
+      
+      <tag>kernel</tag>
       
       <tag>ioctl</tag>
       
@@ -4035,9 +4035,9 @@
     
     <tags>
       
-      <tag>linux</tag>
-      
       <tag>kernel</tag>
+      
+      <tag>linux</tag>
       
       <tag>Fabu1ous</tag>
       
@@ -4064,11 +4064,11 @@
     
     <tags>
       
-      <tag>insu</tag>
+      <tag>windows</tag>
       
       <tag>cve</tag>
       
-      <tag>windows</tag>
+      <tag>insu</tag>
       
     </tags>
     
@@ -4186,9 +4186,9 @@
     
     <tags>
       
-      <tag>kernel</tag>
-      
       <tag>windows</tag>
+      
+      <tag>kernel</tag>
       
       <tag>ioctl</tag>
       
@@ -4252,9 +4252,9 @@
     
     <tags>
       
-      <tag>cve</tag>
-      
       <tag>windows</tag>
+      
+      <tag>cve</tag>
       
       <tag>eop</tag>
       
@@ -4324,11 +4324,11 @@
       
       <tag>cve</tag>
       
-      <tag>Fabu1ous</tag>
+      <tag>microsoft</tag>
       
       <tag>xss</tag>
       
-      <tag>microsoft</tag>
+      <tag>Fabu1ous</tag>
       
     </tags>
     
@@ -4388,15 +4388,15 @@
     
     <tags>
       
-      <tag>insu</tag>
-      
       <tag>windows</tag>
-      
-      <tag>scm</tag>
       
       <tag>bypass</tag>
       
       <tag>eop</tag>
+      
+      <tag>insu</tag>
+      
+      <tag>scm</tag>
       
     </tags>
     
@@ -4421,9 +4421,9 @@
     
     <tags>
       
-      <tag>cve</tag>
-      
       <tag>windows</tag>
+      
+      <tag>cve</tag>
       
       <tag>idioth</tag>
       
@@ -4516,11 +4516,11 @@
       
       <tag>cve</tag>
       
+      <tag>kernel</tag>
+      
       <tag>lpe</tag>
       
       <tag>linux</tag>
-      
-      <tag>kernel</tag>
       
       <tag>race condition</tag>
       
@@ -4582,9 +4582,9 @@
     
     <tags>
       
-      <tag>insu</tag>
-      
       <tag>cve</tag>
+      
+      <tag>insu</tag>
       
       <tag>bof</tag>
       
@@ -4675,9 +4675,9 @@
     
     <tags>
       
-      <tag>cve</tag>
-      
       <tag>windows</tag>
+      
+      <tag>cve</tag>
       
       <tag>L0ch</tag>
       
@@ -4710,15 +4710,15 @@
     
     <tags>
       
-      <tag>insu</tag>
-      
       <tag>cve</tag>
+      
+      <tag>kernel</tag>
+      
+      <tag>insu</tag>
       
       <tag>nosy driver</tag>
       
       <tag>linux</tag>
-      
-      <tag>kernel</tag>
       
       <tag>uaf</tag>
       
@@ -4898,9 +4898,9 @@
     
     <tags>
       
-      <tag>insu</tag>
-      
       <tag>cve</tag>
+      
+      <tag>insu</tag>
       
       <tag>mac</tag>
       
@@ -4989,13 +4989,13 @@
     
     <tags>
       
+      <tag>windows</tag>
+      
       <tag>cve</tag>
       
       <tag>kernel</tag>
       
       <tag>uaf</tag>
-      
-      <tag>windows</tag>
       
       <tag>race condition</tag>
       
@@ -5024,9 +5024,9 @@
     
     <tags>
       
-      <tag>insu</tag>
-      
       <tag>cve</tag>
+      
+      <tag>insu</tag>
       
       <tag>openssl</tag>
       
@@ -5200,9 +5200,9 @@
     
     <tags>
       
-      <tag>insu</tag>
-      
       <tag>cve</tag>
+      
+      <tag>insu</tag>
       
       <tag>mcafee</tag>
       
@@ -5291,11 +5291,11 @@
     
     <tags>
       
+      <tag>microsoft</tag>
+      
       <tag>uaf</tag>
       
       <tag>use after free</tag>
-      
-      <tag>microsoft</tag>
       
       <tag>internet explorer</tag>
       
@@ -5324,9 +5324,9 @@
     
     <tags>
       
-      <tag>insu</tag>
-      
       <tag>cve</tag>
+      
+      <tag>insu</tag>
       
       <tag>dd-wrt</tag>
       
@@ -5479,9 +5479,9 @@
     
     <tags>
       
-      <tag>rce</tag>
-      
       <tag>xss</tag>
+      
+      <tag>rce</tag>
       
       <tag>idioth</tag>
       
@@ -5541,9 +5541,9 @@
     
     <tags>
       
-      <tag>cve</tag>
-      
       <tag>j0ker</tag>
+      
+      <tag>cve</tag>
       
       <tag>zdi</tag>
       
@@ -5634,13 +5634,13 @@
     
     <tags>
       
-      <tag>insu</tag>
-      
       <tag>cve</tag>
       
-      <tag>mac</tag>
-      
       <tag>oob</tag>
+      
+      <tag>insu</tag>
+      
+      <tag>mac</tag>
       
       <tag>coregraphics</tag>
       
@@ -5762,11 +5762,11 @@
       
       <tag>cve</tag>
       
+      <tag>kernel</tag>
+      
       <tag>lpe</tag>
       
       <tag>linux</tag>
-      
-      <tag>kernel</tag>
       
       <tag>heap bof</tag>
       
@@ -5925,11 +5925,11 @@
     
     <tags>
       
+      <tag>windows</tag>
+      
       <tag>cve</tag>
       
       <tag>lpe</tag>
-      
-      <tag>windows</tag>
       
       <tag>idioth</tag>
       
@@ -5958,11 +5958,11 @@
     
     <tags>
       
+      <tag>microsoft</tag>
+      
       <tag>Fabu1ous</tag>
       
       <tag>race condition</tag>
-      
-      <tag>microsoft</tag>
       
       <tag>brute force</tag>
       
@@ -6146,9 +6146,9 @@
       
       <tag>cve</tag>
       
-      <tag>bof</tag>
-      
       <tag>oob</tag>
+      
+      <tag>bof</tag>
       
       <tag>rce</tag>
       
@@ -6720,11 +6720,11 @@
     
     <tags>
       
+      <tag>windows</tag>
+      
       <tag>cve</tag>
       
       <tag>lpe</tag>
-      
-      <tag>windows</tag>
       
       <tag>L0ch</tag>
       
@@ -7224,11 +7224,11 @@
     
     <tags>
       
-      <tag>lpe</tag>
+      <tag>windows</tag>
       
       <tag>kernel</tag>
       
-      <tag>windows</tag>
+      <tag>lpe</tag>
       
       <tag>L0ch</tag>
       
@@ -7290,9 +7290,9 @@
       
       <tag>cve</tag>
       
-      <tag>linux</tag>
-      
       <tag>eop</tag>
+      
+      <tag>linux</tag>
       
       <tag>Fabu1ous</tag>
       
@@ -7478,9 +7478,9 @@
       
       <tag>cve</tag>
       
-      <tag>xss</tag>
-      
       <tag>microsoft</tag>
+      
+      <tag>xss</tag>
       
       <tag>idioth</tag>
       
@@ -7544,11 +7544,11 @@
       
       <tag>cve</tag>
       
-      <tag>information disclosure</tag>
+      <tag>eop</tag>
       
       <tag>kernel</tag>
       
-      <tag>eop</tag>
+      <tag>information disclosure</tag>
       
       <tag>L0ch</tag>
       
@@ -7575,9 +7575,9 @@
     
     <tags>
       
-      <tag>cve</tag>
-      
       <tag>windows</tag>
+      
+      <tag>cve</tag>
       
       <tag>eop</tag>
       
@@ -7705,9 +7705,9 @@
     
     <tags>
       
-      <tag>information disclosure</tag>
-      
       <tag>windows</tag>
+      
+      <tag>information disclosure</tag>
       
       <tag>idioth</tag>
       
@@ -7740,13 +7740,13 @@
       
       <tag>windows</tag>
       
+      <tag>exchange</tag>
+      
       <tag>Fabu1ous</tag>
       
       <tag>rce</tag>
       
       <tag>office 365</tag>
-      
-      <tag>exchange</tag>
       
     </tags>
     
@@ -7963,11 +7963,11 @@
       
       <tag>cve</tag>
       
+      <tag>xss</tag>
+      
       <tag>Fabu1ous</tag>
       
       <tag>rce</tag>
-      
-      <tag>xss</tag>
       
     </tags>
     
@@ -8124,9 +8124,9 @@
     
     <tags>
       
-      <tag>cve</tag>
-      
       <tag>windows</tag>
+      
+      <tag>cve</tag>
       
       <tag>eop</tag>
       
@@ -9671,9 +9671,9 @@
       
       <tag>cve</tag>
       
-      <tag>lpe</tag>
-      
       <tag>eop</tag>
+      
+      <tag>lpe</tag>
       
       <tag>named pipe</tag>
       
@@ -9881,9 +9881,9 @@
       
       <tag>cve</tag>
       
-      <tag>lpe</tag>
-      
       <tag>eop</tag>
+      
+      <tag>lpe</tag>
       
       <tag>ubuntu</tag>
       
@@ -10007,9 +10007,9 @@
     
     <tags>
       
-      <tag>cve</tag>
-      
       <tag>windows</tag>
+      
+      <tag>cve</tag>
       
       <tag>rce</tag>
       
@@ -10079,9 +10079,9 @@
       
       <tag>cve</tag>
       
-      <tag>linux</tag>
-      
       <tag>kernel</tag>
+      
+      <tag>linux</tag>
       
       <tag>Fabu1ous</tag>
       
@@ -10147,9 +10147,9 @@
     
     <tags>
       
-      <tag>cve</tag>
-      
       <tag>windows</tag>
+      
+      <tag>cve</tag>
       
       <tag>integer overflow</tag>
       
@@ -10221,9 +10221,9 @@
       
       <tag>cve</tag>
       
-      <tag>linux</tag>
-      
       <tag>eop</tag>
+      
+      <tag>linux</tag>
       
       <tag>Fabu1ous</tag>
       
@@ -10287,9 +10287,9 @@
     
     <tags>
       
-      <tag>cve</tag>
-      
       <tag>windows</tag>
+      
+      <tag>cve</tag>
       
       <tag>eop</tag>
       
@@ -10380,13 +10380,13 @@
     
     <tags>
       
-      <tag>cve</tag>
-      
-      <tag>kernel</tag>
-      
       <tag>windows</tag>
       
+      <tag>cve</tag>
+      
       <tag>eop</tag>
+      
+      <tag>kernel</tag>
       
       <tag>idioth</tag>
       
@@ -10485,9 +10485,9 @@
     
     <tags>
       
-      <tag>cve</tag>
-      
       <tag>windows</tag>
+      
+      <tag>cve</tag>
       
       <tag>ntfs</tag>
       
@@ -10549,9 +10549,9 @@
     
     <tags>
       
-      <tag>cve</tag>
-      
       <tag>windows</tag>
+      
+      <tag>cve</tag>
       
       <tag>eop</tag>
       
@@ -10586,9 +10586,9 @@
       
       <tag>cve</tag>
       
-      <tag>rce</tag>
-      
       <tag>xss</tag>
+      
+      <tag>rce</tag>
       
       <tag>javascript</tag>
       
