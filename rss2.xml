@@ -31,13 +31,13 @@
       <category domain="https://hackyboiz.github.io/categories/1day1line/">1day1line</category>
       
       
-      <category domain="https://hackyboiz.github.io/tags/integer-overflow/">integer overflow</category>
-      
       <category domain="https://hackyboiz.github.io/tags/Fabu1ous/">Fabu1ous</category>
       
       <category domain="https://hackyboiz.github.io/tags/spoofing/">spoofing</category>
       
       <category domain="https://hackyboiz.github.io/tags/post/">post</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/integer-overflow/">integer overflow</category>
       
       
       <comments>https://hackyboiz.github.io/2021/08/23/fabu1ous/2021-08-23/#disqus_thread</comments>
@@ -203,13 +203,13 @@
       <category domain="https://hackyboiz.github.io/categories/1day1line/">1day1line</category>
       
       
-      <category domain="https://hackyboiz.github.io/tags/steam/">steam</category>
-      
       <category domain="https://hackyboiz.github.io/tags/Fabu1ous/">Fabu1ous</category>
       
       <category domain="https://hackyboiz.github.io/tags/post/">post</category>
       
       <category domain="https://hackyboiz.github.io/tags/parmeter-modify/">parmeter modify</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/steam/">steam</category>
       
       
       <comments>https://hackyboiz.github.io/2021/08/16/fabu1ous/2021-08-16/#disqus_thread</comments>
@@ -235,9 +235,9 @@
       <category domain="https://hackyboiz.github.io/categories/Research/">Research</category>
       
       
-      <category domain="https://hackyboiz.github.io/tags/angr/">angr</category>
-      
       <category domain="https://hackyboiz.github.io/tags/j0ker/">j0ker</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/angr/">angr</category>
       
       <category domain="https://hackyboiz.github.io/tags/exploit/">exploit</category>
       
@@ -270,13 +270,13 @@
       <category domain="https://hackyboiz.github.io/categories/1day1line/">1day1line</category>
       
       
-      <category domain="https://hackyboiz.github.io/tags/microsoft/">microsoft</category>
+      <category domain="https://hackyboiz.github.io/tags/exchange/">exchange</category>
       
-      <category domain="https://hackyboiz.github.io/tags/ssrf/">ssrf</category>
+      <category domain="https://hackyboiz.github.io/tags/microsoft/">microsoft</category>
       
       <category domain="https://hackyboiz.github.io/tags/j0ker/">j0ker</category>
       
-      <category domain="https://hackyboiz.github.io/tags/exchange/">exchange</category>
+      <category domain="https://hackyboiz.github.io/tags/ssrf/">ssrf</category>
       
       <category domain="https://hackyboiz.github.io/tags/arbitrary-file-write/">arbitrary_file_write</category>
       
@@ -384,9 +384,9 @@
       <category domain="https://hackyboiz.github.io/categories/1day1line/">1day1line</category>
       
       
-      <category domain="https://hackyboiz.github.io/tags/microsoft/">microsoft</category>
-      
       <category domain="https://hackyboiz.github.io/tags/Fabu1ous/">Fabu1ous</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/microsoft/">microsoft</category>
       
       <category domain="https://hackyboiz.github.io/tags/npm/">npm</category>
       
@@ -451,15 +451,15 @@
       
       <category domain="https://hackyboiz.github.io/tags/eop/">eop</category>
       
-      <category domain="https://hackyboiz.github.io/tags/j0ker/">j0ker</category>
-      
       <category domain="https://hackyboiz.github.io/tags/exchange/">exchange</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/misconfiguration/">misconfiguration</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/j0ker/">j0ker</category>
       
       <category domain="https://hackyboiz.github.io/tags/ad/">ad</category>
       
       <category domain="https://hackyboiz.github.io/tags/schema/">schema</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/misconfiguration/">misconfiguration</category>
       
       <category domain="https://hackyboiz.github.io/tags/CVE-2021-34470/">CVE-2021-34470</category>
       
@@ -487,9 +487,9 @@
       <category domain="https://hackyboiz.github.io/categories/Research/">Research</category>
       
       
-      <category domain="https://hackyboiz.github.io/tags/angr/">angr</category>
-      
       <category domain="https://hackyboiz.github.io/tags/j0ker/">j0ker</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/angr/">angr</category>
       
       <category domain="https://hackyboiz.github.io/tags/exploit/">exploit</category>
       
@@ -525,9 +525,9 @@
       
       <category domain="https://hackyboiz.github.io/tags/kernel/">kernel</category>
       
-      <category domain="https://hackyboiz.github.io/tags/buffer-overflow/">buffer overflow</category>
-      
       <category domain="https://hackyboiz.github.io/tags/samsung/">samsung</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/buffer-overflow/">buffer overflow</category>
       
       <category domain="https://hackyboiz.github.io/tags/L0ch/">L0ch</category>
       
@@ -628,9 +628,9 @@
       
       <category domain="https://hackyboiz.github.io/tags/windows/">windows</category>
       
-      <category domain="https://hackyboiz.github.io/tags/ntfs/">ntfs</category>
-      
       <category domain="https://hackyboiz.github.io/tags/j0ker/">j0ker</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/ntfs/">ntfs</category>
       
       <category domain="https://hackyboiz.github.io/tags/wnf/">wnf</category>
       
