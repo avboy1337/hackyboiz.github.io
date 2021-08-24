@@ -121,9 +121,9 @@
     
     <tags>
       
-      <tag>windows</tag>
-      
       <tag>lpe</tag>
+      
+      <tag>windows</tag>
       
       <tag>L0ch</tag>
       
@@ -288,11 +288,11 @@
     
     <tags>
       
-      <tag>windows</tag>
+      <tag>lpe</tag>
       
       <tag>kernel</tag>
       
-      <tag>lpe</tag>
+      <tag>windows</tag>
       
       <tag>L0ch</tag>
       
@@ -331,9 +331,9 @@
       
       <tag>cve</tag>
       
-      <tag>eop</tag>
-      
       <tag>lpe</tag>
+      
+      <tag>eop</tag>
       
       <tag>intel</tag>
       
@@ -424,9 +424,9 @@
     
     <tags>
       
-      <tag>j0ker</tag>
-      
       <tag>eop</tag>
+      
+      <tag>j0ker</tag>
       
       <tag>exchange</tag>
       
@@ -529,11 +529,11 @@
     
     <tags>
       
-      <tag>kernel</tag>
-      
       <tag>lpe</tag>
       
       <tag>linux</tag>
+      
+      <tag>kernel</tag>
       
       <tag>Fabu1ous</tag>
       
@@ -593,15 +593,15 @@
     
     <tags>
       
-      <tag>j0ker</tag>
+      <tag>kernel</tag>
       
       <tag>windows</tag>
+      
+      <tag>j0ker</tag>
       
       <tag>ntfs</tag>
       
       <tag>wnf</tag>
-      
-      <tag>kernel</tag>
       
       <tag>cve-2021-31956</tag>
       
@@ -628,9 +628,9 @@
     
     <tags>
       
-      <tag>windows</tag>
-      
       <tag>cve</tag>
+      
+      <tag>windows</tag>
       
       <tag>idioth</tag>
       
@@ -663,11 +663,11 @@
     
     <tags>
       
-      <tag>windows</tag>
+      <tag>lpe</tag>
       
       <tag>kernel</tag>
       
-      <tag>lpe</tag>
+      <tag>windows</tag>
       
       <tag>L0ch</tag>
       
@@ -706,11 +706,11 @@
       
       <tag>cve</tag>
       
-      <tag>kernel</tag>
-      
       <tag>lpe</tag>
       
       <tag>linux</tag>
+      
+      <tag>kernel</tag>
       
       <tag>integer overflow</tag>
       
@@ -739,11 +739,11 @@
     
     <tags>
       
-      <tag>eop</tag>
+      <tag>bof</tag>
       
       <tag>kernel</tag>
       
-      <tag>bof</tag>
+      <tag>eop</tag>
       
       <tag>Fabu1ous</tag>
       
@@ -807,11 +807,11 @@
     
     <tags>
       
-      <tag>j0ker</tag>
-      
       <tag>windows</tag>
       
       <tag>eop</tag>
+      
+      <tag>j0ker</tag>
       
       <tag>sam</tag>
       
@@ -912,9 +912,9 @@
       
       <tag>oob</tag>
       
-      <tag>kernel</tag>
-      
       <tag>linux</tag>
+      
+      <tag>kernel</tag>
       
       <tag>L0ch</tag>
       
@@ -1013,13 +1013,13 @@
     
     <tags>
       
-      <tag>j0ker</tag>
-      
       <tag>windows</tag>
       
-      <tag>token</tag>
-      
       <tag>eop</tag>
+      
+      <tag>j0ker</tag>
+      
+      <tag>token</tag>
       
       <tag>createprocesswithlogon</tag>
       
@@ -1079,11 +1079,11 @@
     
     <tags>
       
-      <tag>windows</tag>
+      <tag>lpe</tag>
       
       <tag>kernel</tag>
       
-      <tag>lpe</tag>
+      <tag>windows</tag>
       
       <tag>L0ch</tag>
       
@@ -1250,9 +1250,9 @@
     
     <tags>
       
-      <tag>j0ker</tag>
-      
       <tag>windows</tag>
+      
+      <tag>j0ker</tag>
       
       <tag>defender</tag>
       
@@ -1318,9 +1318,9 @@
     
     <tags>
       
-      <tag>windows</tag>
-      
       <tag>cve</tag>
+      
+      <tag>windows</tag>
       
       <tag>microsoft</tag>
       
@@ -1386,15 +1386,15 @@
     
     <tags>
       
-      <tag>j0ker</tag>
-      
       <tag>windows</tag>
+      
+      <tag>eop</tag>
+      
+      <tag>j0ker</tag>
       
       <tag>microsoft</tag>
       
       <tag>defender</tag>
-      
-      <tag>eop</tag>
       
       <tag>file_deletion</tag>
       
@@ -1524,9 +1524,9 @@
     
     <tags>
       
-      <tag>windows</tag>
-      
       <tag>cve</tag>
+      
+      <tag>windows</tag>
       
       <tag>microsoft</tag>
       
@@ -1592,13 +1592,13 @@
     
     <tags>
       
-      <tag>windows</tag>
-      
       <tag>cve</tag>
       
       <tag>oob</tag>
       
       <tag>kernel</tag>
+      
+      <tag>windows</tag>
       
       <tag>driver</tag>
       
@@ -1664,11 +1664,11 @@
     
     <tags>
       
-      <tag>windows</tag>
-      
       <tag>cve</tag>
       
       <tag>kernel</tag>
+      
+      <tag>windows</tag>
       
       <tag>malware</tag>
       
@@ -1699,9 +1699,9 @@
     
     <tags>
       
-      <tag>j0ker</tag>
-      
       <tag>bypass</tag>
+      
+      <tag>j0ker</tag>
       
       <tag>arm64</tag>
       
@@ -1765,13 +1765,13 @@
     
     <tags>
       
-      <tag>windows</tag>
-      
       <tag>cve</tag>
       
       <tag>lpe</tag>
       
       <tag>uaf</tag>
+      
+      <tag>windows</tag>
       
       <tag>L0ch</tag>
       
@@ -1833,9 +1833,9 @@
     
     <tags>
       
-      <tag>kernel</tag>
-      
       <tag>linux</tag>
+      
+      <tag>kernel</tag>
       
       <tag>uaf</tag>
       
@@ -1864,11 +1864,11 @@
     
     <tags>
       
-      <tag>windows</tag>
-      
       <tag>cve</tag>
       
       <tag>lpe</tag>
+      
+      <tag>windows</tag>
       
       <tag>msi</tag>
       
@@ -1967,11 +1967,11 @@
     
     <tags>
       
-      <tag>j0ker</tag>
-      
       <tag>windows</tag>
       
       <tag>bypass</tag>
+      
+      <tag>j0ker</tag>
       
       <tag>loadimage</tag>
       
@@ -2004,9 +2004,9 @@
     
     <tags>
       
-      <tag>windows</tag>
-      
       <tag>cve</tag>
+      
+      <tag>windows</tag>
       
       <tag>eop</tag>
       
@@ -2326,9 +2326,9 @@
     
     <tags>
       
-      <tag>ssrf</tag>
-      
       <tag>information disclosure</tag>
+      
+      <tag>ssrf</tag>
       
       <tag>idioth</tag>
       
@@ -2495,15 +2495,15 @@
     
     <tags>
       
-      <tag>j0ker</tag>
+      <tag>oob</tag>
       
       <tag>windows</tag>
+      
+      <tag>j0ker</tag>
       
       <tag>microsoft</tag>
       
       <tag>WindowsCodecsRaw</tag>
-      
-      <tag>oob</tag>
       
     </tags>
     
@@ -2563,9 +2563,9 @@
       
       <tag>cve</tag>
       
-      <tag>kernel</tag>
-      
       <tag>information disclosure</tag>
+      
+      <tag>kernel</tag>
       
       <tag>ios</tag>
       
@@ -2736,9 +2736,9 @@
     
     <tags>
       
-      <tag>windows</tag>
-      
       <tag>kernel</tag>
+      
+      <tag>windows</tag>
       
       <tag>L0ch</tag>
       
@@ -2775,13 +2775,13 @@
     
     <tags>
       
-      <tag>j0ker</tag>
-      
       <tag>cve</tag>
       
-      <tag>smap</tag>
-      
       <tag>bypass</tag>
+      
+      <tag>j0ker</tag>
+      
+      <tag>smap</tag>
       
       <tag>freebsd</tag>
       
@@ -2812,11 +2812,11 @@
       
       <tag>oob</tag>
       
-      <tag>kernel</tag>
-      
       <tag>lpe</tag>
       
       <tag>linux</tag>
+      
+      <tag>kernel</tag>
       
       <tag>Fabu1ous</tag>
       
@@ -2843,11 +2843,11 @@
     
     <tags>
       
-      <tag>windows</tag>
-      
       <tag>cve</tag>
       
       <tag>lpe</tag>
+      
+      <tag>windows</tag>
       
       <tag>L0ch</tag>
       
@@ -3020,9 +3020,9 @@
     
     <tags>
       
-      <tag>j0ker</tag>
-      
       <tag>windows</tag>
+      
+      <tag>j0ker</tag>
       
       <tag>token</tag>
       
@@ -3191,9 +3191,9 @@
     
     <tags>
       
-      <tag>windows</tag>
-      
       <tag>cve</tag>
+      
+      <tag>windows</tag>
       
       <tag>Fabu1ous</tag>
       
@@ -3354,11 +3354,11 @@
     
     <tags>
       
-      <tag>kernel</tag>
-      
       <tag>lpe</tag>
       
       <tag>linux</tag>
+      
+      <tag>kernel</tag>
       
       <tag>Fabu1ous</tag>
       
@@ -3612,11 +3612,11 @@
     
     <tags>
       
-      <tag>windows</tag>
-      
       <tag>cve</tag>
       
       <tag>lpe</tag>
+      
+      <tag>windows</tag>
       
       <tag>arbitrary read</tag>
       
@@ -3746,9 +3746,9 @@
       
       <tag>cve</tag>
       
-      <tag>microsoft</tag>
-      
       <tag>lpe</tag>
+      
+      <tag>microsoft</tag>
       
       <tag>toctou</tag>
       
@@ -3907,9 +3907,9 @@
     
     <tags>
       
-      <tag>windows</tag>
-      
       <tag>kernel</tag>
+      
+      <tag>windows</tag>
       
       <tag>ioctl</tag>
       
@@ -4035,9 +4035,9 @@
     
     <tags>
       
-      <tag>kernel</tag>
-      
       <tag>linux</tag>
+      
+      <tag>kernel</tag>
       
       <tag>Fabu1ous</tag>
       
@@ -4064,11 +4064,11 @@
     
     <tags>
       
-      <tag>windows</tag>
+      <tag>insu</tag>
       
       <tag>cve</tag>
       
-      <tag>insu</tag>
+      <tag>windows</tag>
       
     </tags>
     
@@ -4186,9 +4186,9 @@
     
     <tags>
       
-      <tag>windows</tag>
-      
       <tag>kernel</tag>
+      
+      <tag>windows</tag>
       
       <tag>ioctl</tag>
       
@@ -4252,9 +4252,9 @@
     
     <tags>
       
-      <tag>windows</tag>
-      
       <tag>cve</tag>
+      
+      <tag>windows</tag>
       
       <tag>eop</tag>
       
@@ -4388,15 +4388,15 @@
     
     <tags>
       
+      <tag>insu</tag>
+      
       <tag>windows</tag>
+      
+      <tag>scm</tag>
       
       <tag>bypass</tag>
       
       <tag>eop</tag>
-      
-      <tag>insu</tag>
-      
-      <tag>scm</tag>
       
     </tags>
     
@@ -4421,9 +4421,9 @@
     
     <tags>
       
-      <tag>windows</tag>
-      
       <tag>cve</tag>
+      
+      <tag>windows</tag>
       
       <tag>idioth</tag>
       
@@ -4516,11 +4516,11 @@
       
       <tag>cve</tag>
       
-      <tag>kernel</tag>
-      
       <tag>lpe</tag>
       
       <tag>linux</tag>
+      
+      <tag>kernel</tag>
       
       <tag>race condition</tag>
       
@@ -4582,9 +4582,9 @@
     
     <tags>
       
-      <tag>cve</tag>
-      
       <tag>insu</tag>
+      
+      <tag>cve</tag>
       
       <tag>bof</tag>
       
@@ -4675,9 +4675,9 @@
     
     <tags>
       
-      <tag>windows</tag>
-      
       <tag>cve</tag>
+      
+      <tag>windows</tag>
       
       <tag>L0ch</tag>
       
@@ -4710,15 +4710,15 @@
     
     <tags>
       
-      <tag>cve</tag>
-      
-      <tag>kernel</tag>
-      
       <tag>insu</tag>
+      
+      <tag>cve</tag>
       
       <tag>nosy driver</tag>
       
       <tag>linux</tag>
+      
+      <tag>kernel</tag>
       
       <tag>uaf</tag>
       
@@ -4898,9 +4898,9 @@
     
     <tags>
       
-      <tag>cve</tag>
-      
       <tag>insu</tag>
+      
+      <tag>cve</tag>
       
       <tag>mac</tag>
       
@@ -4989,13 +4989,13 @@
     
     <tags>
       
-      <tag>windows</tag>
-      
       <tag>cve</tag>
       
       <tag>kernel</tag>
       
       <tag>uaf</tag>
+      
+      <tag>windows</tag>
       
       <tag>race condition</tag>
       
@@ -5024,9 +5024,9 @@
     
     <tags>
       
-      <tag>cve</tag>
-      
       <tag>insu</tag>
+      
+      <tag>cve</tag>
       
       <tag>openssl</tag>
       
@@ -5200,9 +5200,9 @@
     
     <tags>
       
-      <tag>cve</tag>
-      
       <tag>insu</tag>
+      
+      <tag>cve</tag>
       
       <tag>mcafee</tag>
       
@@ -5291,9 +5291,9 @@
     
     <tags>
       
-      <tag>microsoft</tag>
-      
       <tag>uaf</tag>
+      
+      <tag>microsoft</tag>
       
       <tag>use after free</tag>
       
@@ -5324,9 +5324,9 @@
     
     <tags>
       
-      <tag>cve</tag>
-      
       <tag>insu</tag>
+      
+      <tag>cve</tag>
       
       <tag>dd-wrt</tag>
       
@@ -5541,9 +5541,9 @@
     
     <tags>
       
-      <tag>j0ker</tag>
-      
       <tag>cve</tag>
+      
+      <tag>j0ker</tag>
       
       <tag>zdi</tag>
       
@@ -5634,13 +5634,13 @@
     
     <tags>
       
-      <tag>cve</tag>
-      
-      <tag>oob</tag>
-      
       <tag>insu</tag>
       
+      <tag>cve</tag>
+      
       <tag>mac</tag>
+      
+      <tag>oob</tag>
       
       <tag>coregraphics</tag>
       
@@ -5762,11 +5762,11 @@
       
       <tag>cve</tag>
       
-      <tag>kernel</tag>
-      
       <tag>lpe</tag>
       
       <tag>linux</tag>
+      
+      <tag>kernel</tag>
       
       <tag>heap bof</tag>
       
@@ -5925,11 +5925,11 @@
     
     <tags>
       
-      <tag>windows</tag>
-      
       <tag>cve</tag>
       
       <tag>lpe</tag>
+      
+      <tag>windows</tag>
       
       <tag>idioth</tag>
       
@@ -6720,11 +6720,11 @@
     
     <tags>
       
-      <tag>windows</tag>
-      
       <tag>cve</tag>
       
       <tag>lpe</tag>
+      
+      <tag>windows</tag>
       
       <tag>L0ch</tag>
       
@@ -7224,11 +7224,11 @@
     
     <tags>
       
-      <tag>windows</tag>
+      <tag>lpe</tag>
       
       <tag>kernel</tag>
       
-      <tag>lpe</tag>
+      <tag>windows</tag>
       
       <tag>L0ch</tag>
       
@@ -7290,9 +7290,9 @@
       
       <tag>cve</tag>
       
-      <tag>eop</tag>
-      
       <tag>linux</tag>
+      
+      <tag>eop</tag>
       
       <tag>Fabu1ous</tag>
       
@@ -7544,11 +7544,11 @@
       
       <tag>cve</tag>
       
-      <tag>eop</tag>
+      <tag>information disclosure</tag>
       
       <tag>kernel</tag>
       
-      <tag>information disclosure</tag>
+      <tag>eop</tag>
       
       <tag>L0ch</tag>
       
@@ -7575,9 +7575,9 @@
     
     <tags>
       
-      <tag>windows</tag>
-      
       <tag>cve</tag>
+      
+      <tag>windows</tag>
       
       <tag>eop</tag>
       
@@ -7705,9 +7705,9 @@
     
     <tags>
       
-      <tag>windows</tag>
-      
       <tag>information disclosure</tag>
+      
+      <tag>windows</tag>
       
       <tag>idioth</tag>
       
@@ -8124,9 +8124,9 @@
     
     <tags>
       
-      <tag>windows</tag>
-      
       <tag>cve</tag>
+      
+      <tag>windows</tag>
       
       <tag>eop</tag>
       
@@ -9671,9 +9671,9 @@
       
       <tag>cve</tag>
       
-      <tag>eop</tag>
-      
       <tag>lpe</tag>
+      
+      <tag>eop</tag>
       
       <tag>named pipe</tag>
       
@@ -9881,9 +9881,9 @@
       
       <tag>cve</tag>
       
-      <tag>eop</tag>
-      
       <tag>lpe</tag>
+      
+      <tag>eop</tag>
       
       <tag>ubuntu</tag>
       
@@ -10007,9 +10007,9 @@
     
     <tags>
       
-      <tag>windows</tag>
-      
       <tag>cve</tag>
+      
+      <tag>windows</tag>
       
       <tag>rce</tag>
       
@@ -10079,9 +10079,9 @@
       
       <tag>cve</tag>
       
-      <tag>kernel</tag>
-      
       <tag>linux</tag>
+      
+      <tag>kernel</tag>
       
       <tag>Fabu1ous</tag>
       
@@ -10147,9 +10147,9 @@
     
     <tags>
       
-      <tag>windows</tag>
-      
       <tag>cve</tag>
+      
+      <tag>windows</tag>
       
       <tag>integer overflow</tag>
       
@@ -10221,9 +10221,9 @@
       
       <tag>cve</tag>
       
-      <tag>eop</tag>
-      
       <tag>linux</tag>
+      
+      <tag>eop</tag>
       
       <tag>Fabu1ous</tag>
       
@@ -10287,9 +10287,9 @@
     
     <tags>
       
-      <tag>windows</tag>
-      
       <tag>cve</tag>
+      
+      <tag>windows</tag>
       
       <tag>eop</tag>
       
@@ -10380,13 +10380,13 @@
     
     <tags>
       
-      <tag>windows</tag>
-      
       <tag>cve</tag>
       
-      <tag>eop</tag>
-      
       <tag>kernel</tag>
+      
+      <tag>windows</tag>
+      
+      <tag>eop</tag>
       
       <tag>idioth</tag>
       
@@ -10485,9 +10485,9 @@
     
     <tags>
       
-      <tag>windows</tag>
-      
       <tag>cve</tag>
+      
+      <tag>windows</tag>
       
       <tag>ntfs</tag>
       
@@ -10549,9 +10549,9 @@
     
     <tags>
       
-      <tag>windows</tag>
-      
       <tag>cve</tag>
+      
+      <tag>windows</tag>
       
       <tag>eop</tag>
       

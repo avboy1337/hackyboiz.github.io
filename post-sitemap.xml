@@ -496,14 +496,6 @@
     </url>
 
     <url>
-        <loc>https://hackyboiz.github.io/2021/03/02/l0ch/2021-03-02/</loc>
-        <lastmod>2021-08-23T07:34:11.444Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://hackyboiz.github.io/2021/03/05/l0ch/2021-03-05/</loc>
         <lastmod>2021-08-23T07:34:11.444Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -520,7 +512,7 @@
     </url>
 
     <url>
-        <loc>https://hackyboiz.github.io/2021/03/12/l0ch/2021-03-12/</loc>
+        <loc>https://hackyboiz.github.io/2021/03/02/l0ch/2021-03-02/</loc>
         <lastmod>2021-08-23T07:34:11.444Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -529,6 +521,14 @@
 
     <url>
         <loc>https://hackyboiz.github.io/2021/03/16/l0ch/2021-03-16/</loc>
+        <lastmod>2021-08-23T07:34:11.444Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hackyboiz.github.io/2021/03/12/l0ch/2021-03-12/</loc>
         <lastmod>2021-08-23T07:34:11.444Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -592,14 +592,6 @@
     </url>
 
     <url>
-        <loc>https://hackyboiz.github.io/2021/02/19/l0ch/2021-02-19/</loc>
-        <lastmod>2021-08-23T07:34:11.440Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://hackyboiz.github.io/2021/02/23/l0ch/2021-02-23/</loc>
         <lastmod>2021-08-23T07:34:11.440Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -609,6 +601,14 @@
 
     <url>
         <loc>https://hackyboiz.github.io/2021/02/26/l0ch/2021-02-26/</loc>
+        <lastmod>2021-08-23T07:34:11.440Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hackyboiz.github.io/2021/02/19/l0ch/2021-02-19/</loc>
         <lastmod>2021-08-23T07:34:11.440Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -808,7 +808,7 @@
     </url>
 
     <url>
-        <loc>https://hackyboiz.github.io/2020/10/27/l0ch/10-27_1day1line/</loc>
+        <loc>https://hackyboiz.github.io/2020/10/30/l0ch/10-30_1day1line/</loc>
         <lastmod>2021-08-23T07:34:11.436Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -816,7 +816,7 @@
     </url>
 
     <url>
-        <loc>https://hackyboiz.github.io/2020/10/30/l0ch/10-30_1day1line/</loc>
+        <loc>https://hackyboiz.github.io/2020/10/27/l0ch/10-27_1day1line/</loc>
         <lastmod>2021-08-23T07:34:11.436Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -912,7 +912,7 @@
     </url>
 
     <url>
-        <loc>https://hackyboiz.github.io/2021/07/16/j0ker/2021-07-16/</loc>
+        <loc>https://hackyboiz.github.io/2021/07/23/j0ker/2021-07-16-23/</loc>
         <lastmod>2021-08-23T07:34:11.266Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -920,7 +920,7 @@
     </url>
 
     <url>
-        <loc>https://hackyboiz.github.io/2021/07/23/j0ker/2021-07-16-23/</loc>
+        <loc>https://hackyboiz.github.io/2021/07/16/j0ker/2021-07-16/</loc>
         <lastmod>2021-08-23T07:34:11.266Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1336,7 +1336,7 @@
     </url>
 
     <url>
-        <loc>https://hackyboiz.github.io/2021/06/17/idioth/2021-06-17/</loc>
+        <loc>https://hackyboiz.github.io/2021/06/14/idioth/2021-06-14/</loc>
         <lastmod>2021-08-23T07:34:10.958Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1344,7 +1344,7 @@
     </url>
 
     <url>
-        <loc>https://hackyboiz.github.io/2021/06/14/idioth/2021-06-14/</loc>
+        <loc>https://hackyboiz.github.io/2021/06/17/idioth/2021-06-17/</loc>
         <lastmod>2021-08-23T07:34:10.958Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
