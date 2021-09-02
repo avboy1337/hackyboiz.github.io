@@ -4,6 +4,39 @@
   
   
   <entry>
+    <title>[하루한줄] CVE-2021-34486: Windows(ETW) 의 UAF 취약점</title>
+    <link href="/2021/09/02/l0ch/2021-09-02/"/>
+    <url>/2021/09/02/l0ch/2021-09-02/</url>
+    
+    <content type="html"><![CDATA[<h2 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h2><p><a href="https://www.pixiepointsecurity.com/blog/cve-2021-34486.html">cve-2021-34486</a></p><h2 id="Target"><a href="#Target" class="headerlink" title="Target"></a>Target</h2><ul><li>Windows 10(x64) 21H1(OS &#xBE4C;&#xB4DC; 19043.1083, 2021&#xB144; 7&#xC6D4; 7&#xC77C; KB5004945 &#xB204;&#xC801; &#xC5C5;&#xB370;&#xC774;&#xD2B8;)</li><li>Windows 10(x64) 21H1(OS &#xBE4C;&#xB4DC; 19043.1052, 2021&#xB144; 6&#xC6D4; KB5003637 &#xB204;&#xC801; &#xC5C5;&#xB370;&#xC774;&#xD2B8;)</li><li>Windows 10(x64) 21H1(OS &#xBE4C;&#xB4DC; 19043.1023, 2021&#xB144; 5&#xC6D4; KB5003214 &#xB204;&#xC801; &#xC5C5;&#xB370;&#xC774;&#xD2B8;)</li><li>Windows 10(x64) 21H1(OS &#xBE4C;&#xB4DC; 19043.985, 2021&#xB144; 5&#xC6D4; KB5003173 &#xB204;&#xC801; &#xC5C5;&#xB370;&#xC774;&#xD2B8;)</li></ul><h2 id="Explain"><a href="#Explain" class="headerlink" title="Explain"></a>Explain</h2><p>Windows <a href="https://docs.microsoft.com/ko-kr/windows/win32/etw/event-tracing-portal">ETW(Event Tracing for Windows, &#xC774;&#xBCA4;&#xD2B8; &#xCD94;&#xC801;)</a> &#xB294; &#xC720;&#xC800; &#xBAA8;&#xB4DC; &#xC5B4;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158;&#xC744; &#xB514;&#xBC84;&#xAE45;&#xD558;&#xAE30; &#xC704;&#xD574; &#xCEE4;&#xB110;&#xACFC; &#xC5B4;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158; &#xC774;&#xBCA4;&#xD2B8;&#xB97C; &#xB85C;&#xAE45;&#xD558;&#xB294; &#xC11C;&#xBE44;&#xC2A4;&#xC785;&#xB2C8;&#xB2E4;.</p><p>ETW&#xB294; &#xC8FC;&#xAE30;&#xC801;&#xC73C;&#xB85C; logging state&#xB97C; &#xC5C5;&#xB370;&#xC774;&#xD2B8;&#xD558;&#xAE30; &#xC704;&#xD574; &#xCEE4;&#xB110;(<code>ntoskrnl.exe</code>)&#xC5D0; system call&#xC744; &#xD558;&#xB294;&#xB370;, &#xC774;&#xB54C; &#xD2B9;&#xC815; &#xC870;&#xAC74;&#xC5D0;&#xC11C; &#xC784;&#xC758; &#xCF54;&#xB4DC;&#xB97C; &#xC2E4;&#xD589;&#xD560; &#xC218; &#xC788;&#xB294; UAF &#xCDE8;&#xC57D;&#xC810;&#xC774; &#xBC1C;&#xC0DD;&#xD569;&#xB2C8;&#xB2E4;.</p><p>UAF&#xB97C; &#xD1B5;&#xD574; &#xC81C;&#xC5B4; &#xAC00;&#xB2A5;&#xD55C; <code>0x30</code> bytes &#xD06C;&#xAE30;&#xC758; _CONTEXTINFO &#xAD6C;&#xC870;&#xCCB4;&#xB294; &#xC544;&#xB798;&#xC640; &#xAC19;&#xC2B5;&#xB2C8;&#xB2E4;.</p><pre><code class="hljs c"><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> _<span class="hljs-title">CONTEXTINFO</span></span><span class="hljs-class">{</span>WORK_QUEUE_ITEM WorkItem;ULONG64Unknown;USHORTLoggerId;UCHARPadding[<span class="hljs-number">6</span>];} CONTEXTINFO, *PCONTEXTINFO;</code></pre><p>&#xCDE8;&#xC57D;&#xC810;&#xC740; &#xCD1D; &#xC138; &#xBC88;&#xC758; logging state &#xC5C5;&#xB370;&#xC774;&#xD2B8; &#xC694;&#xCCAD;&#xC744; &#xD1B5;&#xD574; &#xD2B8;&#xB9AC;&#xAC70; &#xB429;&#xB2C8;&#xB2E4;.</p><p>&#xCCAB; &#xBC88;&#xC9F8; &#xC694;&#xCCAD;&#xC5D0;&#xC11C; &#xCEE4;&#xB110;&#xC740; &#xC544;&#xB798;&#xC640; &#xAC19;&#xC774; &#xB3D9;&#xC791;&#xD569;&#xB2C8;&#xB2E4;.</p><ol><li>ntoskrnl&#xC740; <code>LoggerId</code>&#xC5D0; &#xD574;&#xB2F9;&#xD558;&#xB294; <code>LoggerContext</code>&#xB97C; &#xCC3E;&#xC544; &#xBAA8;&#xB4E0; <code>Guids</code>&#xAC00; <code>LoggerContext</code>&#xC758; &#xC54C;&#xB9BC; &#xC561;&#xC138;&#xC2A4; &#xAD8C;&#xD55C;&#xC744; &#xAC16;&#xB3C4;&#xB85D; &#xD569;&#xB2C8;&#xB2E4;.</li><li>&#xD0C0;&#xC774;&#xBA38; &#xCF5C;&#xBC31; &#xB8E8;&#xD2F4; <code>PeriodicCaptureStateTimerCallback()</code> &#xC5D0;&#xC11C;&#xB294; <code>CONTEXTINFO TimerContextInfo</code> &#xAC1D;&#xCCB4;&#xB97C; &#xD560;&#xB2F9;&#xD558;&#xACE0; <code>SendCaptureStateNotificationsWorker(PCONTEXTINFO TimerContentInfo)</code> &#xCF5C;&#xBC31; &#xB8E8;&#xD2F4;&#xC744; &#xB300;&#xAE30;&#xC5F4;&#xC5D0; &#xB123;&#xC2B5;&#xB2C8;&#xB2E4;,</li><li><code>SendCaptureStateNotificationsWorker()</code>&#xC740; &#xC54C;&#xB9BC; &#xB370;&#xC774;&#xD130; &#xD328;&#xD0B7;&#xC744; &#xBE4C;&#xB4DC;&#xD558;&#xACE0; &#xBAA8;&#xB4E0; <code>Guids</code>&#xC5D0; &#xBCF4;&#xB0C5;&#xB2C8;&#xB2E4;.</li></ol><p>&#xCDE8;&#xC57D;&#xC810;&#xC740; &#xCCAB; &#xBC88;&#xC9F8; &#xC694;&#xCCAD; &#xC774;&#xD6C4; &#xB450; &#xBC88;&#xC9F8; &#xC694;&#xCCAD;&#xC5D0;&#xC11C; <code>Guid</code>&#xC911; &#xD558;&#xB098;&#xB77C;&#xB3C4; <code>LoggerContext</code>&#xC758; &#xC54C;&#xB9BC; &#xC561;&#xC138;&#xC2A4; &#xAD8C;&#xD55C;&#xC774; &#xC5C6;&#xB294; &#xACBD;&#xC6B0; <code>LoggerContext&#x2192;NumOfGuids</code>&#xB97C; 0&#xC73C;&#xB85C; &#xC124;&#xC815;&#xD574; &#xBC1C;&#xC0DD;&#xD569;&#xB2C8;&#xB2E4;. &#xB450; &#xBC88;&#xC9F8; &#xC694;&#xCCAD;&#xC5D0;&#xC11C; <code>SendCaptureStateNotificationsWorker()</code> &#xB8E8;&#xD2F4;&#xC740; &#xBA3C;&#xC800; &#xD574;&#xB2F9; <code>LoggerContext</code>&#xB97C; &#xAC80;&#xC0C9;&#xD558;&#xB294;&#xB370; <code>LoggerContext&#x2192;NumOfGuids</code>&#xAC00; 0&#xC774;&#xBA74; &#xD560;&#xB2F9;&#xB41C; <code>TimerContextInfo</code>&#xB97C; &#xD574;&#xC81C;&#xD569;&#xB2C8;&#xB2E4;.</p><p>&#xC774;&#xD6C4; &#xC138; &#xBC88;&#xC9F8; &#xC694;&#xCCAD;&#xC5D0;&#xC11C; <code>LoggerContext_-&gt;ExTimer</code>&#xC5D0; &#xC774;&#xBBF8; &#xD574;&#xC81C;&#xB41C; <code>TimerContextInfo</code> &#xAC1D;&#xCCB4;&#xAC00; &#xC800;&#xC7A5;&#xB418;&#xC5B4; &#xC788;&#xC5B4; &#xC774;&#xB97C; &#xCC38;&#xC870;&#xD574; &#xC0C8;&#xB85C;&#xC6B4; &#xD0C0;&#xC774;&#xBA38; &#xC791;&#xC5C5; <code>ExSetTimer()</code>&#xC744; &#xC2DC;&#xC791;&#xD558;&#xACE0; &#xACB0;&#xACFC;&#xC801;&#xC73C;&#xB85C; &#xD574;&#xC81C;&#xB41C; &#xD480;&#xC774; &#xCC38;&#xC870;&#xB418;&#xC5B4; UAF&#xAC00; &#xBC1C;&#xC0DD;&#xD569;&#xB2C8;&#xB2E4;.</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>1day1line</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>cve</tag>
+      
+      <tag>windows</tag>
+      
+      <tag>uaf</tag>
+      
+      <tag>L0ch</tag>
+      
+      <tag>cve-2021-34486</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>[해키피디아] Numeric Truncation Error</title>
     <link href="/2021/09/01/y00n_nms/numeric-truncation-error/"/>
     <url>/2021/09/01/y00n_nms/numeric-truncation-error/</url>
