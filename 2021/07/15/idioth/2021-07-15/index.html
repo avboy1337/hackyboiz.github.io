@@ -31,7 +31,7 @@
 &lt;p&gt;&lt;code&gt;shiftfs_btrfs_ioctl_fd_restore&lt;/code&gt;&amp;#xB97C; &amp;#xB450; &amp;#xBC88; &amp;#xD638;&amp;#xCD9C;&amp;#xD558;&amp;#xBA74; &amp;#xAC19;&amp;#xC740; fd&amp;#xB97C; &amp;#xB450; &amp;#xBC88; &amp;#xB2EB;&amp;#xACE0; &amp;#xAC19;&amp;#xC740; &amp;#xAD6C;&amp;#xC870;&amp;#xCCB4;&amp;#xAC00; &amp;#xB450; &amp;#xBC88; free &amp;#xB429;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xD574;&amp;#xB2F9; &amp;#xAD6C;&amp;#xC870;&amp;#xCCB4;&amp;#xB294; userspace&amp;#xC5D0;&amp;#xC11C; &amp;#xBCF5;&amp;#xC0AC;&amp;#xB418;&amp;#xB294; &amp;#xB3D9;&amp;#xC548; &lt;code&gt;shiftfs_btrfs_ioctl_fd_replace&lt;/code&gt;&amp;#xC5D0; &amp;#xD560;&amp;#xB2F9;&amp;#xB418;&amp;#xBA70; &amp;#xCEE4;&amp;#xB110; &amp;#xD568;&amp;#xC218; &lt;code&gt;memdup_user&lt;/code&gt;&amp;#xB294; &lt;code&gt;copy_from_user&lt;/code&gt;&amp;#xC640; &amp;#xB3D9;&amp;#xC2DC;&amp;#xC5D0; &amp;#xD560;&amp;#xB2F9;&amp;#xD569;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;shiftfs_btrfs_ioctl_fd_replace&lt;/code&gt; &amp;#xD568;&amp;#xC218;&amp;#xC5D0;&amp;#xC11C; &lt;code&gt;memdup_user&lt;/code&gt;&amp;#xAC00; &amp;#xD560;&amp;#xB2F9;&amp;#xC5D0; &amp;#xC131;&amp;#xACF5;&amp;#xD558;&amp;#xACE0; &lt;code&gt;copy_to_user&lt;/code&gt;&amp;#xB294; &amp;#xC2E4;&amp;#xD328;&amp;#xD558;&amp;#xBA74; &lt;code&gt;shiftfs_btrfs_ioctl_fd_restore&lt;/code&gt;&amp;#xC5D0;&amp;#xC11C; &lt;code&gt;kfree&lt;/code&gt;&amp;#xB97C; &amp;#xD638;&amp;#xCD9C;&amp;#xD558;&amp;#xC5EC; &amp;#xCCAB; &amp;#xBC88;&amp;#xC9F8; free&amp;#xB97C; &amp;#xC9C4;&amp;#xD589;&amp;#xD558;&amp;#xACE0; &lt;code&gt;shiftfs_real_ioctl&lt;/code&gt;&amp;#xC5D0;&amp;#xC11C; &amp;#xB2E4;&amp;#xC2DC; &lt;code&gt;shiftfs_btrfs_ioctl_fd_restore&lt;/code&gt;&amp;#xB97C; &amp;#xD638;&amp;#xCD9C;&amp;#xD558;&amp;#xC5EC; Potential leak&amp;#xACFC; &lt;code&gt;kfree&lt;/code&gt;&amp;#xB97C; &amp;#xD1B5;&amp;#xD55C; &amp;#xB450; &amp;#xBC88;&amp;#xC9F8; free&amp;#xAC00; &amp;#xAC00;&amp;#xB2A5;&amp;#xD558;&amp;#xC5EC; double free bug&amp;#xAC00; &amp;#xBC1C;&amp;#xC0DD;&amp;#xD569;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
  - hack &amp; life">
-  <meta property="og:image" content="/thumbnail.png">
+  <meta property="og:image" content="/img/1day1line.png">
   <meta property="og:url" content="https://hackyboiz.github.io/">
 
   <link rel="canonical" href="https://hackyboiz.github.io/2021/07/15/idioth/2021-07-15/">
@@ -279,11 +279,11 @@
                   
                   <a class="hover-with-bg" href="/tags/cve/">cve</a>
                   
+                  <a class="hover-with-bg" href="/tags/double-free-bug/">double free bug</a>
+                  
                   <a class="hover-with-bg" href="/tags/idioth/">idioth</a>
                   
                   <a class="hover-with-bg" href="/tags/ubuntu/">ubuntu</a>
-                  
-                  <a class="hover-with-bg" href="/tags/double-free-bug/">double free bug</a>
                   
                   <a class="hover-with-bg" href="/tags/driver/">driver</a>
                   
