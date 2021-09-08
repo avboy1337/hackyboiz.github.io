@@ -13,7 +13,24 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="hack &amp; life">
+  <meta name="description" content="&lt;h2 id=&#34;URL&#34;&gt;&lt;a href=&#34;#URL&#34; class=&#34;headerlink&#34; title=&#34;URL&#34;&gt;&lt;/a&gt;URL&lt;/h2&gt;&lt;p&gt;&lt;a href=&#34;https://starlabs.sg/advisories/21-3409/&#34;&gt;CVE-2021-3409&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;Target&#34;&gt;&lt;a href=&#34;#Target&#34; class=&#34;headerlink&#34; title=&#34;Target&#34;&gt;&lt;/a&gt;&lt;strong&gt;Target&lt;/strong&gt;&lt;/h2&gt;&lt;p&gt;QEMU 5.2.50&lt;/p&gt;
+&lt;h2 id=&#34;Explain&#34;&gt;&lt;a href=&#34;#Explain&#34; class=&#34;headerlink&#34; title=&#34;Explain&#34;&gt;&lt;/a&gt;&lt;strong&gt;Explain&lt;/strong&gt;&lt;/h2&gt;&lt;p&gt;QEMU 5.2.50 &amp;#xCF54;&amp;#xB4DC;&amp;#xC758; SDHCI(Secure Digital Host Controller Interface) &amp;#xCEF4;&amp;#xD3EC;&amp;#xB10C;&amp;#xD2B8;&amp;#xB294; Heap buffer overflow &amp;#xCDE8;&amp;#xC57D;&amp;#xC810;&amp;#xC774; &amp;#xC788;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;. SDHCI&amp;#xB294; &amp;#xBE44;&amp;#xD718;&amp;#xBC1C;&amp;#xC131; &amp;#xBA54;&amp;#xBAA8;&amp;#xB9AC; &amp;#xCE74;&amp;#xB4DC; &amp;#xD3EC;&amp;#xB9F7;&amp;#xC778; SD&amp;#xC758; &amp;#xCEE8;&amp;#xD2B8;&amp;#xB864;&amp;#xB7EC; &amp;#xC5D0;&amp;#xBBAC;&amp;#xB808;&amp;#xC774;&amp;#xC158;&amp;#xC785;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;hljs python&#34;&gt;begin = s-&amp;gt;data_count;
+         &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; ((length + begin) &amp;lt; block_size) {
+             s-&amp;gt;data_count = length + begin;
+             length = &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;;
+          } &lt;span class=&#34;hljs-keyword&#34;&gt;else&lt;/span&gt; {
+             s-&amp;gt;data_count = block_size; // [1]
+             length -= block_size - begin;
+         }
+         dma_memory_write(s-&amp;gt;dma_as, dscr.addr,
+                          &amp;amp;s-&amp;gt;fifo_buffer[begin],
+                          s-&amp;gt;data_count - begin); // [2]
+         dscr.addr += s-&amp;gt;data_count - begin;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&amp;#xC704; &amp;#xCF54;&amp;#xB4DC;&amp;#xB294; &amp;#xD568;&amp;#xC218; &lt;code&gt;sdhci_do_adma&lt;/code&gt;&amp;#xC758; &amp;#xC77C;&amp;#xBD80;&amp;#xC785;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xD568;&amp;#xC218; &lt;code&gt;sdhci_do_adma&lt;/code&gt;&amp;#xB294; SDHCI&amp;#xC640; Guest system memory(DMA buffer) &amp;#xAC04;&amp;#xC5D0; &amp;#xB370;&amp;#xC774;&amp;#xD130; &amp;#xD1B5;&amp;#xC2E0;&amp;#xC744; &amp;#xB2F4;&amp;#xB2F9;&amp;#xD569;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xBE14;&amp;#xB85D; &amp;#xBC84;&amp;#xD37C;&amp;#xB97C; &amp;#xC0AC;&amp;#xC6A9;&amp;#xD55C; &amp;#xB370;&amp;#xC774;&amp;#xD130; &amp;#xD1B5;&amp;#xC2E0;&amp;#xC774; &amp;#xC774;&amp;#xB8E8;&amp;#xC5B4;&amp;#xC9C8; &amp;#xB54C; &amp;#xBE14;&amp;#xB85D; &amp;#xBC84;&amp;#xD37C;&amp;#xC5D0; &amp;#xB4E4;&amp;#xC5B4;&amp;#xAC08; &amp;#xB370;&amp;#xC774;&amp;#xD130; &amp;#xD06C;&amp;#xAE30;&amp;#xB97C; &amp;#xACC4;&amp;#xC0B0;&amp;#xD558;&amp;#xB294; &amp;#xC2DD;&amp;#xC740; &lt;code&gt;block_size - s-&amp;gt;data_count&lt;/code&gt;&amp;#xC785;&amp;#xB2C8;&amp;#xB2E4;. &lt;code&gt;s-&amp;gt;data_count&lt;/code&gt;&amp;#xB294; &amp;#xD604;&amp;#xC7AC; &amp;#xBE14;&amp;#xB85D; &amp;#xBC84;&amp;#xD37C;&amp;#xC758; &amp;#xC624;&amp;#xD504;&amp;#xC14B;&amp;#xC744;, &lt;code&gt;block_size&lt;/code&gt;&amp;#xB294; &lt;code&gt;blksize&lt;/code&gt;(0x4 &amp;#xC624;&amp;#xD504;&amp;#xC14B;&amp;#xC758; &amp;#xB808;&amp;#xC9C0;&amp;#xC2A4;&amp;#xD130; &amp;#xAC12;)&amp;#xB97C; &amp;#xB2F4;&amp;#xACE0; &amp;#xC788;&amp;#xACE0; &amp;#xB370;&amp;#xC774;&amp;#xD130; &amp;#xD1B5;&amp;#xC2E0;&amp;#xC774; &amp;#xC774;&amp;#xB8E8;&amp;#xC5B4;&amp;#xC9C0;&amp;#xB294; &amp;#xB3C4;&amp;#xC911; &lt;code&gt;blksize&lt;/code&gt;&amp;#xC758; &amp;#xAC12;&amp;#xC744; &amp;#xBCC0;&amp;#xACBD;&amp;#xD560; &amp;#xC218; &amp;#xC788;&amp;#xC5B4; heap overflow &amp;#xCDE8;&amp;#xC57D;&amp;#xC810;&amp;#xC774; &amp;#xBC1C;&amp;#xC0DD;&amp;#xD569;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;p&gt;&amp;#xD574;&amp;#xB2F9; &amp;#xCDE8;&amp;#xC57D;&amp;#xC810;&amp;#xC744; &amp;#xC545;&amp;#xC6A9;&amp;#xD574; Geust system&amp;#xC744; &amp;#xB300;&amp;#xC0C1;&amp;#xC73C;&amp;#xB85C; &amp;#xC815;&amp;#xBCF4; &amp;#xB178;&amp;#xCD9C;, &amp;#xB370;&amp;#xC774;&amp;#xD130; &amp;#xCD94;&amp;#xAC00; &amp;#xBC0F; &amp;#xC218;&amp;#xC815;, DoS &amp;#xACF5;&amp;#xACA9;&amp;#xC774; &amp;#xAC00;&amp;#xB2A5;&amp;#xD569;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+ - hack &amp; life">
   <meta name="author" content="j0dev, y2sman">
   <meta name="keywords" content>
   <meta name="google-site-verification" content="DXkyiaX95-ws53Tyt0m91_umRf4gfV2qJIQZ5zQDIO4">
@@ -38,7 +55,7 @@
 &lt;p&gt;&amp;#xC704; &amp;#xCF54;&amp;#xB4DC;&amp;#xB294; &amp;#xD568;&amp;#xC218; &lt;code&gt;sdhci_do_adma&lt;/code&gt;&amp;#xC758; &amp;#xC77C;&amp;#xBD80;&amp;#xC785;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xD568;&amp;#xC218; &lt;code&gt;sdhci_do_adma&lt;/code&gt;&amp;#xB294; SDHCI&amp;#xC640; Guest system memory(DMA buffer) &amp;#xAC04;&amp;#xC5D0; &amp;#xB370;&amp;#xC774;&amp;#xD130; &amp;#xD1B5;&amp;#xC2E0;&amp;#xC744; &amp;#xB2F4;&amp;#xB2F9;&amp;#xD569;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xBE14;&amp;#xB85D; &amp;#xBC84;&amp;#xD37C;&amp;#xB97C; &amp;#xC0AC;&amp;#xC6A9;&amp;#xD55C; &amp;#xB370;&amp;#xC774;&amp;#xD130; &amp;#xD1B5;&amp;#xC2E0;&amp;#xC774; &amp;#xC774;&amp;#xB8E8;&amp;#xC5B4;&amp;#xC9C8; &amp;#xB54C; &amp;#xBE14;&amp;#xB85D; &amp;#xBC84;&amp;#xD37C;&amp;#xC5D0; &amp;#xB4E4;&amp;#xC5B4;&amp;#xAC08; &amp;#xB370;&amp;#xC774;&amp;#xD130; &amp;#xD06C;&amp;#xAE30;&amp;#xB97C; &amp;#xACC4;&amp;#xC0B0;&amp;#xD558;&amp;#xB294; &amp;#xC2DD;&amp;#xC740; &lt;code&gt;block_size - s-&amp;gt;data_count&lt;/code&gt;&amp;#xC785;&amp;#xB2C8;&amp;#xB2E4;. &lt;code&gt;s-&amp;gt;data_count&lt;/code&gt;&amp;#xB294; &amp;#xD604;&amp;#xC7AC; &amp;#xBE14;&amp;#xB85D; &amp;#xBC84;&amp;#xD37C;&amp;#xC758; &amp;#xC624;&amp;#xD504;&amp;#xC14B;&amp;#xC744;, &lt;code&gt;block_size&lt;/code&gt;&amp;#xB294; &lt;code&gt;blksize&lt;/code&gt;(0x4 &amp;#xC624;&amp;#xD504;&amp;#xC14B;&amp;#xC758; &amp;#xB808;&amp;#xC9C0;&amp;#xC2A4;&amp;#xD130; &amp;#xAC12;)&amp;#xB97C; &amp;#xB2F4;&amp;#xACE0; &amp;#xC788;&amp;#xACE0; &amp;#xB370;&amp;#xC774;&amp;#xD130; &amp;#xD1B5;&amp;#xC2E0;&amp;#xC774; &amp;#xC774;&amp;#xB8E8;&amp;#xC5B4;&amp;#xC9C0;&amp;#xB294; &amp;#xB3C4;&amp;#xC911; &lt;code&gt;blksize&lt;/code&gt;&amp;#xC758; &amp;#xAC12;&amp;#xC744; &amp;#xBCC0;&amp;#xACBD;&amp;#xD560; &amp;#xC218; &amp;#xC788;&amp;#xC5B4; heap overflow &amp;#xCDE8;&amp;#xC57D;&amp;#xC810;&amp;#xC774; &amp;#xBC1C;&amp;#xC0DD;&amp;#xD569;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
 &lt;p&gt;&amp;#xD574;&amp;#xB2F9; &amp;#xCDE8;&amp;#xC57D;&amp;#xC810;&amp;#xC744; &amp;#xC545;&amp;#xC6A9;&amp;#xD574; Geust system&amp;#xC744; &amp;#xB300;&amp;#xC0C1;&amp;#xC73C;&amp;#xB85C; &amp;#xC815;&amp;#xBCF4; &amp;#xB178;&amp;#xCD9C;, &amp;#xB370;&amp;#xC774;&amp;#xD130; &amp;#xCD94;&amp;#xAC00; &amp;#xBC0F; &amp;#xC218;&amp;#xC815;, DoS &amp;#xACF5;&amp;#xACA9;&amp;#xC774; &amp;#xAC00;&amp;#xB2A5;&amp;#xD569;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
  - hack &amp; life">
-  <meta property="og:image" content="/img/1day1line.png*">
+  <meta property="og:image" content="https://hackyboiz.github.io/img/1day1line.png*">
   <meta property="og:url" content="https://hackyboiz.github.io/">
 
   <link rel="canonical" href="https://hackyboiz.github.io/2021/04/07/fabu1ous/2021-04-07/">
@@ -293,11 +310,11 @@
                   
                   <a class="hover-with-bg" href="/tags/cve/">cve</a>
                   
+                  <a class="hover-with-bg" href="/tags/heap-overflow/">heap overflow</a>
+                  
                   <a class="hover-with-bg" href="/tags/Fabu1ous/">Fabu1ous</a>
                   
                   <a class="hover-with-bg" href="/tags/qemu/">qemu</a>
-                  
-                  <a class="hover-with-bg" href="/tags/heap-overflow/">heap overflow</a>
                   
                 </div>
                 
