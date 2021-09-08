@@ -4,6 +4,177 @@
   
   
   <entry>
+    <title>[해키피디아] ACL(Access Control List)</title>
+    <link href="/2021/09/08/y00n_nms/access-control-list/"/>
+    <url>/2021/09/08/y00n_nms/access-control-list/</url>
+    
+    <content type="html"><![CDATA[<p>Access Control(&#xC811;&#xADFC; &#xC81C;&#xC5B4;)&#xC740; &#xC801;&#xC808;&#xD55C; &#xAD8C;&#xD55C;&#xC744; &#xAC00;&#xC9C4; &#xC0AC;&#xB78C;&#xB9CC;&#xC774; &#xD2B9;&#xC815; &#xC2DC;&#xC2A4;&#xD15C;&#xC774;&#xB098; &#xD30C;&#xC77C;&#xC5D0; &#xC811;&#xADFC;&#xD560; &#xC218; &#xC788;&#xB3C4;&#xB85D; &#xC81C;&#xC5B4;&#xD569;&#xB2C8;&#xB2E4;. &#xB530;&#xB77C;&#xC11C; &#xAD8C;&#xD55C;&#xC774; &#xC5C6;&#xB294; &#xC0AC;&#xB78C;&#xC740; &#xD568;&#xBD80;&#xB85C; &#xD574;&#xB2F9; &#xD30C;&#xC77C;&#xC5D0; &#xC811;&#xADFC;&#xD558;&#xC5EC; &#xC77D;&#xAE30;, &#xC4F0;&#xAE30;, &#xC2E4;&#xD589; &#xB4F1;&#xC744; &#xC218;&#xD589;&#xD560; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p>&#xADF8;&#xB9AC;&#xACE0; &#xD30C;&#xC77C; &#xBC0F; &#xB514;&#xB809;&#xD130;&#xB9AC;&#xC5D0; &#xB300;&#xD55C; &#xC811;&#xADFC;&#xC740; <strong>ACL(&#xC811;&#xADFC; &#xC81C;&#xC5B4; &#xBAA9;&#xB85D;, Access Control List)</strong>&#xC744; &#xD1B5;&#xD574; &#xAD00;&#xB9AC;&#xB418;&#xC5B4; &#xC778;&#xC99D;&#xB41C; &#xC0AC;&#xC6A9;&#xC790;&#xB9CC; &#xC811;&#xADFC;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p>&#xD558;&#xB8E8; &#xD55C;&#xC904;&#xC758; &#xAD8C;&#xD55C; &#xC0C1;&#xC2B9; &#xCDE8;&#xC57D;&#xC810;&#xC744; &#xBCF4;&#xBA74; ACL&#xC758; &#xAD6C;&#xC131;&#xC774; &#xBBF8;&#xD761;&#xD558;&#xAC70;&#xB098;, ACL &#xAC80;&#xC0AC;&#xB97C; &#xC218;&#xD589;&#xD558;&#xC9C0; &#xC54A;&#xC544; &#xBC1C;&#xC0DD;&#xD558;&#xB294; &#xACBD;&#xC6B0;&#xAC00; &#xC885;&#xC885; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p><img src="/2021/09/08/y00n_nms/access-control-list/image.png" alt="image"></p><p><a href="https://hackyboiz.github.io/2021/05/07/l0ch/2021-05-07/">[&#xD558;&#xB8E8;&#xD55C;&#xC904;] CVE-2021-21551: &#xC218;&#xC5B5; &#xB300;&#xC758; Dell PC&#xC5D0; &#xC601;&#xD5A5;&#xC744; &#xC8FC;&#xB294; &#xAD8C;&#xD55C; &#xC0C1;&#xC2B9; &#xCDE8;&#xC57D;&#xC810;</a></p><p><img src="/2021/09/08/y00n_nms/access-control-list/image1.png" alt="image1"></p><p><a href="https://hackyboiz.github.io/2021/05/20/idioth/2021-05-20/">[&#xD558;&#xB8E8;&#xD55C;&#xC904;] CVE-2021-23874: McAfee COM-objects &#xAD8C;&#xD55C; &#xC0C1;&#xC2B9; &#xCDE8;&#xC57D;&#xC810;</a></p><p><strong>ACE(&#xC811;&#xADFC; &#xC81C;&#xC5B4; &#xD56D;&#xBAA9;, Access Control Entry)</strong>&#xB294; ACL&#xC758; &#xD56D;&#xBAA9;&#xC73C;&#xB85C; 0&#xAC1C; &#xC774;&#xC0C1;&#xC758; ACE&#xAC00; &#xC788;&#xC744; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xAC01; ACE&#xB294; SID(&#xBCF4;&#xC548; &#xC2DD;&#xBCC4;&#xC790;), &#xC811;&#xADFC; &#xAD8C;&#xD55C;&#xC744; &#xC9C0;&#xC815;&#xD558;&#xB294; &#xB9C8;&#xC2A4;&#xD06C;, &#xD615;&#xC2DD;&#xC744; &#xB098;&#xD0C0;&#xB0B4;&#xB294; &#xD50C;&#xB798;&#xADF8;, &#xAC1C;&#xCCB4;&#xAC00; ACE&#xB97C; &#xC0C1;&#xC18D;&#xD560; &#xC218; &#xC788;&#xB294;&#xC9C0; &#xC5EC;&#xBD80;&#xB97C; &#xACB0;&#xC815;&#xD558;&#xB294; &#xBE44;&#xD2B8; &#xD50C;&#xB798;&#xADF8;&#xB97C; &#xD3EC;&#xD568;&#xD558;&#xBA70; &#xBCF4;&#xC548; &#xC8FC;&#xCCB4;&#xB97C; &#xC2DD;&#xBCC4;&#xD558;&#xACE0; &#xD574;&#xB2F9; &#xBCF4;&#xC548; &#xC8FC;&#xCCB4;&#xC5D0; &#xB300;&#xD574; &#xD5C8;&#xC6A9;, &#xAC70;&#xBD80;, &#xB610;&#xB294; &#xAC10;&#xC0AC;&#xB41C; &#xC811;&#xADFC; &#xAD8C;&#xD55C;&#xC744; &#xC9C0;&#xC815;&#xD569;&#xB2C8;&#xB2E4;.</p><p>ACE&#xC5D0;&#xB294; &#xB2E4;&#xC74C; &#xC138; &#xAC00;&#xC9C0; &#xD615;&#xC2DD;&#xC774; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><ul><li>&#xC561;&#xC138;&#xC2A4; &#xAC70;&#xBD80; ACE: DACL&#xC5D0;&#xC11C; &#xBCF4;&#xC548; &#xC8FC;&#xCCB4;&#xC5D0; &#xB300;&#xD55C; &#xC811;&#xADFC; &#xAD8C;&#xD55C;&#xC744; &#xAC70;&#xBD80;&#xD558;&#xB294;&#xB370; &#xC0AC;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4;.</li><li>&#xC561;&#xC138;&#xC2A4; &#xD5C8;&#xC6A9; ACE: DACL&#xC5D0;&#xC11C; &#xBCF4;&#xC548; &#xC8FC;&#xCCB4;&#xC5D0; &#xB300;&#xD55C; &#xC811;&#xADFC; &#xAD8C;&#xD55C;&#xC744; &#xD5C8;&#xC6A9;&#xD558;&#xB294;&#xB370; &#xC0AC;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4;.</li><li>&#xC2DC;&#xC2A4;&#xD15C; &#xAC10;&#xC0AC; ACE: SACL&#xC5D0;&#xC11C; &#xBCF4;&#xC548; &#xC8FC;&#xCCB4;&#xAC00; &#xC9C0;&#xC815;&#xD55C; &#xC811;&#xADFC; &#xAD8C;&#xD55C;&#xC744; &#xC218;&#xD589;&#xD558;&#xB824;&#xACE0; &#xD560; &#xB54C; &#xAC10;&#xC0AC; &#xB808;&#xCF54;&#xB4DC;&#xB97C; &#xC0DD;&#xC131;&#xD558;&#xB294;&#xB370; &#xC0AC;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4;.</li></ul><p><strong>DACL(&#xC784;&#xC758; &#xC811;&#xADFC; &#xC81C;&#xC5B4; &#xBAA9;&#xB85D;, Discretionary Access Control List)</strong>&#xC740; &#xBCF4;&#xC548; &#xAC1C;&#xCCB4;&#xC5D0; &#xB300;&#xD574; &#xC811;&#xADFC;&#xC774; &#xD5C8;&#xC6A9;&#xB418;&#xAC70;&#xB098; &#xAC70;&#xBD80;&#xB41C; &#xC0AC;&#xC6A9;&#xC790;, &#xC0AC;&#xC6A9;&#xC790; &#xADF8;&#xB8F9;, &#xB610;&#xB294; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB97C; &#xC2DD;&#xBCC4;&#xD569;&#xB2C8;&#xB2E4;. &#xC811;&#xADFC;&#xC744; &#xC694;&#xCCAD;&#xD558;&#xBA74; DACL&#xC5D0; &#xC788;&#xB294; ACE&#xB97C; &#xD655;&#xC778;&#xD558;&#xC5EC; &#xAD8C;&#xD55C;&#xC744; &#xBD80;&#xC5EC;&#xD569;&#xB2C8;&#xB2E4;.</p><p>&#xC774;&#xB54C; &#xAC1C;&#xCCB4;&#xC5D0; DACL&#xC774; &#xC5C6;&#xB294; &#xACBD;&#xC6B0;&#xC5D0;&#xB294; &#xBAA8;&#xB4E0; &#xC0AC;&#xC6A9;&#xC790;&#xAC00; &#xC811;&#xADFC; &#xAD8C;&#xD55C;&#xC744; &#xAC00;&#xC9C0;&#xACE0;, DACL&#xC774; &#xC788;&#xC9C0;&#xB9CC; ACE&#xAC00; &#xC5C6;&#xC744; &#xACBD;&#xC6B0;&#xC5D0;&#xB294; &#xBAA8;&#xB4E0; &#xC811;&#xADFC;&#xC744; &#xAC70;&#xBD80;&#xD569;&#xB2C8;&#xB2E4;. &#xADF8; &#xC678; &#xACBD;&#xC6B0;&#xC5D0;&#xB294; ACE&#xC5D0;&#xC11C; &#xD5C8;&#xC6A9;&#xD558;&#xB294; &#xC811;&#xADFC;&#xB9CC; &#xD5C8;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;. &#xC8FC;&#xC758;&#xD574;&#xC57C; &#xD560; &#xAC83;&#xC740; ACE&#xB97C; &#xC21C;&#xC11C;&#xB300;&#xB85C; &#xC77D;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xC561;&#xC138;&#xC2A4; &#xAC70;&#xBD80; ACE&#xC640; &#xD5C8;&#xC6A9; ACE&#xB97C; &#xB3D9;&#xC2DC;&#xC5D0; &#xBA85;&#xC2DC;&#xD560; &#xB54C; &#xAC70;&#xBD80; ACE&#xBD80;&#xD130; &#xBA85;&#xC2DC;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</p><p><strong>SACL(&#xC2DC;&#xC2A4;&#xD15C; &#xC811;&#xADFC; &#xC81C;&#xC5B4; &#xBAA9;&#xB85D;, System Access Control List)</strong>&#xB294; &#xBCF4;&#xC548; &#xAC1C;&#xCCB4;&#xC5D0; &#xC811;&#xADFC;&#xD558;&#xB824;&#xB294; &#xC2DC;&#xB3C4;&#xB97C; &#xAE30;&#xB85D;&#xD569;&#xB2C8;&#xB2E4;. SACL&#xC758; ACE&#xB294; &#xC811;&#xADFC; &#xC2DC;&#xB3C4;&#xAC00; &#xC2E4;&#xD328;&#xD558;&#xAC70;&#xB098; &#xC131;&#xACF5;&#xD560; &#xB54C; &#xAC10;&#xC0AC; &#xB808;&#xCF54;&#xB4DC;&#xB97C; &#xC0DD;&#xC131;&#xD569;&#xB2C8;&#xB2E4;.</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Hackypedia</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>y00n_nms</tag>
+      
+      <tag>acl</tag>
+      
+      <tag>ace</tag>
+      
+      <tag>dacl</tag>
+      
+      <tag>sacl</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>[하루한줄] NetGear D7000 Authentication bypass</title>
+    <link href="/2021/09/07/fabu1ous/2021-09-07/"/>
+    <url>/2021/09/07/fabu1ous/2021-09-07/</url>
+    
+    <content type="html"><![CDATA[<h2 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h2><p><a href="https://ssd-disclosure.com/ssd-advisory-netgear-d7000-authentication-bypass/">NETGEAR D7000 Authentication Bypass</a></p><h2 id="Target"><a href="#Target" class="headerlink" title="Target"></a><strong>Target</strong></h2><p>NETGEAR D7000 Device</p><h2 id="Explain"><a href="#Explain" class="headerlink" title="Explain"></a><strong>Explain</strong></h2><p>NETGEAR&#xC0AC;&#xC758; D7000 &#xB77C;&#xC6B0;&#xD130;&#xC5D0;&#xC11C; &#xC778;&#xC99D; &#xC6B0;&#xD68C; &#xCDE8;&#xC57D;&#xC810;&#xC774; &#xBC1C;&#xACAC;&#xB418;&#xC5C8;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC778;&#xC99D; &#xB418;&#xC9C0; &#xC54A;&#xC740; &#xC720;&#xC800;&#xB77C;&#xB3C4; &#xD574;&#xB2F9; &#xC81C;&#xD488;&#xC758; &#xBAA8;&#xB4E0; &#xB9AC;&#xC18C;&#xC2A4;&#xC5D0; &#xC811;&#xADFC;&#xD560; &#xC218; &#xC788;&#xAE30; &#xB54C;&#xBB38;&#xC5D0;  <code>setup.cgi</code> &#xD30C;&#xC77C; &#xB4F1;&#xC5D0;&#xC11C; &#xC6F9; &#xC778;&#xD130;&#xD398;&#xC774;&#xC2A4;&#xC758; admin &#xACC4;&#xC815;&#xACFC; &#xBE44;&#xBC00;&#xBC88;&#xD638;&#xB97C; &#xD0C8;&#xCDE8;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. </p><p>&#xCDE8;&#xC57D;&#xD55C; &#xBC84;&#xC804;&#xC758; <code>mini_httpd</code> &#xD38C;&#xC6E8;&#xC5B4; &#xBC14;&#xC774;&#xB108;&#xB9AC;&#xB294; &#xC218;&#xC2E0;&#xD558;&#xB294; request&#xC5D0; <code>todo=PNPX_GetShareFolderList</code> &#xBB38;&#xC790;&#xC5F4;&#xC774; &#xD3EC;&#xD568;&#xB418;&#xC5B4; &#xC788;&#xB294;&#xC9C0; &#xD655;&#xC778;&#xD569;&#xB2C8;&#xB2E4;. &#xB9CC;&#xC57D; &#xD574;&#xB2F9; &#xBB38;&#xC790;&#xC5F4;&#xC774; request &#xB0B4;&#xC5D0; &#xC874;&#xC7AC;&#xD55C;&#xB2E4;&#xBA74; &#xBCC0;&#xC218; <code>DAT_0001d4ec1</code>&#xC758; &#xAC12;&#xC744; 0&#xC73C;&#xB85C; &#xCD08;&#xAE30;&#xD654;&#xD569;&#xB2C8;&#xB2E4;. &#xD574;&#xB2F9; &#xBCC0;&#xC218;&#xB294; &#xC694;&#xCCAD;&#xB41C; &#xB9AC;&#xC18C;&#xC2A4;&#xC5D0; &#xB300;&#xD55C; &#xC811;&#xADFC;&#xC774; &#xC778;&#xC99D; &#xC808;&#xCC28;&#xB97C; &#xAC70;&#xCCD0;&#xC57C; &#xD558;&#xB294;&#xC9C0; &#xD655;&#xC778;&#xD558;&#xAE30; &#xC704;&#xD574; &#xC0AC;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4;. &#xB9CC;&#xC57D; &#xAC12;&#xC774; 0&#xC774;&#xB77C;&#xBA74; username &#xD639;&#xC740; &#xBE44;&#xBC00;&#xBC88;&#xD638;&#xB97C; &#xD655;&#xC778;&#xD558;&#xC9C0; &#xC54A;&#xACE0; &#xC694;&#xCCAD;&#xB41C; &#xB9AC;&#xC18C;&#xC2A4;&#xB97C; &#xC81C;&#xACF5;&#xD569;&#xB2C8;&#xB2E4;. &#xBB38;&#xC81C;&#xB294; request line&#xC5D0; <code>todo=PNPX_GetSaherFolderList</code> &#xBB38;&#xC790;&#xC5F4;&#xC774; &#xC788;&#xB294;&#xC9C0;&#xB9CC; &#xD655;&#xC778;&#xD560; &#xBFD0; &#xCD94;&#xAC00;&#xC801;&#xC778; &#xAC80;&#xC0AC;&#xB098; &#xD544;&#xD130;&#xB9C1;&#xC774; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;. &#xB530;&#xB77C;&#xC11C; &#xB204;&#xAD6C;&#xB098; &#xC778;&#xC99D; &#xC808;&#xCC28; &#xC5C6;&#xC774; configueration file &#xB4F1;&#xC744; &#xD3EC;&#xD568;&#xD55C; &#xD574;&#xB2F9; &#xC81C;&#xD488;&#xC758; &#xBAA8;&#xB4E0; &#xD30C;&#xC77C;&#xC744; &#xB2E4;&#xC6B4; &#xBC1B;&#xC744; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xB354; &#xB098;&#xC544;&#xAC00; admin page&#xC5D0; &#xC811;&#xADFC;&#xD574; telnet&#xC744; &#xD65C;&#xC131;&#xD654;&#xD558;&#xB294; &#xAC83;&#xC73C;&#xB85C; &#xC6D0;&#xACA9; &#xCF54;&#xB4DC; &#xC2E4;&#xD589; &#xB610;&#xD55C; &#xAC00;&#xB2A5;&#xD569;&#xB2C8;&#xB2E4;.</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>1day1line</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Fabu1ous</tag>
+      
+      <tag>rce</tag>
+      
+      <tag>firmware</tag>
+      
+      <tag>router</tag>
+      
+      <tag>admin</tag>
+      
+      <tag>auth-bypass</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>[Translation] Analyzing CVE-2021-1665 - Remote Code Execution Vulnerability in Windows GDI+</title>
+    <link href="/2021/09/05/fabu1ous/gdi/"/>
+    <url>/2021/09/05/fabu1ous/gdi/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Microsoft Windows Graphics Device Interface+, &#xC904;&#xC5EC;&#xC11C; GDI+&#xB294; &#xB2E4;&#xC591;&#xD55C; &#xC751;&#xC6A9; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC774; &#xD504;&#xB9B0;&#xD130;&#xB098; &#xBE44;&#xB514;&#xC624; &#xB514;&#xC2A4;&#xD50C;&#xB798;&#xC774; &#xC11C;&#xB85C; &#xB2E4;&#xB978; &#xADF8;&#xB798;&#xD53D; &#xAE30;&#xB2A5;&#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xB3C4;&#xB85D; &#xD569;&#xB2C8;&#xB2E4;. Windows &#xC751;&#xC6A9; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC740; &#xC7A5;&#xCE58; &#xB4DC;&#xB77C;&#xC774;&#xBC84;&#xC640; &#xAC19;&#xC740; &#xADF8;&#xB798;&#xD53D; &#xD558;&#xB4DC;&#xC6E8;&#xC5B4;&#xC5D0; &#xC9C1;&#xC811; &#xC561;&#xC138;&#xC2A4;&#xD558;&#xC9C0; &#xC54A;&#xC9C0;&#xB9CC; GDI&#xC640; &#xC0C1;&#xD638; &#xC791;&#xC6A9;&#xD558;&#xC5EC; &#xC7A5;&#xCE58; &#xB4DC;&#xB77C;&#xC774;&#xBC84;&#xC640; &#xC0C1;&#xD638;&#xC791;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;. &#xC774;&#xB7EC;&#xD55C; &#xBC29;&#xC2DD;&#xC73C;&#xB85C; Windows &#xC751;&#xC6A9;&#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC5D0; &#xB300;&#xD55C; &#xCD94;&#xC0C1;&#xD654; &#xACC4;&#xCE35;&#xACFC; &#xBAA8;&#xB4E0; &#xC0AC;&#xC6A9;&#xC790;&#xAC00; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xB294; &#xACF5;&#xD1B5; API &#xC9D1;&#xD569;&#xC774; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p>GDI+&#xB294; &#xBCF5;&#xC7A1;&#xD558;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xB2E4;&#xC591;&#xD55C; &#xCDE8;&#xC57D;&#xC810;&#xC774; &#xBC1C;&#xACAC;&#xB41C; &#xC5ED;&#xC0AC;&#xAC00; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. McAfee&#xB294; Windows GDI+&#xB97C; &#xD3EC;&#xD568;&#xD55C; &#xB2E4;&#xC591;&#xD55C; &#xC624;&#xD508; &#xC18C;&#xC2A4; &#xBC0F; &#xD074;&#xB85C;&#xC988;&#xB4DC; &#xC18C;&#xC2A4; &#xC18C;&#xD504;&#xD2B8;&#xC6E8;&#xC5B4;&#xB97C; &#xC9C0;&#xC18D;&#xC801;&#xC73C;&#xB85C; &#xD37C;&#xC9D5;&#xD569;&#xB2C8;&#xB2E4;. &#xC9C0;&#xB09C; &#xBA87;&#xB144; &#xB3D9;&#xC548; GDI+&#xB97C; &#xD3EC;&#xD568;&#xD55C; &#xB2E4;&#xC591;&#xD55C; Windows &#xAD6C;&#xC131;&#xC694;&#xC18C;&#xC5D0;&#xC11C; Microsoft&#xC5D0; &#xB2E4;&#xC591;&#xD55C; &#xBB38;&#xC81C;&#xB97C; &#xBCF4;&#xACE0;&#xD558;&#xACE0; &#xC774;&#xB97C; &#xC704;&#xD55C; CVE&#xB97C; &#xC81C;&#xACF5; &#xBC1B;&#xC558;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p>&#xC774; &#xAC8C;&#xC2DC;&#xBB3C;&#xC5D0;&#xC11C;&#xB294; WinAFL&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xC5EC; &#xBC1C;&#xACAC;&#xB41C; &#xCDE8;&#xC57D;&#xC810; &#xC911; &#xD558;&#xB098;&#xC778; CVE-2021-1665: GDI+ &#xC6D0;&#xACA9; &#xCF54;&#xB4DC; &#xC2E4;&#xD589; &#xCDE8;&#xC57D;&#xC810;&#xC5D0; &#xB300;&#xD55C; root cause &#xBD84;&#xC11D;&#xC5D0; &#xB300;&#xD574; &#xC790;&#xC138;&#xD788; &#xC124;&#xBA85;&#xD569;&#xB2C8;&#xB2E4;. &#xD574;&#xB2F9; &#xCDE8;&#xC57D;&#xC810;&#xC740; 2021&#xB144; 1&#xC6D4;&#xC5D0; Microsoft &#xD328;&#xCE58;&#xB85C; &#xD574;&#xACB0;&#xB418;&#xC5C8;&#xC2B5;&#xB2C8;&#xB2E4;.</p><h1 id="What-is-WinAFL"><a href="#What-is-WinAFL" class="headerlink" title="What is WinAFL?"></a>What is WinAFL?</h1><p>WinAFL&#xC740; &#xB110;&#xB9AC; &#xC0AC;&#xC6A9;&#xB418;&#xB294; Linux AFL &#xD37C;&#xC800;&#xC758; Windows &#xD3EC;&#xB4DC; &#xBC84;&#xC804;&#xC774;&#xBA70; Google Project Zero&#xC758; Ivan Fratric&#xC5D0; &#xC758;&#xD574; &#xC720;&#xC9C0; &#xAD00;&#xB9AC;&#xB429;&#xB2C8;&#xB2E4;. WinAFL&#xC740; DynamoRIO&#xB97C; &#xD1B5;&#xD55C; &#xBC14;&#xC774;&#xB108;&#xB9AC; Instrumentation&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xBA70; Harness&#xB77C; &#xBD88;&#xB9AC;&#xB294; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC744; &#xC694;&#xAD6C;&#xD569;&#xB2C8;&#xB2E4;. Harness&#xB294; &#xC6B0;&#xB9AC;&#xAC00; &#xD37C;&#xC9D5;&#xD558;&#xACE0;&#xC790; &#xD558;&#xB294; API&#xB97C; &#xD638;&#xCD9C;&#xD558;&#xB294; &#xB2E8;&#xC21C;&#xD55C; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC5D0; &#xBD88;&#xACFC;&#xD569;&#xB2C8;&#xB2E4;.</p><p>&#xC800;&#xD76C;&#xAC00; &#xC0AC;&#xC6A9;&#xD560; Harness&#xB294; WinAFL&#xACFC; &#xD568;&#xAED8; &#xC81C;&#xACF5;&#xB429;&#xB2C8;&#xB2E4;. &#xCF54;&#xB4DC;&#xC5D0;&#xC11C; &#xC8FC;&#xC11D; &#xCC98;&#xB9AC;&#xB41C; &#x201C;Image&#x2192;GetThumbnailImage&#x201D; &#xCF54;&#xB4DC;&#xB97C; &#xD65C;&#xC131;&#xD654;&#xD569;&#xB2C8;&#xB2E4;. &#xB2E4;&#xC74C;&#xC740; GDI+ &#xC774;&#xBBF8;&#xC9C0;&#xB97C; &#xD37C;&#xC9D5;&#xD558;&#xB294; harness &#xCF54;&#xB4DC;&#xC640; GetThumbnailImage API&#xC785;&#xB2C8;&#xB2E4;.</p><p><img src="/2021/09/05/fabu1ous/gdi/1.png" alt></p><p>&#xBCF4;&#xC2DC;&#xB2E4;&#xC2DC;&#xD53C; &#xC774; &#xC791;&#xC740; &#xCF54;&#xB4DC;&#xB294; &#xC81C;&#xACF5;&#xB41C; &#xC785;&#xB825; &#xD30C;&#xC77C;&#xC5D0;&#xC11C; &#xC0C8; &#xC774;&#xBBF8;&#xC9C0; &#xAC1D;&#xCCB4;&#xB97C; &#xB9CC;&#xB4E0; &#xB2E4;&#xC74C; &#xB610; &#xB2E4;&#xB978; &#xAE30;&#xB2A5;&#xC744; &#xD638;&#xCD9C;&#xD558;&#xC5EC; &#xCD95;&#xC18C;&#xB41C; &#xC774;&#xBBF8;&#xC9C0;&#xB97C; &#xC0DD;&#xC131;&#xD569;&#xB2C8;&#xB2E4;. &#xB2E4;&#xC591;&#xD55C; Windows &#xC751;&#xC6A9;&#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC5D0;&#xC11C; &#xC378;&#xB124;&#xC77C; &#xC774;&#xBBF8;&#xC9C0;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xC774;&#xB294; &#xC544;&#xC8FC; &#xD6CC;&#xC735;&#xD55C; &#xACF5;&#xACA9; &#xBC31;&#xD130;&#xC785;&#xB2C8;&#xB2E4;. &#xB610;&#xD55C; &#xC0AC;&#xC6A9;&#xC790; &#xC0C1;&#xD638; &#xC791;&#xC6A9;&#xC774; &#xAC70;&#xC758; &#xD544;&#xC694;&#xD558;&#xC9C0; &#xC54A;&#xC73C;&#xBBC0;&#xB85C; GDI+&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xACE0; GetThumbnailImage API&#xB97C; &#xD638;&#xCD9C;&#xD558;&#xB294; &#xC18C;&#xD504;&#xD2B8;&#xC6E8;&#xC5B4;&#xB294; &#xCDE8;&#xC57D;&#xD569;&#xB2C8;&#xB2E4;.</p><h1 id="Collecting-Corpus"><a href="#Collecting-Corpus" class="headerlink" title="Collecting Corpus:"></a>Collecting Corpus:</h1><p>&#xC88B;&#xC740; corpus&#xB294; &#xD37C;&#xC9D5;&#xC744; &#xC704;&#xD55C; &#xD0C4;&#xD0C4;&#xD55C; &#xAE30;&#xBC18;&#xC744; &#xC81C;&#xACF5;&#xD569;&#xB2C8;&#xB2E4;. Google&#xB610;&#xB294; Github&#xC744; &#xC0AC;&#xC6A9;&#xD574; &#xC218;&#xC9D1;&#xD560; &#xC218; &#xC788;&#xC73C;&#xBA70;, &#xB2E4;&#xB978; &#xCDE8;&#xC57D;&#xC810;&#xC5D0; &#xB300;&#xD574; &#xB9B4;&#xB9AC;&#xC2A4; &#xB41C; &#xB2E4;&#xC591;&#xD55C; &#xACF5;&#xC6A9; EMP &#xD30C;&#xC77C;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xB294; &#xCD94;&#xAC00; &#xD14C;&#xC2A4;&#xD2B8; corpus&#xB97C; &#xC5BB;&#xC744; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. Microsoft &#xC0AC;&#xC774;&#xD2B8;&#xC5D0;&#xC11C; &#xC81C;&#xACF5;&#xB41C; &#xC0D8;&#xD50C; &#xCF54;&#xB4DC;&#xB97C; &#xBCC0;&#xACBD;&#xD558;&#xC5EC; &#xBA87; &#xAC1C;&#xC758; &#xD14C;&#xC2A4;&#xD2B8; &#xD30C;&#xC77C;&#xC744; &#xC0DD;&#xC131;&#xD588;&#xC2B5;&#xB2C8;&#xB2E4;. &#xB2E4;&#xC74C; &#xCF54;&#xB4DC;&#xB294; EMFPlusDrawString &#xBC0F; &#xAE30;&#xD0C0; &#xB808;&#xCF54;&#xB4DC;&#xB85C; EMF &#xD30C;&#xC77C;&#xC744; &#xC0DD;&#xC131;&#xD55C; &#xAC83; &#xC785;&#xB2C8;&#xB2E4;.</p><p><img src="/2021/09/05/fabu1ous/gdi/2.png" alt></p><p>Ref: <a href="https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-emfplus/07bda2af-7a5d-4c0b-b996-30326a41fa57">https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-emfplus/07bda2af-7a5d-4c0b-b996-30326a41fa57</a></p><h1 id="Minimizing-Corpus"><a href="#Minimizing-Corpus" class="headerlink" title="Minimizing Corpus:"></a>Minimizing Corpus:</h1><p>&#xCD08;&#xAE30; corpus &#xD30C;&#xC77C;&#xC744; &#xC218;&#xC9D1;&#xD55C; &#xD6C4;&#xC5D0;&#xB294; &#xCD5C;&#xC18C;&#xD654;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;. &#xC774;&#xB97C; &#xC704;&#xD574; winafl-cmin.py&#xB77C;&#xB294; &#xC720;&#xD2F8;&#xB9AC;&#xD2F0;&#xB97C; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><pre><code class="hljs bash">winafl-cmin.py -D D:\\\\work\\\\winafl\\\\DynamoRIO\\\\bin32 -t 10000 -i inCorpus -o minCorpus -covtype edge -coverage_module gdiplus.dll -target_module gdiplus_hardik.exe -target_method fuzzMe -nargs 2 &#x2014; gdiplus_hardik.exe @@</code></pre><h1 id="How-does-WinAFL-work"><a href="#How-does-WinAFL-work" class="headerlink" title="How does WinAFL work?"></a>How does WinAFL work?</h1><p>WinAFL&#xC740; in-memory &#xD37C;&#xC9D5;&#xC774;&#xB77C;&#xB294; &#xAC1C;&#xB150;&#xC744; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;. &#xC6B0;&#xB9AC;&#xB294; WinAFL&#xC5D0; &#xD568;&#xC218;&#xBA85;&#xC744; &#xC81C;&#xACF5;&#xD574;&#xC57C;&#xD569;&#xB2C8;&#xB2E4;. WinAFL&#xC740; &#xD504;&#xB85C;&#xADF8;&#xB7A8; &#xC0C1;&#xD0DC;&#xB97C; &#xC800;&#xC7A5;&#xD558;&#xACE0; corpus&#xC5D0;&#xC11C; &#xD558;&#xB098;&#xC758; &#xC785;&#xB825; &#xD30C;&#xC77C;&#xC744; &#xAC00;&#xC838;&#xC640; &#xBCC0;&#xD615;(mutate)&#xC2DC;&#xD0A4;&#xACE0; &#xD568;&#xC218;&#xC5D0; &#xACF5;&#xAE09;&#xD569;&#xB2C8;&#xB2E4;.</p><p>&#xADF8;&#xB9AC;&#xACE0; &#xC0C8; &#xCF54;&#xB4DC; &#xACBD;&#xB85C;(path)&#xC5D0; &#xB3C4;&#xB2EC;&#xD558;&#xAC70;&#xB098; crash&#xAC00; &#xBC1C;&#xC0DD;&#xD558;&#xB294;&#xC9C0; &#xBAA8;&#xB2C8;&#xD130;&#xB9C1;&#xD569;&#xB2C8;&#xB2E4;. &#xC0C8;&#xB85C;&#xC6B4; path&#xB97C; &#xCC3E;&#xC73C;&#xBA74; &#xC0C8; &#xD30C;&#xC77C;&#xC744; &#xD765;&#xBBF8;&#xB85C;&#xC6B4; &#xD14C;&#xC2A4;&#xD2B8; &#xC0AC;&#xB840;&#xB85C; &#xAC04;&#xC8FC;&#xD558;&#xACE0; &#xCD94;&#xAC00; mutate &#xBD80;&#xD638;&#xB85C; &#xB300;&#xAE30;&#xC5F4;&#xC5D0; &#xC313;&#xC2B5;&#xB2C8;&#xB2E4;. crash&#xB97C; &#xBC1C;&#xACAC;&#xD558;&#xBA74; crashes &#xD3F4;&#xB354;&#xC5D0; crash&#xB97C; &#xBC1C;&#xC0DD;&#xC2DC;&#xD0A4;&#xB294; &#xD30C;&#xC77C;&#xC744; &#xC800;&#xC7A5;&#xD569;&#xB2C8;&#xB2E4;.</p><p>&#xB2E4;&#xC74C; &#xADF8;&#xB9BC;&#xC740; &#xD37C;&#xC9D5; &#xD504;&#xB984;&#xC744; &#xBCF4;&#xC5EC;&#xC90D;&#xB2C8;&#xB2E4;.</p><p><img src="/2021/09/05/fabu1ous/gdi/3.png" alt></p><h1 id="Fuzzing-with-WinAFL"><a href="#Fuzzing-with-WinAFL" class="headerlink" title="Fuzzing with WinAFL:"></a>Fuzzing with WinAFL:</h1><p>Harness &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC744; &#xCEF4;&#xD30C;&#xC77C;&#xD558;&#xACE0;, corpus&#xB97C; &#xC218;&#xC9D1;&#xD558;&#xACE0;, &#xCD5C;&#xC18C;&#xD654;&#xD55C; &#xD6C4;&#xC5D0;&#xB294; &#xC544;&#xB798; &#xBA85;&#xB839;&#xC5B4;&#xB97C; &#xC2E4;&#xD589;&#xD558;&#xC5EC; WinAFL&#xB85C; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC744; &#xD37C;&#xC9D5; &#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><pre><code class="hljs bash">afl-fuzz.exe -i minCorpus -o out -D D:\\work\\winafl\\DynamoRIO\\bin32 -t 20000 &#x2014;coverage_module gdiplus.dll -fuzz_iterations 5000 -target_module gdiplus_hardik.exe -target_offset 0x16e0 -nargs 2 &#x2014; gdiplus_hardik.exe @@</code></pre><h1 id="Results"><a href="#Results" class="headerlink" title="Results:"></a>Results:</h1><p>&#xBA87; &#xBC88;&#xC758; &#xCDA9;&#xB3CC;&#xACFC; &#xB3C5;&#xD2B9;&#xD55C; &#xCDA9;&#xB3CC; &#xD14C;&#xC2A4;&#xD2B8;&#xB97C; &#xAC70;&#xCE5C; &#xD6C4; &#x201C;gdiplus!BuiltLine::GetBaselineOffset&#x201D;&#xC5D0;&#xC11C; carsh&#xB97C; &#xBC1C;&#xACAC;&#xD588;&#xC2B5;&#xB2C8;&#xB2E4;. callstack&#xC740; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p><img src="/2021/09/05/fabu1ous/gdi/4.png" alt></p><p>&#xC704;&#xC758; &#xC774;&#xBBF8;&#xC9C0;&#xC5D0;&#xC11C; &#xBCFC; &#xC218; &#xC788;&#xB4EF;&#xC774; edx+8&#xB85C; &#xAC00;&#xB9AC;&#xD0A8; &#xBA54;&#xBAA8;&#xB9AC; &#xC8FC;&#xC18C;&#xC758; &#xB370;&#xC774;&#xD130;&#xB97C; &#xC77D;&#xC73C;&#xB824; &#xD560; &#xB54C; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC774; &#xC911;&#xB2E8;&#xB418;&#xACE0; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. ebx, ecx &#xBC0F; edx&#xC5D0; c0c0c0c0&#xC774; &#xD3EC;&#xD568;&#xB418;&#xC5B4; &#xC788;&#xB294; &#xAC83;&#xC744; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC989;, &#xD398;&#xC774;&#xC9C0; &#xD799;&#xC774; &#xBC14;&#xC774;&#xB108;&#xB9AC;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xB418;&#xB3C4;&#xB85D; &#xC124;&#xC815;&#xB418;&#xC5B4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xB610;&#xD55C; c0c0c0c0&#xC774; &#x201C;gdiplus!FullTextImager::RenderLine&#x201D; &#xD568;&#xC218;&#xC5D0; &#xB9E4;&#xAC1C; &#xBCC0;&#xC218;&#xB85C; &#xC804;&#xB2EC;&#xB418;&#xACE0; &#xC788;&#xC74C;&#xC744; &#xD655;&#xC778;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><h1 id="Patch-Diffing-to-See-If-We-Can-Find-the-Root-Cause"><a href="#Patch-Diffing-to-See-If-We-Can-Find-the-Root-Cause" class="headerlink" title="Patch Diffing to See If We Can Find the Root Cause"></a>Patch Diffing to See If We Can Find the Root Cause</h1><p>Root cause&#xB97C; &#xD30C;&#xC545;&#xD558;&#xAE30; &#xC704;&#xD574; IDA BinDiff &#xD50C;&#xB7EC;&#xADF8;&#xC778;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xC5EC; &#xD328;&#xCE58; &#xD30C;&#xC77C;&#xC758; &#xBCC0;&#xACBD; &#xC0AC;&#xD56D;&#xC744; &#xC2DD;&#xBCC4;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC6B4;&#xC774; &#xC88B;&#xB2E4;&#xBA74; &#xBCC0;&#xACBD;&#xB41C; &#xCF54;&#xB4DC;&#xB9CC; &#xBD10;&#xB3C4; &#xC6D0;&#xC778;&#xC744; &#xC27D;&#xAC8C; &#xCC3E;&#xC744; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xB530;&#xB77C;&#xC11C; gdiplus.dll &#xD328;&#xCE58;&#xB41C; &#xBC84;&#xC804;&#xACFC; &#xD328;&#xCE58;&#xB418;&#xC9C0; &#xC54A;&#xC740; &#xBC84;&#xC804;&#xC758; IDB &#xD30C;&#xC77C;&#xC744; &#xC0DD;&#xC131;&#xD55C; &#xB2E4;&#xC74C; IDA BinDiff &#xD50C;&#xB7EC;&#xADF8;&#xC778;&#xC744; &#xC2E4;&#xD589;&#xD558;&#xC5EC; &#xBCC0;&#xACBD; &#xB0B4;&#xC6A9;&#xC744; &#xD655;&#xC778;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p>&#xD328;&#xCE58;&#xAC00; &#xC801;&#xC6A9;&#xB41C; &#xD30C;&#xC77C;&#xC5D0; &#xC0C8;&#xB85C;&#xC6B4; &#xAE30;&#xB2A5;&#xC774; &#xD558;&#xB098; &#xCD94;&#xAC00;&#xB418;&#xC5C8;&#xC73C;&#xBA70; &#xC774;&#xB294; BuildLine Object&#xC758; &#xC18C;&#xBA78;&#xC790;&#xB85C; &#xBCF4;&#xC785;&#xB2C8;&#xB2E4;.</p><p><img src="/2021/09/05/fabu1ous/gdi/5.png" alt></p><p>&#xBA87;&#xBA87; &#xD568;&#xC218;&#xB4E4;&#xC758; &#xC720;&#xC0AC;&#xC131; &#xC810;&#xC218;&#xAC00; &lt; 1 &#xC778;&#xAC83;&#xC744; &#xC54C; &#xC218; &#xC788;&#xACE0; &#xADF8;&#xC911;&#xD558;&#xB098;&#xAC00; &#xBC14;&#xB85C; FullTextImager::BuildAllLines &#xC785;&#xB2C8;&#xB2E4;.</p><p><img src="/2021/09/05/fabu1ous/gdi/6.png" alt></p><p>&#xC774;&#xC81C; &#xC774; &#xD568;&#xC218;&#xAC00; &#xD328;&#xCE58;&#xB41C; &#xD568;&#xC218;&#xC778;&#xC9C0; &#xD655;&#xC778;&#xD558;&#xAE30; &#xC704;&#xD574; windbg&#xC5D0;&#xC11C; &#xD14C;&#xC2A4;&#xD2B8; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xACFC; POC&#xB97C; &#xC2E4;&#xD589;&#xD558;&#xACE0; &#xC774; &#xD568;&#xC218;&#xC5D0; &#xB300;&#xD55C; break point&#xB97C; &#xC124;&#xC815;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. break point&#xC5D0; &#xB3C4;&#xB2EC;&#xD558;&#xBA74; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC5D0;&#xC11C; &#xB354;&#xC774;&#xC0C1; crash&#xAC00; &#xBC1C;&#xC0DD;&#xD558;&#xC9C0; &#xC54A;&#xC74C;&#xC744; &#xC54C; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p><img src="/2021/09/05/fabu1ous/gdi/7.png" alt></p><p>&#xB2E4;&#xC74C;&#xC73C;&#xB85C; &#xC774; &#xCDE8;&#xC57D;&#xC810;&#xC744; &#xBCF4;&#xC644;&#xD558;&#xAE30; &#xC704;&#xD574; &#xBCC0;&#xACBD;&#xB41C; &#xD568;&#xC218;&#xC758; &#xB0B4;&#xC6A9;&#xC744; &#xD655;&#xC778;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;. &#xC6B0;&#xB9AC;&#xB294; &#xD568;&#xC218;&#xC758; &#xD750;&#xB984; &#xADF8;&#xB798;&#xD504;&#xB97C; &#xD655;&#xC778;&#xD574; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xAC83;&#xC744; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC548;&#xD0C0;&#xAE5D;&#xAC8C;&#xB3C4; &#xBCC0;&#xACBD; &#xC0AC;&#xD56D;&#xC774; &#xB108;&#xBB34; &#xB9CE;&#xC544; &#xCC28;&#xC774;&#xC810;&#xB9CC; &#xBCF4;&#xACE0; &#xCDE8;&#xC57D;&#xC810;&#xC744; &#xC2DD;&#xBCC4;&#xD560; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p><img src="/2021/09/05/fabu1ous/gdi/8.png" alt></p><p>&#xC67C;&#xCABD;&#xC740; &#xD328;&#xCE58;&#xB418;&#xC9C0; &#xC54A;&#xC740; &#xBC84;&#xC804;, &#xC624;&#xB978;&#xCABD;&#xC740; &#xD328;&#xCE58;&#xB41C; &#xBC84;&#xC804;&#xC758; dll&#xC785;&#xB2C8;&#xB2E4;.</p><ul><li>&#xB179;&#xC0C9;&#xC740; &#xD328;&#xCE58;&#xB41C; &#xBE14;&#xB85D;&#xACFC; &#xD328;&#xCE58;&#xB418;&#xC9C0; &#xC54A;&#xC740; &#xBE14;&#xB85D;&#xC774; &#xB3D9;&#xC77C;&#xD568;&#xC744; &#xB73B;&#xD569;&#xB2C8;&#xB2E4;.</li><li>&#xB178;&#xB780;&#xC0C9; &#xBE14;&#xB85D;&#xC740; &#xB450; &#xBC84;&#xC804; &#xC0AC;&#xC774;&#xC5D0; &#xC0AC;&#xC18C;&#xD55C; &#xBCC0;&#xACBD;&#xC810;&#xC774; &#xC788;&#xC744;&#xC744; &#xB73B;&#xD569;&#xB2C8;&#xB2E4;.</li><li>&#xBE68;&#xAC04; &#xBE14;&#xB85D;&#xC740; dll &#xAC04;&#xC5D0; &#xCC28;&#xC774;&#xC810;&#xC744; &#xB73B;&#xD569;&#xB2C8;&#xB2E4;.</li></ul><p>&#xB178;&#xB780;&#xC0C9; &#xBE14;&#xB85D;&#xC744; &#xC880;&#xB354; &#xC790;&#xC138;&#xD788; &#xB4E4;&#xC5EC;&#xB2E4; &#xBCF4;&#xBA74; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xAC83;&#xC744; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p><img src="/2021/09/05/fabu1ous/gdi/9.png" alt></p><p>&#xBA87; &#xAC00;&#xC9C0; &#xBCC0;&#xACBD; &#xC0AC;&#xD56D;&#xC744; &#xD655;&#xC778;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xD328;&#xCE58;&#xB41C; DLL&#xC5D0;&#xC11C; &#xC77C;&#xBD80; &#xBE14;&#xB85D;&#xC774; &#xC81C;&#xAC70; &#xB418;&#xC5C8;&#xC73C;&#xBBC0;&#xB85C; patch diffing&#xB9CC;&#xC73C;&#xB85C;&#xB294; &#xD574;&#xB2F9; &#xCDE8;&#xC57D;&#xC810;&#xC758; root cause&#xB97C; &#xC2DD;&#xBCC4;&#xD558;&#xAE30;&#xC5D0; &#xCDA9;&#xBD84;&#xD558;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;. &#xADF8;&#xB7EC;&#xB098; windbg&#xC640; &#xAC19;&#xC740; &#xB2E4;&#xB978; &#xB514;&#xBC84;&#xAE45; &#xBC29;&#xBC95;&#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xB54C; &#xC5B4;&#xB514;&#xC5D0;&#xC11C; &#xBB34;&#xC5C7;&#xC744; &#xCC3E;&#xC544;&#xC57C; &#xD558;&#xB294;&#xC9C0;&#xC5D0; &#xB300;&#xD55C; &#xADC0;&#xC911;&#xD55C; &#xD78C;&#xD2B8;&#xB97C; &#xC81C;&#xACF5;&#xD569;&#xB2C8;&#xB2E4;. &#xC704;&#xC758; BinDiff &#xCD9C;&#xB825;&#xC5D0;&#xC11C; &#xBA87; &#xAC00;&#xC9C0; &#xAD00;&#xCC30; &#xACB0;&#xACFC;&#xB97C; &#xD655;&#xC778;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><ul><li>&#xD328;&#xCE58;&#xB418;&#xC9C0; &#xC54A;&#xC740; DLL&#xC5D0;&#xC11C; &#xC8FC;&#xC758; &#xAE4A;&#xAC8C; &#xD655;&#xC778;&#xD558;&#xBA74; &#x201C;GetuntrimmedCharacterCount&#x201D; &#xD568;&#xC218;&#xC5D0; &#xB300;&#xD55C; &#xD638;&#xCD9C;&#xC774; &#xC788;&#xACE0; &#xB098;&#xC911;&#xC5D0; &#x201C;SetSpan::SpanVector&#x201D;&#xD568;&#xC218;&#xB97C; &#xD638;&#xCD9C;&#xD569;&#xB2C8;&#xB2E4;.</li><li>&#xD328;&#xCE58;&#xB41C; DLL&#xC5D0;&#xC11C; EAX &#xB808;&#xC9C0;&#xC2A4;&#xD130; &#xB0B4;&#xC5D0; &#xC800;&#xC7A5;&#xB41C; &#xBC18;&#xD658; &#xAC12;&#xC744; &#xBCF4;&#xBA74; &#x201C;GetuntrimmedCharacterCount&#x201D; &#xD638;&#xCD9C;&#xC774; &#xC788;&#xC74C;&#xC744; &#xD655;&#xC778;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. 0&#xC774;&#xBA74; &#xCEE8;&#xD2B8;&#xB864;&#xC774; &#xB2E4;&#xB978; &#xC704;&#xCE58;(BuiltLine Object&#xC758; &#xC18C;&#xBA78;&#xC790;)&#xB85C; &#xC810;&#xD504;&#xD569;&#xB2C8;&#xB2E4;. &#xC774;&#xCF54;&#xB4DC;&#xB294; &#xD328;&#xCE58;&#xB41C; DLL&#xC5D0; &#xC0C8;&#xB85C; &#xCD94;&#xAC00;&#xB418;&#xC5C8;&#xC2B5;&#xB2C8;&#xB2E4;.</li></ul><p><img src="/2021/09/05/fabu1ous/gdi/10.png" alt></p><p>&#xB530;&#xB77C;&#xC11C; &#xC5EC;&#xAE30;&#xC11C; &#xCDE8;&#xC57D;&#xC810;&#xC774; &#xD574;&#xACB0;&#xB418;&#xC5C8;&#xB2E4;&#xACE0; &#xAC00;&#xC815;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC774;&#xC81C; &#xB2E4;&#xC74C; &#xC0AC;&#xD56D;&#xB4E4;&#xC744; &#xD30C;&#xC545;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</p><ol><li>&#xC81C;&#xACF5;&#xB41C; POC &#xD30C;&#xC77C;&#xACFC; &#xD568;&#xAED8; &#xC6B0;&#xB9AC; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC774; &#xC911;&#xB2E8;&#xB418;&#xB294; &#xC774;&#xC720;&#xB294; &#xBB54;&#xAC00;?</li><li>&#xD30C;&#xC77C;&#xC758; &#xC5B4;&#xB5A4; &#xD544;&#xB4DC;&#xC5D0; &#xC758;&#xD574; crash&#xAC00; &#xBC1C;&#xC0DD;&#xD558;&#xB294;&#xAC00;?</li><li>&#xD544;&#xB4DC;&#xC758; &#xAC12;&#xC774; &#xBB54;&#xAC00;?</li><li>&#xC774; crash&#xB97C; &#xC77C;&#xC73C;&#xD0A4;&#xB294; &#xD504;&#xB85C;&#xADF8;&#xB7A8; &#xC870;&#xAC74;&#xC740; &#xBB34;&#xC5C7;&#xC778;&#xAC00;?</li><li>&#xC5B4;&#xB5BB;&#xAC8C; &#xCDE8;&#xC57D;&#xC810;&#xC774; &#xBCF4;&#xC644;&#xB418;&#xC5C8;&#xB098;?</li></ol><h1 id="EMF-File-Format"><a href="#EMF-File-Format" class="headerlink" title="EMF File Format:"></a>EMF File Format:</h1><p>EMF&#xB294; &#xADF8;&#xB798;&#xD53D; &#xC774;&#xBBF8;&#xC9C0; &#xC7A5;&#xCE58;&#xB97C; &#xB3C5;&#xB9BD;&#xC801;&#xC73C;&#xB85C; &#xC800;&#xC7A5;&#xD558;&#xB294; &#xB370; &#xC0AC;&#xC6A9;&#xB418;&#xB294; &#xD5A5;&#xC0C1;&#xB41C; &#xBA54;&#xD0C0; &#xD30C;&#xC77C; &#xD615;&#xC2DD;&#xC774;&#xB77C;&#xACE0;&#xB3C4; &#xD569;&#xB2C8;&#xB2E4;. EMF &#xD30C;&#xC77C;&#xC740; &#xAC00;&#xBCC0; &#xAE38;&#xC774;&#xC758; &#xB2E4;&#xC591;&#xD55C; &#xB808;&#xCF54;&#xB4DC;&#xB85C; &#xAD6C;&#xC131;&#xB429;&#xB2C8;&#xB2E4;. &#xC5EC;&#xAE30;&#xC5D0;&#xB294; &#xB2E4;&#xC591;&#xD55C; &#xADF8;&#xB798;&#xD53D; &#xAC1D;&#xCCB4;&#xC758; &#xC815;&#xC758;, &#xB3C4;&#xBA74; &#xBA85;&#xB839; &#xBC0F; &#xAE30;&#xD0C0; &#xADF8;&#xB798;&#xCE59; &#xD2B9;&#xC131;&#xC774; &#xD3EC;&#xD568;&#xB3C4;&#xB9AC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p><img src="/2021/09/05/fabu1ous/gdi/11.png" alt></p><p>&#xC77C;&#xBC18;&#xC801;&#xC73C;&#xB85C; EMF &#xD30C;&#xC77C;&#xC740; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xB808;&#xCF54;&#xB4DC;&#xB85C; &#xAD6C;&#xC131;&#xB429;&#xB2C8;&#xB2E4;.</p><ol><li>EMF &#xD5E4;&#xB354; - EMF &#xAD6C;&#xC870;&#xC5D0; &#xB300;&#xD55C; &#xC815;&#xBCF4;&#xAC00; &#xD3EC;&#xD568;&#xB418;&#xC5B4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</li><li>EMF &#xB808;&#xCF54;&#xB4DC; - &#xADF8;&#xB798;&#xD53D; &#xD2B9;&#xC815;, &#xB3C4;&#xBA74; &#xC21C;&#xC11C; &#xB4F1;&#xC5D0; &#xB300;&#xD55C; &#xC815;&#xBCF4;&#xB97C; &#xD3EC;&#xD568;&#xD558;&#xB294; &#xB2E4;&#xC591;&#xD55C; &#xAC00;&#xBCC0; &#xAE38;&#xC774; &#xB808;&#xCF54;&#xB4DC;&#xC77C; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</li><li>EMFEOF &#xB808;&#xCF54;&#xB4DC; - EMF &#xD30C;&#xC77C;&#xC758; &#xB9C8;&#xC9C0;&#xB9C9; &#xB808;&#xCF54;&#xB4DC;&#xC785;&#xB2C8;&#xB2E4;.</li><li>EMF &#xD30C;&#xC77C; &#xD615;&#xC2DD;&#xC758; &#xC790;&#xC138;&#xD55C; &#xC0AC;&#xC591;&#xC740; Microsoft &#xC0AC;&#xC774;&#xD2B8;&#xC5D0;&#xC11C; &#xB2E4;&#xC74C; URL&#xC744; &#xD1B5;&#xD574; &#xD655;&#xC778;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</li></ol><p><a href="https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-emf/91c257d7-c39d-4a36-9b1f-63e3f73d30ca">https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-emf/91c257d7-c39d-4a36-9b1f-63e3f73d30ca</a></p><h1 id="Locating-the-Vulnerable-Record-in-the-EMF-File"><a href="#Locating-the-Vulnerable-Record-in-the-EMF-File" class="headerlink" title="Locating the Vulnerable Record in the EMF File:"></a>Locating the Vulnerable Record in the EMF File:</h1><p>&#xC77C;&#xBC18;&#xC801;&#xC73C;&#xB85C; EMF&#xC758; &#xB300;&#xBD80;&#xBD84;&#xC758; &#xBB38;&#xC81C;&#xB294; &#xC798;&#xBABB;&#xB41C; &#xD615;&#xC2DD;&#xC758; &#xB808;&#xCF54;&#xB4DC;&#xB098; &#xC190;&#xC0C1;&#xB41C; &#xB808;&#xCF54;&#xB4DC; &#xB54C;&#xBB38;&#xC785;&#xB2C8;&#xB2E4;. &#xC5B4;&#xB5A4; &#xB808;&#xCF54;&#xB4DC; &#xD0C0;&#xC785;&#xC774; &#xC774; crash&#xB97C; &#xC77C;&#xC73C;&#xCF30;&#xB294;&#xC9C0; &#xC54C;&#xC544;&#xB0B4;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;. &#xC774;&#xB97C; &#xC704;&#xD574; Call stack&#xC744; &#xC0B4;&#xD3B4;&#xBCF4;&#xBA74; &#xB2E4;&#xC74C;&#xC744; &#xD655;&#xC778;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p><img src="/2021/09/05/fabu1ous/gdi/12.png" alt></p><p>&#x201C;gdiplus!GdiPlayMetafileRecordCallback&#x201D;&#xC5D0; &#xB300;&#xD55C; &#xD638;&#xCD9C;&#xC744; &#xD655;&#xC778; &#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p><img src="/2021/09/05/fabu1ous/gdi/13.png" alt></p><p>&#xD574;&#xB2F9; &#xD568;&#xC218;&#xC5D0; break point&#xB97C; &#xAC78;&#xACE0; &#xB9E4;&#xAC1C; &#xBCC0;&#xC218;&#xB97C; &#xBCF4;&#xBA74; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xC0AC;&#xC2E4;&#xC744; &#xC54C; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p><img src="/2021/09/05/fabu1ous/gdi/14.png" alt></p><p>EDX&#xC5D0; &#xC77C;&#xBD80; &#xBA54;&#xBAA8;&#xB9AC; &#xC8FC;&#xC18C;&#xAC00; &#xD3EC;&#xD568;&#xB418;&#xC5B4; &#xC788;&#xC73C;&#xBA70;, &#xC774; &#xAE30;&#xB2A5;&#xC5D0; &#xC9C0;&#xC815;&#xB41C; &#xB9E4;&#xAC1C; &#xBCC0;&#xC218;&#xB294; 00x00401c,0x00000000, 0x00000044 &#xC785;&#xB2C8;&#xB2E4;.</p><p>&#xB610;&#xD55C; EDX&#xAC00; &#xAC00;&#xB9AC;&#xD0A4;&#xB294; &#xC704;&#xCE58;&#xB97C; &#xD655;&#xC778;&#xD574;&#xBCF4;&#xBA74; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xAC83;&#xC744; &#xC54C; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p><img src="/2021/09/05/fabu1ous/gdi/15.png" alt></p><p>POC EMF &#xD30C;&#xC77C;&#xC744; &#xD655;&#xC778;&#xD558;&#xBA74; &#xC774; &#xB370;&#xC774;&#xD130;&#xAC00; &#xD30C;&#xC77C;&#xC758; &#xC624;&#xD504;&#xC14B; 0x15c&#xC5D0; &#xC18D;&#xD568;&#xC744; &#xC54C; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p><img src="/2021/09/05/fabu1ous/gdi/16.png" alt></p><p>EMF &#xADDC;&#xACA9;&#xC744; &#xAC80;&#xD1A0;&#xD558;&#xACE0; &#xB808;&#xCF54;&#xB4DC;&#xB97C; &#xC218;&#xB3D9;&#xC73C;&#xB85C; &#xBD84;&#xC11D;&#xD558;&#xBA74; &#xC774; &#xB808;&#xCF54;&#xB4DC;&#xAC00; &#x201C;EmfPlusDrawString&#x201D; &#xB808;&#xCF54;&#xB4DC;&#xC784;&#xC744; &#xC27D;&#xAC8C; &#xC54C; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC774; &#xB808;&#xCF54;&#xB4DC;&#xC758; &#xD615;&#xC2DD;&#xC740; &#xB2E4;&#xBBD5;&#xACFC; &#xAC19;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p><img src="/2021/09/05/fabu1ous/gdi/17.png" alt></p><p>&#xC6B0;&#xB9AC;&#xC758; &#xACBD;&#xC6B0;&#xC5D0;&#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p>&#xB808;&#xCF54;&#xB4DC; &#xC720;&#xD615; = 0xeccEmfPlusDrawString &#xB808;&#xCF54;&#xB4DC;</p><p>flag = 0x0000</p><p>Size = 0x50</p><p>Data size = 0x44</p><p>Brushid = 0x02</p><p>Format id = 0x01</p><p>Length = 0x14</p><p>Layoutrect = 00 00 00 00 00 00 00 00 FC FF C7 42 00 00 80 FF</p><p>String data =</p><p><img src="/2021/09/05/fabu1ous/gdi/18.png" alt></p><p>&#xC774;&#xC81C; crash&#xB97C; &#xBC1C;&#xC0DD;&#xC2DC;&#xD0A4;&#xB294; &#xB808;&#xCF54;&#xB4DC;&#xB97C; &#xCC3E;&#xC558;&#xC73C;&#xB2C8;, &#xB2E4;&#xC74C; &#xBB38;&#xC81C;&#xB294; &#xC65C; &#xC6B0;&#xB9AC; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC774; crash&#xB098;&#xB294;&#xC9C0; &#xC54C;&#xC544;&#xB0B4;&#xB294; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;. &#xCF54;&#xB4DC;&#xB97C; &#xB514;&#xBC84;&#xADF8; &#xD558;&#xACE0; &#xD559;&#xC778;&#xD558;&#xBA74; &#xCEE8;&#xD2B8;&#xB864;&#xC774; &#x201C;gdiplus!FullTextImager::BuildAlllines&#x201D;&#xC774; &#xB3C4;&#xB2EC;&#xD558;&#xB294; &#xAC83;&#xC744; &#xC54C; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p><img src="/2021/09/05/fabu1ous/gdi/19.png" alt></p><p>&#xB2E4;&#xC74C; &#xB2E4;&#xC774;&#xC5B4;&#xADF8;&#xB7A8;&#xC740; &#xD568;&#xC218; &#xD638;&#xCD9C;&#xC758; hierarchy&#xB97C; &#xB098;&#xD0C0;&#xB0C5;&#xB2C8;&#xB2E4;.</p><p><img src="/2021/09/05/fabu1ous/gdi/20.png" alt></p><h1 id="The-execution-flow-in-summary"><a href="#The-execution-flow-in-summary" class="headerlink" title="The execution flow in summary:"></a>The execution flow in summary:</h1><ol><li>&#x201C;Builtline::BuildAllLines&#x201D; &#xD568;&#xC218; &#xB0B4;&#xBD80;&#xC5D0; 0x60 &#xBC14;&#xC774;&#xD2B8;&#xC758; &#xBA54;&#xBAA8;&#xB9AC;&#xB97C; &#xD560;&#xB2F9;&#xD558;&#xB294; &#xB8E8;&#xD504;&#xAC00; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xADF8; &#xB2E4;&#xC74C; &#x201C;Buildline::BuildLine&#x201D;&#xB97C; &#xD638;&#xCD9C;&#xD569;&#xB2C8;&#xB2E4;.</li><li>&#x201C;Buildline::Buildline&#x201D;&#xC740; &#xC0C8;&#xB85C; &#xD560;&#xB2F9;&#xB41C; &#xBA54;&#xBAA8;&#xB9AC;&#xC5D0; &#xB370;&#xC774;&#xD130;&#xB97C; &#xC62E;&#xAE30;&#xACE0; &#x201C;BuiltLine::GetUntrimmedCharacterCount&#x201D;&#xB97C; &#xD638;&#xCD9C;&#xD569;&#xB2C8;&#xB2E4;.</li><li>&#x201C;BuiltLine::GetUntrimmedCharacterCount&#x201D;&#xC758; &#xB9AC;&#xD134; &#xAC12;&#xC740; &#xB8E8;&#xD504; &#xCE74;&#xC6B4;&#xD2B8;&#xB85C; ECX&#xC5D0; &#xD574;&#xB2F9;&#xD569;&#xB2C8;&#xB2E4;. &#xD574;&#xB2F9; &#xB8E8;&#xD504;&#xB294; &#xB3CC;&#xBA70; ECX&#xAC00; string length(EAX) == 0x14&#xAC00; &#xB420; &#xB54C;&#xAE4C;&#xC9C0; &#xBC18;&#xBCF5;&#xD569;&#xB2C8;&#xB2E4;.</li><li>&#xB8E8;&#xD504; &#xCE74;&#xC6B4;&#xD2B8;&#xAC00; 0&#xC77C; &#xB54C; &#xC2DC;&#xC791;&#xD574; 0x13&#xC77C; &#xB54C; &#xC885;&#xB8CC;&#xB429;&#xB2C8;&#xB2E4;. &#xC989;, &#x201C;GetUntrimmedCharacterCount&#x201D;&#xAC00; 0&#xC77C; &#xB54C; &#xC885;&#xB8CC;&#xB429;&#xB2C8;&#xB2E4;.</li><li>DLL&#xC758; &#xCDE8;&#xC57D;&#xC810;&#xC740; &#xD574;&#xB2F9; &#xB8E8;&#xD504;&#xAC00; &#xC815;&#xC0C1;&#xC801;&#xC73C;&#xB85C; &#xC885;&#xB8CC;&#xB418;&#xC9C0; &#xC54A;&#xC544; &#xBC1C;&#xC0DD;&#xD569;&#xB2C8;&#xB2E4;. &#x201C;BuiltLine::GetUntrimmedCharacterCount&#x201D;&#xAC00; 0&#xC744; &#xBC18;&#xD658;&#xD558;&#xACE0; &#xB8E8;&#xD504;&#xCE74;&#xC6B4;&#xD130;(ECX)&#xC5D0; &#xB354;&#xD574;&#xC9C0;&#xB294;&#xB370;, &#xC774;&#xB294; ECX&#xC758; &#xAC12;&#xC744; &#xC99D;&#xAC00;&#xC2DC;&#xD0A4;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;. 0x60 &#xBC14;&#xC774;&#xD2B8;&#xC758; &#xBA54;&#xBAA8;&#xB9AC;&#xB97C; &#xD560;&#xB2F9;&#xD558;&#xACE0; &#xB370;&#xC774;&#xD130;&#xB97C; &#xC624;&#xC5FC;&#xC2DC;&#xCF1C; &#xB098;&#xC911;&#xC5D0; crash&#xB97C; &#xBC1C;&#xC0DD;&#xC2DC;&#xD0B5;&#xB2C8;&#xB2E4;. 20&#xBC88; &#xB3CC;&#xC544;&#xC57C;&#xD560; &#xB8E8;&#xD504;&#xAC00; &#xCD1D; 21&#xBC88; &#xB3CC;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.</li></ol><h1 id="In-detail"><a href="#In-detail" class="headerlink" title="In detail:"></a>In detail:</h1><ol><li>&#x201C;Builtline::BuildAllLines&#x201D; &#xB0B4;&#xBD80;&#xC5D0;&#xC11C; 0x60(90) &#xBC14;&#xC774;&#xD2B8;&#xC758; &#xBA54;&#xBAA8;&#xB9AC;&#xB97C; &#xD560;&#xB2F9;&#xD569;&#xB2C8;&#xB2E4;.</li></ol><p><img src="/2021/09/05/fabu1ous/gdi/21.png" alt></p><ol><li>&#xADF8;&#xB7F0; &#xB2E4;&#xC74C; &#x201C;BuiltLine::BuiltLine&#x201D;&#xB97C; &#xD638;&#xCD9C;&#xD574; &#xC0C8;&#xB85C; &#xD560;&#xB2F9;&#xB41C; &#xBA54;&#xBAA8;&#xB9AC;&#xC5D0; &#xB370;&#xC774;&#xD130;&#xB97C; &#xC62E;&#xAE41;&#xB2C8;&#xB2E4;.</li></ol><p><img src="/2021/09/05/fabu1ous/gdi/22.png" alt></p><ol><li>&#xC774;&#xB294; while &#xB8E8;&#xD504; &#xC548;&#xC5D0; &#x201C;BuiltLine::GetUntrimmedCharacterCount&#x201D;&#xC5D0;&#xC11C; &#xBC1C;&#xC0DD;&#xD569;&#xB2C8;&#xB2E4;.</li><li>&#x201C;BuiltLine::GetUntrimmedCharacterCount&#x201D;&#xC758; &#xBC18;&#xD658;&#xAC12;&#xC740; 0x12ff2ec&#xC5D0; &#xC800;&#xC7A5;&#xB429;&#xB2C8;&#xB2E4;. &#xC544;&#xB798; &#xC0AC;&#xC9C4;&#xC5D0;&#xC11C; &#xBCFC; &#xC218; &#xC788;&#xB4DC;&#xC2DC; &#xD574;&#xB2F9; &#xAC12;&#xC740; 1&#xC774; &#xB429;&#xB2C8;&#xB2E4;.</li></ol><p><img src="/2021/09/05/fabu1ous/gdi/23.png" alt></p><ol><li>&#xD574;&#xB2F9; &#xAC12;&#xC740; ECX&#xC5D0; &#xB354;&#xD574;&#xC9D1;&#xB2C8;&#xB2E4;.</li></ol><p><img src="/2021/09/05/fabu1ous/gdi/24.png" alt></p><ol><li>ecx&#xAC00; eax&#xBCF4;&#xB2E4; &#xC791;&#xC740;&#xC9C0;&#xC5D0; &#xB300;&#xD55C; &#xAC80;&#xC0AC;&#xAC00; &#xC774;&#xB8E8;&#xC5B4;&#xC9D1;&#xB2C8;&#xB2E4;. &#xB9CC;&#xC57D; &#xCC38;&#xC774;&#xB77C;&#xBA74; &#xB8E8;&#xD504;&#xB97C; &#xBC18;&#xBCF5;&#xD558;&#xACE0;, &#xAC70;&#xC9D3;&#xC774;&#xB77C;&#xBA74; &#xB2E4;&#xB978; &#xC9C0;&#xC810;&#xC73C;&#xB85C; &#xC810;&#xD504;&#xD569;&#xB2C8;&#xB2E4;.</li></ol><p><img src="/2021/09/05/fabu1ous/gdi/25.png" alt></p><ol><li>&#xCDE8;&#xC57D;&#xC810; &#xBC84;&#xC804;&#xC5D0;&#xC11C;&#xB294; &#x201C;BuiltLine::GetUntrimmedCharacterCount&#x201D;&#xC758; &#xBC18;&#xD658;&#xAC12;&#xC774; 0&#xC77C; &#xB54C; &#xB8E8;&#xD504;&#xAC00; &#xC874;&#xC7AC;&#xD558;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC774;&#xB294; ECX&#xC5D0; 0&#xC774; &#xCD94;&#xAC00;&#xB418;&#xACE0; ECX&#xAC12;&#xC774; &#xC99D;&#xAC00;&#xD558;&#xC9C0; &#xC54A;&#xC74C;&#xC744; &#xC758;&#xBBF8;&#xD569;&#xB2C8;&#xB2E4;. &#xB530;&#xB77C;&#xC11C; 20&#xBC88; &#xB3CC;&#xC544;&#xC57C; &#xD560; &#xB8E8;&#xD504;&#xAC00; &#xCD1D; 21&#xBC88; &#xC2E4;&#xD589;&#xB418;&#xACE0; &#xC774;&#xAC83;&#xC774; root cause&#xC785;&#xB2C8;&#xB2E4;.</li></ol><p>&#xB610;&#xD55C; &#xC57D;&#xAC04;&#xC758; &#xB514;&#xBC84;&#xAE45;&#xC744; &#xD558;&#xBA74; &#xD574;&#xB2F9; &#xAC12;&#xC740; POC &#xD30C;&#xC77C;&#xC758; 0x174&#xB85C; &#xBD80;&#xD130; &#xC77D;&#xC5B4;&#xB4DC;&#xB9BC;&#xC744; &#xC54C; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p><img src="/2021/09/05/fabu1ous/gdi/26.png" alt><em>**</em></p><p>&#xC804;&#xC5D0;&#xB3C4; &#xD655;&#xC778;&#xD588;&#xB4DC;&#xC2DC; &#xD574;&#xB2F9; &#xC624;&#xD504;&#xC14B;&#xC740; EmfPlusDrawString &#xB808;&#xCF54;&#xB4DC;&#xC774;&#xACE0; 0x14&#xB294; &#xC555;&#xC5D0;&#xC11C; &#xC5B8;&#xAE09;&#xD55C; &#xAE38;&#xC774;&#xC785;&#xB2C8;&#xB2E4;.</p><p>&#xB098;&#xC911;&#xC5D0; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC774; &#x201C;FullTextImager::Render&#x201D;&#xD568;&#xC218;&#xC5D0; &#xB3C4;&#xB2EC;&#xD558;&#xBA74; &#xC0AC;&#xC6A9;&#xD558;&#xC9C0; &#xC54A;&#xB294; &#xBA54;&#xBAA8;&#xB9AC;&#xB85C; &#xBD80;&#xD130; &#xAC12;&#xC744; &#xC77D;&#xC5B4;&#xB4E4;&#xC5EC; EAX &#xAC12;&#xC744; &#xC190;&#xC0C1;&#xC2DC;&#xD0B5;&#xB2C8;&#xB2E4;.</p><p><img src="/2021/09/05/fabu1ous/gdi/27.png" alt></p><p>&#xC774;&#xB294; &#x201C;FullTextImager::RenderLine&#x201D;&#xD568;&#xC218;&#xB85C; &#xC804;&#xB2EC;&#xB418;&#xACE0;</p><p><img src="/2021/09/05/fabu1ous/gdi/28.png" alt></p><p>&#xB098;&#xC911;&#xC5D0; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC774; &#xD574;&#xB2F9; &#xC8FC;&#xC18C;&#xB97C; &#xC811;&#xADFC;&#xD558;&#xB824; &#xD560; &#xB54C; crash&#xAC00; &#xBC1C;&#xC0DD;&#xD569;&#xB2C8;&#xB2E4;.</p><p><img src="/2021/09/05/fabu1ous/gdi/29.png" alt></p><p>EMF file&#xC18D; EmfPlusDrawString &#xB808;&#xCF54;&#xB4DC;&#xB97C; &#xCC98;&#xB9AC;&#xD560;&#xB54C; &#xC798;&#xBABB;&#xB41C; &#xBA54;&#xBAA8;&#xB9AC; &#xC8FC;&#xC18C;&#xC5D0; &#xC811;&#xADFC;&#xC744; &#xC2DC;&#xB3C4;&#xD558;&#xBA74;&#xC11C; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC758; crash&#xAC00; &#xBC1C;&#xC0DD;&#xD569;&#xB2C8;&#xB2E4;. &#xACB0;&#xB860;&#xC740; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC774; &#x201C;gdiplus!BuiltLine::GetUntrimmedCharacterCount&#x201D;&#xD568;&#xC218;&#xC758; &#xBC18;&#xD658;&#xAC12;&#xC744; &#xAC80;&#xC0AC;&#xD558;&#xC9C0; &#xC54A;&#xC544; &#xB808;&#xC9C0;&#xC2A4;&#xD130; &#xAC12;&#xC774; &#xC624;&#xC5FC;&#xB418;&#xACE0; &#xC798;&#xBABB;&#xB41C; path&#xB85C; &#xC2E4;&#xD589; &#xD750;&#xB984;&#xC774; &#xB3C4;&#xB2EC;&#xD558;&#xAC8C; &#xB418;&#xC5B4; crash&#xAC00; &#xBC1C;&#xC0DD;&#xD569;&#xB2C8;&#xB2E4;.</p><h1 id="How-this-issue-was-fixed"><a href="#How-this-issue-was-fixed" class="headerlink" title="How this issue was fixed?"></a>How this issue was fixed?</h1><p>&#xC704;&#xC758; &#xD328;&#xCE58; diff&#xB97C; &#xBCF4;&#xACE0; &#xD30C;&#xC545;&#xD55C; &#xBC14;&#xC640; &#xAC19;&#xC774;, &#x201C;gdiplus!BuiltLine::GetUntrimmedCharacterCount&#x201D; &#xD568;&#xC218;&#xC758; &#xBC18;&#xD658;&#xAC12;&#xC744; &#xACB0;&#xC815;&#xD558;&#xB294; &#xB8E8;&#xD2F4;&#xC774; &#xCD94;&#xAC00;&#xB418;&#xC5C8;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p><img src="/2021/09/05/fabu1ous/gdi/30.png" alt></p><p>&#xB9CC;&#xC57D; &#xADF8; &#xAC12;&#xC774; 0&#xC774;&#xB77C;&#xBA74; EBX&#xC640; xor&#xC5F0;&#xC0B0;&#xC744; &#xD558;&#xC5EC; Built object&#xC758; destructor &#xC8FC;&#xC18C;&#xB85C; &#xC810;&#xD504;&#xD569;&#xB2C8;&#xB2E4;.</p><p><img src="/2021/09/05/fabu1ous/gdi/31.png" alt></p><p>&#xC544;&#xB798;&#xB294; destructor&#xC785;&#xB2C8;&#xB2E4;.</p><p><img src="/2021/09/05/fabu1ous/gdi/32.png" alt></p><h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion:"></a>Conclusion:</h1><p>GDI+&#xB294; &#xB9E4;&#xC6B0; &#xC77C;&#xBC18;&#xC801;&#xC73C;&#xB85C; &#xC0AC;&#xC6A9;&#xB418;&#xB294; Windows &#xAD6C;&#xC131; &#xC694;&#xC18C;&#xC774;&#xBA70;, &#xC774;&#xC640; &#xAC19;&#xC740; &#xCDE8;&#xC57D;&#xC810;&#xC740; &#xC804; &#xC138;&#xACC4; &#xC218;&#xC2ED;&#xC5B5; &#xAC1C;&#xC758; &#xC2DC;&#xC2A4;&#xD15C;&#xC5D0; &#xC601;&#xD5A5;&#xC744; &#xBBF8;&#xCE6D; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC0AC;&#xC6A9;&#xC790;&#xC5D0;&#xAC8C; &#xC801;&#xC808;&#xD55C; &#xC5C5;&#xB370;&#xC774;&#xD2B8;&#xB97C; &#xC801;&#xC6A9;&#xD558;&#xACE0; Windows &#xBC30;&#xD3EC;&#xB97C; &#xCD5C;&#xC2E0; &#xC0C1;&#xD0DC;&#xB85C; &#xC720;&#xC9C0;&#xD558;&#xB294; &#xAC83;&#xC774; &#xC88B;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p>McAfee&#xB294; &#xB2E4;&#xC591;&#xD55C; &#xC624;&#xD508; &#xC18C;&#xC2A4; &#xBC0F; &#xD074;&#xB85C;&#xC988;&#xB4DC; &#xC18C;&#xC2A4; &#xB77C;&#xC774;&#xBE0C;&#xB7EC;&#xB9AC; &#xC9C0;&#xC18D;&#xC801;&#xC73C;&#xB85C; &#xD37C;&#xC9D5;&#xD558;&#xACE0; &#xC788;&#xC73C;&#xBA70;, &#xACF5;&#xAE09;&#xC5C5;&#xCCB4;&#xC640; &#xD611;&#xB825;&#xD558;&#xC5EC; &#xC774;&#xB7EC;&#xD55C; &#xBB38;&#xC81C;&#xB97C; &#xCC45;&#xC784;&#xAC10; &#xC788;&#xAC8C; &#xACF5;&#xAC1C;&#xD568;&#xC73C;&#xB85C;&#xC368; &#xBB38;&#xC81C;&#xB97C; &#xD574;&#xACB0;&#xD558;&#xACE0; &#xD544;&#xC694;&#xC5D0; &#xB530;&#xB77C; &#xC5C5;&#xB370;&#xC774;&#xD2B8;&#xB97C; &#xB9B4;&#xB9AC;&#xC2A4;&#xD560; &#xC218; &#xC788;&#xB294; &#xC801;&#xC808;&#xD55C; &#xC2DC;&#xAC04;&#xC744; &#xC81C;&#xACF5;&#xD569;&#xB2C8;&#xB2E4;.</p><p>&#xC774; &#xBB38;&#xC81C;&#xB97C; &#xD574;&#xACB0;&#xD558;&#xACE0; &#xC5C5;&#xB370;&#xC774;&#xD2B8;&#xB97C; &#xB9B4;&#xB9AC;&#xC2A4;&#xD574;&#xC8FC;&#xC2E0; Microsoft&#xC5D0; &#xAC11;&#xC0AC;&#xD569;&#xB2C8;&#xB2E4;.</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Translation</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>cve</tag>
+      
+      <tag>fuzzing</tag>
+      
+      <tag>Fabu1ous</tag>
+      
+      <tag>winafl</tag>
+      
+      <tag>harness</tag>
+      
+      <tag>bug bounty</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>[하루한줄] A deep-dive into the SolarWinds Serv-U SSH vulnerability</title>
+    <link href="/2021/09/04/j0ker/2021-09-04/"/>
+    <url>/2021/09/04/j0ker/2021-09-04/</url>
+    
+    <content type="html"><![CDATA[<h2 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h2><p><a href="https://www.microsoft.com/security/blog/2021/09/02/a-deep-dive-into-the-solarwinds-serv-u-ssh-vulnerability/">https://www.microsoft.com/security/blog/2021/09/02/a-deep-dive-into-the-solarwinds-serv-u-ssh-vulnerability/</a></p><h2 id="Target"><a href="#Target" class="headerlink" title="Target"></a>Target</h2><ul><li>SolarWinds Serv-U</li></ul><h2 id="Explain"><a href="#Explain" class="headerlink" title="Explain"></a>Explain</h2><p>&#xC774;&#xBC88; &#xCDE8;&#xC57D;&#xC810;&#xC740; &#xC2E4;&#xC81C;&#xB85C; &#xACF5;&#xACA9;&#xC5D0; &#xC0AC;&#xC6A9;&#xB418;&#xC5C8;&#xB358; &#xCDE8;&#xC57D;&#xC810;&#xC785;&#xB2C8;&#xB2E4;. Microsoft Threat Intelligence Center(MSTIC)&#xC5D0;&#xC11C; &#xC774;&#xB7F0; &#xACF5;&#xACA9; &#xD589;&#xC704;&#xB97C; &#xD3EC;&#xCC29;&#xD558;&#xC600;&#xACE0; &#xC774;&#xC640; &#xAD00;&#xB828;&#xB41C; &#xB370;&#xC774;&#xD130;&#xB97C; Microsoft Offensive Research &amp; Security Engineering team&#xC5D0; &#xB118;&#xACA8; &#xBD84;&#xC11D;&#xD558;&#xACE0; SolarWinds&#xC5D0; &#xBD84;&#xC11D; &#xB0B4;&#xC6A9;&#xC744; &#xC804;&#xB2EC;&#xD558;&#xC600;&#xACE0; &#xD569;&#xB2C8;&#xB2E4;. &#xC774;&#xB7F0; &#xC5F0;&#xACC4;&#xC131;&#xC740; &#xC2E0;&#xAE30;&#xD558;&#xB124;&#xC694;. &#xADF8;&#xB9AC;&#xACE0; Microsoft Offensive Research &amp; Security Engineering team&#xC740; &#xB370;&#xC774;&#xD130;&#xB97C; &#xBC1B;&#xC740; &#xD6C4; &#xBC14;&#xB85C; &#xD37C;&#xC800;&#xB97C; &#xC791;&#xC131;&#xD588;&#xB2E4;&#xACE0; &#xD558;&#xB294;&#xB370;&#x2026; &#xC5C4;&#xCCAD;&#xB098;&#xB124;&#xC694;&#x2026;</p><p>&#xC544;&#xBB34;&#xD2BC; &#xCDE8;&#xC57D;&#xC810;&#xC740; Serv-U FTP &#xC11C;&#xBC84;&#xC758; SSH &#xBAA8;&#xB4C8;&#xC5D0;&#xC11C; &#xBC1C;&#xC0DD;&#xD569;&#xB2C8;&#xB2E4;. &#xC11C;&#xBC84;&#xC5D0;&#xC11C;&#xB294; &#xB8E8;&#xD504;&#xB97C; &#xB3CC;&#xBA70; &#xD074;&#xB77C;&#xC774;&#xC5B8;&#xD2B8;&#xC5D0;&#xC11C; &#xC804;&#xB2EC;&#xB41C; &#xBA54;&#xC2DC;&#xC9C0;&#xB97C; &#xCC98;&#xB9AC;&#xD569;&#xB2C8;&#xB2E4;. &#xC774; &#xB54C; &#xBA54;&#xC2DC;&#xC9C0;&#xC5D0;&#xB294; &#xBA54;&#xC2DC;&#xC9C0; ID&#xB3C4; &#xAC19;&#xC774; &#xB4E4;&#xC5B4; &#xC788;&#xB294;&#xB370;, &#xC774;&#xC5D0; &#xB530;&#xB77C; &#xCC98;&#xB9AC;&#xD558;&#xB294; &#xB8E8;&#xD2F4;&#xC774; &#xB2EC;&#xB77C;&#xC9D1;&#xB2C8;&#xB2E4;.</p><p><img src="https://www.microsoft.com/security/blog/uploads/securityprod/2021/09/Fig6a-Serv-U-SSH-blog.png" alt="https://www.microsoft.com/security/blog/uploads/securityprod/2021/09/Fig6a-Serv-U-SSH-blog.png"></p><p>&#xBA3C;&#xC800; &#xBC84;&#xC804;&#xC744; &#xD655;&#xC778;&#xD558;&#xACE0; &#xC544;&#xB798; &#xBA54;&#xC2DC;&#xC9C0;&#xB4E4;&#xC744; &#xC21C;&#xCC28;&#xC801;&#xC73C;&#xB85C; &#xCC98;&#xB9AC;&#xD569;&#xB2C8;&#xB2E4;. &#xC774; &#xB54C; EVP_EncryptInit_ex &#xD568;&#xC218;&#xB97C; &#xD638;&#xCD9C;&#xD558;&#xB294;&#xB370;, &#xD568;&#xC218; &#xD504;&#xB85C;&#xD1A0;&#xD0C0;&#xC785;&#xACFC; &#xD638;&#xCD9C;&#xD560; &#xB54C;&#xC758; &#xCF54;&#xB4DC;&#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC2B5;&#xB2C8;&#xB2E4;.</p><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">EVP_EncryptInit_ex</span><span class="hljs-params">(EVP_CIPHER_CTX *ctx, <span class="hljs-keyword">const</span> EVP_CIPHER *type,</span></span><span class="hljs-function"><span class="hljs-params">         ENGINE *impl, <span class="hljs-keyword">const</span> <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">char</span> *key, <span class="hljs-keyword">const</span> <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">char</span> *iv)</span></span>;</code></pre><p><img src="https://www.microsoft.com/security/blog/uploads/securityprod/2021/09/Fig6b-Serv-U-SSH-blog.png" alt="https://www.microsoft.com/security/blog/uploads/securityprod/2021/09/Fig6b-Serv-U-SSH-blog.png"></p><p>&#xC774; &#xB54C;, 4&#xBC88;&#xC9F8; &#xC778;&#xC790;&#xC778; key&#xAC00; NULL&#xB85C; &#xC804;&#xB2EC;&#xC774; &#xB418;&#xB294;&#xB370;, &#xC774;&#xB294; ctx&#xAC00; key&#xAC00; &#xC138;&#xD305;&#xB418;&#xAE30; &#xC804; KEXINIT &#xBA54;&#xC2DC;&#xC9C0;&#xB97C; &#xD578;&#xB4E4;&#xB9C1;&#xD560; &#xB54C; &#xC0DD;&#xC131;&#xC774;&#xB418;&#xAE30;&#xC5D0; &#xC0C1;&#xAD00;&#xC774; &#xC5C6;&#xC9C0;&#xB9CC; ctx&#x2192;cipher_data &#xAD6C;&#xC870;&#xCCB4; &#xC548;&#xC5D0; &#xC800;&#xC7A5;&#xB418;&#xB294; &#xB370;&#xC774;&#xD130;&#xB294; AES key expansion&#xC740;  key expansion&#xC774; &#xBC1C;&#xC0DD;&#xD574;&#xC57C;&#xB9CC; &#xCD08;&#xAE30;&#xD654;&#xB418;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xCD08;&#xAE30;&#xD654;&#xB418;&#xC9C0; &#xC54A;&#xC740; &#xC0C1;&#xD0DC;&#xB85C; &#xB0A8;&#xC544;&#xC788;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.</p><p><img src="https://www.microsoft.com/security/blog/uploads/securityprod/2021/09/Fig5a-Serv-U-SSH-blog.png" alt="https://www.microsoft.com/security/blog/uploads/securityprod/2021/09/Fig5a-Serv-U-SSH-blog.png"></p><p>&#xC774;&#xB85C; &#xC778;&#xD574; &#xB370;&#xC774;&#xD130;&#xB97C; &#xCC98;&#xB9AC;&#xD558;&#xB358; &#xC911; aes_ctr_cipher &#xD568;&#xC218;&#xC5D0;&#xC11C; ctx&#x2192;cipher_data&#xB97C; &#xD558;&#xAC8C; &#xB418;&#xACE0; &#xADF8; &#xC548;&#xC5D0; &#xBA64;&#xBC84; &#xBCC0;&#xC218;&#xB97C; CRYPTO_ctr128_encrypt &#xD568;&#xC218;&#xC5D0;&#xC11C; &#xBC14;&#xB85C; &#xD568;&#xC218; &#xD3EC;&#xC778;&#xD130;&#xB85C; &#xC0AC;&#xC6A9;&#xD558;&#xAC8C; &#xB418;&#xC5B4; rip&#xB97C; &#xBC14;&#xB85C; &#xC81C;&#xC5B4;&#xD560; &#xC218; &#xC788;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>1day1line</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>rce</tag>
+      
+      <tag>j0ker</tag>
+      
+      <tag>solarwinds</tag>
+      
+      <tag>serv-u</tag>
+      
+      <tag>ssh</tag>
+      
+      <tag>ftp</tag>
+      
+      <tag>cve-2021-35211</tag>
+      
+      <tag>uninitialized memory</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>[해키피디아] Dynamic Link Library</title>
+    <link href="/2021/09/03/poosic/Dynamic-Link-Library/"/>
+    <url>/2021/09/03/poosic/Dynamic-Link-Library/</url>
+    
+    <content type="html"><![CDATA[<p><img src="/2021/09/03/poosic/Dynamic-Link-Library/image1.jpg" alt="Untitled.jpg"></p><p><strong>DLL(Dynamic Link Library)</strong>&#xB294; &#xB9C8;&#xC774;&#xD06C;&#xB85C;&#xC18C;&#xD504;&#xD2B8; &#xC0AC;&#xC5D0;&#xC11C; &#xAD6C;&#xD604;&#xD55C; &#xB3D9;&#xC801; &#xB77C;&#xC774;&#xBE0C;&#xB7EC;&#xB9AC;&#xC785;&#xB2C8;&#xB2E4;. DLL&#xD30C;&#xC77C;&#xC758; &#xD655;&#xC7A5;&#xC790; &#xBA85;&#xC740; <code>.dll</code>&#xC774;&#xACE0; &#xB2E4;&#xB978; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xB4E4;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9; &#xAC00;&#xB2A5;&#xD55C; &#xBC14;&#xC774;&#xB108;&#xB9AC; &#xCF54;&#xB4DC;&#xB4E4;&#xC744; &#xB0B4;&#xD3EC;&#xD558;&#xACE0; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.  <strong>Static Link Library</strong>&#xB294; &#xCEF4;&#xD30C;&#xC77C; &#xC2DC;&#xC810;&#xC5D0; &#xB77C;&#xC774;&#xBE0C;&#xB7EC;&#xB9AC;&#xAC00; &#xC2E4;&#xD589; &#xD30C;&#xC77C;&#xC758; &#xC77C;&#xBD80;&#xAC00; &#xB418;&#xC5B4; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC774; &#xB77C;&#xC774;&#xBE0C;&#xB7EC;&#xB9AC; &#xB0B4;&#xC5D0; &#xC788;&#xB294; &#xD568;&#xC218;&#xB97C; &#xC2E4;&#xD589;&#xD560; &#xC218; &#xC788;&#xB3C4;&#xB85D; &#xD558;&#xC9C0;&#xB9CC;, DLL&#xC740; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC774; &#xD574;&#xB2F9; &#xD568;&#xC218;&#xC758; &#xC704;&#xCE58;&#xC815;&#xBCF4;&#xB9CC; &#xAC00;&#xC9C0;&#xACE0; &#xB77C;&#xC774;&#xBE0C;&#xB7EC;&#xB9AC; &#xB0B4;&#xC5D0; &#xC788;&#xB294; &#xD568;&#xC218;&#xB97C; &#xC2E4;&#xD589;&#xD560; &#xC218; &#xC788;&#xB3C4;&#xB85D; &#xD569;&#xB2C8;&#xB2E4;.</p><h3 id="&#xC0AC;&#xC6A9;&#xBC29;&#xC2DD;"><a href="#&#xC0AC;&#xC6A9;&#xBC29;&#xC2DD;" class="headerlink" title="&#xC0AC;&#xC6A9;&#xBC29;&#xC2DD;"></a>&#xC0AC;&#xC6A9;&#xBC29;&#xC2DD;</h3><p>DLL&#xC758; &#xC0AC;&#xC6A9;&#xBC29;&#xC2DD;&#xC5D0;&#xB294; <strong>&#xBB35;&#xC2DC;&#xC801; &#xB9C1;&#xD0B9;(Implicit Linking)</strong>&#xACFC; <strong>&#xBA85;&#xC2DC;&#xC801; &#xB9C1;&#xD0B9;(Explicit Linking)</strong>,&#xC774; &#xB450; &#xAC00;&#xC9C0; &#xBC29;&#xC2DD;&#xC73C;&#xB85C; &#xC0AC;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4;. <strong>&#xBB35;&#xC2DC;&#xC801; &#xB9C1;&#xD0B9;</strong>&#xC740; &#xC2E4;&#xD589;&#xD30C;&#xC77C; &#xC790;&#xCCB4;&#xC5D0; DLL &#xC0AC;&#xC6A9; &#xC815;&#xBCF4;&#xB97C; &#xB4F1;&#xB85D;&#xD574; &#xD504;&#xB85C;&#xADF8;&#xB7A8; &#xC2E4;&#xD589;&#xC2DC; OS&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9; &#xD568;&#xC218;&#xB4E4;&#xC744; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC774; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xB3C4;&#xB85D; &#xCD08;&#xAE30;&#xD654; &#xC2DC;&#xCF1C; &#xC8FC;&#xB294; &#xBC29;&#xC2DD;&#xC785;&#xB2C8;&#xB2E4;. <strong>&#xBA85;&#xC2DC;&#xC801; &#xB9C1;&#xD0B9;</strong>&#xC740; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC774; &#xC2E4;&#xD589; &#xC911;&#xC77C; &#xB54C; <code>LoadLibrary()</code>, <code>GetProcAddress()</code>, <code>FreeLibrary()</code> &#xC640; &#xAC19;&#xC740; API&#xB97C; &#xC774;&#xC6A9;&#xD574; DLL &#xD30C;&#xC77C;&#xC774; &#xC788;&#xB294;&#xC9C0; &#xAC80;&#xC0AC;&#xD558;&#xACE0; &#xC6D0;&#xD558;&#xB294; &#xD568;&#xC218;&#xB9CC; &#xBD88;&#xB7EC; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xBC29;&#xC2DD;&#xC785;&#xB2C8;&#xB2E4;..</p><h3 id="&#xC7A5;&#xC810;"><a href="#&#xC7A5;&#xC810;" class="headerlink" title="&#xC7A5;&#xC810;"></a>&#xC7A5;&#xC810;</h3><p>&#xCCAB; &#xBC88;&#xC9F8; &#xC7A5;&#xC810;&#xC740; <strong>&#xB9AC;&#xC18C;&#xC2A4;&#xB97C; &#xC808;&#xC57D;</strong>&#xD560; &#xC218; &#xC788;&#xB2E4;&#xB294; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;. Static Link Library&#xB97C; &#xC0AC;&#xC6A9;&#xD560; &#xACBD;&#xC6B0; &#xD574;&#xB2F9; &#xB77C;&#xC774;&#xBE0C;&#xB7EC;&#xB9AC;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xB9C8;&#xB2E4; &#xB77C;&#xC774;&#xBE0C;&#xB7EC;&#xB9AC;&#xAC00; &#xBCF5;&#xC81C;&#xB418;&#xC5B4; &#xBA54;&#xBAA8;&#xB9AC;&#xB97C; &#xCC28;&#xC9C0;&#xD558;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;. &#xD558;&#xC9C0;&#xB9CC; DLL&#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xACBD;&#xC6B0; DLL &#xD30C;&#xC77C; &#xD558;&#xB098;&#xB9CC; &#xBA54;&#xBAA8;&#xB9AC;&#xB97C; &#xCC28;&#xC9C0;&#xD558;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xB9AC;&#xC18C;&#xC2A4;&#xB97C; &#xD6E8;&#xC52C; &#xC808;&#xC57D;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p>&#xB450; &#xBC88;&#xC9F8; &#xC7A5;&#xC810;&#xC740; <strong>&#xC720;&#xC9C0;/&#xBCF4;&#xC218;&#xAC00; &#xC27D;&#xB2E4;</strong>&#xB294; &#xC810;&#xC785;&#xB2C8;&#xB2E4;. &#xB9CC;&#xC57D; &#xB77C;&#xC774;&#xBE0C;&#xB7EC;&#xB9AC; &#xB0B4;&#xC758; &#xD568;&#xC218;&#xB97C; &#xC5C5;&#xB370;&#xC774;&#xD2B8;&#xD574;&#xC57C; &#xD558;&#xB294; &#xACBD;&#xC6B0; Static Link Library&#xB294; &#xBC30;&#xD3EC;&#xD55C; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xB9C8;&#xB2E4; &#xB77C;&#xC774;&#xBE0C;&#xB7EC;&#xB9AC; &#xB0B4;&#xC6A9;&#xC744; &#xC218;&#xC815;&#xD574;&#xC918;&#xC57C; &#xD558;&#xC9C0;&#xB9CC; DLL&#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xACBD;&#xC6B0;&#xC5D0;&#xB294; &#xC218;&#xC815;&#xD55C; DLL&#xD30C;&#xC77C; &#xD558;&#xB098;&#xB9CC;&#xC744; &#xC218;&#xC815;&#xD558;&#xBA74; &#xB418;&#xACE0; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xACFC; &#xB77C;&#xC774;&#xBE0C;&#xB7EC;&#xB9AC;&#xB97C; &#xB2E4;&#xC2DC; &#xC5F0;&#xACB0;&#xD558;&#xC9C0; &#xC54A;&#xC544;&#xB3C4; &#xB418;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xC720;&#xC9C0;/&#xBCF4;&#xC218;&#xAC00; &#xC27D;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p>&#xC138; &#xBC88;&#xC9F8; &#xC7A5;&#xC810;&#xC740; <strong>&#xB2E4;&#xC911; &#xC5B8;&#xC5B4;&#xC5D0; &#xC0AC;&#xC6A9;&#xC774; &#xAC00;&#xB2A5;&#xD558;&#xB2E4;</strong>&#xB294; &#xC810;&#xC785;&#xB2C8;&#xB2E4;. DLL &#xD30C;&#xC77C;&#xC740; &#xC774;&#xBBF8; &#xCEF4;&#xD30C;&#xC77C;&#xB41C; &#xBC14;&#xC774;&#xB108;&#xB9AC; &#xCF54;&#xB4DC;&#xB97C; &#xAC00;&#xC9C0;&#xACE0; &#xC788;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xB2E4;&#xB978; &#xC5B8;&#xC5B4;&#xC5D0;&#xC11C;&#xB3C4; &#xC0AC;&#xC6A9;&#xC774; &#xAC00;&#xB2A5;&#xD569;&#xB2C8;&#xB2E4;. &#xC989;, &#xB378;&#xD30C;&#xC774;&#xB098; C# &#xB4F1;&#xC5D0;&#xC11C; Win32 API&#xB85C; &#xC81C;&#xC791;&#xB41C; DLL&#xC744; &#xC0AC;&#xC6A9; &#xAC00;&#xB2A5;&#xD558;&#xB2E4;&#xB294; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Hackypedia</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>poosic</tag>
+      
+      <tag>dynamic link library</tag>
+      
+      <tag>DLL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>[하루한줄] CVE-2021-34486: Windows(ETW) 의 UAF 취약점</title>
     <link href="/2021/09/02/l0ch/2021-09-02/"/>
     <url>/2021/09/02/l0ch/2021-09-02/</url>
@@ -22,9 +193,9 @@
       
       <tag>cve</tag>
       
-      <tag>windows</tag>
-      
       <tag>uaf</tag>
+      
+      <tag>windows</tag>
       
       <tag>L0ch</tag>
       
@@ -111,9 +282,9 @@
     
     <tags>
       
-      <tag>razer</tag>
-      
       <tag>lpe</tag>
+      
+      <tag>razer</tag>
       
       <tag>j0ker</tag>
       
@@ -210,9 +381,9 @@
       
       <tag>cve</tag>
       
-      <tag>rce</tag>
-      
       <tag>lpe</tag>
+      
+      <tag>rce</tag>
       
       <tag>L0ch</tag>
       
@@ -270,11 +441,11 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
-      
       <tag>windows</tag>
       
       <tag>fuzzing</tag>
+      
+      <tag>Fabu1ous</tag>
       
       <tag>harness</tag>
       
@@ -340,9 +511,9 @@
     
     <tags>
       
-      <tag>windows</tag>
-      
       <tag>lpe</tag>
+      
+      <tag>windows</tag>
       
       <tag>L0ch</tag>
       
@@ -507,11 +678,11 @@
     
     <tags>
       
-      <tag>windows</tag>
+      <tag>lpe</tag>
       
       <tag>kernel</tag>
       
-      <tag>lpe</tag>
+      <tag>windows</tag>
       
       <tag>L0ch</tag>
       
@@ -550,11 +721,11 @@
       
       <tag>cve</tag>
       
+      <tag>lpe</tag>
+      
       <tag>eop</tag>
       
       <tag>intel</tag>
-      
-      <tag>lpe</tag>
       
       <tag>L0ch</tag>
       
@@ -612,11 +783,11 @@
     
     <tags>
       
+      <tag>fuzzing</tag>
+      
       <tag>Fabu1ous</tag>
       
       <tag>fuzzer</tag>
-      
-      <tag>fuzzing</tag>
       
       <tag>servey</tag>
       
@@ -748,15 +919,15 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
+      <tag>lpe</tag>
       
       <tag>linux</tag>
       
       <tag>kernel</tag>
       
-      <tag>ebpf</tag>
+      <tag>Fabu1ous</tag>
       
-      <tag>lpe</tag>
+      <tag>ebpf</tag>
       
     </tags>
     
@@ -812,9 +983,9 @@
     
     <tags>
       
-      <tag>windows</tag>
-      
       <tag>kernel</tag>
+      
+      <tag>windows</tag>
       
       <tag>j0ker</tag>
       
@@ -882,11 +1053,11 @@
     
     <tags>
       
-      <tag>windows</tag>
+      <tag>lpe</tag>
       
       <tag>kernel</tag>
       
-      <tag>lpe</tag>
+      <tag>windows</tag>
       
       <tag>L0ch</tag>
       
@@ -925,11 +1096,11 @@
       
       <tag>cve</tag>
       
+      <tag>lpe</tag>
+      
       <tag>linux</tag>
       
       <tag>kernel</tag>
-      
-      <tag>lpe</tag>
       
       <tag>integer overflow</tag>
       
@@ -958,13 +1129,13 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
-      
-      <tag>eop</tag>
+      <tag>bof</tag>
       
       <tag>kernel</tag>
       
-      <tag>bof</tag>
+      <tag>eop</tag>
+      
+      <tag>Fabu1ous</tag>
       
       <tag>integer underflow</tag>
       
@@ -991,11 +1162,11 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
-      
       <tag>windows</tag>
       
       <tag>fuzzing</tag>
+      
+      <tag>Fabu1ous</tag>
       
       <tag>harness</tag>
       
@@ -1026,9 +1197,9 @@
     
     <tags>
       
-      <tag>eop</tag>
-      
       <tag>windows</tag>
+      
+      <tag>eop</tag>
       
       <tag>j0ker</tag>
       
@@ -1129,11 +1300,11 @@
       
       <tag>cve</tag>
       
+      <tag>oob</tag>
+      
       <tag>linux</tag>
       
       <tag>kernel</tag>
-      
-      <tag>oob</tag>
       
       <tag>L0ch</tag>
       
@@ -1232,9 +1403,9 @@
     
     <tags>
       
-      <tag>eop</tag>
-      
       <tag>windows</tag>
+      
+      <tag>eop</tag>
       
       <tag>j0ker</tag>
       
@@ -1298,11 +1469,11 @@
     
     <tags>
       
-      <tag>windows</tag>
+      <tag>lpe</tag>
       
       <tag>kernel</tag>
       
-      <tag>lpe</tag>
+      <tag>windows</tag>
       
       <tag>L0ch</tag>
       
@@ -1605,9 +1776,9 @@
     
     <tags>
       
-      <tag>eop</tag>
-      
       <tag>windows</tag>
+      
+      <tag>eop</tag>
       
       <tag>microsoft</tag>
       
@@ -1642,11 +1813,11 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
-      
       <tag>cve</tag>
       
       <tag>fuzzing</tag>
+      
+      <tag>Fabu1ous</tag>
       
       <tag>winafl</tag>
       
@@ -1677,9 +1848,9 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
-      
       <tag>windows</tag>
+      
+      <tag>Fabu1ous</tag>
       
       <tag>auth bypass</tag>
       
@@ -1780,11 +1951,11 @@
     
     <tags>
       
+      <tag>uaf</tag>
+      
       <tag>Fabu1ous</tag>
       
       <tag>android</tag>
-      
-      <tag>uaf</tag>
       
       <tag>race-condition</tag>
       
@@ -1813,11 +1984,11 @@
       
       <tag>cve</tag>
       
-      <tag>windows</tag>
+      <tag>oob</tag>
       
       <tag>kernel</tag>
       
-      <tag>oob</tag>
+      <tag>windows</tag>
       
       <tag>driver</tag>
       
@@ -1885,9 +2056,9 @@
       
       <tag>cve</tag>
       
-      <tag>windows</tag>
-      
       <tag>kernel</tag>
+      
+      <tag>windows</tag>
       
       <tag>malware</tag>
       
@@ -1951,11 +2122,11 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
+      <tag>windows</tag>
       
       <tag>eop</tag>
       
-      <tag>windows</tag>
+      <tag>Fabu1ous</tag>
       
       <tag>tcpip</tag>
       
@@ -1986,11 +2157,11 @@
       
       <tag>cve</tag>
       
-      <tag>windows</tag>
-      
       <tag>lpe</tag>
       
       <tag>uaf</tag>
+      
+      <tag>windows</tag>
       
       <tag>L0ch</tag>
       
@@ -2052,13 +2223,13 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
-      
       <tag>linux</tag>
       
       <tag>kernel</tag>
       
       <tag>uaf</tag>
+      
+      <tag>Fabu1ous</tag>
       
     </tags>
     
@@ -2085,9 +2256,9 @@
       
       <tag>cve</tag>
       
-      <tag>windows</tag>
-      
       <tag>lpe</tag>
+      
+      <tag>windows</tag>
       
       <tag>msi</tag>
       
@@ -2223,13 +2394,13 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
-      
       <tag>cve</tag>
+      
+      <tag>windows</tag>
       
       <tag>eop</tag>
       
-      <tag>windows</tag>
+      <tag>Fabu1ous</tag>
       
       <tag>rce</tag>
       
@@ -2411,9 +2582,9 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
-      
       <tag>fuzzing</tag>
+      
+      <tag>Fabu1ous</tag>
       
       <tag>winafl</tag>
       
@@ -2481,13 +2652,13 @@
     
     <tags>
       
+      <tag>uaf</tag>
+      
       <tag>Fabu1ous</tag>
       
       <tag>use after free</tag>
       
       <tag>webkit</tag>
-      
-      <tag>uaf</tag>
       
     </tags>
     
@@ -2576,13 +2747,13 @@
     
     <tags>
       
+      <tag>bypass</tag>
+      
       <tag>Fabu1ous</tag>
       
       <tag>rfid</tag>
       
       <tag>monotonic counter</tag>
-      
-      <tag>bypass</tag>
       
       <tag>tear off</tag>
       
@@ -2644,9 +2815,9 @@
     
     <tags>
       
-      <tag>malware</tag>
-      
       <tag>bypass</tag>
+      
+      <tag>malware</tag>
       
       <tag>defender</tag>
       
@@ -2714,11 +2885,11 @@
     
     <tags>
       
+      <tag>oob</tag>
+      
       <tag>windows</tag>
       
       <tag>microsoft</tag>
-      
-      <tag>oob</tag>
       
       <tag>j0ker</tag>
       
@@ -2747,9 +2918,9 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
-      
       <tag>cve</tag>
+      
+      <tag>Fabu1ous</tag>
       
       <tag>safari</tag>
       
@@ -2782,11 +2953,11 @@
       
       <tag>cve</tag>
       
+      <tag>information disclosure</tag>
+      
       <tag>kernel</tag>
       
       <tag>ios</tag>
-      
-      <tag>information disclosure</tag>
       
       <tag>apple</tag>
       
@@ -2852,9 +3023,9 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
-      
       <tag>cve</tag>
+      
+      <tag>Fabu1ous</tag>
       
       <tag>rce</tag>
       
@@ -2955,9 +3126,9 @@
     
     <tags>
       
-      <tag>windows</tag>
-      
       <tag>kernel</tag>
+      
+      <tag>windows</tag>
       
       <tag>L0ch</tag>
       
@@ -3029,15 +3200,15 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
+      <tag>oob</tag>
+      
+      <tag>lpe</tag>
       
       <tag>linux</tag>
       
       <tag>kernel</tag>
       
-      <tag>lpe</tag>
-      
-      <tag>oob</tag>
+      <tag>Fabu1ous</tag>
       
     </tags>
     
@@ -3064,9 +3235,9 @@
       
       <tag>cve</tag>
       
-      <tag>windows</tag>
-      
       <tag>lpe</tag>
+      
+      <tag>windows</tag>
       
       <tag>L0ch</tag>
       
@@ -3239,9 +3410,9 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
-      
       <tag>fuzzing</tag>
+      
+      <tag>Fabu1ous</tag>
       
       <tag>winafl</tag>
       
@@ -3307,11 +3478,11 @@
     
     <tags>
       
+      <tag>lpe</tag>
+      
       <tag>Fabu1ous</tag>
       
       <tag>rce</tag>
-      
-      <tag>lpe</tag>
       
       <tag>unix</tag>
       
@@ -3410,11 +3581,11 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
-      
       <tag>cve</tag>
       
       <tag>windows</tag>
+      
+      <tag>Fabu1ous</tag>
       
       <tag>rce</tag>
       
@@ -3573,13 +3744,13 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
+      <tag>lpe</tag>
       
       <tag>linux</tag>
       
       <tag>kernel</tag>
       
-      <tag>lpe</tag>
+      <tag>Fabu1ous</tag>
       
       <tag>socket</tag>
       
@@ -3668,9 +3839,9 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
-      
       <tag>cve</tag>
+      
+      <tag>Fabu1ous</tag>
       
       <tag>android</tag>
       
@@ -3800,9 +3971,9 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
-      
       <tag>cve</tag>
+      
+      <tag>Fabu1ous</tag>
       
       <tag>rce</tag>
       
@@ -3833,9 +4004,9 @@
       
       <tag>cve</tag>
       
-      <tag>windows</tag>
-      
       <tag>lpe</tag>
+      
+      <tag>windows</tag>
       
       <tag>arbitrary read</tag>
       
@@ -3965,9 +4136,9 @@
       
       <tag>cve</tag>
       
-      <tag>toctou</tag>
-      
       <tag>lpe</tag>
+      
+      <tag>toctou</tag>
       
       <tag>microsoft</tag>
       
@@ -3998,15 +4169,15 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
-      
       <tag>cve</tag>
+      
+      <tag>mac</tag>
+      
+      <tag>Fabu1ous</tag>
       
       <tag>race condition</tag>
       
       <tag>heap overflow</tag>
-      
-      <tag>mac</tag>
       
       <tag>parallels</tag>
       
@@ -4126,9 +4297,9 @@
     
     <tags>
       
-      <tag>windows</tag>
-      
       <tag>kernel</tag>
+      
+      <tag>windows</tag>
       
       <tag>ioctl</tag>
       
@@ -4254,11 +4425,11 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
-      
       <tag>linux</tag>
       
       <tag>kernel</tag>
+      
+      <tag>Fabu1ous</tag>
       
     </tags>
     
@@ -4283,11 +4454,11 @@
     
     <tags>
       
+      <tag>insu</tag>
+      
       <tag>cve</tag>
       
       <tag>windows</tag>
-      
-      <tag>insu</tag>
       
     </tags>
     
@@ -4314,9 +4485,9 @@
       
       <tag>cve</tag>
       
-      <tag>linux</tag>
-      
       <tag>information disclosure</tag>
+      
+      <tag>linux</tag>
       
       <tag>L0ch</tag>
       
@@ -4374,11 +4545,11 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
+      <tag>windows</tag>
       
       <tag>eop</tag>
       
-      <tag>windows</tag>
+      <tag>Fabu1ous</tag>
       
       <tag>mysql</tag>
       
@@ -4405,9 +4576,9 @@
     
     <tags>
       
-      <tag>windows</tag>
-      
       <tag>kernel</tag>
+      
+      <tag>windows</tag>
       
       <tag>ioctl</tag>
       
@@ -4473,9 +4644,9 @@
       
       <tag>cve</tag>
       
-      <tag>eop</tag>
-      
       <tag>windows</tag>
+      
+      <tag>eop</tag>
       
       <tag>idioth</tag>
       
@@ -4541,9 +4712,9 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
-      
       <tag>cve</tag>
+      
+      <tag>Fabu1ous</tag>
       
       <tag>xss</tag>
       
@@ -4574,13 +4745,13 @@
       
       <tag>cve</tag>
       
+      <tag>bypass</tag>
+      
       <tag>rce</tag>
       
       <tag>deserialization</tag>
       
       <tag>apache</tag>
-      
-      <tag>bypass</tag>
       
       <tag>L0ch</tag>
       
@@ -4607,15 +4778,15 @@
     
     <tags>
       
-      <tag>eop</tag>
+      <tag>insu</tag>
       
       <tag>windows</tag>
       
+      <tag>scm</tag>
+      
       <tag>bypass</tag>
       
-      <tag>insu</tag>
-      
-      <tag>scm</tag>
+      <tag>eop</tag>
       
     </tags>
     
@@ -4700,11 +4871,11 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
-      
       <tag>cve</tag>
       
       <tag>bypass</tag>
+      
+      <tag>Fabu1ous</tag>
       
       <tag>cfg</tag>
       
@@ -4735,15 +4906,15 @@
       
       <tag>cve</tag>
       
+      <tag>lpe</tag>
+      
       <tag>linux</tag>
       
       <tag>kernel</tag>
       
-      <tag>race condition</tag>
-      
       <tag>toctou</tag>
       
-      <tag>lpe</tag>
+      <tag>race condition</tag>
       
       <tag>L0ch</tag>
       
@@ -4801,11 +4972,11 @@
     
     <tags>
       
+      <tag>insu</tag>
+      
       <tag>cve</tag>
       
       <tag>bof</tag>
-      
-      <tag>insu</tag>
       
       <tag>d-link</tag>
       
@@ -4929,17 +5100,17 @@
     
     <tags>
       
+      <tag>insu</tag>
+      
       <tag>cve</tag>
+      
+      <tag>nosy driver</tag>
       
       <tag>linux</tag>
       
       <tag>kernel</tag>
       
       <tag>uaf</tag>
-      
-      <tag>insu</tag>
-      
-      <tag>nosy driver</tag>
       
     </tags>
     
@@ -4977,37 +5148,6 @@
   
   
   <entry>
-    <title>[하루한줄] CVE-2021-3409: QEMU Heap overflow in SDHCI</title>
-    <link href="/2021/04/07/fabu1ous/2021-04-07/"/>
-    <url>/2021/04/07/fabu1ous/2021-04-07/</url>
-    
-    <content type="html"><![CDATA[<h2 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h2><p><a href="https://starlabs.sg/advisories/21-3409/">CVE-2021-3409</a></p><h2 id="Target"><a href="#Target" class="headerlink" title="Target"></a><strong>Target</strong></h2><p>QEMU 5.2.50</p><h2 id="Explain"><a href="#Explain" class="headerlink" title="Explain"></a><strong>Explain</strong></h2><p>QEMU 5.2.50 &#xCF54;&#xB4DC;&#xC758; SDHCI(Secure Digital Host Controller Interface) &#xCEF4;&#xD3EC;&#xB10C;&#xD2B8;&#xB294; Heap buffer overflow &#xCDE8;&#xC57D;&#xC810;&#xC774; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. SDHCI&#xB294; &#xBE44;&#xD718;&#xBC1C;&#xC131; &#xBA54;&#xBAA8;&#xB9AC; &#xCE74;&#xB4DC; &#xD3EC;&#xB9F7;&#xC778; SD&#xC758; &#xCEE8;&#xD2B8;&#xB864;&#xB7EC; &#xC5D0;&#xBBAC;&#xB808;&#xC774;&#xC158;&#xC785;&#xB2C8;&#xB2E4;.</p><pre><code class="hljs python">begin = s-&gt;data_count;         <span class="hljs-keyword">if</span> ((length + begin) &lt; block_size) {             s-&gt;data_count = length + begin;             length = <span class="hljs-number">0</span>;          } <span class="hljs-keyword">else</span> {             s-&gt;data_count = block_size; // [1]             length -= block_size - begin;         }         dma_memory_write(s-&gt;dma_as, dscr.addr,                          &amp;s-&gt;fifo_buffer[begin],                          s-&gt;data_count - begin); // [2]         dscr.addr += s-&gt;data_count - begin;</code></pre><p>&#xC704; &#xCF54;&#xB4DC;&#xB294; &#xD568;&#xC218; <code>sdhci_do_adma</code>&#xC758; &#xC77C;&#xBD80;&#xC785;&#xB2C8;&#xB2E4;. &#xD568;&#xC218; <code>sdhci_do_adma</code>&#xB294; SDHCI&#xC640; Guest system memory(DMA buffer) &#xAC04;&#xC5D0; &#xB370;&#xC774;&#xD130; &#xD1B5;&#xC2E0;&#xC744; &#xB2F4;&#xB2F9;&#xD569;&#xB2C8;&#xB2E4;. &#xBE14;&#xB85D; &#xBC84;&#xD37C;&#xB97C; &#xC0AC;&#xC6A9;&#xD55C; &#xB370;&#xC774;&#xD130; &#xD1B5;&#xC2E0;&#xC774; &#xC774;&#xB8E8;&#xC5B4;&#xC9C8; &#xB54C; &#xBE14;&#xB85D; &#xBC84;&#xD37C;&#xC5D0; &#xB4E4;&#xC5B4;&#xAC08; &#xB370;&#xC774;&#xD130; &#xD06C;&#xAE30;&#xB97C; &#xACC4;&#xC0B0;&#xD558;&#xB294; &#xC2DD;&#xC740; <code>block_size - s-&gt;data_count</code>&#xC785;&#xB2C8;&#xB2E4;. <code>s-&gt;data_count</code>&#xB294; &#xD604;&#xC7AC; &#xBE14;&#xB85D; &#xBC84;&#xD37C;&#xC758; &#xC624;&#xD504;&#xC14B;&#xC744;, <code>block_size</code>&#xB294; <code>blksize</code>(0x4 &#xC624;&#xD504;&#xC14B;&#xC758; &#xB808;&#xC9C0;&#xC2A4;&#xD130; &#xAC12;)&#xB97C; &#xB2F4;&#xACE0; &#xC788;&#xACE0; &#xB370;&#xC774;&#xD130; &#xD1B5;&#xC2E0;&#xC774; &#xC774;&#xB8E8;&#xC5B4;&#xC9C0;&#xB294; &#xB3C4;&#xC911; <code>blksize</code>&#xC758; &#xAC12;&#xC744; &#xBCC0;&#xACBD;&#xD560; &#xC218; &#xC788;&#xC5B4; heap overflow &#xCDE8;&#xC57D;&#xC810;&#xC774; &#xBC1C;&#xC0DD;&#xD569;&#xB2C8;&#xB2E4;.</p><p>&#xD574;&#xB2F9; &#xCDE8;&#xC57D;&#xC810;&#xC744; &#xC545;&#xC6A9;&#xD574; Geust system&#xC744; &#xB300;&#xC0C1;&#xC73C;&#xB85C; &#xC815;&#xBCF4; &#xB178;&#xCD9C;, &#xB370;&#xC774;&#xD130; &#xCD94;&#xAC00; &#xBC0F; &#xC218;&#xC815;, DoS &#xACF5;&#xACA9;&#xC774; &#xAC00;&#xB2A5;&#xD569;&#xB2C8;&#xB2E4;.</p>]]></content>
-    
-    
-    <categories>
-      
-      <category>1day1line</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>Fabu1ous</tag>
-      
-      <tag>cve</tag>
-      
-      <tag>qemu</tag>
-      
-      <tag>heap overflow</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>[Research] 자바스크립트 엔진 Fuzzer - Fuzzilli</title>
     <link href="/2021/04/07/insu/fuzzilli/"/>
     <url>/2021/04/07/insu/fuzzilli/</url>
@@ -5024,13 +5164,44 @@
     
     <tags>
       
-      <tag>fuzzing</tag>
-      
       <tag>insu</tag>
+      
+      <tag>fuzzing</tag>
       
       <tag>system</tag>
       
       <tag>fuzzilli</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>[하루한줄] CVE-2021-3409: QEMU Heap overflow in SDHCI</title>
+    <link href="/2021/04/07/fabu1ous/2021-04-07/"/>
+    <url>/2021/04/07/fabu1ous/2021-04-07/</url>
+    
+    <content type="html"><![CDATA[<h2 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h2><p><a href="https://starlabs.sg/advisories/21-3409/">CVE-2021-3409</a></p><h2 id="Target"><a href="#Target" class="headerlink" title="Target"></a><strong>Target</strong></h2><p>QEMU 5.2.50</p><h2 id="Explain"><a href="#Explain" class="headerlink" title="Explain"></a><strong>Explain</strong></h2><p>QEMU 5.2.50 &#xCF54;&#xB4DC;&#xC758; SDHCI(Secure Digital Host Controller Interface) &#xCEF4;&#xD3EC;&#xB10C;&#xD2B8;&#xB294; Heap buffer overflow &#xCDE8;&#xC57D;&#xC810;&#xC774; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. SDHCI&#xB294; &#xBE44;&#xD718;&#xBC1C;&#xC131; &#xBA54;&#xBAA8;&#xB9AC; &#xCE74;&#xB4DC; &#xD3EC;&#xB9F7;&#xC778; SD&#xC758; &#xCEE8;&#xD2B8;&#xB864;&#xB7EC; &#xC5D0;&#xBBAC;&#xB808;&#xC774;&#xC158;&#xC785;&#xB2C8;&#xB2E4;.</p><pre><code class="hljs python">begin = s-&gt;data_count;         <span class="hljs-keyword">if</span> ((length + begin) &lt; block_size) {             s-&gt;data_count = length + begin;             length = <span class="hljs-number">0</span>;          } <span class="hljs-keyword">else</span> {             s-&gt;data_count = block_size; // [1]             length -= block_size - begin;         }         dma_memory_write(s-&gt;dma_as, dscr.addr,                          &amp;s-&gt;fifo_buffer[begin],                          s-&gt;data_count - begin); // [2]         dscr.addr += s-&gt;data_count - begin;</code></pre><p>&#xC704; &#xCF54;&#xB4DC;&#xB294; &#xD568;&#xC218; <code>sdhci_do_adma</code>&#xC758; &#xC77C;&#xBD80;&#xC785;&#xB2C8;&#xB2E4;. &#xD568;&#xC218; <code>sdhci_do_adma</code>&#xB294; SDHCI&#xC640; Guest system memory(DMA buffer) &#xAC04;&#xC5D0; &#xB370;&#xC774;&#xD130; &#xD1B5;&#xC2E0;&#xC744; &#xB2F4;&#xB2F9;&#xD569;&#xB2C8;&#xB2E4;. &#xBE14;&#xB85D; &#xBC84;&#xD37C;&#xB97C; &#xC0AC;&#xC6A9;&#xD55C; &#xB370;&#xC774;&#xD130; &#xD1B5;&#xC2E0;&#xC774; &#xC774;&#xB8E8;&#xC5B4;&#xC9C8; &#xB54C; &#xBE14;&#xB85D; &#xBC84;&#xD37C;&#xC5D0; &#xB4E4;&#xC5B4;&#xAC08; &#xB370;&#xC774;&#xD130; &#xD06C;&#xAE30;&#xB97C; &#xACC4;&#xC0B0;&#xD558;&#xB294; &#xC2DD;&#xC740; <code>block_size - s-&gt;data_count</code>&#xC785;&#xB2C8;&#xB2E4;. <code>s-&gt;data_count</code>&#xB294; &#xD604;&#xC7AC; &#xBE14;&#xB85D; &#xBC84;&#xD37C;&#xC758; &#xC624;&#xD504;&#xC14B;&#xC744;, <code>block_size</code>&#xB294; <code>blksize</code>(0x4 &#xC624;&#xD504;&#xC14B;&#xC758; &#xB808;&#xC9C0;&#xC2A4;&#xD130; &#xAC12;)&#xB97C; &#xB2F4;&#xACE0; &#xC788;&#xACE0; &#xB370;&#xC774;&#xD130; &#xD1B5;&#xC2E0;&#xC774; &#xC774;&#xB8E8;&#xC5B4;&#xC9C0;&#xB294; &#xB3C4;&#xC911; <code>blksize</code>&#xC758; &#xAC12;&#xC744; &#xBCC0;&#xACBD;&#xD560; &#xC218; &#xC788;&#xC5B4; heap overflow &#xCDE8;&#xC57D;&#xC810;&#xC774; &#xBC1C;&#xC0DD;&#xD569;&#xB2C8;&#xB2E4;.</p><p>&#xD574;&#xB2F9; &#xCDE8;&#xC57D;&#xC810;&#xC744; &#xC545;&#xC6A9;&#xD574; Geust system&#xC744; &#xB300;&#xC0C1;&#xC73C;&#xB85C; &#xC815;&#xBCF4; &#xB178;&#xCD9C;, &#xB370;&#xC774;&#xD130; &#xCD94;&#xAC00; &#xBC0F; &#xC218;&#xC815;, DoS &#xACF5;&#xACA9;&#xC774; &#xAC00;&#xB2A5;&#xD569;&#xB2C8;&#xB2E4;.</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>1day1line</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>cve</tag>
+      
+      <tag>Fabu1ous</tag>
+      
+      <tag>qemu</tag>
+      
+      <tag>heap overflow</tag>
       
     </tags>
     
@@ -5057,11 +5228,11 @@
       
       <tag>cve</tag>
       
+      <tag>bypass</tag>
+      
       <tag>rce</tag>
       
       <tag>php</tag>
-      
-      <tag>bypass</tag>
       
       <tag>L0ch</tag>
       
@@ -5088,9 +5259,9 @@
     
     <tags>
       
-      <tag>zero click</tag>
-      
       <tag>mac</tag>
+      
+      <tag>zero click</tag>
       
       <tag>idioth</tag>
       
@@ -5117,13 +5288,13 @@
     
     <tags>
       
-      <tag>cve</tag>
+      <tag>insu</tag>
       
-      <tag>information disclosure</tag>
+      <tag>cve</tag>
       
       <tag>mac</tag>
       
-      <tag>insu</tag>
+      <tag>information disclosure</tag>
       
     </tags>
     
@@ -5210,13 +5381,13 @@
       
       <tag>cve</tag>
       
-      <tag>windows</tag>
-      
       <tag>kernel</tag>
       
-      <tag>race condition</tag>
-      
       <tag>uaf</tag>
+      
+      <tag>windows</tag>
+      
+      <tag>race condition</tag>
       
       <tag>L0ch</tag>
       
@@ -5243,9 +5414,9 @@
     
     <tags>
       
-      <tag>cve</tag>
-      
       <tag>insu</tag>
+      
+      <tag>cve</tag>
       
       <tag>openssl</tag>
       
@@ -5419,9 +5590,9 @@
     
     <tags>
       
-      <tag>cve</tag>
-      
       <tag>insu</tag>
+      
+      <tag>cve</tag>
       
       <tag>mcafee</tag>
       
@@ -5510,11 +5681,11 @@
     
     <tags>
       
+      <tag>uaf</tag>
+      
       <tag>use after free</tag>
       
       <tag>microsoft</tag>
-      
-      <tag>uaf</tag>
       
       <tag>internet explorer</tag>
       
@@ -5543,13 +5714,13 @@
     
     <tags>
       
-      <tag>cve</tag>
-      
-      <tag>bof</tag>
-      
       <tag>insu</tag>
       
+      <tag>cve</tag>
+      
       <tag>dd-wrt</tag>
+      
+      <tag>bof</tag>
       
     </tags>
     
@@ -5636,9 +5807,9 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
-      
       <tag>lpe</tag>
+      
+      <tag>Fabu1ous</tag>
       
       <tag>gnu</tag>
       
@@ -5731,11 +5902,11 @@
     
     <tags>
       
-      <tag>lpe</tag>
-      
       <tag>insu</tag>
       
       <tag>vestacp</tag>
+      
+      <tag>lpe</tag>
       
     </tags>
     
@@ -5853,13 +6024,13 @@
     
     <tags>
       
+      <tag>insu</tag>
+      
       <tag>cve</tag>
       
       <tag>mac</tag>
       
       <tag>oob</tag>
-      
-      <tag>insu</tag>
       
       <tag>coregraphics</tag>
       
@@ -5950,11 +6121,11 @@
     
     <tags>
       
+      <tag>bof</tag>
+      
       <tag>Fabu1ous</tag>
       
       <tag>rce</tag>
-      
-      <tag>bof</tag>
       
     </tags>
     
@@ -5981,13 +6152,13 @@
       
       <tag>cve</tag>
       
-      <tag>heap bof</tag>
+      <tag>lpe</tag>
       
       <tag>linux</tag>
       
       <tag>kernel</tag>
       
-      <tag>lpe</tag>
+      <tag>heap bof</tag>
       
       <tag>L0ch</tag>
       
@@ -6146,9 +6317,9 @@
       
       <tag>cve</tag>
       
-      <tag>windows</tag>
-      
       <tag>lpe</tag>
+      
+      <tag>windows</tag>
       
       <tag>idioth</tag>
       
@@ -6365,11 +6536,11 @@
       
       <tag>cve</tag>
       
-      <tag>rce</tag>
+      <tag>oob</tag>
       
       <tag>bof</tag>
       
-      <tag>oob</tag>
+      <tag>rce</tag>
       
       <tag>buffer overflow</tag>
       
@@ -6433,9 +6604,9 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
-      
       <tag>eop</tag>
+      
+      <tag>Fabu1ous</tag>
       
       <tag>dll hijacking</tag>
       
@@ -6590,9 +6761,9 @@
     
     <tags>
       
-      <tag>chrome</tag>
-      
       <tag>bypass</tag>
+      
+      <tag>chrome</tag>
       
       <tag>L0ch</tag>
       
@@ -6625,9 +6796,9 @@
     
     <tags>
       
-      <tag>malware</tag>
-      
       <tag>mac</tag>
+      
+      <tag>malware</tag>
       
       <tag>idioth</tag>
       
@@ -6656,11 +6827,11 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
-      
       <tag>cve</tag>
       
       <tag>eop</tag>
+      
+      <tag>Fabu1ous</tag>
       
       <tag>sandbox escape</tag>
       
@@ -6782,9 +6953,9 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
-      
       <tag>cve</tag>
+      
+      <tag>Fabu1ous</tag>
       
       <tag>sandbox</tag>
       
@@ -6881,11 +7052,11 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
-      
       <tag>cve</tag>
       
       <tag>linux</tag>
+      
+      <tag>Fabu1ous</tag>
       
     </tags>
     
@@ -6941,9 +7112,9 @@
       
       <tag>cve</tag>
       
-      <tag>windows</tag>
-      
       <tag>lpe</tag>
+      
+      <tag>windows</tag>
       
       <tag>L0ch</tag>
       
@@ -7003,11 +7174,11 @@
       
       <tag>cve</tag>
       
+      <tag>d-link</tag>
+      
       <tag>rce</tag>
       
       <tag>router</tag>
-      
-      <tag>d-link</tag>
       
       <tag>L0ch</tag>
       
@@ -7220,9 +7391,9 @@
     
     <tags>
       
-      <tag>rce</tag>
-      
       <tag>bof</tag>
+      
+      <tag>rce</tag>
       
       <tag>buffer overflow</tag>
       
@@ -7288,9 +7459,9 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
-      
       <tag>windows</tag>
+      
+      <tag>Fabu1ous</tag>
       
       <tag>spyware</tag>
       
@@ -7412,9 +7583,9 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
-      
       <tag>windows</tag>
+      
+      <tag>Fabu1ous</tag>
       
       <tag>social engineering</tag>
       
@@ -7443,11 +7614,11 @@
     
     <tags>
       
-      <tag>windows</tag>
+      <tag>lpe</tag>
       
       <tag>kernel</tag>
       
-      <tag>lpe</tag>
+      <tag>windows</tag>
       
       <tag>L0ch</tag>
       
@@ -7507,13 +7678,13 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
-      
       <tag>cve</tag>
+      
+      <tag>linux</tag>
       
       <tag>eop</tag>
       
-      <tag>linux</tag>
+      <tag>Fabu1ous</tag>
       
       <tag>unix</tag>
       
@@ -7633,9 +7804,9 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
-      
       <tag>cve</tag>
+      
+      <tag>Fabu1ous</tag>
       
       <tag>rce</tag>
       
@@ -7664,9 +7835,9 @@
       
       <tag>cve</tag>
       
-      <tag>chrome</tag>
-      
       <tag>uaf</tag>
+      
+      <tag>chrome</tag>
       
       <tag>L0ch</tag>
       
@@ -7728,9 +7899,9 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
-      
       <tag>cve</tag>
+      
+      <tag>Fabu1ous</tag>
       
       <tag>rce</tag>
       
@@ -7763,11 +7934,11 @@
       
       <tag>cve</tag>
       
-      <tag>eop</tag>
+      <tag>information disclosure</tag>
       
       <tag>kernel</tag>
       
-      <tag>information disclosure</tag>
+      <tag>eop</tag>
       
       <tag>L0ch</tag>
       
@@ -7796,9 +7967,9 @@
       
       <tag>cve</tag>
       
-      <tag>eop</tag>
-      
       <tag>windows</tag>
+      
+      <tag>eop</tag>
       
       <tag>idioth</tag>
       
@@ -7862,9 +8033,9 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
-      
       <tag>windows</tag>
+      
+      <tag>Fabu1ous</tag>
       
       <tag>rce</tag>
       
@@ -7924,9 +8095,9 @@
     
     <tags>
       
-      <tag>windows</tag>
-      
       <tag>information disclosure</tag>
+      
+      <tag>windows</tag>
       
       <tag>idioth</tag>
       
@@ -7957,9 +8128,9 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
-      
       <tag>windows</tag>
+      
+      <tag>Fabu1ous</tag>
       
       <tag>rce</tag>
       
@@ -8085,9 +8256,9 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
-      
       <tag>lpe</tag>
+      
+      <tag>Fabu1ous</tag>
       
       <tag>named pipe</tag>
       
@@ -8180,9 +8351,9 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
-      
       <tag>cve</tag>
+      
+      <tag>Fabu1ous</tag>
       
       <tag>rce</tag>
       
@@ -8312,9 +8483,9 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
-      
       <tag>cve</tag>
+      
+      <tag>Fabu1ous</tag>
       
       <tag>rce</tag>
       
@@ -8345,9 +8516,9 @@
       
       <tag>cve</tag>
       
-      <tag>eop</tag>
-      
       <tag>windows</tag>
+      
+      <tag>eop</tag>
       
       <tag>L0ch</tag>
       
@@ -8411,15 +8582,15 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
+      <tag>windows</tag>
       
       <tag>eop</tag>
       
-      <tag>windows</tag>
-      
-      <tag>race condition</tag>
+      <tag>Fabu1ous</tag>
       
       <tag>toctou</tag>
+      
+      <tag>race condition</tag>
       
     </tags>
     
@@ -8444,9 +8615,9 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
-      
       <tag>oob</tag>
+      
+      <tag>Fabu1ous</tag>
       
       <tag>integer overflow</tag>
       
@@ -8508,9 +8679,9 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
-      
       <tag>oob</tag>
+      
+      <tag>Fabu1ous</tag>
       
       <tag>pwnable</tag>
       
@@ -8838,11 +9009,11 @@
     
     <tags>
       
+      <tag>uaf</tag>
+      
       <tag>rce</tag>
       
       <tag>javascript</tag>
-      
-      <tag>uaf</tag>
       
       <tag>L0ch</tag>
       
@@ -8935,11 +9106,11 @@
     
     <tags>
       
+      <tag>d-link</tag>
+      
       <tag>authentication bypass</tag>
       
       <tag>router</tag>
-      
-      <tag>d-link</tag>
       
       <tag>L0ch</tag>
       
@@ -9038,9 +9209,9 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
-      
       <tag>kernel</tag>
+      
+      <tag>Fabu1ous</tag>
       
       <tag>use after free</tag>
       
@@ -9230,9 +9401,9 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
-      
       <tag>bof</tag>
+      
+      <tag>Fabu1ous</tag>
       
       <tag>pwnable</tag>
       
@@ -9265,11 +9436,11 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
-      
       <tag>cve</tag>
       
       <tag>information disclosure</tag>
+      
+      <tag>Fabu1ous</tag>
       
     </tags>
     
@@ -9294,11 +9465,11 @@
     
     <tags>
       
+      <tag>uaf</tag>
+      
       <tag>javascript</tag>
       
       <tag>chrome</tag>
-      
-      <tag>uaf</tag>
       
       <tag>L0ch</tag>
       
@@ -9360,13 +9531,13 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
-      
       <tag>cve</tag>
       
-      <tag>toctou</tag>
-      
       <tag>lpe</tag>
+      
+      <tag>Fabu1ous</tag>
+      
+      <tag>toctou</tag>
       
     </tags>
     
@@ -9490,17 +9661,17 @@
     
     <tags>
       
+      <tag>cve</tag>
+      
       <tag>Fabu1ous</tag>
       
-      <tag>cve</tag>
+      <tag>toctou</tag>
       
       <tag>razer</tag>
       
       <tag>chroma</tag>
       
       <tag>race condition</tag>
-      
-      <tag>toctou</tag>
       
     </tags>
     
@@ -9587,9 +9758,9 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
-      
       <tag>windows</tag>
+      
+      <tag>Fabu1ous</tag>
       
       <tag>outlook</tag>
       
@@ -9653,11 +9824,11 @@
       
       <tag>cve</tag>
       
-      <tag>race condition</tag>
+      <tag>lpe</tag>
       
       <tag>toctou</tag>
       
-      <tag>lpe</tag>
+      <tag>race condition</tag>
       
       <tag>idioth</tag>
       
@@ -9818,9 +9989,9 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
-      
       <tag>cve</tag>
+      
+      <tag>Fabu1ous</tag>
       
       <tag>android</tag>
       
@@ -9890,9 +10061,9 @@
       
       <tag>cve</tag>
       
-      <tag>eop</tag>
-      
       <tag>lpe</tag>
+      
+      <tag>eop</tag>
       
       <tag>named pipe</tag>
       
@@ -9960,11 +10131,11 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
-      
       <tag>cve</tag>
       
       <tag>linux</tag>
+      
+      <tag>Fabu1ous</tag>
       
       <tag>side-channel attack</tag>
       
@@ -10065,9 +10236,9 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
-      
       <tag>cve</tag>
+      
+      <tag>Fabu1ous</tag>
       
       <tag>android tv</tag>
       
@@ -10100,9 +10271,9 @@
       
       <tag>cve</tag>
       
-      <tag>eop</tag>
-      
       <tag>lpe</tag>
+      
+      <tag>eop</tag>
       
       <tag>ubuntu</tag>
       
@@ -10296,13 +10467,13 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
-      
       <tag>cve</tag>
       
       <tag>linux</tag>
       
       <tag>kernel</tag>
+      
+      <tag>Fabu1ous</tag>
       
       <tag>ebpf</tag>
       
@@ -10438,13 +10609,13 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
-      
       <tag>cve</tag>
+      
+      <tag>linux</tag>
       
       <tag>eop</tag>
       
-      <tag>linux</tag>
+      <tag>Fabu1ous</tag>
       
       <tag>blueman</tag>
       
@@ -10508,13 +10679,13 @@
       
       <tag>cve</tag>
       
-      <tag>eop</tag>
-      
       <tag>windows</tag>
       
-      <tag>idioth</tag>
+      <tag>eop</tag>
       
       <tag>dacl</tag>
+      
+      <tag>idioth</tag>
       
       <tag>group policy</tag>
       
@@ -10541,9 +10712,9 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
-      
       <tag>windows</tag>
+      
+      <tag>Fabu1ous</tag>
       
       <tag>detection evasion</tag>
       
@@ -10601,11 +10772,11 @@
       
       <tag>cve</tag>
       
-      <tag>eop</tag>
+      <tag>kernel</tag>
       
       <tag>windows</tag>
       
-      <tag>kernel</tag>
+      <tag>eop</tag>
       
       <tag>idioth</tag>
       
@@ -10669,9 +10840,9 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
-      
       <tag>cve</tag>
+      
+      <tag>Fabu1ous</tag>
       
       <tag>heap bof</tag>
       
@@ -10768,15 +10939,15 @@
     
     <tags>
       
-      <tag>Fabu1ous</tag>
-      
       <tag>cve</tag>
       
-      <tag>local</tag>
+      <tag>windows</tag>
       
       <tag>eop</tag>
       
-      <tag>windows</tag>
+      <tag>Fabu1ous</tag>
+      
+      <tag>local</tag>
       
       <tag>system privilege</tag>
       
