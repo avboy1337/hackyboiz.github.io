@@ -20,8 +20,28 @@
 
   <meta property="og:type" content="website"> 
   <meta property="og:title" content="[하루한줄] macOS: Integer overflow in CoreGraphics leading to oob write - hackyboiz">
-  <meta property="og:description" content="hack &amp; life">
-  <meta property="og:image" content="/img/favicon.ico">
+  <meta property="og:description" content="&lt;h2 id=&#34;URL&#34;&gt;&lt;a href=&#34;#URL&#34; class=&#34;headerlink&#34; title=&#34;URL&#34;&gt;&lt;/a&gt;URL&lt;/h2&gt;&lt;p&gt;&lt;a href=&#34;https://bugs.chromium.org/p/project-zero/issues/detail?id=2130&#34;&gt;macOS: Integer overflow in CoreGraphics leading to out-of-bounds write when rendering fonts&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;Target&#34;&gt;&lt;a href=&#34;#Target&#34; class=&#34;headerlink&#34; title=&#34;Target&#34;&gt;&lt;/a&gt;Target&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;CoreGraphics, Big Sur version 11.1&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;Explain&#34;&gt;&lt;a href=&#34;#Explain&#34; class=&#34;headerlink&#34; title=&#34;Explain&#34;&gt;&lt;/a&gt;Explain&lt;/h2&gt;&lt;p&gt;macOS CoreGraphics&amp;#xC5D0;&amp;#xC11C; &amp;#xD3F0;&amp;#xD2B8;&amp;#xB97C; &amp;#xB80C;&amp;#xB354;&amp;#xB9C1; &amp;#xD560; &amp;#xB54C; out-of-bound write&amp;#xAC00; &amp;#xAC00;&amp;#xB2A5;&amp;#xD55C; &amp;#xCDE8;&amp;#xC57D;&amp;#xC810;&amp;#xC774; &amp;#xBC1C;&amp;#xACAC;&amp;#xB418;&amp;#xC5C8;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xD574;&amp;#xB2F9; &amp;#xCDE8;&amp;#xC57D;&amp;#xC810;&amp;#xC740; glyphs&amp;#xB97C; bitmap&amp;#xC73C;&amp;#xB85C; &amp;#xB80C;&amp;#xB354;&amp;#xB9C1; &amp;#xD560; &amp;#xB54C; CoreGraphics library&amp;#xC758; &amp;#xBC94;&amp;#xC704; &amp;#xAC80;&amp;#xC99D; &amp;#xBBF8;&amp;#xD761;&amp;#xC73C;&amp;#xB85C; &amp;#xC778;&amp;#xD574; &amp;#xBC1C;&amp;#xC0DD;&amp;#xD569;&amp;#xB2C8;&amp;#xB2E4;. glyph bitmap&amp;#xC744; &amp;#xB80C;&amp;#xB354;&amp;#xB9C1; &amp;#xD558;&amp;#xAE30; &amp;#xC704;&amp;#xD55C; delta &amp;#xAE30;&amp;#xBC18;&amp;#xC758; anti-aliasing &amp;#xC54C;&amp;#xACE0;&amp;#xB9AC;&amp;#xC998;&amp;#xC740; &lt;code&gt;2^30&lt;/code&gt;&amp;#xBCF4;&amp;#xB2E4; &amp;#xC791;&amp;#xC740; &amp;#xC88C;&amp;#xD45C;&amp;#xB9CC; &amp;#xC62C;&amp;#xBC14;&amp;#xB974;&amp;#xAC8C; &amp;#xCC98;&amp;#xB9AC;&amp;#xD560; &amp;#xC218; &amp;#xC788;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xADF8;&amp;#xB7EC;&amp;#xB098; &amp;#xC774; &amp;#xC88C;&amp;#xD45C;&amp;#xC5D0; &amp;#xB300;&amp;#xD55C; &amp;#xAC80;&amp;#xC0AC;&amp;#xAC00; &amp;#xC874;&amp;#xC7AC;&amp;#xD558;&amp;#xC9C0; &amp;#xC54A;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xCDE8;&amp;#xC57D;&amp;#xC810;&amp;#xC774; &amp;#xC874;&amp;#xC7AC;&amp;#xD558;&amp;#xB294; &amp;#xCF54;&amp;#xB4DC;&amp;#xB294; &amp;#xB2E4;&amp;#xC74C;&amp;#xACFC; &amp;#xAC19;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;hljs c&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; ( v96 &amp;gt;&amp;gt; &lt;span class=&#34;hljs-number&#34;&gt;12&lt;/span&gt; == v94 &amp;gt;&amp;gt; &lt;span class=&#34;hljs-number&#34;&gt;12&lt;/span&gt; )
+              {
+                v106 = v101 - v100;
+(&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;)             v107 = (v96 + v94) &amp;gt;&amp;gt; &lt;span class=&#34;hljs-number&#34;&gt;13&lt;/span&gt;;
+                v108 = v96 - v94;
+                &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; ( v96 - v94 &amp;lt; &lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt; )
+                  v108 = v94 - v96;
+                &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; ( v94 - v96 &amp;gt; &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt; )
+                  LOWORD(v96) = v94;
+                v109 = (v106 * (v108 - ((&lt;span class=&#34;hljs-number&#34;&gt;2&lt;/span&gt; * (&lt;span class=&#34;hljs-keyword&#34;&gt;unsigned&lt;/span&gt; __int16)v96) &amp;amp; &lt;span class=&#34;hljs-number&#34;&gt;0x1FFE&lt;/span&gt;) + &lt;span class=&#34;hljs-number&#34;&gt;0x2000&lt;/span&gt;)) &amp;gt;&amp;gt; &lt;span class=&#34;hljs-number&#34;&gt;13&lt;/span&gt;;
+(&lt;span class=&#34;hljs-number&#34;&gt;2&lt;/span&gt;)             *(_WORD *)(v86 + &lt;span class=&#34;hljs-number&#34;&gt;2&lt;/span&gt; * v107) += v109;
+(&lt;span class=&#34;hljs-number&#34;&gt;3&lt;/span&gt;)             *(_WORD *)(v86 + &lt;span class=&#34;hljs-number&#34;&gt;2&lt;/span&gt; * v107 + &lt;span class=&#34;hljs-number&#34;&gt;2&lt;/span&gt;) += v106 - v109;
+                v90 = v160;
+              }&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;(1)&amp;#xC5D0;&amp;#xC11C; &amp;#xB450; &amp;#xC88C;&amp;#xD45C;&amp;#xC758; &amp;#xC911;&amp;#xAC04; &amp;#xC9C0;&amp;#xC810;&amp;#xC744; &amp;#xACC4;&amp;#xC0B0;&amp;#xD558;&amp;#xACE0; &amp;#xC22B;&amp;#xC790;&amp;#xB85C; &amp;#xBCC0;&amp;#xD658;&amp;#xD569;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xC774;&amp;#xB54C; x &amp;#xC88C;&amp;#xD45C;&amp;#xB294; &amp;#xB458; &amp;#xB2E4; &lt;code&gt;-2^30&lt;/code&gt;&amp;#xBCF4;&amp;#xB2E4; &amp;#xC791;&amp;#xC73C;&amp;#xBBC0;&amp;#xB85C; &amp;#xB450; &amp;#xAC12;&amp;#xC744; &amp;#xB354;&amp;#xD560; &amp;#xACBD;&amp;#xC6B0; integer overflow&amp;#xAC00; &amp;#xBC1C;&amp;#xC0DD;&amp;#xD558;&amp;#xC5EC; &amp;#xAC12;&amp;#xC774; &amp;#xD070; &amp;#xC591;&amp;#xC758; &amp;#xC815;&amp;#xC218;&amp;#xAC00; &amp;#xB429;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xC774;&amp;#xB85C; &amp;#xC778;&amp;#xD574; (2)&amp;#xC640; (3)&amp;#xC5D0;&amp;#xC11C; oob write&amp;#xAC00; &amp;#xBC1C;&amp;#xC0DD;&amp;#xD569;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+ - hack &amp; life">
+  <meta property="og:image" content="/thumbnail.png">
   <meta property="og:url" content="https://hackyboiz.github.io/">
 
   <link rel="canonical" href="https://hackyboiz.github.io/2021/03/18/insu/2021-03-18/">

