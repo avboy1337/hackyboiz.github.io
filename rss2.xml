@@ -9,8 +9,42 @@
     <atom:link href="https://hackyboiz.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>hack &amp; life</description>
-    <pubDate>Fri, 17 Sep 2021 05:31:34 GMT</pubDate>
+    <pubDate>Sat, 18 Sep 2021 05:10:59 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>[하루한줄] CVE-2021-40346: HAProxy에서 발견된 Integer Overflow를 통한 HTTP Smuggling</title>
+      <link>https://hackyboiz.github.io/2021/09/18/l0ch/2021-09-18/</link>
+      <guid>https://hackyboiz.github.io/2021/09/18/l0ch/2021-09-18/</guid>
+      <pubDate>Sat, 18 Sep 2021 05:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;URL&quot;&gt;&lt;a href=&quot;#URL&quot; class=&quot;headerlink&quot; title=&quot;URL&quot;&gt;&lt;/a&gt;URL&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://jfrog.com/blog/critical-vulnerability-in-haproxy-</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h2 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h2><p><a href="https://jfrog.com/blog/critical-vulnerability-in-haproxy-cve-2021-40346-integer-overflow-enables-http-smuggling/">Critical Vulnerability in HAProxy (CVE-2021-40346): Integer Overflow Enables HTTP Smuggling</a></p><h2 id="Target"><a href="#Target" class="headerlink" title="Target"></a>Target</h2><ul><li>HAProxy 2.0.25, 2.2.17, 2.3.14, 2.4.4 &#xC774;&#xC804;</li></ul><h2 id="Explain"><a href="#Explain" class="headerlink" title="Explain"></a>Explain</h2><p>HAProxy&#xB294; &#xAE30;&#xC874; &#xD558;&#xB4DC;&#xC6E8;&#xC5B4; &#xC2A4;&#xC704;&#xCE58;&#xC5D0;&#xC11C; &#xC81C;&#xACF5;&#xD558;&#xB294; &#xAE30;&#xB2A5;&#xC744; &#xC18C;&#xD504;&#xD2B8;&#xC6E8;&#xC5B4;&#xB85C; &#xAD6C;&#xD604;&#xD55C; &#xC624;&#xD508;&#xC18C;&#xC2A4; &#xB85C;&#xB4DC; &#xBC38;&#xB7F0;&#xC11C;&#xC785;&#xB2C8;&#xB2E4;. &#xD574;&#xB2F9; &#xC18C;&#xD504;&#xD2B8;&#xC6E8;&#xC5B4;&#xC5D0;&#xC11C; HTTP Request Smuggling &#xACF5;&#xACA9;&#xC744; &#xAC00;&#xB2A5;&#xD558;&#xAC8C; &#xD558;&#xB294; unsigned integer overflow &#xCDE8;&#xC57D;&#xC810;&#xC758; &#xC138;&#xBD80; &#xC815;&#xBCF4;&#xAC00; &#xACF5;&#xAC1C;&#xB418;&#xC5C8;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p>&#xCDE8;&#xC57D;&#xC810;&#xC740; HTX block&#xC744; &#xCD94;&#xAC00;&#xD558;&#xB294; <code>htx_add_header</code> &#xD568;&#xC218;&#xC5D0;&#xC11C; &#xBC1C;&#xC0DD;&#xD569;&#xB2C8;&#xB2E4;.</p><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">inline</span> struct htx_blk *<span class="hljs-title">htx_add_header</span><span class="hljs-params">(struct htx *htx, <span class="hljs-keyword">const</span> struct ist name,</span></span><span class="hljs-function"><span class="hljs-params">     <span class="hljs-keyword">const</span> struct ist value)</span></span><span class="hljs-function"></span>{<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">htx_blk</span> *<span class="hljs-title">blk</span>;</span><span class="hljs-comment">/* <span class="hljs-doctag">FIXME:</span> check name.len (&lt; 256B) and value.len (&lt; 1MB) */</span>blk = htx_add_blk(htx, HTX_BLK_HDR, name.len + value.len);<span class="hljs-keyword">if</span> (!blk)<span class="hljs-keyword">return</span> <span class="hljs-literal">NULL</span>;blk-&gt;info += (value.len &lt;&lt; <span class="hljs-number">8</span>) + name.len;  <span class="hljs-comment">//vuln!</span>ist2bin_lc(htx_get_blk_ptr(htx, blk), name);<span class="hljs-built_in">memcpy</span>(htx_get_blk_ptr(htx, blk)  + name.len, value.ptr, value.len);<span class="hljs-keyword">return</span> blk;}</code></pre><p><code>htx_add_header</code> &#xD568;&#xC218;&#xB294; &#xD5E4;&#xB354; &#xC774;&#xB984; <code>name</code>&#xACFC; &#xD5E4;&#xB354; &#xAC12; <code>value</code>&#xB97C; &#xB9E4;&#xAC1C;&#xBCC0;&#xC218;&#xB85C; &#xBC1B;&#xC544; &#xB2E4;&#xC74C; &#xC791;&#xC5C5;&#xC744; &#xC218;&#xD589;&#xD569;&#xB2C8;&#xB2E4;. </p><ol><li>&#xD5E4;&#xB354; &#xD0C0;&#xC785;(<code>b0010</code>)&#xC758; &#xC0C8; HTX block&#xC744; &#xCD94;&#xAC00;&#xD569;&#xB2C8;&#xB2E4;. </li><li>&#xC0DD;&#xC131;&#xB41C; block&#xC758; <code>info</code> &#xD544;&#xB4DC;&#xC5D0; <code>name</code>&#xC758; &#xAE38;&#xC774;&#xC640; <code>value</code>&#xC758; &#xAE38;&#xC774;&#xB97C; &#xC800;&#xC7A5;&#xD569;&#xB2C8;&#xB2E4;.<ol><li>&#xC774;&#xB54C; <code>value</code>&#xC758; &#xAE38;&#xC774;&#xB97C; 8 bit &#xB9CC;&#xD07C; left shift&#xD574; <code>name</code> &#xAE38;&#xC774;&#xC640; &#xB354;&#xD574; &#xC800;&#xC7A5;&#xD569;&#xB2C8;&#xB2E4;.</li></ol></li><li><code>name</code>&#xC774; <code>lowercase</code>&#xB85C; HTX block&#xC73C;&#xB85C; &#xBCF5;&#xC0AC;&#xB418;&#xACE0;, &#xBC14;&#xB85C; &#xB4A4;&#xC5D0; <code>value</code>&#xAC00; &#xBCF5;&#xC0AC;&#xB429;&#xB2C8;&#xB2E4;.</li></ol><p>&#xC608;&#xB97C; &#xB4E4;&#xC5B4; &#xD5E4;&#xB354; &#xC774;&#xB984;&#xACFC; &#xAC12;&#xC774; <code>MyName:MyValue</code>&#xC778; &#xACBD;&#xC6B0; <code>info</code> &#xD544;&#xB4DC;&#xC5D0;&#xB294; &#xB2E4;&#xC74C; &#xAC12;&#xC774; &#xC800;&#xC7A5;&#xB429;&#xB2C8;&#xB2E4;.</p><pre><code class="hljs c"><span class="hljs-comment">// Type : b0010</span><span class="hljs-comment">// MyName length : 0x6</span><span class="hljs-comment">// MyValue Length : 0x7 </span>block-&gt;info = (<span class="hljs-number">0x2</span> &lt;&lt; <span class="hljs-number">28</span>) + (<span class="hljs-number">0x7</span> &lt;&lt; <span class="hljs-number">8</span>) + <span class="hljs-number">0x06</span> = <span class="hljs-number">0x20000706</span></code></pre><p>&#xC774; &#xACFC;&#xC815;&#xC5D0;&#xC11C; &#xD5E4;&#xB354; &#xC774;&#xB984; <code>name</code>&#xC758; &#xAE38;&#xC774;&#xB97C; &#xAC80;&#xC99D;&#xD558;&#xC9C0; &#xC54A;&#xC544; 255 bytes&#xBCF4;&#xB2E4; &#xAE34; &#xC774;&#xB984;&#xC758; &#xD5E4;&#xB354;&#xB97C; &#xC804;&#xB2EC;&#xD574; &#xC774;&#xD6C4; &#xD30C;&#xC2F1; &#xACFC;&#xC815;&#xC5D0;&#xC11C; &#xB2E4;&#xB978; &#xD5E4;&#xB354; &#xC774;&#xB984;&#xC73C;&#xB85C; &#xBCF4;&#xC774;&#xAC8C; &#xD560; &#xC218; &#xC788;&#xC5B4; HTTP Reuest Smuggling &#xACF5;&#xACA9;&#xC774; &#xAC00;&#xB2A5;&#xD569;&#xB2C8;&#xB2E4;.</p>]]></content:encoded>
+      
+      
+      <category domain="https://hackyboiz.github.io/categories/1day1line/">1day1line</category>
+      
+      
+      <category domain="https://hackyboiz.github.io/tags/cve/">cve</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/integer-overflow/">integer overflow</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/L0ch/">L0ch</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/http-smuggling/">http smuggling</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/cve-2021-40346/">cve-2021-40346</category>
+      
+      
+      <comments>https://hackyboiz.github.io/2021/09/18/l0ch/2021-09-18/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>[해키피디아] Shell</title>
@@ -168,11 +202,11 @@
       
       <category domain="https://hackyboiz.github.io/tags/bypass/">bypass</category>
       
-      <category domain="https://hackyboiz.github.io/tags/authentication-bypass/">authentication bypass</category>
-      
       <category domain="https://hackyboiz.github.io/tags/j0ker/">j0ker</category>
       
       <category domain="https://hackyboiz.github.io/tags/Ionic-Identity-Vault/">Ionic Identity Vault</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/authentication-bypass/">authentication bypass</category>
       
       <category domain="https://hackyboiz.github.io/tags/biometric/">biometric</category>
       
@@ -409,9 +443,9 @@
       <category domain="https://hackyboiz.github.io/categories/1day1line/">1day1line</category>
       
       
-      <category domain="https://hackyboiz.github.io/tags/Fabu1ous/">Fabu1ous</category>
-      
       <category domain="https://hackyboiz.github.io/tags/rce/">rce</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/Fabu1ous/">Fabu1ous</category>
       
       <category domain="https://hackyboiz.github.io/tags/firmware/">firmware</category>
       
@@ -481,8 +515,6 @@
       <category domain="https://hackyboiz.github.io/categories/1day1line/">1day1line</category>
       
       
-      <category domain="https://hackyboiz.github.io/tags/rce/">rce</category>
-      
       <category domain="https://hackyboiz.github.io/tags/j0ker/">j0ker</category>
       
       <category domain="https://hackyboiz.github.io/tags/solarwinds/">solarwinds</category>
@@ -490,6 +522,8 @@
       <category domain="https://hackyboiz.github.io/tags/serv-u/">serv-u</category>
       
       <category domain="https://hackyboiz.github.io/tags/ssh/">ssh</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/rce/">rce</category>
       
       <category domain="https://hackyboiz.github.io/tags/ftp/">ftp</category>
       
@@ -614,11 +648,11 @@
       <category domain="https://hackyboiz.github.io/categories/1day1line/">1day1line</category>
       
       
-      <category domain="https://hackyboiz.github.io/tags/Fabu1ous/">Fabu1ous</category>
+      <category domain="https://hackyboiz.github.io/tags/microsoft/">microsoft</category>
       
       <category domain="https://hackyboiz.github.io/tags/exchange/">exchange</category>
       
-      <category domain="https://hackyboiz.github.io/tags/microsoft/">microsoft</category>
+      <category domain="https://hackyboiz.github.io/tags/Fabu1ous/">Fabu1ous</category>
       
       <category domain="https://hackyboiz.github.io/tags/auth-bypass/">auth bypass</category>
       
@@ -648,9 +682,9 @@
       
       <category domain="https://hackyboiz.github.io/tags/lpe/">lpe</category>
       
-      <category domain="https://hackyboiz.github.io/tags/razer/">razer</category>
-      
       <category domain="https://hackyboiz.github.io/tags/j0ker/">j0ker</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/razer/">razer</category>
       
       <category domain="https://hackyboiz.github.io/tags/steelseries/">steelseries</category>
       
@@ -660,36 +694,6 @@
       
       
       <comments>https://hackyboiz.github.io/2021/08/27/j0ker/2021-08-27/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>[해키피디아] Windows Search Order</title>
-      <link>https://hackyboiz.github.io/2021/08/26/y00n_nms/windows-search-order/</link>
-      <guid>https://hackyboiz.github.io/2021/08/26/y00n_nms/windows-search-order/</guid>
-      <pubDate>Thu, 26 Aug 2021 05:00:00 GMT</pubDate>
-      
-        
-        
-      <description>&lt;p&gt;Windows&amp;#xC5D0;&amp;#xC11C; &amp;#xD30C;&amp;#xC77C;&amp;#xC744; &amp;#xCC3E;&amp;#xC544; &amp;#xC2E4;&amp;#xD589;&amp;#xD560; &amp;#xB54C; &amp;#xAC00;&amp;#xC7A5; &amp;#xBA3C;&amp;#xC800; &amp;#x</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<p>Windows&#xC5D0;&#xC11C; &#xD30C;&#xC77C;&#xC744; &#xCC3E;&#xC544; &#xC2E4;&#xD589;&#xD560; &#xB54C; &#xAC00;&#xC7A5; &#xBA3C;&#xC800; &#xCC3E;&#xB294; &#xACF3;&#xC740; &#xD604;&#xC7AC; &#xB514;&#xB809;&#xD130;&#xB9AC;&#xC785;&#xB2C8;&#xB2E4;.</p><p>&#xD604;&#xC7AC; &#xB514;&#xB809;&#xD130;&#xB9AC;&#xAC00; <code>C:\Users\Photo</code>&#xB77C;&#xBA74; <code>C:\Users\School</code> &#xC704;&#xCE58;&#xC5D0; &#xC788;&#xB294; <code>SejongUniv.exe</code> &#xD30C;&#xC77C;&#xC744; &#xCC3E;&#xC544; <code>SejongUniv.exe</code> &#xBA85;&#xB839;&#xC73C;&#xB85C; &#xC2E4;&#xD589;&#xD560; &#xC218; &#xC5C6;&#xC9C0;&#xB9CC;, &#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C; &#xC808;&#xB300;&#xACBD;&#xB85C;&#xC640; &#xC0C1;&#xB300;&#xACBD;&#xB85C;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xC5EC; &#xC2E4;&#xD589;&#xD560; &#xC218;&#xB294; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC608;&#xB97C; &#xB4E4;&#xBA74;, &#xC808;&#xB300;&#xACBD;&#xB85C;&#xB294; <code>C:/Users/School/SejongUniv.exe</code>, &#xC0C1;&#xB300; &#xACBD;&#xB85C;&#xB294; <code>../School/SejongUniv.exe</code>&#xB85C; &#xC2E4;&#xD589;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p>&#xD558;&#xC9C0;&#xB9CC; &#xC808;&#xB300;&#xACBD;&#xB85C;&#xC640; &#xC0C1;&#xB300;&#xACBD;&#xB85C;&#xB3C4; &#xC544;&#xB2CC; &#xD30C;&#xC77C; &#xC774;&#xB984;&#xC744; &#xC785;&#xB825;&#xD588;&#xC744; &#xB54C;, &#xD604;&#xC7AC; &#xB514;&#xB809;&#xD130;&#xB9AC;&#xC5D0;&#xC11C; &#xCC3E;&#xC744; &#xC218; &#xC5C6;&#xB2E4;&#xBA74; Windows&#xB294; <code>%PATH%</code> &#xD658;&#xACBD; &#xBCC0;&#xC218;&#xC5D0;&#xC11C; &#xD574;&#xB2F9; &#xD30C;&#xC77C;&#xC744; &#xCC3E;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;. <code>%PATH%</code> &#xD658;&#xACBD; &#xBCC0;&#xC218;&#xB294; &#xC5B4;&#xB5A4; &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xC5D0;&#xC11C;&#xB3C4; &#xC2E4;&#xD589;&#xD560; &#xC218; &#xC788;&#xB294; &#xD30C;&#xC77C;&#xB4E4;&#xC744; &#xCC3E;&#xAE30; &#xC704;&#xD55C; &#xACBD;&#xB85C;&#xAC00; &#xC800;&#xC7A5;&#xB418;&#xC5B4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. python&#xC758; &#xACBD;&#xB85C;&#xB97C; &#xC124;&#xC815;&#xD574; &#xB193;&#xC73C;&#xBA74; &#xC544;&#xB798; &#xC0AC;&#xC9C4;&#xCC98;&#xB7FC; &#xC5B4;&#xB514;&#xC11C;&#xB4E0; python&#xC744; &#xC785;&#xB825;&#xD558;&#xC5EC; &#xC2E4;&#xD589;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p><img src="/2021/08/26/y00n_nms/windows-search-order/image.png" alt></p><p>&#xADF8;&#xB807;&#xB2E4;&#xBA74; &#xB9CC;&#xC57D;&#xC5D0; <code>test.txt</code> &#xD30C;&#xC77C;&#xC744; &#xAC00;&#xC9C0;&#xACE0; &#xC788;&#xB294; &#xB450; &#xB514;&#xB809;&#xD130;&#xB9AC; &#xBAA8;&#xB450; <code>%PATH%</code>&#xC5D0; &#xC124;&#xC815;&#xB418;&#xC5B4; &#xC788;&#xB2E4;&#xBA74;, <code>text.txt</code>&#xB97C; &#xAC80;&#xC0C9;&#xD560; &#xB54C; &#xC5B4;&#xB514;&#xC5D0; &#xC788;&#xB294; &#xD30C;&#xC77C;&#xC744; &#xC2E4;&#xD589;&#xD558;&#xAC8C; &#xB420;&#xC9C0; &#xC758;&#xBB38;&#xC744; &#xAC00;&#xC9C0;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;. <code>%PATH%</code>&#xC758; &#xC67C;&#xCABD;&#xC5D0;&#xC11C; &#xC624;&#xB978;&#xCABD;&#xC73C;&#xB85C; &#xD655;&#xC778;&#xD558;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xBA3C;&#xC800; &#xD655;&#xC778;&#xB41C;(&#xC67C;&#xCABD;&#xC5D0; &#xC874;&#xC7AC;&#xD558;&#xB294;) &#xACBD;&#xB85C;&#xC5D0; &#xC788;&#xB294; &#xD30C;&#xC77C;&#xC744; &#xC2E4;&#xD589;&#xD558;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;. <code>C:\Users\82104\Desktop\second</code>, <code>C:\Users\82104\Desktop\first</code> &#xC21C;&#xC11C;&#xB300;&#xB85C; &#xC124;&#xC815;&#xB418;&#xC5B4; &#xC788;&#xC744; &#xB54C;, &#xB450; &#xB514;&#xB809;&#xD130;&#xB9AC; &#xBAA8;&#xB450; &#xAC00;&#xC9C0;&#xACE0; &#xC788;&#xB294; <code>test.txt</code>&#xB97C; &#xC785;&#xB825;&#xD558;&#xBA74; second &#xB514;&#xB809;&#xD130;&#xB9AC;&#xC5D0; &#xC788;&#xB294; <code>test.txt</code> &#xD30C;&#xC77C;&#xC774; &#xC2E4;&#xD589;&#xB429;&#xB2C8;&#xB2E4;.</p><p><img src="/2021/08/26/y00n_nms/windows-search-order/image1.png" alt></p><p>&#xB9C8;&#xC9C0;&#xB9C9;&#xC73C;&#xB85C;&#xB294; <code>%WINDIR%</code> &#xB4F1;&#xC758; &#xC2DC;&#xC2A4;&#xD15C; &#xC704;&#xCE58;&#xB97C; &#xD655;&#xC778;&#xD558;&#xBA70;, &#xBCF4;&#xD1B5; WINDIR&#xC758; &#xACBD;&#xB85C;&#xB294; <code>C:\Windows</code> &#xC785;&#xB2C8;&#xB2E4;.</p>]]></content:encoded>
-      
-      
-      <category domain="https://hackyboiz.github.io/categories/Hackypedia/">Hackypedia</category>
-      
-      
-      <category domain="https://hackyboiz.github.io/tags/windows/">windows</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/y00n-nms/">y00n_nms</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/windows-search-order/">windows search order</category>
-      
-      
-      <comments>https://hackyboiz.github.io/2021/08/26/y00n_nms/windows-search-order/#disqus_thread</comments>
       
     </item>
     
