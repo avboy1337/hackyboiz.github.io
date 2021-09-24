@@ -9,8 +9,78 @@
     <atom:link href="https://hackyboiz.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>hack &amp; life</description>
-    <pubDate>Sun, 19 Sep 2021 09:17:06 GMT</pubDate>
+    <pubDate>Fri, 24 Sep 2021 10:45:40 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>[하루한줄] CVE-2021-30860: Pegasus 스파이웨어에서 악용된 iOS FORCEDENTRY 취약점</title>
+      <link>https://hackyboiz.github.io/2021/09/25/l0ch/2021-09-25/</link>
+      <guid>https://hackyboiz.github.io/2021/09/25/l0ch/2021-09-25/</guid>
+      <pubDate>Sat, 25 Sep 2021 05:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;URL&quot;&gt;&lt;a href=&quot;#URL&quot; class=&quot;headerlink&quot; title=&quot;URL&quot;&gt;&lt;/a&gt;URL&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://www.trendmicro.com/en_us/research/21/i/analyzing-</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h2 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h2><p><a href="https://www.trendmicro.com/en_us/research/21/i/analyzing-pegasus-spywares-zero-click-iphone-exploit-forcedentry.html">Analyzing The ForcedEntry Zero-Click iPhone Exploit Used By Pegasus</a></p><h2 id="Target"><a href="#Target" class="headerlink" title="Target"></a>Target</h2><ul><li>iOS &lt; 14.8</li></ul><h2 id="Explain"><a href="#Explain" class="headerlink" title="Explain"></a>Explain</h2><p>NSO Group&#xC774; &#xAC1C;&#xBC1C;&#xD55C; &#xC2A4;&#xD30C;&#xC774;&#xC6E8;&#xC5B4;&#xC778; Pegasus&#xC5D0; &#xC758;&#xD574; &#xC545;&#xC6A9;&#xB418;&#xC5B4; &#xC628; &#xAC83;&#xC73C;&#xB85C; &#xC54C;&#xB824;&#xC9C4; FORCEDENTRY&#xB77C;&#xB294; &#xC774;&#xB984;&#xC758; zero-click iOS &#xCDE8;&#xC57D;&#xC810;&#xC5D0; &#xB300;&#xD55C; &#xC138;&#xBD80; &#xC815;&#xBCF4;&#xAC00; &#xACF5;&#xAC1C;&#xB418;&#xC5C8;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p>&#xCDE8;&#xC57D;&#xC810;&#xC740; iMessage &#xC560;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158;&#xC774; &#xC218;&#xC2E0;&#xD55C; &#xBA54;&#xC2DC;&#xC9C0;&#xC5D0; &#xCCA8;&#xBD80;&#xB41C; PDF &#xD30C;&#xC77C;&#xC744; &#xD30C;&#xC2F1;&#xD558;&#xB294; &#xACFC;&#xC815;&#xC5D0;&#xC11C; &#xBC1C;&#xC0DD;&#xD569;&#xB2C8;&#xB2E4;. &#xC544;&#xB798;&#xB294; JBIG2&#xB85C; &#xC778;&#xCF54;&#xB529; &#xB41C; &#xB370;&#xC774;&#xD130;&#xB97C; &#xB514;&#xCF54;&#xB529;&#xD558;&#xAE30; &#xC704;&#xD574; iOS&#xC758; CoreGraphics &#xB77C;&#xC774;&#xBE0C;&#xB7EC;&#xB9AC;&#xC5D0;&#xC11C; &#xD638;&#xCD9C;&#xD558;&#xB294;<code>JBIG2Stream::readTextRegionSeg</code> &#xD568;&#xC218;&#xC758; &#xC77C;&#xBD80; &#xCF54;&#xB4DC;&#xC785;&#xB2C8;&#xB2E4;.</p><pre><code class="hljs c"><span class="hljs-number">1</span>:<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> numSyms = <span class="hljs-number">0</span>;<span class="hljs-number">2</span>:<span class="hljs-keyword">for</span>(i = <span class="hljs-number">0</span>; i &lt; nRefSegs; ++i){<span class="hljs-number">3</span>:<span class="hljs-keyword">if</span>((seg = findSegment(refSegs[i]))) {<span class="hljs-number">4</span>:<span class="hljs-keyword">if</span>(seg-&gt;getType() == jbig2SegSymbolDict) {<span class="hljs-number">5</span>:numSyms += ((JBIG2SymbolDict *)seg)-&gt;getSize();  <span class="hljs-comment">//integer overflow</span><span class="hljs-number">6</span>:} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(seg-&gt;getType() == jbig2SegCodeTable) {<span class="hljs-number">7</span>:codeTables-&gt;append(seg);<span class="hljs-number">8</span>:}<span class="hljs-number">9</span>:} <span class="hljs-keyword">else</span> {<span class="hljs-number">10</span>:error(getPos(), <span class="hljs-string">&quot;Invalid segment referencein JBIG2 text region&quot;</span>);<span class="hljs-number">11</span>:<span class="hljs-keyword">delete</span> codeTables;<span class="hljs-number">12</span>:<span class="hljs-keyword">return</span>;<span class="hljs-number">13</span>:}<span class="hljs-number">14</span>:}</code></pre><p>line 5&#xC5D0;&#xC11C; <code>numSyms</code>&#xC758; type&#xACFC; <code>seg&#x2192;getSize()</code>&#xC758; return type&#xC740; &#xBAA8;&#xB450; <code>unsigned int</code>&#xC785;&#xB2C8;&#xB2E4;. <code>seg</code>&#xC758; &#xCDA9;&#xBD84;&#xD788; &#xD070; &#xACBD;&#xC6B0; &#xB8E8;&#xD504;&#xB97C; &#xC218;&#xD589;&#xD558;&#xBA70; <code>seg&#x2192;getSize()</code>&#xB97C; <code>numSyms</code>&#xC5D0; &#xB204;&#xC801;&#xD558;&#xB294; &#xB3D9;&#xC548; <code>numSyms</code>&#xC5D0;&#xC11C; integer overflow&#xAC00; &#xBC1C;&#xC0DD;&#xD569;&#xB2C8;&#xB2E4;.</p><pre><code class="hljs c">syms = (JBIG2Bitmap **)gmallocn(numSyms, <span class="hljs-keyword">sizeof</span>(JBIG2Bitmap *)); <span class="hljs-comment">// size of JBIG2Bitmap = 8</span></code></pre><p>&#xC774;&#xD6C4; <code>gmallocn</code> &#xD568;&#xC218;&#xB85C; <code>numSyms * 8</code>&#xB9CC;&#xD07C;&#xC758; <code>syms</code> &#xD799;&#xC744; &#xD560;&#xB2F9;&#xD55C; &#xB4A4; &#xBE44;&#xD2B8;&#xB9F5;&#xC758; &#xAC12;&#xC73C;&#xB85C; <code>syms</code>&#xB97C; &#xCC44;&#xC6B0;&#xB294;&#xB370;, integer overflow&#xB85C; &#xC778;&#xD574; &#xBE44;&#xD2B8;&#xB9F5;&#xC758; &#xD06C;&#xAE30;&#xBCF4;&#xB2E4; &#xC791;&#xC740; &#xD799;&#xC774; &#xD560;&#xB2F9;&#xB418;&#xACE0; out-of-bounds write&#xAC00; &#xAC00;&#xB2A5;&#xD569;&#xB2C8;&#xB2E4;.</p><p>&#xD574;&#xB2F9; &#xCDE8;&#xC57D;&#xC810;&#xC740; &#xD574;&#xCEE4;&#xAC00; &#xD0C0;&#xAC9F; &#xC544;&#xC774;&#xD3F0;&#xC5D0; &#xC545;&#xC131; &#xCCA8;&#xBD80; &#xD30C;&#xC77C;&#xC744; &#xD3EC;&#xD568;&#xD55C; &#xBA54;&#xC2DC;&#xC9C0;&#xB97C; &#xBCF4;&#xB0B4;&#xAE30;&#xB9CC; &#xD558;&#xBA74; &#xD0C0;&#xAC9F;&#xC758; &#xC0C1;&#xD638;&#xC791;&#xC6A9; &#xC5C6;&#xC774; &#xACF5;&#xACA9;&#xC774; &#xAC00;&#xB2A5;&#xD55C; zero-click exploit&#xC774;&#xBA70; &#xC774;&#xB97C; &#xC545;&#xC6A9;&#xD55C; &#xC2A4;&#xD30C;&#xC774;&#xC6E8;&#xC5B4; Pegasus&#xB294; &#xC9C0;&#xB09C; 2&#xC6D4;&#xBD80;&#xD130; &#xAC01;&#xAD6D;&#xC758; &#xC815;&#xBD80; &#xAE30;&#xAD00;&#xC5D0; &#xACF5;&#xAE09;&#xB418;&#xC5B4; &#xC8FC;&#xC694; &#xC778;&#xC0AC; &#xC0AC;&#xCC30;&#xC5D0; &#xC4F0;&#xC778; &#xAC83;&#xC73C;&#xB85C; &#xC54C;&#xB824;&#xC84C;&#xC2B5;&#xB2C8;&#xB2E4;.</p>]]></content:encoded>
+      
+      
+      <category domain="https://hackyboiz.github.io/categories/1day1line/">1day1line</category>
+      
+      
+      <category domain="https://hackyboiz.github.io/tags/ios/">ios</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/spyware/">spyware</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/integer-overflow/">integer overflow</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/oob-write/">oob write</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/L0ch/">L0ch</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/cve-2021-30860/">cve-2021-30860</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/pegasus/">pegasus</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/forcedentry/">forcedentry</category>
+      
+      
+      <comments>https://hackyboiz.github.io/2021/09/25/l0ch/2021-09-25/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>[해키피디아] Web Shell</title>
+      <link>https://hackyboiz.github.io/2021/09/24/poosic/Web-Shell/</link>
+      <guid>https://hackyboiz.github.io/2021/09/24/poosic/Web-Shell/</guid>
+      <pubDate>Fri, 24 Sep 2021 05:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;&amp;#xC0AC;&amp;#xC6A9;&amp;#xC790;&amp;#xC640; OS&amp;#xAC04; &amp;#xC911;&amp;#xACC4;&amp;#xC790; &amp;#xC5ED;&amp;#xD560;&amp;#xC744; &amp;#xD558;&amp;#xBA70; &amp;#xB2E4;&amp;#xC591;&amp;#xD55C; &amp;</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<p>&#xC0AC;&#xC6A9;&#xC790;&#xC640; OS&#xAC04; &#xC911;&#xACC4;&#xC790; &#xC5ED;&#xD560;&#xC744; &#xD558;&#xBA70; &#xB2E4;&#xC591;&#xD55C; &#xAE30;&#xB2A5;&#xACFC; &#xC11C;&#xBE44;&#xC2A4;&#xB97C; &#xC81C;&#xACF5;&#xD574;&#xC8FC;&#xB294; <a href="https://hackyboiz.github.io/2021/09/17/poosic/Shell/">&#xC258;</a>&#xCC98;&#xB7FC; &#xC6F9; &#xC258;(Web Shell)&#xB3C4; &#xC6F9;&#xC0C1; &#xCDE8;&#xC57D;&#xC810;&#xC744; &#xC774;&#xC6A9;&#xD574; &#xC2DC;&#xC2A4;&#xD15C;&#xC5D0; &#xBA85;&#xB839;&#xC744; &#xB0B4;&#xB9B4; &#xC218; &#xC788;&#xB294; &#xCF54;&#xB4DC;&#xB098; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xD639;&#xC740; &#xC2DC;&#xC2A4;&#xD15C;&#xC5D0; &#xBA85;&#xB839;&#xC744; &#xB0B4;&#xB9B4; &#xC218; &#xC788;&#xB294; &#xCF54;&#xB4DC;&#xB098; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB97C; &#xC0BD;&#xC785;&#xD558;&#xB294; &#xACF5;&#xACA9;&#xC744; &#xBD80;&#xB974;&#xB294; &#xB9D0;&#xC785;&#xB2C8;&#xB2E4;. </p><p><img src="/2021/09/24/poosic/Web-Shell/image1.png" alt="Untitled.jpg"></p><h3 id="&#xC65C;-&#xC704;&#xD5D8;&#xD560;&#xAE4C;&#xC694;"><a href="#&#xC65C;-&#xC704;&#xD5D8;&#xD560;&#xAE4C;&#xC694;" class="headerlink" title="&#xC65C; &#xC704;&#xD5D8;&#xD560;&#xAE4C;&#xC694;?"></a>&#xC65C; &#xC704;&#xD5D8;&#xD560;&#xAE4C;&#xC694;?</h3><p>&#xC6F9; &#xC258;&#xC740; &#xC81C;&#xC791; &#xBC29;&#xBC95;&#xB3C4; &#xAC04;&#xB2E8;&#xD558;&#xACE0; &#xC11C;&#xBC84;&#xC5D0; &#xBBF8;&#xCE60; &#xC218; &#xC788;&#xB294; &#xD30C;&#xAE09;&#xB825;&#xB3C4; &#xD06C;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xBB34;&#xC11C;&#xC6B4; &#xACF5;&#xACA9;&#xC785;&#xB2C8;&#xB2E4;. &#xC6F9; &#xC258;&#xC740; ASP,JSP,PHP&#xB4F1;&#xC758; &#xC11C;&#xBC84; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB97C; &#xC774;&#xC6A9;&#xD574; &#xAC04;&#xB2E8;&#xD55C; &#xCF54;&#xB4DC;&#xB9CC;&#xC73C;&#xB85C;&#xB3C4; &#xC81C;&#xC791;&#xC774; &#xAC00;&#xB2A5;&#xD569;&#xB2C8;&#xB2E4;. &#xADF8;&#xB807;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xB9C8;&#xC74C;&#xB9CC; &#xBA39;&#xC73C;&#xBA74; &#xB204;&#xAD6C;&#xB098; &#xC27D;&#xAC8C; &#xC81C;&#xC791;&#xC774; &#xAC00;&#xB2A5;&#xD569;&#xB2C8;&#xB2E4;. &#xB610;&#xD55C;, &#xC11C;&#xBC84;&#xC5D0; &#xC5C5;&#xB85C;&#xB4DC;&#xB9CC; &#xAC00;&#xB2A5;&#xD558;&#xB2E4;&#xBA74; &#xC11C;&#xBC84;&#xC758; &#xBAA8;&#xB4E0; &#xC81C;&#xC5B4;&#xAD8C;&#xC744; &#xC7A5;&#xC545;&#xD574; &#xC815;&#xBCF4; &#xD0C8;&#xCDE8;, &#xBCC0;&#xC870;, &#xC545;&#xC131; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xC0BD;&#xC785; &#xB4F1; &#xB2E4;&#xC591;&#xD55C; &#xC545;&#xC131;&#xD589;&#xC704;&#xAC00; &#xBCF4;&#xC548; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC774;&#xB098; &#xC778;&#xC99D; &#xC2DC;&#xC2A4;&#xD15C; &#xB4F1;&#xC758; &#xBC29;&#xD574; &#xC5C6;&#xC774; &#xAC00;&#xB2A5;&#xD558;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xC6F9; &#xC11C;&#xBC84;&#xC5D0; &#xC6F9; &#xC258;&#xC774; &#xC124;&#xCE58;&#xB418;&#xB294; &#xC21C;&#xAC04;&#xBD80;&#xD130; &#xC774;&#xBBF8; &#xD574;&#xCEE4;&#xC5D0;&#xAC8C; &#xC11C;&#xBC84;&#xB97C; &#xC7A5;&#xC545;&#xB2F9;&#xD588;&#xB2E4;&#xACE0; &#xBD10;&#xB3C4; &#xBB34;&#xBC29;&#xD569;&#xB2C8;&#xB2E4;.</p><h3 id="&#xC5B4;&#xB5BB;&#xAC8C;-&#xB9C9;&#xC744;-&#xC218;-&#xC788;&#xC744;&#xAE4C;&#xC694;"><a href="#&#xC5B4;&#xB5BB;&#xAC8C;-&#xB9C9;&#xC744;-&#xC218;-&#xC788;&#xC744;&#xAE4C;&#xC694;" class="headerlink" title="&#xC5B4;&#xB5BB;&#xAC8C; &#xB9C9;&#xC744; &#xC218; &#xC788;&#xC744;&#xAE4C;&#xC694;?"></a>&#xC5B4;&#xB5BB;&#xAC8C; &#xB9C9;&#xC744; &#xC218; &#xC788;&#xC744;&#xAE4C;&#xC694;?</h3><p>&#xC6F9; &#xC258;&#xC758; &#xADFC;&#xBCF8;&#xC801;&#xC778; &#xC6D0;&#xC778;&#xC740; &#xAC1C;&#xBC1C; &#xACFC;&#xC815;&#xC5D0;&#xC11C; &#xBC1C;&#xC0DD;&#xD558;&#xB294; &#xC5C5;&#xB85C;&#xB4DC; &#xCDE8;&#xC57D;&#xC810;&#xC785;&#xB2C8;&#xB2E4;. &#xADF8;&#xB807;&#xAE30;&#xC5D0; &#xAC1C;&#xBC1C; &#xC2DC;&#xC5D0; &#xBD88;&#xD544;&#xC694;&#xD55C; &#xC5C5;&#xB85C;&#xB4DC; &#xAE30;&#xB2A5;&#xC744; &#xC81C;&#xAC70;&#xD558;&#xAC70;&#xB098; &#xD544;&#xC694;&#xD55C; &#xACBD;&#xC6B0;&#xC5D0;&#xB294; &#xC5C5;&#xB85C;&#xB4DC; &#xAC00;&#xB2A5;&#xD55C; &#xD655;&#xC7A5;&#xC790;&#xC5D0; &#xB300;&#xD55C; &#xD654;&#xC774;&#xD2B8; &#xB9AC;&#xC2A4;&#xD2B8;&#xB97C; &#xC791;&#xC131;&#xD558;&#xB294; &#xB4F1;&#xC758; &#xC2DC;&#xD050;&#xC5B4; &#xCF54;&#xB529;(Secure Coding)&#xC5D0; &#xD798;&#xC368;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;. &#xC6F9; &#xC11C;&#xBC84; &#xC5C5;&#xB85C;&#xB4DC; &#xAE30;&#xB2A5; &#xAD6C;&#xD604; &#xC2DC; &#xC5C5;&#xB85C;&#xB4DC; &#xD30C;&#xC77C; &#xC804;&#xC6A9; &#xD3F4;&#xB354;&#xB97C; &#xB9CC;&#xB4E4;&#xC5B4; &#xD574;&#xB2F9; &#xD3F4;&#xB354;&#xC5D0;&#xC11C;&#xC758; &#xD30C;&#xC77C; &#xC2E4;&#xD589;&#xC744; &#xC81C;&#xD55C;&#xD558;&#xB294; &#xAC83; &#xB610;&#xD55C; &#xC88B;&#xC740; &#xC608;&#xBC29;&#xCC45;&#xC774; &#xB420; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>]]></content:encoded>
+      
+      
+      <category domain="https://hackyboiz.github.io/categories/Hackypedia/">Hackypedia</category>
+      
+      
+      <category domain="https://hackyboiz.github.io/tags/poosic/">poosic</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/web-shell/">web shell</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/shell/">shell</category>
+      
+      
+      <comments>https://hackyboiz.github.io/2021/09/24/poosic/Web-Shell/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>[Research] Hip하게 Heap 정복하기 Part 1 - Segment Heap(1)</title>
@@ -238,11 +308,11 @@
       
       <category domain="https://hackyboiz.github.io/tags/bypass/">bypass</category>
       
+      <category domain="https://hackyboiz.github.io/tags/authentication-bypass/">authentication bypass</category>
+      
       <category domain="https://hackyboiz.github.io/tags/j0ker/">j0ker</category>
       
       <category domain="https://hackyboiz.github.io/tags/Ionic-Identity-Vault/">Ionic Identity Vault</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/authentication-bypass/">authentication bypass</category>
       
       <category domain="https://hackyboiz.github.io/tags/biometric/">biometric</category>
       
@@ -445,13 +515,13 @@
       <category domain="https://hackyboiz.github.io/categories/Hackypedia/">Hackypedia</category>
       
       
-      <category domain="https://hackyboiz.github.io/tags/dacl/">dacl</category>
-      
       <category domain="https://hackyboiz.github.io/tags/y00n-nms/">y00n_nms</category>
       
       <category domain="https://hackyboiz.github.io/tags/acl/">acl</category>
       
       <category domain="https://hackyboiz.github.io/tags/ace/">ace</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/dacl/">dacl</category>
       
       <category domain="https://hackyboiz.github.io/tags/sacl/">sacl</category>
       
@@ -479,9 +549,9 @@
       <category domain="https://hackyboiz.github.io/categories/1day1line/">1day1line</category>
       
       
-      <category domain="https://hackyboiz.github.io/tags/rce/">rce</category>
-      
       <category domain="https://hackyboiz.github.io/tags/Fabu1ous/">Fabu1ous</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/rce/">rce</category>
       
       <category domain="https://hackyboiz.github.io/tags/firmware/">firmware</category>
       
@@ -551,6 +621,8 @@
       <category domain="https://hackyboiz.github.io/categories/1day1line/">1day1line</category>
       
       
+      <category domain="https://hackyboiz.github.io/tags/rce/">rce</category>
+      
       <category domain="https://hackyboiz.github.io/tags/j0ker/">j0ker</category>
       
       <category domain="https://hackyboiz.github.io/tags/solarwinds/">solarwinds</category>
@@ -558,8 +630,6 @@
       <category domain="https://hackyboiz.github.io/tags/serv-u/">serv-u</category>
       
       <category domain="https://hackyboiz.github.io/tags/ssh/">ssh</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/rce/">rce</category>
       
       <category domain="https://hackyboiz.github.io/tags/ftp/">ftp</category>
       
@@ -634,66 +704,6 @@
       
       
       <comments>https://hackyboiz.github.io/2021/09/02/l0ch/2021-09-02/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>[해키피디아] Numeric Truncation Error</title>
-      <link>https://hackyboiz.github.io/2021/09/01/y00n_nms/numeric-truncation-error/</link>
-      <guid>https://hackyboiz.github.io/2021/09/01/y00n_nms/numeric-truncation-error/</guid>
-      <pubDate>Wed, 01 Sep 2021 05:00:00 GMT</pubDate>
-      
-        
-        
-      <description>&lt;p&gt;Numeric Truncation Error&amp;#xB294; &amp;#xAE30;&amp;#xBCF8; &amp;#xC694;&amp;#xC18C;&amp;#xAC00; &amp;#xB354; &amp;#xC791;&amp;#xC740; &amp;#xD06C;&amp;#xAE30;&amp;#xC758; &amp;#xAE30;&amp;#x</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<p>Numeric Truncation Error&#xB294; &#xAE30;&#xBCF8; &#xC694;&#xC18C;&#xAC00; &#xB354; &#xC791;&#xC740; &#xD06C;&#xAE30;&#xC758; &#xAE30;&#xBCF8; &#xC694;&#xC18C;&#xB85C; &#xBCC0;&#xD658;&#xB418;&#xB294; &#xACFC;&#xC815;&#xC5D0;&#xC11C; &#xB370;&#xC774;&#xD130;&#xAC00; &#xC190;&#xC2E4;&#xB418;&#xC5B4; &#xC6D0;&#xB798; &#xAC12;&#xACFC; &#xAC19;&#xC9C0; &#xC54A;&#xC740; &#xC608;&#xC0C1;&#xD558;&#xC9C0; &#xBABB;&#xD55C; &#xAC12;&#xC73C;&#xB85C; &#xC800;&#xC7A5;&#xB420; &#xB54C; &#xBC1C;&#xC0DD;&#xD569;&#xB2C8;&#xB2E4;.</p><p>&#xD504;&#xB85C;&#xADF8;&#xB798;&#xBA38;&#xB294; &#xB2F9;&#xC5F0;&#xD788; &#xC815;&#xC218; &#xBCC0;&#xD658; &#xBC0F; &#xACC4;&#xC0B0;&#xC774; &#xC815;&#xD655;&#xD558;&#xACE0; &#xC218;&#xD559; &#xBC95;&#xCE59;&#xC744; &#xC900;&#xC218;&#xD560; &#xAC83;&#xC774;&#xB77C;&#xACE0; &#xAC00;&#xC815;&#xD558;&#xC9C0;&#xB9CC;, &#xCEF4;&#xD4E8;&#xD130;&#xB294; &#xC77C;&#xBC18;&#xC801;&#xC73C;&#xB85C; &#xC815;&#xC218;&#xB97C; &#xACE0;&#xC815; &#xAE38;&#xC774; &#xBE44;&#xD2B8;&#xC5D0; &#xD3EC;&#xD568;&#xB41C; &#xC774;&#xC9C4;&#xAC12;&#xC73C;&#xB85C; &#xD45C;&#xD604;&#xD558;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xC624;&#xB958;&#xAC00; &#xBC1C;&#xC0DD;&#xD560; &#xAE30;&#xD68C;&#xAC00; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p>&#xC608;&#xB97C; &#xB4E4;&#xC5B4; 16bit&#xB85C; &#xC22B;&#xC790; 256&#xC744; &#xD45C;&#xD604;&#xD55C;&#xB2E4;&#xBA74; <code>000000100000000</code> &#xC73C;&#xB85C; 1 &#xB2E4;&#xC74C;&#xC5D0; &#xC624;&#xB978;&#xCABD;&#xC5D0; 8&#xAC1C;&#xC758; 0&#xC73C;&#xB85C; &#xD45C;&#xD604;&#xB429;&#xB2C8;&#xB2E4;. &#xC774;&#xB97C; 8bit&#xB85C; &#xBCC0;&#xD658;&#xD558;&#xAC8C; &#xB418;&#xBA74; &#xC0C1;&#xC704; 8bit&#xAC00; &#xC190;&#xC2E4;&#xB418;&#xC5B4; <code>00000000</code>&#xB9CC; &#xB0A8;&#xC2B5;&#xB2C8;&#xB2E4;.</p><pre><code class="hljs c"><span class="hljs-keyword">int</span> intPrimitive;<span class="hljs-keyword">short</span> shortPrimitive;intPrimitive = (<span class="hljs-keyword">int</span>)(~((<span class="hljs-keyword">int</span>)<span class="hljs-number">0</span>) ^ (<span class="hljs-number">1</span> &lt;&lt; (<span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">int</span>)*<span class="hljs-number">8</span><span class="hljs-number">-1</span>)));shortPrimitive = intPrimitive;<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Int MAXINT: %d\\nShort MAXINT: %d\\n&quot;</span>, intPrimitive, shortPrimitive);</code></pre><pre><code class="hljs c">Int MAXINT: <span class="hljs-number">2147483647</span>Short MAXINT: <span class="hljs-number">-1</span></code></pre><p>signed int&#xC758; &#xBC94;&#xC704;&#xB294; 32bit&#xB85C; 2,147,483,648 ~ 2,147,483,647&#xAE4C;&#xC9C0; &#xD45C;&#xD604; &#xAC00;&#xB2A5;&#xD558;&#xACE0; signed short&#xB294; 16bit&#xB85C; 32,768 ~ 32,767&#xAE4C;&#xC9C0; &#xD45C;&#xD604; &#xAC00;&#xB2A5;&#xD569;&#xB2C8;&#xB2E4;. <code>shortPrimitive = intPrimitive;</code> &#xC904;&#xB85C; int&#xAC00; short&#xB85C; &#xBCC0;&#xD658;&#xB418;&#xC5B4; &#xC800;&#xC7A5;&#xB429;&#xB2C8;&#xB2E4;.</p><p>2147483647&#xC778; <code>01111111111111111111111111111111</code>&#xAC00; 16bit&#xB85C; &#xBCC0;&#xD658;&#xB418;&#xBA74; &#xC0C1;&#xC704; 16bit&#xAC00; &#xC190;&#xC2E4;&#xB418;&#xC5B4; <code>1111111111111111</code>&#xC774; &#xB0A8;&#xC2B5;&#xB2C8;&#xB2E4;. &#xB530;&#xB77C;&#xC11C; shortPrimitive&#xC5D0; &#xC608;&#xC0C1;&#xD55C; &#xAC12;&#xC774; &#xC544;&#xB2CC; -1&#xC774; &#xC800;&#xC7A5;&#xB429;&#xB2C8;&#xB2E4;.</p><p><img src="/2021/09/01/y00n_nms/numeric-truncation-error/image.png" alt="image"></p><p>&#xC774; &#xC608;&#xC0C1;&#xD558;&#xC9C0; &#xBABB;&#xD55C; &#xAC12;&#xC774; &#xBC30;&#xC5F4; &#xC778;&#xB371;&#xC2A4;, &#xB8E8;&#xD504; &#xCE74;&#xC6B4;&#xD130; &#xB610;&#xB294; &#xC0C1;&#xD0DC; &#xB370;&#xC774;&#xD130;&#xB85C; &#xC0AC;&#xC6A9;&#xB420; &#xB54C; &#xC608;&#xC0C1;&#xD558;&#xC9C0; &#xBABB;&#xD55C; &#xCDE8;&#xC57D;&#xC810;&#xC774; &#xCD94;&#xAC00;&#xB85C; &#xBC1C;&#xC0DD;&#xD560; &#xC218; &#xC788;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xC8FC;&#xC758;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</p><p>&#xB2E4;&#xC74C; Java &#xC608;&#xC81C;&#xC5D0;&#xC11C; <code>updateSalesForProduct</code> &#xBA54;&#xC18C;&#xB4DC;&#xB294; &#xD2B9;&#xC815; &#xC81C;&#xD488;&#xC5D0; &#xB300;&#xD55C; &#xD310;&#xB9E4; &#xC815;&#xBCF4;&#xB97C; &#xC5C5;&#xB370;&#xC774;&#xD2B8;&#xD558;&#xB294; &#xBE44;&#xC988;&#xB2C8;&#xC2A4; &#xC560;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158; &#xD074;&#xB798;&#xC2A4;&#xC758; &#xC77C;&#xBD80;&#xC785;&#xB2C8;&#xB2E4;. &#xC774; &#xBA54;&#xC11C;&#xB4DC;&#xB294; &#xC81C;&#xD488; ID&#xC640; &#xD310;&#xB9E4;&#xB41C; &#xAE08;&#xC561;&#xC744; &#xC778;&#xC218;&#xB85C; &#xBC1B;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC81C;&#xD488; ID&#xB294; &#xAC1C;&#xC218;&#xB97C; &#xC815;&#xC218;&#xB85C; &#xBC18;&#xD658;&#xD558;&#xB294; &#xC778;&#xBCA4;&#xD1A0;&#xB9AC; &#xAC1C;&#xCCB4;&#xC5D0;&#xC11C; &#xCD1D; &#xC81C;&#xD488; &#xAC1C;&#xC218;&#xB97C; &#xAC80;&#xC0C9;&#xD558;&#xB294; &#xB370; &#xC0AC;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4;. &#xD310;&#xB9E4; &#xC218;&#xB97C; &#xC5C5;&#xB370;&#xC774;&#xD2B8;&#xD558;&#xAE30; &#xC704;&#xD574; <code>sales</code> &#xAC1C;&#xCCB4;&#xC758; &#xBA54;&#xC11C;&#xB4DC;&#xB97C; &#xD638;&#xCD9C;&#xD558;&#xAE30; &#xC804;&#xC5D0; &#xBA54;&#xC11C;&#xB4DC; &#xC778;&#xC218;&#xC5D0; &#xB300;&#xD574; short &#xD615;&#xC2DD;&#xC774; &#xD544;&#xC694;&#xD558;&#xBBC0;&#xB85C; int &#xAC12;&#xC774; short&#xB85C; &#xBCC0;&#xD658;&#xB429;&#xB2C8;&#xB2E4;.</p><pre><code class="hljs java">...<span class="hljs-comment">// update sales database for number of product sold with product ID </span><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">updateSalesForProduct</span><span class="hljs-params">(String productID, <span class="hljs-keyword">int</span> amountSold)</span> </span>{<span class="hljs-comment">// get the total number of products in inventory database </span><span class="hljs-keyword">int</span> productCount = inventory.getProductCount(productID);<span class="hljs-comment">// convert integer values to short, the method for the </span><span class="hljs-comment">// sales object requires the parameters to be of type short </span><span class="hljs-keyword">short</span> count = (<span class="hljs-keyword">short</span>) productCount;<span class="hljs-keyword">short</span> sold = (<span class="hljs-keyword">short</span>) amountSold;<span class="hljs-comment">// update sales database for product </span>sales.updateSalesCount(productID, count, sold);}...</code></pre><p>&#xC774;&#xB54C; &#xC815;&#xC218; &#xAC12;&#xC774; short&#xC5D0; &#xD5C8;&#xC6A9;&#xB418;&#xB294; &#xCD5C;&#xB313;&#xAC12;&#xBCF4;&#xB2E4; &#xD06C;&#xBA74;  Numeric Truncation Error&#xAC00; &#xBC1C;&#xC0DD;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC774;&#xB85C; &#xC778;&#xD574; &#xC608;&#xAE30;&#xCE58; &#xC54A;&#xC740; &#xACB0;&#xACFC;&#xAC00; &#xBC1C;&#xC0DD;&#xD558;&#xAC70;&#xB098; &#xB370;&#xC774;&#xD130;&#xAC00; &#xC190;&#xC2E4;&#xB418;&#xAC70;&#xB098; &#xC190;&#xC0C1;&#xB418;&#xC5B4; &#xC774; &#xC608;&#xC2DC;&#xC758; &#xACBD;&#xC6B0; &#xD310;&#xB9E4; &#xB370;&#xC774;&#xD130;&#xBCA0;&#xC774;&#xC2A4;&#xAC00; &#xC798;&#xBABB;&#xB41C; &#xB370;&#xC774;&#xD130;&#xB85C; &#xC190;&#xC0C1;&#xB420; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p>Numeric Truncation Error&#xB97C; &#xBC29;&#xC9C0;&#xD558;&#xAE30; &#xC704;&#xD574;&#xC11C;&#xB294; &#xB354; &#xD070; &#xD06C;&#xAE30;&#xC758; &#xAE30;&#xBCF8; &#xC694;&#xC18C;&#xC5D0;&#xC11C; &#xB354; &#xC791;&#xC740; &#xD06C;&#xAE30;&#xC758; &#xAE30;&#xBCF8; &#xC694;&#xC18C;&#xC73C;&#xB85C;&#xC758; &#xBA85;&#xC2DC;&#xC801; &#xD615;&#xBCC0;&#xD658;&#xC774; &#xBC1C;&#xC0DD;&#xD558;&#xC9C0; &#xC54A;&#xB3C4;&#xB85D; &#xAD6C;&#xD604;&#xD558;&#xAC70;&#xB098; &#xB2E4;&#xC74C; &#xC608;&#xC81C;&#xCC98;&#xB7FC; &#xBA85;&#xC2DC;&#xC801; &#xD615;&#xBCC0;&#xD658; &#xBC0F; sales &#xBA54;&#xC11C;&#xB4DC; &#xD638;&#xCD9C; &#xC774;&#xC804;&#xC5D0; &#xAE30;&#xBCF8; &#xD615;&#xC2DD;&#xC758; &#xCD5C;&#xB313;&#xAC12;&#xBCF4;&#xB2E4; &#xC791;&#xC740; &#xC815;&#xC218;&#xAC12;&#xC774; &#xC788;&#xB294;&#xC9C0; &#xD655;&#xC778;&#xD558;&#xB294; if &#xBB38;&#xC744; &#xCD94;&#xAC00;&#xB85C; &#xC791;&#xC131;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</p><pre><code class="hljs java"><span class="hljs-comment">// maximum value for type short before converting </span><span class="hljs-keyword">if</span> ((productCount &lt; Short.MAX_VALUE) &amp;&amp; (amountSold &lt; Short.MAX_VALUE)) { ... }</code></pre>]]></content:encoded>
-      
-      
-      <category domain="https://hackyboiz.github.io/categories/Hackypedia/">Hackypedia</category>
-      
-      
-      <category domain="https://hackyboiz.github.io/tags/y00n-nms/">y00n_nms</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/numeric-truncation-error/">numeric truncation error</category>
-      
-      
-      <comments>https://hackyboiz.github.io/2021/09/01/y00n_nms/numeric-truncation-error/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>[하루한줄] CVE-2021-33766: AN AUTHENTICATION BYPASS IN MICROSOFT EXCHANGE SERVER</title>
-      <link>https://hackyboiz.github.io/2021/08/31/fabu1ous/2021-08-31/</link>
-      <guid>https://hackyboiz.github.io/2021/08/31/fabu1ous/2021-08-31/</guid>
-      <pubDate>Tue, 31 Aug 2021 05:00:00 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;URL&quot;&gt;&lt;a href=&quot;#URL&quot; class=&quot;headerlink&quot; title=&quot;URL&quot;&gt;&lt;/a&gt;URL&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://www.zerodayinitiative.com/blog/2021/8/30/proxytok</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<h2 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h2><p><a href="https://www.zerodayinitiative.com/blog/2021/8/30/proxytoken-an-authentication-bypass-in-microsoft-exchange-server">PROXYTOKEN: AN AUTHENTICATION BYPASS IN MICROSOFT EXCHANGE SERVER</a></p><h2 id="Target"><a href="#Target" class="headerlink" title="Target"></a><strong>Target</strong></h2><p>Microsoft Exchange Server</p><h2 id="Explain"><a href="#Explain" class="headerlink" title="Explain"></a><strong>Explain</strong></h2><p>Microsoft Exchange Server&#xC5D0;&#xC11C; &#xC778;&#xC99D; &#xC6B0;&#xD68C; &#xCDE8;&#xC57D;&#xC810;&#xC774; &#xBC1C;&#xACAC;&#xB418;&#xC5C8;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC774; &#xCDE8;&#xC57D;&#xC810;&#xC744; &#xD1B5;&#xD574; &#xD574;&#xCEE4;&#xB294; &#xC778;&#xC99D; &#xC808;&#xCC28; &#xC5C6;&#xC774; &#xC784;&#xC758; &#xC0AC;&#xC6A9;&#xC790;&#xC758; &#xC774;&#xBA54;&#xC77C; &#xC218;&#xC2E0;&#xD568; &#xC124;&#xC815;&#xC744; &#xC870;&#xC791;&#xD574; &#xC774;&#xBA54;&#xC77C;&#xC744; &#xD0C8;&#xCDE8;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p>Microsoft Exchange&#xB294; front-end&#xC640; back-end &#xC6F9;&#xC0AC;&#xC774;&#xD2B8;&#xB97C; &#xC0DD;&#xC131;&#xD569;&#xB2C8;&#xB2E4;. front-end&#xB294; &#xC8FC;&#xB85C; back-end&#xC758; proxy &#xAE30;&#xB2A5;&#xC744; &#xC218;&#xD589;&#xD569;&#xB2C8;&#xB2E4;. front-end&#xB294; &#xBAA8;&#xB4E0; post-authentication &#xC694;&#xCCAD;&#xC744; &#xC7AC;&#xAD6C;&#xC131;&#xD574; back-end&#xB85C; &#xC804;&#xB2EC;&#xD558;&#xACE0; back-end&#xB85C;&#xBD80;&#xD130; &#xC751;&#xB2F5;&#xC744; &#xC218;&#xC9D1;&#xD574; &#xB2E4;&#xC2DC; client&#xB85C; &#xC804;&#xB2EC;&#xD569;&#xB2C8;&#xB2E4;.</p><p>Microsoft Exchange&#xB294; &#x201C;Delegated Authentication&#x201D; &#xAE30;&#xB2A5;&#xC744; &#xC9C0;&#xC6D0;&#xD569;&#xB2C8;&#xB2E4;. <code>SecurityToken</code>&#xC774;&#xB77C;&#xB294; cookie&#xAC00; &#xC874;&#xC7AC;&#xD55C;&#xB2E4;&#xBA74; &#xC694;&#xCCAD;&#xC5D0; &#xB300;&#xD55C; &#xC801;&#xC808;&#xD55C; &#xC778;&#xC99D; &#xC808;&#xCC28;&#xB97C; front-end&#xAC00; &#xC544;&#xB2CC; back-end&#xAC00; &#xC218;&#xD589;&#xD558;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;. &#xC694;&#xCCAD;&#xC774; &#xB4E4;&#xC5B4;&#xC624;&#xBA74; front-end&#xB294; &#xC778;&#xC99D; &#xACFC;&#xC815;&#xC744; &#xAC70;&#xCE58;&#xC9C0; &#xC54A;&#xACE0; &#xADF8;&#xB300;&#xB85C; back-end&#xC5D0; &#xC804;&#xB2EC;&#xD569;&#xB2C8;&#xB2E4;.</p><pre><code class="hljs xml">modules&gt; ...      <span class="hljs-tag">&lt;<span class="hljs-name">add</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;DelegatedAuthModule&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;Microsoft.Exchange.Configuration.DelegatedAuthentication.DelegatedAuthenticationModule, Microsoft.Exchange.Configuration.DelegatedAuth&quot;</span> <span class="hljs-attr">preCondition</span>=<span class="hljs-string">&quot;managedHandler&quot;</span> /&gt;</span> ...      <span class="hljs-comment">&lt;!-- Remove all DataCenter only modules by default. They will be enabled by enable-LiveIDForWebApplication.ps1 --&gt;</span>       <span class="hljs-tag">&lt;<span class="hljs-name">remove</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;DelegatedAuthModule&quot;</span> /&gt;</span>       <span class="hljs-tag">&lt;<span class="hljs-name">remove</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;OrgIdAuthenticationModule&quot;</span> /&gt;</span>       <span class="hljs-tag">&lt;<span class="hljs-name">remove</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;LiveIdBasicAuthModule&quot;</span> /&gt;</span>       <span class="hljs-tag">&lt;<span class="hljs-name">remove</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;OAuthAuthModule&quot;</span> /&gt;</span>     <span class="hljs-tag">&lt;/<span class="hljs-name">modules</span>&gt;</span></code></pre><p>&#xC704;&#xB294; back-end&#xC758; <code>/ecp/web.config</code>  &#xB0B4;&#xC6A9; &#xC77C;&#xBD80;&#xC785;&#xB2C8;&#xB2E4;. back-end&#xB294; &#x201C;Delegated Authentication&#x201D; &#xAE30;&#xB2A5;&#xC744; &#xC218;&#xD589;&#xD574;&#xC57C; &#xD560; <code>DelegatedAuthModule</code>&#xB97C; &#xB85C;&#xB4DC;&#xD558;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC989;, front-end&#xB294; back-end&#xAC00; &#xC694;&#xCCAD;&#xC758; &#xC778;&#xC99D;&#xC744; &#xCC98;&#xB9AC;&#xD560; &#xAC83;&#xC774;&#xB77C; &#xBBFF;&#xACE0; &#xC778;&#xC99D; &#xC808;&#xCC28; &#xC5C6;&#xC774; &#xC694;&#xCCAD;&#xC744; &#xC804;&#xB2EC;&#xD558;&#xC9C0;&#xB9CC; back-end&#xC5D0;&#xB294; &#xC778;&#xC99D;&#xC5D0; &#xC0AC;&#xC6A9;&#xB420; &#xBAA8;&#xB4C8;&#xC774; &#xC5C6;&#xC5B4; &#xC778;&#xC99D;&#xC744; &#xC218;&#xD589;&#xD560; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;. front-end&#xC640; back-end&#xC5D0;&#xC11C; &#xBAA8;&#xB450; &#xC778;&#xC99D;&#xB418;&#xC9C0; &#xC54A;&#xB294; &#xC694;&#xCCAD;&#xC744; &#xBCF4;&#xB0BC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>]]></content:encoded>
-      
-      
-      <category domain="https://hackyboiz.github.io/categories/1day1line/">1day1line</category>
-      
-      
-      <category domain="https://hackyboiz.github.io/tags/microsoft/">microsoft</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/exchange/">exchange</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/Fabu1ous/">Fabu1ous</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/auth-bypass/">auth bypass</category>
-      
-      
-      <comments>https://hackyboiz.github.io/2021/08/31/fabu1ous/2021-08-31/#disqus_thread</comments>
       
     </item>
     

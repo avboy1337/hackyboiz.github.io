@@ -8,6 +8,22 @@
     </url>
 
     <url>
+        <loc>https://hackyboiz.github.io/2021/09/25/l0ch/2021-09-25/</loc>
+        <lastmod>2021-09-24T10:45:40.490Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hackyboiz.github.io/2021/09/24/poosic/Web-Shell/</loc>
+        <lastmod>2021-09-24T10:41:52.866Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://hackyboiz.github.io/2021/03/28/l0ch/pwncoolsexy-part3/</loc>
         <lastmod>2021-09-19T09:35:19.312Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -1240,7 +1256,7 @@
     </url>
 
     <url>
-        <loc>https://hackyboiz.github.io/2021/03/21/insu/2021-03-21/</loc>
+        <loc>https://hackyboiz.github.io/2021/03/25/insu/2021-03-25/</loc>
         <lastmod>2021-08-23T07:34:11.258Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1248,7 +1264,7 @@
     </url>
 
     <url>
-        <loc>https://hackyboiz.github.io/2021/03/25/insu/2021-03-25/</loc>
+        <loc>https://hackyboiz.github.io/2021/03/21/insu/2021-03-21/</loc>
         <lastmod>2021-08-23T07:34:11.258Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1552,7 +1568,7 @@
     </url>
 
     <url>
-        <loc>https://hackyboiz.github.io/2021/06/24/idioth/2021-06-24/</loc>
+        <loc>https://hackyboiz.github.io/2021/06/28/idioth/2021-06-28/</loc>
         <lastmod>2021-08-23T07:34:10.958Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1560,7 +1576,7 @@
     </url>
 
     <url>
-        <loc>https://hackyboiz.github.io/2021/06/28/idioth/2021-06-28/</loc>
+        <loc>https://hackyboiz.github.io/2021/06/24/idioth/2021-06-24/</loc>
         <lastmod>2021-08-23T07:34:10.958Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -2784,7 +2800,7 @@
     </url>
 
     <url>
-        <loc>https://hackyboiz.github.io/2020/11/21/fabu1ous/2020-11-21/</loc>
+        <loc>https://hackyboiz.github.io/2020/11/18/fabu1ous/2020-11-18/</loc>
         <lastmod>2021-08-23T07:34:10.681Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -2792,7 +2808,7 @@
     </url>
 
     <url>
-        <loc>https://hackyboiz.github.io/2020/11/18/fabu1ous/2020-11-18/</loc>
+        <loc>https://hackyboiz.github.io/2020/11/21/fabu1ous/2020-11-21/</loc>
         <lastmod>2021-08-23T07:34:10.681Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
