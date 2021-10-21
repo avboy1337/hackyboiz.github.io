@@ -9,8 +9,46 @@
     <atom:link href="https://hackyboiz.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>hack &amp; life</description>
-    <pubDate>Wed, 20 Oct 2021 04:30:50 GMT</pubDate>
+    <pubDate>Thu, 21 Oct 2021 04:57:30 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>[하루한줄] CVE-2021-30858: Webkit의 UAF 취약점</title>
+      <link>https://hackyboiz.github.io/2021/10/21/l0ch/2021-10-21/</link>
+      <guid>https://hackyboiz.github.io/2021/10/21/l0ch/2021-10-21/</guid>
+      <pubDate>Thu, 21 Oct 2021 05:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;URL&quot;&gt;&lt;a href=&quot;#URL&quot; class=&quot;headerlink&quot; title=&quot;URL&quot;&gt;&lt;/a&gt;URL&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://googleprojectzero.github.io/0days-in-the-wild/0da</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h2 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h2><p><a href="https://googleprojectzero.github.io/0days-in-the-wild/0day-RCAs/2021/CVE-2021-30858.html">CVE-2021-30858: Use-after-free in WebKit</a></p><h2 id="Target"><a href="#Target" class="headerlink" title="Target"></a>Target</h2><ul><li>iOS &lt; 14.8, Safari &lt; 14.1.2</li></ul><h2 id="Explain"><a href="#Explain" class="headerlink" title="Explain"></a>Explain</h2><p>&#xBE0C;&#xB77C;&#xC6B0;&#xC800; &#xC5D4;&#xC9C4;&#xC778; Webkit&#xC5D0;&#xC11C; &#xBC1C;&#xACAC;&#xB41C; UAF &#xCDE8;&#xC57D;&#xC810;&#xC758; &#xC138;&#xBD80; &#xC815;&#xBCF4;&#xAC00; &#xACF5;&#xAC1C;&#xB418;&#xC5C8;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p>&#xCDE8;&#xC57D;&#xC810;&#xC740; &#xC6F9;&#xD398;&#xC774;&#xC9C0;&#xC5D0; &#xD3F0;&#xD2B8; &#xB9AC;&#xC18C;&#xC2A4;&#xB97C; &#xB3D9;&#xC801;&#xC73C;&#xB85C; &#xB85C;&#xB4DC;&#xD558;&#xB294; CSS Font Loading API&#xC5D0;&#xC11C; &#xBC1C;&#xC0DD;&#xD569;&#xB2C8;&#xB2E4;. FontFace Lookup Table&#xC5D0; &#xB4F1;&#xB85D;&#xB41C; &#xD3F0;&#xD2B8;&#xB97C; &#xC81C;&#xAC70;&#xD558;&#xB294; <code>CSSFontFaceSet::removeFromFacesLookupTable</code> &#xBA54;&#xC11C;&#xB4DC;&#xC758; &#xCF54;&#xB4DC;&#xB294; &#xC544;&#xB798;&#xC640; &#xAC19;&#xC2B5;&#xB2C8;&#xB2E4;.</p><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">CSSFontFaceSet::removeFromFacesLookupTable</span><span class="hljs-params">(<span class="hljs-keyword">const</span> CSSFontFace&amp; face, <span class="hljs-keyword">const</span> CSSValueList&amp; familiesToSearchFor)</span></span><span class="hljs-function"></span>{...        <span class="hljs-keyword">auto</span> iterator = m_facesLookupTable.find(familyName);        ASSERT(iterator != m_facesLookupTable.end()); <span class="hljs-comment">// Release &#xBAA8;&#xB4DC; &#xCEF4;&#xD30C;&#xC77C; &#xC2DC; &#xC8FC;&#xC11D;&#xCC98;&#xB9AC;</span>        <span class="hljs-keyword">bool</span> found = <span class="hljs-literal">false</span>;        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">size_t</span> i = <span class="hljs-number">0</span>; i &lt; iterator-&gt;value.size(); ++i) {            <span class="hljs-keyword">if</span> (iterator-&gt;value[i].ptr() == &amp;face) {                found = <span class="hljs-literal">true</span>;                iterator-&gt;value.remove(i);                <span class="hljs-keyword">break</span>;            }        }        ASSERT_UNUSED(found, found);        <span class="hljs-keyword">if</span> (!iterator-&gt;value.size())            m_facesLookupTable.remove(iterator);    }}</code></pre><p>Lookup Table&#xC5D0;&#xC11C; &#xD3F0;&#xD2B8;&#xB97C; &#xC81C;&#xAC70;&#xD560; &#xB54C; &#xC77C;&#xCE58;&#xD558;&#xB294; &#xD3F0;&#xD2B8;&#xAC00; &#xC5C6;&#xC73C;&#xBA74; &#xC870;&#xAC74;&#xC774; &#xC77C;&#xCE58;&#xD558;&#xC9C0; &#xC54A;&#xB294; &#xACBD;&#xC6B0; &#xC608;&#xC678;&#xB97C; &#xBC1C;&#xC0DD;&#xC2DC;&#xD0A4;&#xB294;  <code>ASSERT</code> &#xBB38;&#xC744; &#xC0AC;&#xC6A9;&#xD574; &#xC885;&#xB8CC;&#xD588;&#xC2B5;&#xB2C8;&#xB2E4;.  &#xADF8;&#xB7EC;&#xB098; <code>ASSERT</code>&#xB294; &#xB514;&#xBC84;&#xAE45; &#xC6A9;&#xB3C4;&#xB85C;, &#xB514;&#xBC84;&#xADF8; &#xBAA8;&#xB4DC;&#xC5D0;&#xC11C;&#xB9CC; &#xC791;&#xB3D9;&#xD558;&#xBA70; &#xB9B4;&#xB9AC;&#xC988; &#xBAA8;&#xB4DC;&#xC5D0;&#xC11C;&#xB294; &#xC790;&#xB3D9;&#xC73C;&#xB85C; &#xC8FC;&#xC11D; &#xCC98;&#xB9AC;&#xB418;&#xC5B4; &#xC791;&#xB3D9;&#xD558;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;. &#xB530;&#xB77C;&#xC11C; &#xD3F0;&#xD2B8;&#xB97C; Lookup Table&#xC5D0;&#xC11C; &#xCC3E;&#xC9C0; &#xBABB;&#xD574;&#xB3C4; &#xC774;&#xB97C; &#xC81C;&#xAC70;&#xD558;&#xB824;&#xACE0; &#xC2DC;&#xB3C4;&#xD569;&#xB2C8;&#xB2E4;.</p><p>&#xC544;&#xB798;&#xB294; &#xCDE8;&#xC57D;&#xC810;&#xC758; PoC&#xC785;&#xB2C8;&#xB2E4;.</p><pre><code class="hljs c">var fontFace1 = <span class="hljs-keyword">new</span> FontFace(<span class="hljs-string">&quot;font1&quot;</span>, <span class="hljs-string">&quot;&quot;</span>, {});var fontFaceSet = <span class="hljs-keyword">new</span> FontFaceSet([fontFace1]);fontFace1.family = <span class="hljs-string">&quot;font2&quot;</span>;</code></pre><p>&#xC704;&#xC640; &#xAC19;&#xC774; &#xC720;&#xD6A8;&#xD558;&#xC9C0; &#xC54A;&#xC740; <code>FontFace</code> &#xAC1D;&#xCCB4;&#xB97C; &#xC0DD;&#xC131;&#xD55C; &#xB4A4; <code>FontFaceSet</code>&#xC73C;&#xB85C; &#xB4F1;&#xB85D;&#xD574;&#xB3C4; Lookup Table&#xC5D0; &#xD3F0;&#xD2B8;&#xAC00; &#xCD94;&#xAC00;&#xB418;&#xC9C0; &#xC54A;&#xC9C0;&#xB9CC; <code>removeFromFacesLookupTable</code>&#xC5D0;&#xC11C;&#xB294; <code>ASSERT</code>&#xAC00; &#xC791;&#xB3D9;&#xD558;&#xC9C0; &#xC54A;&#xC544; &#xC5D0;&#xB7EC; &#xC5C6;&#xC774; &#xCD94;&#xAC00;&#xB418;&#xC9C0; &#xC54A;&#xC740; &#xD3F0;&#xD2B8;&#xB97C; &#xC81C;&#xAC70;&#xD558;&#xB824;&#xACE0; &#xC2DC;&#xB3C4;&#xD558;&#xAC8C; &#xB418;&#xACE0; UAF&#xAC00; &#xD2B8;&#xB9AC;&#xAC70;&#xB429;&#xB2C8;&#xB2E4;.</p><p>&#xCDE8;&#xC57D;&#xC810;&#xC740; <code>ASSERT</code>&#xB97C; <code>if</code>&#xBB38;&#xC73C;&#xB85C; &#xB300;&#xCCB4;&#xD574; <code>iterator == m_facesLookupTable.end()</code> &#xC778;&#xACBD;&#xC6B0; &#xD3F0;&#xD2B8; &#xC81C;&#xAC70;&#xB97C; &#xC9C4;&#xD589;&#xD558;&#xC9C0; &#xC54A;&#xACE0; &#xD568;&#xC218;&#xB97C; &#xC885;&#xB8CC;&#xD558;&#xB294; &#xAC83;&#xC73C;&#xB85C; &#xD328;&#xCE58;&#xB418;&#xC5C8;&#xC2B5;&#xB2C8;&#xB2E4;.</p><pre><code class="hljs c">- ASSERT(iterator != m_facesLookupTable.end());+ <span class="hljs-keyword">if</span> (iterator == m_facesLookupTable.end()) {  <span class="hljs-keyword">return</span>;}</code></pre>]]></content:encoded>
+      
+      
+      <category domain="https://hackyboiz.github.io/categories/1day1line/">1day1line</category>
+      
+      
+      <category domain="https://hackyboiz.github.io/tags/cve/">cve</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/uaf/">uaf</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/ios/">ios</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/use-after-free/">use after free</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/webkit/">webkit</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/apple/">apple</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/L0ch/">L0ch</category>
+      
+      
+      <comments>https://hackyboiz.github.io/2021/10/21/l0ch/2021-10-21/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>[해키피디아] 완전 비밀성(perfect secrecy)</title>
@@ -63,9 +101,9 @@
       <category domain="https://hackyboiz.github.io/categories/1day1line/">1day1line</category>
       
       
-      <category domain="https://hackyboiz.github.io/tags/github/">github</category>
-      
       <category domain="https://hackyboiz.github.io/tags/Fabu1ous/">Fabu1ous</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/github/">github</category>
       
       <category domain="https://hackyboiz.github.io/tags/organization/">organization</category>
       
@@ -99,13 +137,13 @@
       
       <category domain="https://hackyboiz.github.io/tags/fuzzing/">fuzzing</category>
       
-      <category domain="https://hackyboiz.github.io/tags/j0ker/">j0ker</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/server/">server</category>
-      
       <category domain="https://hackyboiz.github.io/tags/network/">network</category>
       
       <category domain="https://hackyboiz.github.io/tags/winafl/">winafl</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/j0ker/">j0ker</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/server/">server</category>
       
       <category domain="https://hackyboiz.github.io/tags/rdp/">rdp</category>
       
@@ -209,13 +247,13 @@
       
       <category domain="https://hackyboiz.github.io/tags/kernel/">kernel</category>
       
+      <category domain="https://hackyboiz.github.io/tags/apple/">apple</category>
+      
       <category domain="https://hackyboiz.github.io/tags/j0ker/">j0ker</category>
       
       <category domain="https://hackyboiz.github.io/tags/driver/">driver</category>
       
       <category domain="https://hackyboiz.github.io/tags/m1/">m1</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/apple/">apple</category>
       
       <category domain="https://hackyboiz.github.io/tags/iokit/">iokit</category>
       
@@ -550,6 +588,8 @@
       <category domain="https://hackyboiz.github.io/categories/1day1line/">1day1line</category>
       
       
+      <category domain="https://hackyboiz.github.io/tags/command-injection/">command injection</category>
+      
       <category domain="https://hackyboiz.github.io/tags/j0ker/">j0ker</category>
       
       <category domain="https://hackyboiz.github.io/tags/cisco/">cisco</category>
@@ -561,8 +601,6 @@
       <category domain="https://hackyboiz.github.io/tags/CVE-2021-1498/">CVE-2021-1498</category>
       
       <category domain="https://hackyboiz.github.io/tags/CVE-2021-1499/">CVE-2021-1499</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/command-injection/">command injection</category>
       
       <category domain="https://hackyboiz.github.io/tags/file-upload/">file upload</category>
       
@@ -625,9 +663,9 @@
       
       <category domain="https://hackyboiz.github.io/tags/bypass/">bypass</category>
       
-      <category domain="https://hackyboiz.github.io/tags/microsoft/">microsoft</category>
-      
       <category domain="https://hackyboiz.github.io/tags/rce/">rce</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/microsoft/">microsoft</category>
       
       <category domain="https://hackyboiz.github.io/tags/azure/">azure</category>
       
@@ -669,40 +707,6 @@
       
       
       <comments>https://hackyboiz.github.io/2021/09/29/y00n_nms/linux-metacharacters/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>[하루한줄] macOS Finder RCE</title>
-      <link>https://hackyboiz.github.io/2021/09/28/fabu1ous/2021-09-28/</link>
-      <guid>https://hackyboiz.github.io/2021/09/28/fabu1ous/2021-09-28/</guid>
-      <pubDate>Tue, 28 Sep 2021 05:00:00 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;URL&quot;&gt;&lt;a href=&quot;#URL&quot; class=&quot;headerlink&quot; title=&quot;URL&quot;&gt;&lt;/a&gt;URL&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://ssd-disclosure.com/ssd-advisory-macos-finder-rce/</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<h2 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h2><p><a href="https://ssd-disclosure.com/ssd-advisory-macos-finder-rce/">macOS finder RCE</a></p><h2 id="Target"><a href="#Target" class="headerlink" title="Target"></a><strong>Target</strong></h2><p>macOS Big Sur &#xC774;&#xD558; &#xBC84;&#xC804;</p><h2 id="Explain"><a href="#Explain" class="headerlink" title="Explain"></a><strong>Explain</strong></h2><p>&#xD655;&#xC7A5;&#xC790;&#xAC00; <code>inetloc</code>&#xC778; &#xD30C;&#xC77C;&#xC740; macOS Finder&#xB97C; &#xD1B5;&#xD574; &#xC784;&#xC758;&#xC758; &#xCEE4;&#xBA58;&#xB4DC;&#xB97C; &#xC2E4;&#xD589;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xB9CC;&#xC57D; <code>inetloc</code> &#xD30C;&#xC77C;&#xC774; &#xCCA8;&#xBD80;&#xB41C; &#xC774;&#xBA54;&#xC77C;&#xC744; &#xD074;&#xB9AD;&#xD55C;&#xB2E4;&#xBA74; &#xD504;&#xB86C;&#xD504;&#xD2B8; &#xB610;&#xB294; &#xC5B4;&#xB5A0;&#xD55C; &#xACBD;&#xACE0;&#xB3C4; &#xC5C6;&#xC774; &#xD574;&#xB2F9; &#xD30C;&#xC77C; &#xC18D;&#xC5D0; &#xB2F4;&#xAE34; &#xCEE4;&#xBA58;&#xB4DC;&#xAC00; &#xC2E4;&#xD589;&#xB429;&#xB2C8;&#xB2E4;.</p><p>&#xBCF8;&#xB798; <code>inetloc</code> &#xD655;&#xC7A5;&#xC790;&#xB294; &#xC778;&#xD130;&#xB137; &#xC8FC;&#xC18C;&#xC5D0; &#xB300;&#xD55C; &#xBC14;&#xB85C;&#xAC00;&#xAE30;&#xC785;&#xB2C8;&#xB2E4;. RSS feed, telnet &#xC8FC;&#xC18C;, ssh &#xC5F0;&#xACB0;&#xC744; &#xC704;&#xD55C; &#xC11C;&#xBC84; &#xC8FC;&#xC18C;&#xC640; &#xACC4;&#xC815; &#xC815;&#xBCF4; &#xB4F1;&#xC758; &#xC815;&#xBCF4;&#xB97C; &#xB2F4;&#xC744; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. <code>inetloc</code> &#xD30C;&#xC77C;&#xC5D0;&#xC11C;  <code>file://</code> &#xD504;&#xB85C;&#xD1A0;&#xCF5C;&#xC744; &#xC0AC;&#xC6A9;&#xD55C;&#xB2E4;&#xBA74; File Quarantine, Gatekeeper&#xC5D0; &#xAC78;&#xB9AC;&#xC9C0; &#xC54A;&#xACE0; &#xB85C;&#xCEEC; &#xC2DC;&#xC2A4;&#xD15C;&#xC5D0; &#xC874;&#xC7AC;&#xD558;&#xB294; &#xC784;&#xC758;&#xC758; &#xC560;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158;&#xACFC; &#xD30C;&#xC77C;&#xC744; &#xC2E4;&#xD589;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. </p><pre><code class="hljs html"><span class="hljs-meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">plist</span> <span class="hljs-meta-keyword">PUBLIC</span> <span class="hljs-meta-string">&quot;-//Apple//DTD PLIST 1.0//EN&quot;</span> <span class="hljs-meta-string">&quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">plist</span> <span class="hljs-attr">version</span>=<span class="hljs-string">&quot;1.0&quot;</span>&gt;</span>  <span class="hljs-tag">&lt;<span class="hljs-name">dict</span>&gt;</span>    <span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>URL<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span>    <span class="hljs-tag">&lt;<span class="hljs-name">string</span>&gt;</span>FiLe:////////////////////////System/Applications/Calculator.app<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>  <span class="hljs-tag">&lt;/<span class="hljs-name">dict</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">plist</span>&gt;</span></code></pre><p>Apple&#xC740; <code>inetloc</code> &#xD30C;&#xC77C;&#xC5D0;&#xC11C; <code>file://</code>&#xC744; &#xC4F0;&#xC9C0; &#xBABB;&#xD558;&#xAC8C; &#xD328;&#xCE58;&#xB97C; &#xC2DC;&#xB3C4;&#xD588;&#xC9C0;&#xB9CC; <code>FiLe://</code>, <code>fIlE://</code> &#xB4F1; &#xB300;&#xC18C;&#xBB38;&#xC790;&#xB97C; &#xC11E;&#xB294; &#xAC83;&#xC73C;&#xB85C; &#xC6B0;&#xD68C;&#xAC00; &#xAC00;&#xB2A5;&#xD569;&#xB2C8;&#xB2E4;. &#xB610;&#xD55C; <code>fileloc</code> &#xD655;&#xC7A5;&#xC790;&#xC5D0;&#xB3C4; &#xB3D9;&#xC77C;&#xD55C; &#xCDE8;&#xC57D;&#xC810;&#xC774; &#xC788;&#xC5B4; &#xC545;&#xC6A9;&#xC774; &#xAC00;&#xB2A5;&#xD569;&#xB2C8;&#xB2E4;.</p>]]></content:encoded>
-      
-      
-      <category domain="https://hackyboiz.github.io/categories/1day1line/">1day1line</category>
-      
-      
-      <category domain="https://hackyboiz.github.io/tags/mac/">mac</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/rce/">rce</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/Fabu1ous/">Fabu1ous</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/finder/">finder</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/inetloc/">inetloc</category>
-      
-      
-      <comments>https://hackyboiz.github.io/2021/09/28/fabu1ous/2021-09-28/#disqus_thread</comments>
       
     </item>
     
