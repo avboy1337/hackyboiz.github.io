@@ -187,12 +187,18 @@
                 
 
 <div class="list-group">
-  <p class="h4">10 posts in total.</p>
+  <p class="h4">11 posts in total.</p>
   <hr>
   
     
       
       <p class="h5">2021</p>
+    
+    <a href="/2021/10/24/fabu1ous/fuzz-3/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">[Research] 퍼징 교양 수업 fuzz 101 - part3</span>
+      <time style="float: right;">10-24</time>
+    </a>
+  
     
     <a href="/2021/10/17/j0ker/rdp_fuzzing1/" class="list-group-item list-group-item-action">
       <span class="archive-post-title">[Translation] Fuzzing RDP: Holding the Stick at Both Ends (1)</span>
@@ -247,13 +253,19 @@
       <time style="float: right;">05-23</time>
     </a>
   
-    
-    <a href="/2021/04/07/insu/fuzzilli/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">[Research] 자바스크립트 엔진 Fuzzer - Fuzzilli</span>
-      <time style="float: right;">04-07</time>
-    </a>
-  
 </div>
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <span class="page-number current">1</span><a class="page-number" href="/tags/fuzzing/page/2/">2</a><a class="extend next" rel="next" href="/tags/fuzzing/page/2/"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+  
+  <script>
+    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
+      ele.href += '#board';
+    }
+  </script>
 
 
 
