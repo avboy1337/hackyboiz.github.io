@@ -9,8 +9,40 @@
     <atom:link href="https://hackyboiz.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>hack &amp; life</description>
-    <pubDate>Fri, 29 Oct 2021 03:44:26 GMT</pubDate>
+    <pubDate>Sat, 30 Oct 2021 05:02:44 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>[하루한줄] 리얼 월드에서 Client-Side Prototype Pollution 공격하기</title>
+      <link>https://hackyboiz.github.io/2021/10/30/l0ch/2021-10-30/</link>
+      <guid>https://hackyboiz.github.io/2021/10/30/l0ch/2021-10-30/</guid>
+      <pubDate>Sat, 30 Oct 2021 05:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;URL&quot;&gt;&lt;a href=&quot;#URL&quot; class=&quot;headerlink&quot; title=&quot;URL&quot;&gt;&lt;/a&gt;URL&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://blog.s1r1us.ninja/research/PP&quot;&gt;&amp;#x201C;A tale of </description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h2 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h2><p><a href="https://blog.s1r1us.ninja/research/PP">&#x201C;A tale of making internet pollution free&#x201D; - Exploiting Client-Side Prototype Pollution in the wild</a></p><h2 id="Target"><a href="#Target" class="headerlink" title="Target"></a>Target</h2><ul><li>Node.JS</li><li>JavaScript</li></ul><h2 id="Explain"><a href="#Explain" class="headerlink" title="Explain"></a>Explain</h2><p>Prototype Pollution&#xC740; <a href="https://github.com/HoLyVieR/prototype-pollution-nsec18">NorthSec 2018&#xC5D0;&#xC11C; &#xACF5;&#xAC1C;&#xB41C; &#xCDE8;&#xC57D;&#xC810;</a>&#xC785;&#xB2C8;&#xB2E4;. JavaScript&#xB294; &#xAC1D;&#xCCB4;&#xC758; &#xC0C1;&#xC18D; &#xAD6C;&#xD604;&#xC744; &#xC704;&#xD574; Prototype&#xC774;&#xB77C;&#xB294; &#xAC1C;&#xB150;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xACE0;, &#xAC1D;&#xCCB4;&#xC758; &#xC18D;&#xC131;&#xC744; &#xD0D0;&#xC0C9;&#xD560;&#xB54C; Prototype&#xC744; &#xD1B5;&#xD574; &#xC0C1;&#xC18D;&#xB41C; &#xAC1D;&#xCCB4;&#xB97C; &#xD0D0;&#xC0C9;&#xD558;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;. &#xC989; &#xCD5C;&#xC0C1;&#xC758; &#xAC1D;&#xCCB4;&#xC778; Object.prototype&#xC5D0; &#xC601;&#xD5A5;&#xC744; &#xC8FC;&#xBA74; &#xBAA8;&#xB4E0; &#xAC1D;&#xCCB4;&#xC5D0; &#xC18D;&#xC131;&#xC774; &#xD3EC;&#xD568;&#xB418;&#xAC8C; &#xB418;&#xB294;&#xB370;, &#xC774;&#xB7EC;&#xD55C; &#xB9E4;&#xCEE4;&#xB2C8;&#xC998;&#xC744; &#xC774;&#xC6A9;&#xD55C; &#xACF5;&#xACA9;&#xC774; Prototype Pollution&#xC785;&#xB2C8;&#xB2E4;.</p><p>JavaScript&#xC758; &#xBAA8;&#xB4E0; &#xAC1D;&#xCCB4; &#xC0DD;&#xC131;&#xB420;&#xB54C; &#xD568;&#xC218;&#xB85C; &#xC815;&#xC758;&#xB418;&#xC5B4; &#xC0DD;&#xC131;&#xB429;&#xB2C8;&#xB2E4;. &#xD568;&#xC218;&#xB97C; &#xC815;&#xC758;&#xD558;&#xBA74; &#xD568;&#xC218;&#xB9CC; &#xC0DD;&#xC131;&#xB418;&#xB294; &#xAC83;&#xC774; &#xC544;&#xB2C8;&#xACE0; Prototype Object&#xB3C4; &#xAC19;&#xC774; &#xC0DD;&#xC131;&#xB429;&#xB2C8;&#xB2E4;.</p><p><img src="/2021/10/30/l0ch/2021-10-30/1.png" alt></p><p>&#xADF8;&#xB9AC;&#xACE0; &#xC0DD;&#xC131;&#xB41C; &#xD568;&#xC218;&#xB294; <code>prototype</code>&#xC744; &#xC774;&#xC6A9;&#xD574; Prototype Object&#xC5D0; &#xC811;&#xADFC;&#xC774; &#xAC00;&#xB2A5;&#xD569;&#xB2C8;&#xB2E4;.</p><p>&#xBAA8;&#xB4E0; &#xAC1D;&#xCCB4;&#xB294; <code>__proto__</code> &#xC18D;&#xC131;&#xC744; &#xAC00;&#xC9C0;&#xACE0; &#xC788;&#xB294;&#xB370; &#xAC1D;&#xCCB4;&#xAC00; &#xC0DD;&#xC131;&#xB420; &#xB54C; &#xC870;&#xC0C1;&#xC774;&#xC5C8;&#xB358; &#xD568;&#xC218;&#xC758; Prototype Object&#xB97C; &#xAC00;&#xB9AC;&#xD0B5;&#xB2C8;&#xB2E4;.</p><p><img src="/2021/10/30/l0ch/2021-10-30/2.png" alt></p><hr><p><img src="/2021/10/30/l0ch/2021-10-30/3.png" alt></p><p>JavaScript&#xC5D0;&#xC11C; &#xAC1D;&#xCCB4;&#xC758; &#xC18D;&#xC131;&#xC744; &#xCC3E;&#xC744; &#xB54C; <code>__proto__</code>&#xB97C; &#xB530;&#xB77C;&#xAC00;&#xBA70; &#xD0D0;&#xC0C9;&#xD558;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;. &#xCD5C;&#xC885;&#xC801;&#xC73C;&#xB85C; &#xCD5C;&#xC0C1;&#xC704; Object Prototype Object&#xC5D0;&#xB3C4; &#xC815;&#xC758; &#xB418;&#xC5B4; &#xC788;&#xC9C0; &#xC54A;&#xC73C;&#xBA74; &#xADF8;&#xB54C; <code>undefined</code>&#xB97C; &#xB9AC;&#xD134;&#xD569;&#xB2C8;&#xB2E4;. &#xC774;&#xB807;&#xAC8C; <code>__proto__</code>&#xC18D;&#xC131;&#xC73C;&#xB85C; &#xC0C1;&#xC704; Object&#xB4E4;&#xACFC; &#xC5F0;&#xACB0; &#xB418;&#xC5B4; &#xC788;&#xB294; &#xAC83;&#xC744; Prototype Chain&#xC774;&#xB77C;&#xACE0; &#xD569;&#xB2C8;&#xB2E4;. &#xC774; Prototype Chain&#xC5D0; &#xC758;&#xD558;&#xC5EC; Object Prototype Object&#xC5D0; &#xC815;&#xC758; &#xB418;&#xC5B4; &#xC788;&#xB294; &#xC18D;&#xC131;&#xC744; &#xBAA8;&#xB4E0; Object&#xC5D0;&#xC11C; &#xCC38;&#xC870; &#xD560;&#xC218; &#xC788;&#xAC8C; &#xB418;&#xB294; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.</p><p><code>__proto__</code>&#xC5D0; &#xC758;&#xD55C; Prototype Chain&#xC744; &#xB530;&#xB77C;&#xAC00;&#xBA74; <code>Object.prototype</code>&#xC5D0; &#xB3C4;&#xB2EC;&#xD558;&#xB294; &#xAC83;&#xC744; &#xC774;&#xC6A9;&#xD574; &#xB2E4;&#xB978; &#xAC1D;&#xCCB4; &#xC18D;&#xC131;&#xC5D0; &#xC601;&#xD5A5;&#xC744; &#xC8FC;&#xB294; &#xACF5;&#xACA9;&#xC744; Prototype Pollution &#xC774;&#xB77C;&#xACE0; &#xD569;&#xB2C8;&#xB2E4;.</p><pre><code class="hljs jsx"><span class="hljs-keyword">const</span> obj1 = {};<span class="hljs-built_in">console</span>.log(obj1.__proto__ === <span class="hljs-built_in">Object</span>.prototype); <span class="hljs-comment">// true</span>obj1.__proto__.polluted = <span class="hljs-number">1</span>;<span class="hljs-keyword">const</span> obj2 = {};<span class="hljs-built_in">console</span>.log(obj2.polluted); <span class="hljs-comment">// 1</span></code></pre><p>&#xC704; &#xCF54;&#xB4DC;&#xB97C; &#xBCF4;&#xBA74; <code>obj1.__proto__</code>&#xB294; <code>Object.prototype</code>&#xACFC; &#xAC19;&#xC74C;&#xC744; &#xD655;&#xC778; &#xD560; &#xC218; &#xC788;&#xACE0;, <code>obj1.__proto__.polluted = 1;</code> &#xCF54;&#xB4DC;&#xB85C; <code>Object.prototype</code>&#xC5D0; <code>polluted</code> &#xC18D;&#xC131;&#xC744; &#xCD94;&#xAC00;&#xD558;&#xC600;&#xC2B5;&#xB2C8;&#xB2E4;. &#xACB0;&#xACFC;&#xC801;&#xC73C;&#xB85C;&#xB294; <code>Object</code>&#xB97C; &#xC0C1;&#xC18D;&#xD55C; <code>obj2</code>&#xC5ED;&#xC2DC; Prototype chain&#xC5D0; &#xC758;&#xD574; <code>polluted</code> &#xC18D;&#xC131;&#xC744; &#xAC16;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.</p><p>Prototype Pollution&#xC740; &#xD06C;&#xAC8C; &#xC138;&#xAC00;&#xC9C0; &#xD328;&#xD134;&#xC5D0;&#xC11C; &#xBC1C;&#xC0DD;&#xD569;&#xB2C8;&#xB2E4;.</p><ol><li><p>&#xC18D;&#xC131; &#xBD80;&#xC5EC;</p><pre><code class="hljs jsx"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isObject</span>(<span class="hljs-params">obj</span>) </span>{  <span class="hljs-keyword">return</span> obj !== <span class="hljs-literal">null</span> &amp;&amp; <span class="hljs-keyword">typeof</span> obj === <span class="hljs-string">&apos;object&apos;</span>;} <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setValue</span>(<span class="hljs-params">obj, key, value</span>) </span>{  <span class="hljs-keyword">const</span> keylist = key.split(<span class="hljs-string">&apos;.&apos;</span>);  <span class="hljs-keyword">const</span> e = keylist.shift();  <span class="hljs-keyword">if</span> (keylist.length &gt; <span class="hljs-number">0</span>) {    <span class="hljs-keyword">if</span> (!isObject(obj[e])) obj[e] = {};    setValue(obj[e], keylist.join(<span class="hljs-string">&apos;.&apos;</span>), value);  } <span class="hljs-keyword">else</span> {    obj[key] = value;    <span class="hljs-keyword">return</span> obj;  }} <span class="hljs-keyword">const</span> obj1 = {};setValue(obj1, <span class="hljs-string">&quot;__proto__.polluted&quot;</span>, <span class="hljs-number">1</span>);<span class="hljs-keyword">const</span> obj2 = {};<span class="hljs-built_in">console</span>.log(obj2.polluted); <span class="hljs-comment">// 1</span></code></pre></li><li><p>&#xAC1D;&#xCCB4; &#xBCD1;&#xD569;</p><pre><code class="hljs jsx"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">merge</span>(<span class="hljs-params">a, b</span>) </span>{  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> key <span class="hljs-keyword">in</span> b) {    <span class="hljs-keyword">if</span> (isObject(a[key]) &amp;&amp; isObject(b[key])) {      merge(a[key], b[key]);    } <span class="hljs-keyword">else</span> {      a[key] = b[key];    }  }  <span class="hljs-keyword">return</span> a;} <span class="hljs-keyword">const</span> obj1 = {<span class="hljs-attr">a</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">b</span>:<span class="hljs-number">2</span>};<span class="hljs-keyword">const</span> obj2 = <span class="hljs-built_in">JSON</span>.parse(<span class="hljs-string">&apos;{&quot;__proto__&quot;:{&quot;polluted&quot;:1}}&apos;</span>);merge(obj1, obj2);<span class="hljs-keyword">const</span> obj3 = {};<span class="hljs-built_in">console</span>.log(obj3.polluted); <span class="hljs-comment">// 1</span></code></pre></li><li><p>&#xAC1D;&#xCCB4; &#xBCF5;&#xC0AC;</p><pre><code class="hljs jsx"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">clone</span>(<span class="hljs-params">obj</span>) </span>{  <span class="hljs-keyword">return</span> merge({}, obj);} <span class="hljs-keyword">const</span> obj1 = <span class="hljs-built_in">JSON</span>.parse(<span class="hljs-string">&apos;{&quot;__proto__&quot;:{&quot;polluted&quot;:1}}&apos;</span>);<span class="hljs-keyword">const</span> obj2 = clone(obj1);<span class="hljs-keyword">const</span> obj3 = {};<span class="hljs-built_in">console</span>.log(obj3.polluted); <span class="hljs-comment">// 1</span></code></pre></li></ol><p>Prototype Pollution&#xC740; NodeJS&#xC5D0; &#xC601;&#xD5A5;&#xC744; &#xB07C;&#xCE58;&#xBA70;, &#xB300;&#xD45C;&#xC801;&#xC73C;&#xB85C; <a href="https://research.securitum.com/prototype-pollution-and-bypassing-client-side-html-sanitizers/">HTML Sanitizer &#xC6B0;&#xD68C;</a>, <a href="https://blog.p6.is/AST-Injection/">NodeJS &#xD15C;&#xD50C;&#xB9BF; &#xC5D4;&#xC9C4;&#xC5D0;&#xC11C;&#xC758; RCE</a>&#xAC00; &#xAC00;&#xB2A5;&#xD558;&#xBA70; &#xC790;&#xC138;&#xD55C; &#xC815;&#xBCF4;&#xB294; <a href="https://blog.s1r1us.ninja/research/PP">URL</a>&#xC5D0;&#xC11C; &#xD655;&#xC778;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>]]></content:encoded>
+      
+      
+      <category domain="https://hackyboiz.github.io/categories/1day1line/">1day1line</category>
+      
+      
+      <category domain="https://hackyboiz.github.io/tags/javascript/">javascript</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/IN-0Hack/">IN&#39;0Hack</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/prototype-pollution/">prototype pollution</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/nodejS/">nodejS</category>
+      
+      
+      <comments>https://hackyboiz.github.io/2021/10/30/l0ch/2021-10-30/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>[해키피디아] Serialization</title>
@@ -669,38 +701,6 @@
       
       
       <comments>https://hackyboiz.github.io/2021/10/07/l0ch/2021-10-07/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>[해키피디아] C&amp;C Server</title>
-      <link>https://hackyboiz.github.io/2021/10/06/y00n_nms/command-control-server/</link>
-      <guid>https://hackyboiz.github.io/2021/10/06/y00n_nms/command-control-server/</guid>
-      <pubDate>Wed, 06 Oct 2021 05:00:00 GMT</pubDate>
-      
-        
-        
-      <description>&lt;p&gt;C&amp;amp;C &amp;#xC11C;&amp;#xBC84;&amp;#xB294;  Command &amp;amp; Control &amp;#xC11C;&amp;#xBC84;, C2 &amp;#xC11C;&amp;#xBC84;, &amp;#xBA85;&amp;#xB839;&amp;#xC81C;&amp;#xC5B4; &amp;#xC11C;&amp;</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<p>C&amp;C &#xC11C;&#xBC84;&#xB294;  Command &amp; Control &#xC11C;&#xBC84;, C2 &#xC11C;&#xBC84;, &#xBA85;&#xB839;&#xC81C;&#xC5B4; &#xC11C;&#xBC84; &#xB4F1; &#xB2E4;&#xC591;&#xD558;&#xAC8C; &#xBD88;&#xB9AC;&#xBA70; &#xC0AC;&#xC774;&#xBC84; &#xACF5;&#xACA9;&#xC5D0;&#xC11C; &#xB450;&#xB1CC; &#xC5ED;&#xD560;&#xC744; &#xD55C;&#xB2E4;&#xACE0; &#xC54C;&#xB824;&#xC838; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p>C&amp;C &#xC11C;&#xBC84;&#xB294; &#xAC10;&#xC5FC;&#xB41C; PC(&#xC880;&#xBE44; PC)&#xC5D0;&#xC11C; &#xD574;&#xCEE4;&#xAC00; &#xC6D0;&#xD558;&#xB294; &#xACF5;&#xACA9;&#xC744; &#xC218;&#xD589;&#xD558;&#xB3C4;&#xB85D; &#xC6D0;&#xACA9;&#xC9C0;&#xC5D0;&#xC11C; &#xBA85;&#xB839;&#xC744; &#xB0B4;&#xB9AC;&#xAC70;&#xB098; &#xC545;&#xC131;&#xCF54;&#xB4DC;&#xB97C; &#xC81C;&#xC5B4;&#xD558;&#xB294; &#xC11C;&#xBC84;&#xC785;&#xB2C8;&#xB2E4;. &#xC880;&#xBE44; PC&#xAC00; &#xB418;&#xBA74; C&amp;C &#xC11C;&#xBC84;&#xC758; &#xBA85;&#xB839;&#xC744; &#xBC1B;&#xC544; &#xD574;&#xCEE4;&#xAC00; &#xC790;&#xC2E0;&#xC758; PC&#xCC98;&#xB7FC; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xD574;&#xCEE4;&#xC758; &#xACF5;&#xACA9; &#xBA85;&#xB839;&#xC744; &#xC218;&#xD589;&#xD558;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.</p><p>&#xB610;&#xD55C; &#xC545;&#xC131;&#xCF54;&#xB4DC; &#xAD00;&#xB828; &#xAE30;&#xC0AC;&#xC5D0;&#xC11C; &#xBE60;&#xC9C0;&#xC9C0; &#xC54A;&#xACE0; &#xB098;&#xC624;&#xB294; &#xD0A4;&#xC6CC;&#xB4DC;&#xB85C;, &#xCD5C;&#xADFC; &#xB274;&#xC2A4;&#xB97C; &#xBCF4;&#xBA74; &#x2018;&#xAC10;&#xC5FC; &#xC2DC;&#xC2A4;&#xD15C;&#xC758; HVNC&#xAC00; &#xC2E4;&#xD589;&#xB418;&#xBA74; &#xC9C0;&#xC815;&#xB41C; &#xBA85;&#xB839;&#xC81C;&#xC5B4;(C&amp;C) &#xC11C;&#xBC84;&#xC5D0; &#xC811;&#xC18D;&#xD558;&#xBA70;, C&amp;C &#xC11C;&#xBC84;&#xC5D0;&#xC11C; VNC&#xD074;&#xB77C;&#xC774;&#xC5B8;&#xD2B8;(HVNC &#xAE30;&#xC900;&#xC73C;&#xB85C;&#xB294; &#xC11C;&#xBC84;)&#xB97C; &#xC774;&#xC6A9;&#xD574; &#xB300;&#xAE30;&#xD558;&#xB358; &#xACF5;&#xACA9;&#xC790;&#xB294; &#xC6D0;&#xACA9; &#xC81C;&#xC5B4;&#xAC00; &#xAC00;&#xB2A5;&#xD574;&#xC9C4;&#xB2E4;.&#x2019; &#xB77C;&#xB294; &#xB0B4;&#xC6A9;&#xC744; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. (<a href="https://www.boannews.com/media/view.asp?idx=100986">[&#xBCF4;&#xC548;&#xB274;&#xC2A4;] &#xBD81;&#xD55C; &#xD574;&#xCEE4;&#xADF8;&#xB8F9; &#xAE40;&#xC218;&#xD0A4;, &#xC6D0;&#xACA9;&#xC81C;&#xC5B4; &#xC545;&#xC131;&#xCF54;&#xB4DC; &#xC774;&#xC6A9;&#xD55C; &#xB610; &#xB2E4;&#xB978; &#xACF5;&#xACA9; &#xAC10;&#xD589;</a>)</p><p>&#xCC38;&#xACE0;&#xB85C; HVNC(Hidden Virtual Network Computing)&#xC740; &#xD53C;&#xD574;&#xC790;&#xAC00; &#xD654;&#xBA74;&#xC774; &#xC81C;&#xC5B4;&#xB418;&#xACE0; &#xC788;&#xB2E4;&#xB294; &#xC0AC;&#xC2E4;&#xC744; &#xC778;&#xC9C0;&#xD558;&#xC9C0; &#xBABB;&#xD55C; &#xCC44; &#xD574;&#xCEE4;&#xAC00; &#xC6D0;&#xACA9;&#xC73C;&#xB85C; &#xB2E4;&#xB978; &#xCEF4;&#xD4E8;&#xD130;&#xB97C; &#xC81C;&#xC5B4;&#xD560; &#xC218; &#xC788;&#xB294; &#xD654;&#xBA74; &#xC81C;&#xC5B4; &#xC2DC;&#xC2A4;&#xD15C;&#xC785;&#xB2C8;&#xB2E4;.</p><p>5&#xB144; &#xC804;&#xC758; 2016&#xB144; 4&#xBD84;&#xAE30;&#xC5D0;&#xB294; C&amp;C &#xC11C;&#xBC84;&#xC758; &#xC57D; 59%&#xAC00; &#xD55C;&#xAD6D;&#xC5D0; &#xC874;&#xC7AC;&#xD558;&#xB294; &#xAC83;&#xC73C;&#xB85C; &#xC870;&#xC0AC;&#xB418;&#xC5C8;&#xC2B5;&#xB2C8;&#xB2E4;.</p>]]></content:encoded>
-      
-      
-      <category domain="https://hackyboiz.github.io/categories/Hackypedia/">Hackypedia</category>
-      
-      
-      <category domain="https://hackyboiz.github.io/tags/y00n-nms/">y00n_nms</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/c-c-server/">c&amp;c server</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/c2-sever/">c2 sever</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/command-control-server/">command control server</category>
-      
-      
-      <comments>https://hackyboiz.github.io/2021/10/06/y00n_nms/command-control-server/#disqus_thread</comments>
       
     </item>
     
