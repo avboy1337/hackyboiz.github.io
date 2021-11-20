@@ -9,13 +9,13 @@
     <atom:link href="https://hackyboiz.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>hack &amp; life</description>
-    <pubDate>Sat, 20 Nov 2021 14:40:07 GMT</pubDate>
+    <pubDate>Sat, 20 Nov 2021 14:43:20 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
       <title>[하루한줄] Hacking JSON Web Tokens (JWTs)</title>
-      <link>https://hackyboiz.github.io/2021/11/20/in&#39;0hack/2021-11-20/</link>
-      <guid>https://hackyboiz.github.io/2021/11/20/in&#39;0hack/2021-11-20/</guid>
+      <link>https://hackyboiz.github.io/2021/11/20/in0hack/2021-11-20/</link>
+      <guid>https://hackyboiz.github.io/2021/11/20/in0hack/2021-11-20/</guid>
       <pubDate>Sat, 20 Nov 2021 05:00:00 GMT</pubDate>
       
         
@@ -43,7 +43,7 @@
       <category domain="https://hackyboiz.github.io/tags/json/">json</category>
       
       
-      <comments>https://hackyboiz.github.io/2021/11/20/in&#39;0hack/2021-11-20/#disqus_thread</comments>
+      <comments>https://hackyboiz.github.io/2021/11/20/in0hack/2021-11-20/#disqus_thread</comments>
       
     </item>
     
@@ -135,9 +135,9 @@
       <category domain="https://hackyboiz.github.io/categories/1day1line/">1day1line</category>
       
       
-      <category domain="https://hackyboiz.github.io/tags/rce/">rce</category>
-      
       <category domain="https://hackyboiz.github.io/tags/Fabu1ous/">Fabu1ous</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/rce/">rce</category>
       
       <category domain="https://hackyboiz.github.io/tags/sitecore/">sitecore</category>
       
@@ -274,9 +274,9 @@
       
       <category domain="https://hackyboiz.github.io/tags/kernel/">kernel</category>
       
-      <category domain="https://hackyboiz.github.io/tags/rce/">rce</category>
-      
       <category domain="https://hackyboiz.github.io/tags/Fabu1ous/">Fabu1ous</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/rce/">rce</category>
       
       <category domain="https://hackyboiz.github.io/tags/heap/">heap</category>
       
@@ -635,9 +635,9 @@
       
       <category domain="https://hackyboiz.github.io/tags/cve/">cve</category>
       
-      <category domain="https://hackyboiz.github.io/tags/microsoft/">microsoft</category>
-      
       <category domain="https://hackyboiz.github.io/tags/rce/">rce</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/microsoft/">microsoft</category>
       
       <category domain="https://hackyboiz.github.io/tags/dbase/">dbase</category>
       
