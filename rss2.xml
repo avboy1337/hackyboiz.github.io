@@ -9,7 +9,7 @@
     <atom:link href="https://hackyboiz.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>hack &amp; life</description>
-    <pubDate>Sun, 21 Nov 2021 09:03:26 GMT</pubDate>
+    <pubDate>Sun, 21 Nov 2021 10:07:45 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -175,9 +175,9 @@
       <category domain="https://hackyboiz.github.io/categories/1day1line/">1day1line</category>
       
       
-      <category domain="https://hackyboiz.github.io/tags/rce/">rce</category>
-      
       <category domain="https://hackyboiz.github.io/tags/Fabu1ous/">Fabu1ous</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/rce/">rce</category>
       
       <category domain="https://hackyboiz.github.io/tags/sitecore/">sitecore</category>
       
@@ -314,9 +314,9 @@
       
       <category domain="https://hackyboiz.github.io/tags/kernel/">kernel</category>
       
-      <category domain="https://hackyboiz.github.io/tags/rce/">rce</category>
-      
       <category domain="https://hackyboiz.github.io/tags/Fabu1ous/">Fabu1ous</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/rce/">rce</category>
       
       <category domain="https://hackyboiz.github.io/tags/heap/">heap</category>
       
@@ -410,9 +410,9 @@
       
       <category domain="https://hackyboiz.github.io/tags/windows/">windows</category>
       
-      <category domain="https://hackyboiz.github.io/tags/juntheworld/">juntheworld</category>
-      
       <category domain="https://hackyboiz.github.io/tags/pwnable/">pwnable</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/juntheworld/">juntheworld</category>
       
       <category domain="https://hackyboiz.github.io/tags/bughunting/">bughunting</category>
       
@@ -572,9 +572,9 @@
       <category domain="https://hackyboiz.github.io/categories/Daily-Life/">Daily-Life</category>
       
       
-      <category domain="https://hackyboiz.github.io/tags/review/">review</category>
-      
       <category domain="https://hackyboiz.github.io/tags/Fabu1ous/">Fabu1ous</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/review/">review</category>
       
       <category domain="https://hackyboiz.github.io/tags/poosic/">poosic</category>
       
@@ -675,9 +675,9 @@
       
       <category domain="https://hackyboiz.github.io/tags/cve/">cve</category>
       
-      <category domain="https://hackyboiz.github.io/tags/microsoft/">microsoft</category>
-      
       <category domain="https://hackyboiz.github.io/tags/rce/">rce</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/microsoft/">microsoft</category>
       
       <category domain="https://hackyboiz.github.io/tags/dbase/">dbase</category>
       
