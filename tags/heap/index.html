@@ -187,12 +187,18 @@
                 
 
 <div class="list-group">
-  <p class="h4">10 posts in total.</p>
+  <p class="h4">11 posts in total.</p>
   <hr>
   
     
       
       <p class="h5">2021</p>
+    
+    <a href="/2021/11/23/fabu1ous/2021-11-23/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">[하루한줄] SLUB overflow CVE-2021-42327</span>
+      <time style="float: right;">11-23</time>
+    </a>
+  
     
     <a href="/2021/11/21/l0ch/segment-heap-part3/" class="list-group-item list-group-item-action">
       <span class="archive-post-title">[Research] Hip하게 Heap 정복하기 Part 3 - HITCON 2020 Michael&#39;s Storage</span>
@@ -247,13 +253,19 @@
       <time style="float: right;">02-27</time>
     </a>
   
-    
-    <a href="/2021/02/18/idioth/2021-02-18/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">[하루한줄] heap out-of-bounds write in Telegrams animated stickers</span>
-      <time style="float: right;">02-18</time>
-    </a>
-  
 </div>
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <span class="page-number current">1</span><a class="page-number" href="/tags/heap/page/2/">2</a><a class="extend next" rel="next" href="/tags/heap/page/2/"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+  
+  <script>
+    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
+      ele.href += '#board';
+    }
+  </script>
 
 
 

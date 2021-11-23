@@ -9,8 +9,42 @@
     <atom:link href="https://hackyboiz.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>hack &amp; life</description>
-    <pubDate>Sun, 21 Nov 2021 10:07:45 GMT</pubDate>
+    <pubDate>Tue, 23 Nov 2021 08:49:04 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>[하루한줄] SLUB overflow CVE-2021-42327</title>
+      <link>https://hackyboiz.github.io/2021/11/23/fabu1ous/2021-11-23/</link>
+      <guid>https://hackyboiz.github.io/2021/11/23/fabu1ous/2021-11-23/</guid>
+      <pubDate>Tue, 23 Nov 2021 05:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;URL&quot;&gt;&lt;a href=&quot;#URL&quot; class=&quot;headerlink&quot; title=&quot;URL&quot;&gt;&lt;/a&gt;URL&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://docfate111.github.io/blog/securityresearch/2021/1</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h2 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h2><p><a href="https://docfate111.github.io/blog/securityresearch/2021/11/08/SLUBoverflow.html">SLUB overflow CVE-2021-42327</a></p><h2 id="Target"><a href="#Target" class="headerlink" title="Target"></a><strong>Target</strong></h2><p>Linux kernel through 5.14.14</p><h2 id="Explain"><a href="#Explain" class="headerlink" title="Explain"></a><strong>Explain</strong></h2><p>AMD GPU display driver debug filesystem&#xC5D0; &#xC545;&#xC758;&#xC801;&#xC778; &#xB370;&#xC774;&#xD130;&#xB97C; &#xC804;&#xB2EC;&#xD574; Linux kernal 5.14.14 &#xC774;&#xC804; &#xBC84;&#xC804;&#xC758; AMD Radeon &#xADF8;&#xB798;&#xD53D;&#xCE74;&#xB4DC; &#xB4DC;&#xB77C;&#xC774;&#xBC84;&#xC5D0;&#xC11C; heap overflow &#xCDE8;&#xC57D;&#xC810;&#xC744; &#xBC1C;&#xC0DD;&#xC2DC;&#xD0AC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p>&#xB2E4;&#xC74C;&#xC740; amdgpu_dm_debugfs.c&#xC758; <code>parse_write_buffer_into_params()</code> &#xCF54;&#xB4DC; &#xC77C;&#xBD80;&#xBD84;&#xC785;&#xB2C8;&#xB2E4;.</p><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">parse_write_buffer_into_params</span><span class="hljs-params">(<span class="hljs-keyword">char</span> *wr_buf, <span class="hljs-keyword">uint32_t</span> wr_buf_size,</span></span><span class="hljs-function"><span class="hljs-params">  <span class="hljs-keyword">long</span> *param, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> __user *buf,</span></span><span class="hljs-function"><span class="hljs-params">  <span class="hljs-keyword">int</span> max_param_num,</span></span><span class="hljs-function"><span class="hljs-params">  <span class="hljs-keyword">uint8_t</span> *param_nums)</span></span><span class="hljs-function"></span>{<span class="hljs-keyword">char</span> *wr_buf_ptr = <span class="hljs-literal">NULL</span>;<span class="hljs-keyword">uint32_t</span> wr_buf_count = <span class="hljs-number">0</span>;<span class="hljs-keyword">int</span> r;<span class="hljs-keyword">char</span> *sub_str = <span class="hljs-literal">NULL</span>;const char delimiter[3] = {&apos; &apos;, &apos;\\n&apos;, &apos;\\0&apos;};<span class="hljs-keyword">uint8_t</span> param_index = <span class="hljs-number">0</span>;*param_nums = <span class="hljs-number">0</span>;wr_buf_ptr = wr_buf;r = copy_from_user(wr_buf_ptr, buf, wr_buf_size); <span class="hljs-comment">//here</span><span class="hljs-keyword">if</span> (r &gt;= wr_buf_size) {DRM_DEBUG_DRIVER(<span class="hljs-string">&quot;user data not be read\\n&quot;</span>);<span class="hljs-keyword">return</span> -EINVAL;}</code></pre><p>user space&#xB85C;&#xBD80;&#xD130; 40 byte &#xD06C;&#xAE30;&#xC758; &#xD799; &#xBC84;&#xD37C;&#xC5D0; &#xB370;&#xC774;&#xD130;&#xB97C; &#xBCF5;&#xC0AC;&#xD560; &#xB54C; <code>copy_from_user</code>&#xC758; &#xD06C;&#xAE30;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xB294;&#xB370;, &#xD574;&#xB2F9; &#xAC12;&#xC5D0; &#xB300;&#xD55C; &#xAC80;&#xC99D;&#xC774; &#xC5C6;&#xC5B4; &#xCDE8;&#xC57D;&#xC810;&#xC774; &#xBC1C;&#xC0DD;&#xD569;&#xB2C8;&#xB2E4;. &#xB85C;&#xCEEC;&#xC5D0; &#xC811;&#xADFC; &#xAD8C;&#xD55C;&#xC774; &#xC788;&#xB294; &#xD574;&#xCEE4;&#xB294; &#xC774; &#xCDE8;&#xC57D;&#xC810;&#xC744; &#xC0AC;&#xC6A9;&#xD574; &#xAD8C;&#xD55C; &#xC0C1;&#xC2B9;&#xC744; &#xB178;&#xB9B4; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>]]></content:encoded>
+      
+      
+      <category domain="https://hackyboiz.github.io/categories/1day1line/">1day1line</category>
+      
+      
+      <category domain="https://hackyboiz.github.io/tags/linux/">linux</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/kernel/">kernel</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/Fabu1ous/">Fabu1ous</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/heap/">heap</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/overflow/">overflow</category>
+      
+      
+      <comments>https://hackyboiz.github.io/2021/11/23/fabu1ous/2021-11-23/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>[Research] Hip하게 Heap 정복하기 Part 3 - HITCON 2020 Michael&#39;s Storage</title>
@@ -141,11 +175,11 @@
       
       <category domain="https://hackyboiz.github.io/tags/chrome/">chrome</category>
       
+      <category domain="https://hackyboiz.github.io/tags/L0ch/">L0ch</category>
+      
       <category domain="https://hackyboiz.github.io/tags/v8/">v8</category>
       
       <category domain="https://hackyboiz.github.io/tags/type-confusion/">type confusion</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/l0ch/">l0ch</category>
       
       <category domain="https://hackyboiz.github.io/tags/cve-2021-38001/">cve-2021-38001</category>
       
@@ -410,9 +444,9 @@
       
       <category domain="https://hackyboiz.github.io/tags/windows/">windows</category>
       
-      <category domain="https://hackyboiz.github.io/tags/pwnable/">pwnable</category>
-      
       <category domain="https://hackyboiz.github.io/tags/juntheworld/">juntheworld</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/pwnable/">pwnable</category>
       
       <category domain="https://hackyboiz.github.io/tags/bughunting/">bughunting</category>
       
@@ -572,9 +606,9 @@
       <category domain="https://hackyboiz.github.io/categories/Daily-Life/">Daily-Life</category>
       
       
-      <category domain="https://hackyboiz.github.io/tags/Fabu1ous/">Fabu1ous</category>
-      
       <category domain="https://hackyboiz.github.io/tags/review/">review</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/Fabu1ous/">Fabu1ous</category>
       
       <category domain="https://hackyboiz.github.io/tags/poosic/">poosic</category>
       
@@ -651,42 +685,6 @@
       
       
       <comments>https://hackyboiz.github.io/2021/10/29/poosic/serialization/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>[하루한줄] CVE-2021–38646: MS Office Legacy Library의 원격 코드 실행 취약점</title>
-      <link>https://hackyboiz.github.io/2021/10/28/l0ch/2021-10-28/</link>
-      <guid>https://hackyboiz.github.io/2021/10/28/l0ch/2021-10-28/</guid>
-      <pubDate>Thu, 28 Oct 2021 05:00:00 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;URL&quot;&gt;&lt;a href=&quot;#URL&quot; class=&quot;headerlink&quot; title=&quot;URL&quot;&gt;&lt;/a&gt;URL&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://medium.com/csg-govtech/all-your-d-base-are-belong</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<h2 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h2><p><a href="https://medium.com/csg-govtech/all-your-d-base-are-belong-to-us-part-2-code-execution-in-microsoft-office-cve-2021-38646-fa6e70362162">All Your (d)Base Are Belong To Us, Part 2: Code Execution in Microsoft Office (CVE-2021&#x2013;38646)</a></p><h2 id="Target"><a href="#Target" class="headerlink" title="Target"></a>Target</h2><ul><li>Microsoft Office</li></ul><h2 id="Explain"><a href="#Explain" class="headerlink" title="Explain"></a>Explain</h2><p>9&#xC6D4; Patch Tuesday&#xC5D0;&#xC11C; &#xD328;&#xCE58;&#xB41C; Microsoft Office&#xC758; &#xC6D0;&#xACA9; &#xCF54;&#xB4DC; &#xC2E4;&#xD589; &#xCDE8;&#xC57D;&#xC810;&#xC5D0; &#xAD00;&#xD55C; &#xC138;&#xBD80; &#xC815;&#xBCF4;&#xAC00; &#xACF5;&#xAC1C;&#xB418;&#xC5C8;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p>&#xCDE8;&#xC57D;&#xC810;&#xC758; &#xC6D0;&#xC778;&#xC740; Office&#xC5D0; &#xD3EC;&#xD568;&#xB41C; &#xB370;&#xC774;&#xD130;&#xBCA0;&#xC774;&#xC2A4; &#xC11C;&#xBE44;&#xC2A4;&#xC778; Microsoft Access&#xC5D0; &#xC874;&#xC7AC;&#xD558;&#xB294; &#xB808;&#xAC70;&#xC2DC; &#xB370;&#xC774;&#xD130;&#xBCA0;&#xC774;&#xC2A4; &#xC5D4;&#xC9C4; &#xB77C;&#xC774;&#xBE0C;&#xB7EC;&#xB9AC;&#xC785;&#xB2C8;&#xB2E4;.</p><pre><code class="hljs c">.text:<span class="hljs-number">1000E1</span>CD                 push    eax             ; phkResult.text:<span class="hljs-number">1000E1</span>CE                 push    <span class="hljs-number">20019</span>h          ; samDesired.text:<span class="hljs-number">1000E1</span>D3                 push    <span class="hljs-number">0</span>               ; ulOptions.text:<span class="hljs-number">1000E1</span>D5                 push    offset SubKey   ; <span class="hljs-string">&quot;Software\\\\Borland\\\\Database Engine&quot;</span>.text:<span class="hljs-number">1000E1</span>DA                 push    <span class="hljs-number">80000002</span>h       ; hKey.text:<span class="hljs-number">1000E1</span>DF                 call    ds:RegOpenKeyExW....text:<span class="hljs-number">1000E2</span>BE                 push    edi.text:<span class="hljs-number">1000E2</span>BF                 push    eax.text:<span class="hljs-number">1000E2</span>C0                 push    offset aIdapi32Dll ; <span class="hljs-string">&quot;\\\\IDAPI32.DLL&quot;</span>.text:<span class="hljs-number">1000E2</span>C5                 call    Mso20Win32Client_1065</code></pre><p>MS Access&#xB294; DBF &#xD30C;&#xC77C;&#xC744; &#xB370;&#xC774;&#xD130;&#xBCA0;&#xC774;&#xC2A4; &#xC5D4;&#xC9C4; &#xBAA8;&#xB4C8; &#xC911; &#xD558;&#xB098;&#xC778; xBase ISAM&#xC5D0;&#xC11C; &#xCC98;&#xB9AC;&#xD569;&#xB2C8;&#xB2E4;. xBase ISAM&#xC758; <code>ACEXBE.dll</code>&#xC740; DBF &#xD30C;&#xC77C;&#xC744; &#xD30C;&#xC2F1;&#xD560; &#xB54C; Borland DataBase Engine(BDE) &#xB77C;&#xC774;&#xBE0C;&#xB7EC;&#xB9AC;&#xC778; <code>IDAPI32.dll</code> &#xB97C; &#xB85C;&#xB4DC;&#xD574; BDE &#xD30C;&#xC77C;&#xB85C; &#xBCC0;&#xD658;&#xD55C; &#xB4A4; &#xD30C;&#xC2F1;&#xD569;&#xB2C8;&#xB2E4;.</p><blockquote><p>dBase : &#xD30C;&#xC77C; &#xAE30;&#xBC18; &#xB370;&#xC774;&#xD130;&#xBCA0;&#xC774;&#xC2A4;(ISAM) &#xC800;&#xC7A5; &#xBC29;&#xC2DD;&#xC758; DBMS&#xB85C;, &#xCD08;&#xAE30; &#xB370;&#xC774;&#xD130;&#xBCA0;&#xC774;&#xC2A4; &#xC2DC;&#xC7A5;&#xC758; &#xC8FC;&#xB958;&#xC600;&#xC73C;&#xBA70; xBase&#xB77C;&#xB294; &#xC774;&#xB984;&#xC73C;&#xB85C; &#xD45C;&#xC900;&#xD654;&#xB418;&#xC5C8;&#xC73C;&#xB098; &#xB124;&#xD2B8;&#xC6CC;&#xD06C; &#xD658;&#xACBD;&#xC5D0; &#xB300;&#xC751;&#xD558;&#xC9C0; &#xBABB;&#xD558;&#xB2E4;&#xAC00; MySQL, PostgreSQL &#xB4F1;&#xC758; DBMS &#xB4F1;&#xC7A5;&#xC73C;&#xB85C; &#xC0AC;&#xC7A5;&#xB428;</p><p>DBF(dBase Table File Format) : dBase&#xC758; &#xD30C;&#xC77C; &#xD3EC;&#xB9F7;. MS Office, Apache OpenOpffice &#xB4F1;&#xC758; ISAM&#xC5D0;&#xC11C; &#xB808;&#xAC70;&#xC2DC;&#xB85C; &#xC9C0;&#xC6D0;</p><p>BDE(Borland DataBase Engine) : MS Office&#xC5D0;&#xC11C; DBF &#xD30C;&#xC77C;&#xC744; &#xC9C0;&#xC6D0;&#xD558;&#xAE30; &#xC704;&#xD574; &#xC0AC;&#xC6A9;&#xD558;&#xB294; Borland&#xC0AC;&#xC758; dBase &#xB808;&#xAC70;&#xC2DC; &#xB370;&#xC774;&#xD130;&#xBCA0;&#xC774;&#xC2A4; &#xC5D4;&#xC9C4;</p></blockquote><p><code>IDAPI32.dll</code> &#xB77C;&#xC774;&#xBE0C;&#xB7EC;&#xB9AC;&#xB294; 2001&#xB144; &#xB9C8;&#xC9C0;&#xB9C9; &#xBC84;&#xC804;&#xC774; &#xB9B4;&#xB9AC;&#xC988;&#xB41C; &#xC774;&#xD6C4; &#xB354; &#xC774;&#xC0C1; &#xC0AC;&#xC6A9;&#xB418;&#xC9C0; &#xC54A;&#xB294; &#xB77C;&#xC774;&#xBE0C;&#xB7EC;&#xB9AC;&#xC774;&#xBA70; &#xBC84;&#xD37C; &#xC624;&#xBC84;&#xD50C;&#xB85C;&#xC6B0;, OOB Write &#xB4F1; &#xC5EC;&#xB7EC; &#xCDE8;&#xC57D;&#xC810;&#xC774; &#xC218;&#xC815;&#xB418;&#xC9C0; &#xC54A;&#xC740; &#xCC44;&#xB85C; &#xC874;&#xC7AC;&#xD55C; &#xAC83;&#xC774; &#xD655;&#xC778;&#xB418;&#xC5C8;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p>&#xBC1C;&#xACAC;&#xB41C; &#xCDE8;&#xC57D;&#xC810;&#xB4E4; &#xC911; exploitable&#xD55C; &#xCDE8;&#xC57D;&#xC810;&#xC758; &#xD06C;&#xB798;&#xC2DC;&#xB294; &#xC544;&#xB798;&#xC640; &#xAC19;&#xC2B5;&#xB2C8;&#xB2E4;.</p><pre><code class="hljs c">(<span class="hljs-number">26</span>ac<span class="hljs-number">.26b</span>0): Access violation - <span class="hljs-function">code <span class="hljs-title">c0000005</span> <span class="hljs-params">(first chance)</span></span>First chance exceptions are reported before any exception handling.This exception may be expected <span class="hljs-keyword">and</span> handled.eax=<span class="hljs-number">00000000</span> ebx=<span class="hljs-number">00000000</span> ecx=<span class="hljs-number">00000008</span> edx=<span class="hljs-number">00000021</span> esi=<span class="hljs-number">6b</span>de36dc edi=<span class="hljs-number">00490000</span>eip=<span class="hljs-number">4</span>de39db2 esp=<span class="hljs-number">00b</span>4d31c ebp=<span class="hljs-number">00b</span>4d324 iopl=<span class="hljs-number">0</span>         nv up ei pl nz na po nccs=<span class="hljs-number">001b</span>  ss=<span class="hljs-number">0023</span>  ds=<span class="hljs-number">0023</span>  es=<span class="hljs-number">0023</span>  fs=<span class="hljs-number">003b</span>  gs=<span class="hljs-number">0000</span>             efl=<span class="hljs-number">00010202</span>IDDBAS32!BL_Exit+<span class="hljs-number">0x102</span>:<span class="hljs-number">4</span>de39db2 f3a5            rep movs dword ptr es:[edi],dword ptr [esi]<span class="hljs-number">0</span>:<span class="hljs-number">000</span>&gt; k # ChildEBP RetAddr  WARNING: Stack unwind information <span class="hljs-keyword">not</span> available. Following frames may be wrong.<span class="hljs-number">00</span> <span class="hljs-number">00b</span>4d324 <span class="hljs-number">4</span>de00cd8 IDDBAS32!BL_Exit+<span class="hljs-number">0x102</span><span class="hljs-number">01</span> <span class="hljs-number">00b</span>4d344 <span class="hljs-number">4</span>de019f6 IDDBAS32!XDrvInit+<span class="hljs-number">0x1fb7c</span><span class="hljs-number">02</span> <span class="hljs-number">00b</span>4d370 <span class="hljs-number">4</span>ddfc2a9 IDDBAS32!XDrvInit+<span class="hljs-number">0x2089a</span><span class="hljs-number">03</span> <span class="hljs-number">00b</span>4d4d0 <span class="hljs-number">4</span>ddee2cd IDDBAS32!XDrvInit+<span class="hljs-number">0x1b14d</span><span class="hljs-number">04</span> <span class="hljs-number">00b</span>4d9d0 <span class="hljs-number">4</span>dde2758 IDDBAS32!XDrvInit+<span class="hljs-number">0xd171</span><span class="hljs-number">05</span> <span class="hljs-number">00b</span>4da0c <span class="hljs-number">4b</span>dff194 IDDBAS32!XDrvInit+<span class="hljs-number">0x15fc</span><span class="hljs-number">06</span> <span class="hljs-number">00b</span>4dcc0 <span class="hljs-number">4b</span>de5019 IDAPI32!ImltCreateTable2+<span class="hljs-number">0x3532</span><span class="hljs-number">07</span> <span class="hljs-number">00b</span>4de18 <span class="hljs-number">79587b</span>b3 IDAPI32!DbiOpenTable+<span class="hljs-number">0xcd</span></code></pre><p>&#xD06C;&#xB798;&#xC2DC;&#xAC00; &#xBC1C;&#xC0DD;&#xD55C; &#xC704;&#xCE58;&#xB294; <code>rep movs</code> &#xB85C;, <code>ESI</code>&#xC5D0;&#xC11C; <code>EDI</code>&#xB85C; <code>ECX</code>&#xC758; &#xD06C;&#xAE30;&#xB9CC;&#xD07C; &#xBCF5;&#xC0AC;&#xD569;&#xB2C8;&#xB2E4;. &#xD574;&#xB2F9; &#xAC12;&#xB4E4;&#xC744; &#xD574;&#xCEE4;&#xAC00; &#xD398;&#xC774;&#xB85C;&#xB4DC;&#xAC00; &#xD3EC;&#xD568;&#xB41C; BDF &#xD30C;&#xC77C;&#xB85C; &#xBAA8;&#xB450; &#xC81C;&#xC5B4;&#xD560; &#xC218; &#xC788;&#xC5B4; write-what-where&#xC774; &#xAC00;&#xB2A5;&#xD558;&#xACE0;, <code>IDAPI32.dll</code>&#xC5D0;&#xB294; ASLR&#xACFC; DEP &#xB610;&#xD55C; &#xC801;&#xC6A9;&#xB418;&#xC5B4; &#xC788;&#xC9C0; &#xC54A;&#xC544; &#xCD94;&#xAC00;&#xC801;&#xC778; &#xC6B0;&#xD68C; &#xC5C6;&#xC774; &#xCF54;&#xB4DC; &#xC2E4;&#xD589;&#xC774; &#xAC00;&#xB2A5;&#xD569;&#xB2C8;&#xB2E4;.</p><p>&#xD574;&#xCEE4;&#xB294; &#xC774;&#xB97C; &#xC545;&#xC6A9;&#xD574; &#xC545;&#xC131; &#xD398;&#xC774;&#xB85C;&#xB4DC;&#xAC00; &#xD3EC;&#xD568;&#xB41C; DBF&#xD30C;&#xC77C;&#xC744; &#xD0C0;&#xAC9F; &#xC2DC;&#xC2A4;&#xD15C;&#xC5D0; &#xBC30;&#xD3EC;&#xD574; &#xC6D0;&#xACA9; &#xCF54;&#xB4DC; &#xC2E4;&#xD589;&#xC744; &#xD2B8;&#xB9AC;&#xAC70;&#xD560; &#xC218;&#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>]]></content:encoded>
-      
-      
-      <category domain="https://hackyboiz.github.io/categories/1day1line/">1day1line</category>
-      
-      
-      <category domain="https://hackyboiz.github.io/tags/cve/">cve</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/rce/">rce</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/microsoft/">microsoft</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/dbase/">dbase</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/cve-2021-38646/">cve-2021-38646</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/ms-office/">ms office</category>
-      
-      
-      <comments>https://hackyboiz.github.io/2021/10/28/l0ch/2021-10-28/#disqus_thread</comments>
       
     </item>
     
