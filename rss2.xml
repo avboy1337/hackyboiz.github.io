@@ -9,8 +9,70 @@
     <atom:link href="https://hackyboiz.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>hack &amp; life</description>
-    <pubDate>Fri, 03 Dec 2021 04:22:06 GMT</pubDate>
+    <pubDate>Wed, 08 Dec 2021 04:29:56 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>[해키피디아] Two-factor authentication(2FA), Two-step Verification(2SV)</title>
+      <link>https://hackyboiz.github.io/2021/12/08/y00n_nms/two-factor-authentication/</link>
+      <guid>https://hackyboiz.github.io/2021/12/08/y00n_nms/two-factor-authentication/</guid>
+      <pubDate>Wed, 08 Dec 2021 05:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;2&amp;#xB2E8;&amp;#xACC4; &amp;#xC778;&amp;#xC99D;(2&amp;#xC694;&amp;#xC18C; &amp;#xC778;&amp;#xC99D;, 2FA)&amp;#xACFC; 2&amp;#xB2E8;&amp;#xACC4; &amp;#xD655;&amp;#xC778;(2SV)&amp;#xC740; &amp;#xAC</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<p>2&#xB2E8;&#xACC4; &#xC778;&#xC99D;(2&#xC694;&#xC18C; &#xC778;&#xC99D;, 2FA)&#xACFC; 2&#xB2E8;&#xACC4; &#xD655;&#xC778;(2SV)&#xC740; &#xACC4;&#xC815; &#xD0C8;&#xCDE8;&#xB85C;&#xBD80;&#xD130; &#xC0AC;&#xC6A9;&#xC790; &#xACC4;&#xC815;&#xC5D0; &#xCD94;&#xAC00;&#xC801;&#xC778; &#xBCF4;&#xD638;&#xB97C; &#xC81C;&#xACF5;&#xD569;&#xB2C8;&#xB2E4;.</p><p>&#xC77C;&#xBC18;&#xC801;&#xC73C;&#xB85C; &#xC628;&#xB77C;&#xC778;&#xC5D0;&#xC11C; &#xC77C;&#xBC18;&#xC801;&#xC73C;&#xB85C; &#xC0AC;&#xC6A9;&#xB410;&#xB358; &#xC544;&#xC774;&#xB514;/&#xD328;&#xC2A4;&#xC6CC;&#xB4DC;&#xB9CC;&#xC744; &#xC774;&#xC6A9;&#xD55C; &#xB2E8;&#xC77C; &#xC694;&#xC18C; &#xC778;&#xC99D; &#xBC29;&#xC2DD;&#xC740; &#x2018;12345&#x2019;, &#x2018;password&#x2019;, &#x2018;qwerty&#x2019;&#xC640; &#xAC19;&#xC740; &#xB2E8;&#xC21C;&#xD55C; &#xD328;&#xC2A4;&#xC6CC;&#xB4DC; &#xC0AC;&#xC6A9;, &#xC5EC;&#xB7EC; &#xC0AC;&#xC774;&#xD2B8;&#xC5D0; &#xAC19;&#xC740; &#xD328;&#xC2A4;&#xC6CC;&#xB4DC;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xB4F1;&#xC758; &#xC5EC;&#xB7EC; &#xBB38;&#xC81C;&#xC810;&#xC73C;&#xB85C; &#xC27D;&#xAC8C; &#xACC4;&#xC815; &#xD0C8;&#xCDE8;&#xAC00; &#xBC1C;&#xC0DD;&#xD558;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xACC4;&#xC815;&#xC5D0; &#xC811;&#xADFC;&#xD558;&#xB824;&#xB294; &#xC0AC;&#xB78C;&#xC774; &#xC790;&#xC2E0;&#xC774;&#xB77C;&#xB294; &#xAC83;&#xC744; &#xC99D;&#xBA85;&#xD558;&#xAE30; &#xC704;&#xD558;&#xC5EC; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xC694;&#xC18C;&#xB97C; &#xC81C;&#xC2DC;&#xD558;&#xB3C4;&#xB85D; &#xD569;&#xB2C8;&#xB2E4;.</p><ul><li>&#xC0AC;&#xC6A9;&#xC790;&#xAC00; &#xC54C;&#xACE0; &#xC788;&#xB294; &#xAC83;: &#xBE44;&#xBC00;&#xBC88;&#xD638;, &#xBCF4;&#xC548; &#xC9C8;&#xBB38;, PIN &#xBC88;&#xD638; &#xB4F1;</li><li>&#xC0AC;&#xC6A9;&#xC790;&#xAC00; &#xAC00;&#xC9C0;&#xACE0; &#xC788;&#xB294; &#xAC83;: &#xC2A4;&#xB9C8;&#xD2B8;&#xD3F0;, &#xC2E0;&#xC6A9;&#xCE74;&#xB4DC;, &#xBCF4;&#xC548;&#xD0A4;(OTP)</li><li>&#xC0AC;&#xC6A9;&#xC790;&#xC758; &#xC2E0;&#xCCB4;&#xC801; &#xD2B9;&#xC9D5;: &#xC9C0;&#xBB38;, &#xD64D;&#xCC44;, &#xC0DD;&#xCCB4; &#xC815;&#xBCF4; &#xC778;&#xC2DD;</li><li>&#xC0AC;&#xC6A9;&#xC790;&#xC758; &#xC704;&#xCE58;: GPS &#xCD94;&#xC801;</li></ul><p><img src="/2021/12/08/y00n_nms/two-factor-authentication/image.png" alt="image"></p><p>2&#xB2E8;&#xACC4; &#xC778;&#xC99D;(2FA)&#xB294; &#xC0AC;&#xC6A9;&#xC790;&#xAC00; &#xC54C;&#xACE0; &#xC788;&#xB294; &#xAC83;&#xC5D0; &#xCD94;&#xAC00;&#xB85C; &#xB2E4;&#xB978; &#xC720;&#xD615;&#xC758; &#xC778;&#xC99D; &#xC694;&#xC18C;&#xB97C; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;. &#xC608;&#xB97C; &#xB4E4;&#xC5B4; &#xC0AC;&#xC6A9;&#xC790;&#xAC00; &#xD328;&#xC2A4;&#xC6CC;&#xB4DC;&#xB97C; &#xC785;&#xB825;&#xD558;&#xBA74; &#xC0AC;&#xC6A9;&#xC790;&#xC758; &#xC2A4;&#xB9C8;&#xD2B8;&#xD3F0;(&#xAC00;&#xC9C0;&#xACE0; &#xC788;&#xB294; &#xAC83;)&#xC5D0; &#xACE0;&#xC720;&#xD55C; &#xC77C;&#xD68C;&#xC6A9; &#xC554;&#xD638;(OTP)&#xB97C; &#xC81C;&#xACF5;&#xD558;&#xC5EC; &#xD574;&#xB2F9; &#xC554;&#xD638;&#xB97C; &#xB2E4;&#xC2DC; &#xC785;&#xB825;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</p><p>2&#xB2E8;&#xACC4; &#xD655;&#xC778;(2SV)&#xB294; &#xC0AC;&#xC6A9;&#xC790;&#xAC00; &#xC54C;&#xACE0; &#xC788;&#xB294; &#xAC83;&#xC5D0; &#xCD94;&#xAC00;&#xB85C; &#xB3D9;&#xC77C;&#xD55C; &#xC720;&#xD615;&#xC758; &#xC778;&#xC99D; &#xC694;&#xC18C;&#xB97C; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;. &#xC608;&#xB97C; &#xB4E4;&#xC5B4; &#xC0AC;&#xC6A9;&#xC790;&#xAC00; &#xD328;&#xC2A4;&#xC6CC;&#xB4DC;&#xB97C; &#xC785;&#xB825;&#xD558;&#xBA74;, &#x2018;&#xD0A4;&#xC6B0;&#xB358; &#xBC18;&#xB824;&#xB3D9;&#xBB3C;&#xC758; &#xC774;&#xB984;&#xC740;?&#x2019;&#xACFC; &#xAC19;&#xC774; &#xC774;&#xC804;&#xC5D0; &#xC124;&#xC815;&#xD574; &#xB454; &#xBCF4;&#xC548; &#xC9C8;&#xBB38;&#xC5D0; &#xB2F5;&#xBCC0;&#xD558;&#xAC70;&#xB098; PIN &#xBC88;&#xD638;&#xB97C; &#xC785;&#xB825;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</p>]]></content:encoded>
+      
+      
+      <category domain="https://hackyboiz.github.io/categories/Hackypedia/">Hackypedia</category>
+      
+      
+      <category domain="https://hackyboiz.github.io/tags/y00n-nms/">y00n_nms</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/2fa/">2fa</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/2sv/">2sv</category>
+      
+      
+      <comments>https://hackyboiz.github.io/2021/12/08/y00n_nms/two-factor-authentication/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>[하루한줄] This shouldn&#39;t have happened: A vulnerability postmortem</title>
+      <link>https://hackyboiz.github.io/2021/12/07/fabu1ous/2021-12-07/</link>
+      <guid>https://hackyboiz.github.io/2021/12/07/fabu1ous/2021-12-07/</guid>
+      <pubDate>Tue, 07 Dec 2021 05:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;URL&quot;&gt;&lt;a href=&quot;#URL&quot; class=&quot;headerlink&quot; title=&quot;URL&quot;&gt;&lt;/a&gt;URL&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://googleprojectzero.blogspot.com/2021/12/this-shoul</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h2 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h2><p><a href="https://googleprojectzero.blogspot.com/2021/12/this-shouldnt-have-happened.html">This shouldn&#x2019;t have happened: A vulnerability postmortem</a></p><h2 id="Target"><a href="#Target" class="headerlink" title="Target"></a><strong>Target</strong></h2><p>Mozilla&#x2019;s Network Security Services (NSS)</p><h2 id="Explain"><a href="#Explain" class="headerlink" title="Explain"></a><strong>Explain</strong></h2><p>Mozilla&#xC5D0;&#xC11C; &#xAC1C;&#xBC1C;&#xD55C; &#xC554;&#xD638; &#xB77C;&#xC774;&#xBE0C;&#xB7EC;&#xB9AC;, Network Security Services (NSS)&#xC5D0;&#xC11C; &#xBA54;&#xBAA8;&#xB9AC; &#xC624;&#xC5FC; &#xCDE8;&#xC57D;&#xC810;&#xC774; &#xBC1C;&#xACAC;&#xB418;&#xC5C8;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p>ASN.1&#xC73C;&#xB85C; &#xC778;&#xCF54;&#xB529;&#xB41C; &#xB514;&#xC9C0;&#xD138; &#xC11C;&#xBA85;&#xC744; &#xAC80;&#xC99D;&#xD560; &#xB54C; NSS&#xB294; VFYContext&#xAD6C;&#xC870;&#xCCB4;&#xB97C; &#xC0DD;&#xC131;&#xD569;&#xB2C8;&#xB2E4;. VFYContext&#xC5D0;&#xB294; &#xACF5;&#xAC1C;&#xD0A4;, &#xD574;&#xC26C; &#xC54C;&#xACE0;&#xB9AC;&#xC998;, &#xB514;&#xC9C0;&#xD138; &#xC11C;&#xBA85;&#xB4F1;&#xC758; &#xC815;&#xBCF4;&#xB97C; &#xC800;&#xC7A5;&#xD569;&#xB2C8;&#xB2E4;. </p><pre><code class="hljs c"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">VFYContextStr</span> {</span>   SECOidTag hashAlg; <span class="hljs-comment">/* the hash algorithm */</span>   SECKEYPublicKey *key;   <span class="hljs-keyword">union</span> {       <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">char</span> buffer[<span class="hljs-number">1</span>];       <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">char</span> dsasig[DSA_MAX_SIGNATURE_LEN];       <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">char</span> ecdsasig[<span class="hljs-number">2</span> * MAX_ECKEY_LEN];       <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">char</span> rsasig[(RSA_MAX_MODULUS_BITS + <span class="hljs-number">7</span>) / <span class="hljs-number">8</span>];   } u;   <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> pkcs1RSADigestInfoLen;   <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">char</span> *pkcs1RSADigestInfo;   <span class="hljs-keyword">void</span> *wincx;   <span class="hljs-keyword">void</span> *hashcx;   <span class="hljs-keyword">const</span> SECHashObject *hashobj;   SECOidTag encAlg;    <span class="hljs-comment">/* enc alg */</span>   PRBool hasSignature;   SECItem *params;};</code></pre><p>&#xBB38;&#xC81C;&#xB294; &#xD574;&#xB2F9; &#xAD6C;&#xC870;&#xCCB4;&#xAC00; &#xB2F4;&#xC744; &#xC218; &#xC788;&#xB294; &#xB514;&#xC9C0;&#xD138; &#xC11C;&#xBA85;&#xC758; &#xAE38;&#xC774;&#xAC00; &#xACE0;&#xC815;&#xB418;&#xC5B4; &#xC788;&#xB2E4;&#xB294; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;. RSA&#xC758; &#xACBD;&#xC6B0; &#xADF8; &#xAE38;&#xC774;&#xB294; 2048 bytes (163484 bits)&#xC785;&#xB2C8;&#xB2E4;. &#xB2E8;&#xC21C;&#xD788; &#xC815;&#xD574;&#xC9C4; &#xAE38;&#xC774;&#xBCF4;&#xB2E4; &#xAE34; &#xB514;&#xC9C0;&#xD138; &#xC11C;&#xBA85;&#xC744; &#xC804;&#xB2EC;&#xD558;&#xB294; &#xAC83;&#xC73C;&#xB85C; &#xACE0;&#xC815;&#xB41C; &#xD06C;&#xAE30;&#xC758; buffer&#xC5D0; &#xC2E0;&#xB8B0;&#xD560; &#xC218; &#xC5C6;&#xB294; &#xB370;&#xC774;&#xD130;&#xAC00; &#xBCF5;&#xC0AC;&#xB418;&#xC5B4; &#xBA54;&#xBAA8;&#xB9AC;&#xAC00; &#xC624;&#xC5FC;&#xB429;&#xB2C8;&#xB2E4;. &#xC554;&#xD638;&#xD654; &#xD0A4;&#xC640; &#xB514;&#xC9C0;&#xD138; &#xC11C;&#xBA85;&#xC5D0; &#xB300;&#xD55C; bound &#xAC80;&#xC0AC;&#xAC00; &#xC5C6;&#xC5B4; &#xBC1C;&#xC0DD;&#xD558;&#xB294; &#xC804;&#xD615;&#xC801;&#xC778; overflow &#xCDE8;&#xC57D;&#xC810; &#xC785;&#xB2C8;&#xB2E4;.</p>]]></content:encoded>
+      
+      
+      <category domain="https://hackyboiz.github.io/categories/1day1line/">1day1line</category>
+      
+      
+      <category domain="https://hackyboiz.github.io/tags/Fabu1ous/">Fabu1ous</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/overflow/">overflow</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/mozilla/">mozilla</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/nss/">nss</category>
+      
+      
+      <comments>https://hackyboiz.github.io/2021/12/07/fabu1ous/2021-12-07/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>[해키피디아] Stack Frame</title>
@@ -635,66 +697,6 @@
       
       
       <comments>https://hackyboiz.github.io/2021/11/11/fabu1ous/2021-11-11/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>[해키피디아] Two&#39;s complement(2의 보수)</title>
-      <link>https://hackyboiz.github.io/2021/11/10/y00n_nms/twos-complement/</link>
-      <guid>https://hackyboiz.github.io/2021/11/10/y00n_nms/twos-complement/</guid>
-      <pubDate>Wed, 10 Nov 2021 05:00:00 GMT</pubDate>
-      
-        
-        
-      <description>&lt;p&gt;&amp;#xCEF4;&amp;#xD4E8;&amp;#xD130;&amp;#xAC00; &amp;#xC74C;&amp;#xC218;&amp;#xB97C; &amp;#xD45C;&amp;#xD604;&amp;#xD558;&amp;#xB294; &amp;#xBC29;&amp;#xC2DD;&amp;#xC5D0;&amp;#xB294; &amp;#xD06C;&amp;#xAC</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<p>&#xCEF4;&#xD4E8;&#xD130;&#xAC00; &#xC74C;&#xC218;&#xB97C; &#xD45C;&#xD604;&#xD558;&#xB294; &#xBC29;&#xC2DD;&#xC5D0;&#xB294; &#xD06C;&#xAC8C; &#xC138; &#xAC00;&#xC9C0;&#xAC00; &#xC874;&#xC7AC;&#xD569;&#xB2C8;&#xB2E4;.</p><p>&#xCD5C;&#xC0C1;&#xC704; &#xBE44;&#xD2B8;(MSB)&#xB97C; &#xBD80;&#xD638; &#xBE44;&#xD2B8;&#xB85C; &#xC0AC;&#xC6A9;&#xD558;&#xC5EC; + &#xB610;&#xB294; -&#xB97C; &#xB098;&#xD0C0;&#xB0B4;&#xB294; &#xBC29;&#xBC95;&#xACFC; &#xC591;&#xC218;(&#xC808;&#xB313;&#xAC12;)&#xC758; &#xBAA8;&#xB4E0; &#xBE44;&#xD2B8;&#xB97C; &#xBC18;&#xC804;&#xD558;&#xC5EC; &#xC74C;&#xC218;&#xB97C; &#xD45C;&#xD604;&#xD558;&#xB294; 1&#xC758; &#xBCF4;&#xC218;&#xC740; +0&#xACFC; -0&#xC774; &#xB530;&#xB85C; &#xC874;&#xC7AC;&#xD55C;&#xB2E4;&#xB294; &#xB2E8;&#xC810;&#xC774; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p>&#xC608;&#xB97C; &#xB4E4;&#xC5B4; 1&#xC77C;&#xB54C; +, 0&#xC77C;&#xB54C; -&#xB77C;&#xACE0; &#xBD80;&#xD638; &#xBE44;&#xD2B8;&#xB97C; &#xC0AC;&#xC6A9;&#xD55C;&#xB2E4;&#xBA74; +0&#xC740; <code>1000</code>, -1&#xC740; <code>0000</code>&#xC73C;&#xB85C; &#xD45C;&#xD604;&#xB418;&#xBA70; 1&#xC758; &#xBCF4;&#xC218;&#xC5D0;&#xC11C;&#xB294; +0&#xC740; <code>0000</code>, -0&#xC740; <code>1111</code>&#xB85C; &#xD45C;&#xD604;&#xB429;&#xB2C8;&#xB2E4;.</p><p>&#xD574;&#xB2F9; &#xBB38;&#xC81C;&#xC810;&#xC5D0; &#xB300;&#xD55C; &#xD574;&#xB2F5;&#xC73C;&#xB85C; 2&#xC758; &#xBCF4;&#xC218;&#xAC00; &#xACE0;&#xC548;&#xB418;&#xC5C8;&#xC73C;&#xBA70;, &#xB530;&#xB77C;&#xC11C; &#xD604;&#xC7AC; &#xBAA8;&#xB4E0; &#xCEF4;&#xD4E8;&#xD130;&#xB294; &#xC74C;&#xC218;&#xC758; &#xD45C;&#xD604; &#xBC29;&#xBC95;&#xC73C;&#xB85C; 2&#xC758; &#xBCF4;&#xC218;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xACE0; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. </p><p>2&#xC758; &#xBCF4;&#xC218;&#xB294; &#xC8FC;&#xC5B4;&#xC9C4; &#xC218;&#xB97C; &#xCEE4;&#xB2E4;&#xB780; 2&#xC758; &#xC81C;&#xACF1;&#xC218;&#xC5D0;&#xC11C; &#xBE7C;&#xC11C; &#xC5BB;&#xC740; &#xC774;&#xC9C4;&#xC218;&#xB77C;&#xB294; &#xB73B;&#xC73C;&#xB85C;, &#xC27D;&#xAC8C; &#xACC4;&#xC0B0;&#xD558;&#xB294; &#xBC29;&#xC2DD;&#xC73C;&#xB85C; 1&#xC758; &#xBCF4;&#xC218;&#xC5D0; 1&#xC744; &#xB354;&#xD558;&#xB294; &#xBC29;&#xC2DD;&#xC774; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p>8&#xBE44;&#xD2B8;&#xC5D0;&#xC11C; +16(<code>00010000</code>)&#xC5D0;&#xC11C; -16&#xC740; &#xBAA8;&#xB4E0; &#xBE44;&#xD2B8;&#xB97C; &#xBC18;&#xC804;&#xD55C; 1&#xC758; &#xBCF4;&#xC218;(<code>11101111</code>)&#xC5D0; 1&#xC744; &#xB354;&#xD558;&#xC5EC; <code>11110000</code>&#xC774; &#xB429;&#xB2C8;&#xB2E4;.</p><p>16&#xBE44;&#xD2B8;&#xC5D0;&#xC11C; +1(<code>0000000000000001</code>)&#xC5D0;&#xC11C; -1&#xC744; &#xACC4;&#xC0B0;&#xD560; &#xB54C;&#xB294; +1&#xC5D0;&#xC11C; &#xBAA8;&#xB4E0; &#xBE44;&#xD2B8;&#xB97C; &#xBC18;&#xC804;&#xD55C; <code>1111111111111110</code>&#xC5D0;&#xC11C; 1&#xC744; &#xB354;&#xD574; <code>1111111111111111</code>&#xC774; &#xB429;&#xB2C8;&#xB2E4;.</p>]]></content:encoded>
-      
-      
-      <category domain="https://hackyboiz.github.io/categories/Hackypedia/">Hackypedia</category>
-      
-      
-      <category domain="https://hackyboiz.github.io/tags/y00n-nms/">y00n_nms</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/two-s-complement/">two&#39;s complement</category>
-      
-      
-      <comments>https://hackyboiz.github.io/2021/11/10/y00n_nms/twos-complement/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>[하루한줄] CVE-2021-41117: Keypair 모듈의 잘못된 랜덤 시드 생성</title>
-      <link>https://hackyboiz.github.io/2021/11/09/d0hwq1/2021-11-09/</link>
-      <guid>https://hackyboiz.github.io/2021/11/09/d0hwq1/2021-11-09/</guid>
-      <pubDate>Tue, 09 Nov 2021 05:00:00 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;URL&quot;&gt;&lt;a href=&quot;#URL&quot; class=&quot;headerlink&quot; title=&quot;URL&quot;&gt;&lt;/a&gt;URL&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://securitylab.github.com/advisories/GHSL-2021-1012-</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<h2 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h2><p><a href="https://securitylab.github.com/advisories/GHSL-2021-1012-keypair/">https://securitylab.github.com/advisories/GHSL-2021-1012-keypair/</a></p><h2 id="Target"><a href="#Target" class="headerlink" title="Target"></a>Target</h2><ul><li>GitKraken 7.6.x, 7.7.x, 8.0.0 &#xBC84;&#xC804;&#xC758; SSH key&#xB97C; &#xBC1C;&#xAE09;&#xBC1B;&#xC740; &#xC720;&#xC800;</li></ul><h2 id="Explain"><a href="#Explain" class="headerlink" title="Explain"></a>Explain</h2><p>JS&#xC5D0;&#xC11C; RSA &#xC554;&#xD638;&#xD654; &#xD504;&#xB9AC;&#xBBF8;&#xD2F0;&#xBE0C;&#xB97C; &#xAD6C;&#xD604;&#xD55C; keypair&#xC5D0;&#xC11C; SSH&#xC758; RSA &#xD0A4;&#xB97C; &#xC0DD;&#xC131;&#xD558;&#xB294; &#xACFC;&#xC815;&#xC5D0;&#xC11C; &#xC798;&#xBABB;&#xB41C; &#xB09C;&#xC218;&#xB97C; &#xC0DD;&#xC131;&#xD558;&#xB294; &#xCDE8;&#xC57D;&#xC810;&#xC774; &#xBC1C;&#xACAC;&#xB418;&#xC5C8;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p>Keypair&#xB294; &#xC6B4;&#xC601;&#xCCB4;&#xC81C;&#xC5D0;&#xC11C; &#xC81C;&#xACF5;&#xD558;&#xB294; CSPRNG(&#xB610;&#xB294; CPRNG)&#xC5D0; &#xC644;&#xC804;&#xD788; &#xC758;&#xC9C0;&#xD558;&#xC9C0; &#xC54A;&#xACE0;, &#xC790;&#xCCB4; &#xCE74;&#xC6B4;&#xD130; &#xAE30;&#xBC18;&#xC758; CMAC &#xBC29;&#xC2DD;&#xC744; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;. </p><blockquote><p>CSPRNG(Cryptographically secure PRNG) : &#xB09C;&#xC218;&#xB97C; &#xD749;&#xB0B4;&#xB0B4;&#xAE30; &#xC704;&#xD55C; &#xC54C;&#xACE0;&#xB9AC;&#xC998;&#xC73C;&#xB85C; &#xC0DD;&#xC131;&#xB418;&#xB294; &#xC720;&#xC0AC;&#xB09C;&#xC218; &#xC0DD;&#xC131;&#xAE30;(Pseudorandom number generator, PRNG) &#xC911; &#xC554;&#xD638;&#xD559;&#xC801;&#xC73C;&#xB85C; &#xC548;&#xC804;&#xD55C; &#xC720;&#xC0AC;&#xB09C;&#xC218; &#xC0DD;&#xC131;&#xAE30;&#xB97C; &#xB9D0;&#xD569;&#xB2C8;&#xB2E4;.</p></blockquote><p>&#xBB38;&#xC81C;&#xB294; &#xC911;&#xBCF5;&#xB418;&#xC9C0; &#xC54A;&#xB294; &#xC784;&#xC758;&#xC758; &#xB370;&#xC774;&#xD130;&#xB85C; CMAC&#xC744; &#xAD6C;&#xD604;&#xD558;&#xB294; &#xC2DC;&#xB4DC; &#xC120;&#xC815; &#xBB38;&#xC81C;&#xC778;&#xB370;, AES-CMAC &#xC0DD;&#xC131;&#xAE30;&#xC758; seed&#xB97C; &#xC704;&#xD574; Keypair&#xB294; NodeJS&#xC5D0;&#xC11C; &#xB450; &#xAC00;&#xC9C0; &#xBC29;&#xBC95;&#xC73C;&#xB85C; &#xC811;&#xADFC;&#xD569;&#xB2C8;&#xB2E4;. &#xBE0C;&#xB77C;&#xC6B0;&#xC800;&#xC5D0;&#xC11C;&#xB294; <code>window.crypto.getRandomValues()</code>&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xC9C0;&#xB9CC;,  NodeJS&#xB294; window&#xB77C;&#xB294; &#xAC1D;&#xCCB4;&#xAC00; &#xC815;&#xC758;&#xB418;&#xC9C0; &#xC54A;&#xC544; AES-CMAC&#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.</p><p><code>window.crypto.getRandomValues()</code>&#xB97C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xC744; &#xB54C;, Lehmer LCG &#xB09C;&#xC218; &#xC0DD;&#xC131;&#xAE30;&#xAC00; CMAC &#xCE74;&#xC6B4;&#xD130; seed&#xC5D0; &#xC0AC;&#xC6A9;&#xB418;&#xACE0; LCG&#xB294; <code>Math.random</code>&#xACFC; &#xD568;&#xAED8; seed&#xB97C; &#xB9CC;&#xB4ED;&#xB2C8;&#xB2E4;.</p><pre><code class="hljs jsx">b.putByte(<span class="hljs-built_in">String</span>.fromCharCode(next &amp; <span class="hljs-number">0xFF</span>))util.ByteBuffer.prototype.putByte = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">b</span>) </span>{  <span class="hljs-built_in">this</span>.data += <span class="hljs-built_in">String</span>.fromCharCode(b);};<span class="hljs-comment">// b.putByte(String.fromCharCode(String.fromCharCode(next &amp; 0xFF)))</span></code></pre><p>&#xC704; &#xCF54;&#xB4DC;&#xB97C; &#xB2E8;&#xC21C;&#xD654;&#xD558;&#xBA74; <code>String.fromCharCode(String.fromCharCode(next &amp; 0xFF))</code>, &#xC989; &#xC774;&#xC911;(double) <code>String.fromCharCode</code>&#xB85C; &#xC758;&#xB3C4;&#xD558;&#xC9C0; &#xC54A;&#xC740; &#xC57D;&#xD55C; &#xC2DC;&#xB4DC;&#xC758; &#xC6D0;&#xC778;&#xC774; &#xB429;&#xB2C8;&#xB2E4;. &#xADF8;&#xB7EC;&#xB098; &#xC774; &#xACFC;&#xC815;&#xC5D0;&#xC11C; &#xC5D0;&#xB7EC;&#xAC00; &#xBC1C;&#xC0DD;&#xD558;&#xC9C0; &#xC54A;&#xACE0; <code>0xFF</code>&#xB85C; and &#xC5F0;&#xC0B0;&#xC744; &#xD55C; &#xACB0;&#xACFC;&#xB85C; &#xCD9C;&#xB825; &#xBC84;&#xD37C;&#xC758; 97%&#xC5D0; 0&#xC774; &#xB4E4;&#xC5B4;&#xAC11;&#xB2C8;&#xB2E4;.</p><p><img src="/2021/11/09/d0hwq1/2021-11-09/image1.png" alt="Untitled"></p><p>&#xCD9C;&#xB825;&#xC5D0;&#xC11C; &#xC758;&#xBBF8;&#xC788;&#xB294; &#xAC12;&#xC740; 48~57&#xBC16;&#xC5D0; &#xB418;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;. &#xB530;&#xB77C;&#xC11C; RNG &#xC2DC;&#xB4DC;&#xAC00; 0&#xC77C; &#xD655;&#xB960;&#xC774; 97%&#xB77C;&#xB294; &#xAC83;&#xC744; &#xC758;&#xBBF8;&#xD558;&#xBA70;, &#xB9CC;&#xC57D; 0&#xC774; &#xC544;&#xB77C;&#xBA74; &#xBC14;&#xC774;&#xD2B8;&#xB294; 0&#xC5D0;&#xC11C; 9&#xAE4C;&#xC9C0;&#xB77C;&#xB294; &#xAC83;&#xC744; &#xC54C; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p>&#xACB0;&#xAD6D; Keypair&#xC758; &#xBB38;&#xC81C;&#xC810;&#xC740; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xC694;&#xC57D;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><ul><li>&#xC548;&#xC804;&#xD55C; CSPRNG&#xAC00; &#xC544;&#xB2CC; &#xCDE8;&#xC57D;&#xD55C; LCG&#xC640; <code>Math.random</code>&#xC744; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.</li><li>CSPRNG&#xB97C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC5B4;&#xB3C4; NodeJS&#xC5D0;&#xC11C;&#xB294; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.</li><li>&#xC2DC;&#xB4DC;&#xC758; &#xB300;&#xBD80;&#xBD84;(&#xC57D; 97%)&#xC774; 0&#xC774; &#xB418;&#xB294; &#xAD6C;&#xD604;&#xC785;&#xB2C8;&#xB2E4;.</li></ul>]]></content:encoded>
-      
-      
-      <category domain="https://hackyboiz.github.io/categories/1day1line/">1day1line</category>
-      
-      
-      <category domain="https://hackyboiz.github.io/tags/D0hwQ1/">D0hwQ1</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/keypair/">keypair</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/rsa/">rsa</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/ssh/">ssh</category>
-      
-      
-      <comments>https://hackyboiz.github.io/2021/11/09/d0hwq1/2021-11-09/#disqus_thread</comments>
       
     </item>
     
