@@ -9,8 +9,40 @@
     <atom:link href="https://hackyboiz.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>hack &amp; life</description>
-    <pubDate>Fri, 07 Jan 2022 04:54:06 GMT</pubDate>
+    <pubDate>Fri, 07 Jan 2022 05:11:45 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>[해키피디아] Network Switch(L2, L3, L4, L7)</title>
+      <link>https://hackyboiz.github.io/2022/01/07/nanglam/network-switch/</link>
+      <guid>https://hackyboiz.github.io/2022/01/07/nanglam/network-switch/</guid>
+      <pubDate>Fri, 07 Jan 2022 05:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;&amp;#xB124;&amp;#xD2B8;&amp;#xC6CC;&amp;#xD06C; &amp;#xC2A4;&amp;#xC704;&amp;#xCE58;(Network Switch)&amp;#xB294; &amp;#xB124;&amp;#xD2B8;&amp;#xC6CC;&amp;#xD06C; &amp;#xB2E8;&amp;#xC704;&amp;#xB4E</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<p>&#xB124;&#xD2B8;&#xC6CC;&#xD06C; &#xC2A4;&#xC704;&#xCE58;(Network Switch)&#xB294; &#xB124;&#xD2B8;&#xC6CC;&#xD06C; &#xB2E8;&#xC704;&#xB4E4;&#xC744; &#xC5F0;&#xACB0;&#xD558;&#xB294; &#xD1B5;&#xC2E0; &#xC7A5;&#xBE44;&#xB85C; &#xD5C8;&#xBE0C;&#xBCF4;&#xB2E4; &#xC804;&#xC1A1; &#xC18D;&#xB3C4;&#xAC00; &#xAC1C;&#xC120;&#xB41C; &#xC7A5;&#xBE44;&#xC785;&#xB2C8;&#xB2E4;.</p><p><img src="/2022/01/07/nanglam/network-switch/image1.png" alt></p><p>&#xB124;&#xD2B8;&#xC6CC;&#xD06C; &#xC2A4;&#xC704;&#xCE58;&#xB294; &#xD328;&#xD0B7;&#xC744; &#xC5B4;&#xB290; &#xCABD;&#xC73C;&#xB85C; &#xBCF4;&#xB0B4;&#xB294;&#xC9C0; &#xC815;&#xD558;&#xB294; &#xC5ED;&#xD560;&#xC744; &#xD569;&#xB2C8;&#xB2E4;. &#xB530;&#xB77C;&#xC11C; &#xD328;&#xD0B7;&#xC744; &#xC804;&#xC1A1;&#xD560; &#xB54C; &#xC5B4;&#xB5A0;&#xD55C; &#xC815;&#xBCF4;&#xB97C; &#xBCF4;&#xACE0; &#xD310;&#xB2E8;&#xC744; &#xD558;&#xB294; &#xAC83;&#xC778;&#xC9C0;&#xC5D0; &#xB530;&#xB77C; Layer&#xAC00; &#xAD6C;&#xBD84;&#xB429;&#xB2C8;&#xB2E4;.</p><p>OSI 7&#xACC4;&#xCE35;&#xC5D0; &#xB530;&#xB77C; L2, L3, L4, L7 &#xC2A4;&#xC704;&#xCE58;&#xB85C; &#xB098;&#xB258;&#xAC8C; &#xB418;&#xBA70; &#xC544;&#xB798;&#xC640; &#xAC19;&#xC2B5;&#xB2C8;&#xB2E4;.</p><ul><li>L2 &#xC2A4;&#xC704;&#xCE58; MAC(MAC Table)&#xB97C; &#xBCF4;&#xACE0; &#xC2A4;&#xC704;&#xCE6D;&#xC744; &#xD558;&#xB294; &#xAC83;</li><li>L3 &#xC2A4;&#xC704;&#xCE58; IP &#xC815;&#xBCF4;(Rounting Table)&#xB97C; &#xBCF4;&#xACE0; &#xC2A4;&#xC704;&#xCE6D;&#xC744; &#xD558;&#xB294; &#xAC83;</li><li>L4 &#xC2A4;&#xC704;&#xCE58; IP+Port(Session or Connection)&#xB97C; &#xBCF4;&#xACE0; &#xC2A4;&#xC704;&#xCE6D;&#xC744; &#xD558;&#xB294; &#xAC83;<ul><li>L4 &#xC2A4;&#xC704;&#xCE58;&#xC5D0;&#xB294; &#xB85C;&#xB4DC;&#xBC38;&#xB7F0;&#xC2F1;(Load Balancing) &#xAE30;&#xB2A5;&#xC774; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</li></ul></li></ul><blockquote><p>&#xB85C;&#xB4DC;&#xBC38;&#xB7F0;&#xC2F1;&#xC774;&#xB780; &#xC811;&#xC18D;&#xB7C9;&#xC774; &#xC99D;&#xAC00;&#xD558;&#xC5EC; &#xD2B8;&#xB798;&#xD53D;&#xC744; &#xAC10;&#xB2F9;&#xD560; &#xC218; &#xC5C6;&#xC744; &#xB54C;, &#xD2B8;&#xB798;&#xD53D;&#xC744; &#xBD84;&#xC0B0; &#xC2DC;&#xD0A4;&#xB294; &#xAE30;&#xB2A5;&#xC785;&#xB2C8;&#xB2E4;.</p></blockquote><p><img src="/2022/01/07/nanglam/network-switch/image2.png" alt></p><ul><li>L7 &#xC2A4;&#xC704;&#xCE58; &#xC2E4;&#xC81C; App &#xB370;&#xC774;&#xD130;(Content)&#xB97C; &#xBCF4;&#xACE0; &#xC2A4;&#xC704;&#xCE6D;&#xC744; &#xD558;&#xB294; &#xAC83;<ul><li>&#xC608;&#xB97C; &#xB4E4;&#xC5B4; HTTP &#xD504;&#xB85C;&#xD1A0;&#xCF5C;&#xC744; &#xD30C;&#xC2F1;&#xD574;&#xC11C; &#xC5B4;&#xB5A4; URL&#xC5D0; &#xC811;&#xC18D;&#xD558;&#xB294;&#xC9C0; &#xD655;&#xC778;&#xC774; &#xAC00;&#xB2A5;&#xD569;&#xB2C8;&#xB2E4;. &#xB530;&#xB77C;&#xC11C; &#xC6F9; &#xBC29;&#xD654;&#xBCBD;, &#xBCF4;&#xC548; &#xC2A4;&#xC704;&#xCE58; &#xAE30;&#xB2A5;&#xC744; &#xAC00;&#xC9C0;&#xACE0; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</li></ul></li></ul><p>&#xC0C1;&#xC704; &#xB808;&#xC774;&#xC5B4; &#xC2A4;&#xC704;&#xCE58;&#xB294; &#xD558;&#xC704; &#xB808;&#xC774;&#xC5B4; &#xC2A4;&#xC704;&#xCE58;&#xC758; &#xAE30;&#xB2A5;&#xC744; &#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C; &#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. (&#xC608;&#xC2DC;&#xB85C; L4 &#xC2A4;&#xC704;&#xCE58;&#xAC00; L3&#xC758; &#xC2A4;&#xC704;&#xCE58; &#xAE30;&#xB2A5;&#xC744; &#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.)</p><p>&#xC544;&#xB798;&#xC758; &#xC608;&#xC2DC;&#xB294; L1 ~ L7 &#xC2A4;&#xC704;&#xCE58;&#xAE4C;&#xC9C0; &#xD3B8;&#xD558;&#xAC8C; &#xC774;&#xD574;&#xD560; &#xC218; &#xC788;&#xB294; &#xC608;&#xC2DC;&#xC785;&#xB2C8;&#xB2E4;.</p><pre><code class="hljs fix"><span class="hljs-attr">&#xBC18;&#xC7A5; </span>=<span class="hljs-string"> &#xC2A4;&#xC704;&#xCE58;</span><span class="hljs-string">&#xBC18; &#xCE5C;&#xAD6C;&#xB4E4; = &#xB514;&#xBC14;&#xC774;&#xC2A4;(&#xC0AC;&#xC6A9;&#xC790;)</span></code></pre><p><strong>L1 &#xC2A4;&#xC704;&#xCE58; / &#xB354;&#xBBF8; &#xD5C8;&#xBE0C;</strong><br>&#xBE0C;&#xB85C;&#xB4DC;&#xCE90;&#xC2A4;&#xD2B8;&#xB97C; &#xD1B5;&#xD558;&#xC5EC; &#xD328;&#xD0B7; &#xC804;&#xB2EC; &#x2192; &#xBC18;&#xC7A5;&#xC774; &#xB9E8; &#xC55E;&#xC5D0;&#xC11C; &#xD070;&#xC18C;&#xB9AC;&#xB85C; &#xC815;&#xBCF4;&#xB97C; &#xC804;&#xB2EC;&#xD558;&#xB294; &#xD615;&#xD0DC;&#xC785;&#xB2C8;&#xB2E4;.</p><p><strong>L2 &#xC2A4;&#xC704;&#xCE58;</strong><br>MAC Table&#xC744; &#xCC38;&#xC870;&#xD574;&#xC11C; &#xAC1C;&#xC778;&#xC801;&#xC778; &#xD328;&#xD0B7; &#xC804;&#xB2EC; &#x2192; &#xBC18;&#xC7A5;&#xC774; &#xD55C; &#xBA85;&#xC529; &#xADD3;&#xC18D;&#xB9D0;&#xB85C; &#xC815;&#xBCF4;&#xB97C; &#xC804;&#xB2EC;&#xD558;&#xB294; &#xD615;&#xD0DC;&#xC785;&#xB2C8;&#xB2E4;.</p><p><strong>L3 &#xC2A4;&#xC704;&#xCE58;</strong><br>Routing Table&#xC744; &#xCC38;&#xC870;&#xD574;&#xC11C; &#xD328;&#xD0B7; &#xC804;&#xB2EC; &#x2192; &#xBC18;&#xC7A5;&#xC774; &#xC606; &#xBC18;&#xC758; &#xBC18;&#xC7A5;&#xC5D0;&#xAC8C; &#xC815;&#xBCF4;&#xB97C; &#xC804;&#xB2EC;&#xD558;&#xB294; &#xD615;&#xD0DC;&#xC785;&#xB2C8;&#xB2E4;. (&#xC606; &#xBC18;&#xC758; &#xBC18;&#xC7A5;&#xC740; &#xD574;&#xB2F9;&#xD558;&#xB294; &#xCE5C;&#xAD6C;&#xC5D0;&#xAC8C; &#xC815;&#xBCF4;&#xB97C; &#xC804;&#xB2EC;&#xD569;&#xB2C8;&#xB2E4;.)</p><p><strong>L4 &#xC2A4;&#xC704;&#xCE58;</strong><br>&#xB85C;&#xB4DC;&#xBC38;&#xB7F0;&#xC2F1;(&#xBD80;&#xD558; &#xBD84;&#xC0B0;) &#xAE30;&#xB2A5; &#x2192; &#xBC18;&#xC7A5;&#xC774; A&#xC5D0;&#xAC8C; &#xC77C;&#xC744; &#xC8FC;&#xB2E4;&#xAC00; A&#xAC00; &#xD798;&#xB4E4;&#xC5B4; &#xBCF4;&#xC774;&#xBA74; B&#xC5D0;&#xAC8C;&#xB3C4; &#xC77C;&#xC744; &#xC90D;&#xB2C8;&#xB2E4;.</p><p><strong>L7 &#xC2A4;&#xC704;&#xCE58;</strong><br>&#xBCF4;&#xC548; &#xAE30;&#xB2A5; &#x2192; A&#xC5D0;&#xAC8C; &#xC545;&#xC131;&#xCF54;&#xB4DC;&#xAC00; &#xAC00;&#xB294; &#xD0DD;&#xBC30;&#xAC00; &#xC628;&#xB2E4;&#xBA74; &#xBC18;&#xC7A5;&#xC774; &#xD0DD;&#xBC30; &#xD655;&#xC778; &#xD6C4; &#xBC84;&#xB9BD;&#xB2C8;&#xB2E4;.</p>]]></content:encoded>
+      
+      
+      <category domain="https://hackyboiz.github.io/categories/Hackypedia/">Hackypedia</category>
+      
+      
+      <category domain="https://hackyboiz.github.io/tags/network/">network</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/nanglam/">nanglam</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/switch/">switch</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/network-switch/">network switch</category>
+      
+      
+      <comments>https://hackyboiz.github.io/2022/01/07/nanglam/network-switch/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>[하루한줄] 검사 결과를 위조 가능한 코로나 자가검사키트 취약점</title>
@@ -95,11 +127,11 @@
       <category domain="https://hackyboiz.github.io/categories/1day1line/">1day1line</category>
       
       
-      <category domain="https://hackyboiz.github.io/tags/microsoft/">microsoft</category>
+      <category domain="https://hackyboiz.github.io/tags/Fabu1ous/">Fabu1ous</category>
       
       <category domain="https://hackyboiz.github.io/tags/exchange/">exchange</category>
       
-      <category domain="https://hackyboiz.github.io/tags/Fabu1ous/">Fabu1ous</category>
+      <category domain="https://hackyboiz.github.io/tags/microsoft/">microsoft</category>
       
       <category domain="https://hackyboiz.github.io/tags/integer/">integer</category>
       
@@ -263,11 +295,11 @@
       <category domain="https://hackyboiz.github.io/categories/1day1line/">1day1line</category>
       
       
-      <category domain="https://hackyboiz.github.io/tags/microsoft/">microsoft</category>
-      
       <category domain="https://hackyboiz.github.io/tags/Fabu1ous/">Fabu1ous</category>
       
       <category domain="https://hackyboiz.github.io/tags/injection/">injection</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/microsoft/">microsoft</category>
       
       <category domain="https://hackyboiz.github.io/tags/validation/">validation</category>
       
@@ -579,13 +611,13 @@
       
       <category domain="https://hackyboiz.github.io/tags/cve/">cve</category>
       
-      <category domain="https://hackyboiz.github.io/tags/microsoft/">microsoft</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/exchange/">exchange</category>
+      <category domain="https://hackyboiz.github.io/tags/Fabu1ous/">Fabu1ous</category>
       
       <category domain="https://hackyboiz.github.io/tags/rce/">rce</category>
       
-      <category domain="https://hackyboiz.github.io/tags/Fabu1ous/">Fabu1ous</category>
+      <category domain="https://hackyboiz.github.io/tags/exchange/">exchange</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/microsoft/">microsoft</category>
       
       
       <comments>https://hackyboiz.github.io/2021/11/30/fabu1ous/2021-11-30/#disqus_thread</comments>
@@ -652,42 +684,6 @@
       
       
       <comments>https://hackyboiz.github.io/2021/11/26/poosic/garbage-collection/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>[하루한줄] CVE-2021-1969: Information leak in Qualcomm npu driver </title>
-      <link>https://hackyboiz.github.io/2021/11/25/l0ch/2021-11-25/</link>
-      <guid>https://hackyboiz.github.io/2021/11/25/l0ch/2021-11-25/</guid>
-      <pubDate>Thu, 25 Nov 2021 05:00:00 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;URL&quot;&gt;&lt;a href=&quot;#URL&quot; class=&quot;headerlink&quot; title=&quot;URL&quot;&gt;&lt;/a&gt;URL&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://securitylab.github.com/advisories/GHSL-2021-1031-</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<h2 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h2><p><a href="https://securitylab.github.com/advisories/GHSL-2021-1031-npu/">GHSL-2021-1031: Information leak in Qualcomm npu driver - CVE-2021-1969</a></p><h2 id="Target"><a href="#Target" class="headerlink" title="Target"></a>Target</h2><p>MSM Linux(Support Qualcomm chip)</p><p>&#xD14C;&#xC2A4;&#xD2B8;&#xB41C; &#xBC84;&#xC804;</p><ul><li>Samsung Galaxy A71: SM-A715F/DS<ul><li>AP: A715FXXU3ATJ2</li><li>CP: A715FXXU3ATI5</li><li>Kernel version 4.14.117-19828683</li><li>build ID QP1A.190711.020.A715FXXU3ATJ2</li></ul></li></ul><h2 id="Explain"><a href="#Explain" class="headerlink" title="Explain"></a>Explain</h2><p>&#xD004;&#xCEF4;&#xC758; Neural Processing Unit, NPU&#xB97C; &#xC9C0;&#xC6D0;&#xD558;&#xB294; &#xB4DC;&#xB77C;&#xC774;&#xBC84;&#xC5D0;&#xC11C; &#xCEE4;&#xB110; &#xC8FC;&#xC18C;&#xB97C; &#xC720;&#xCD9C;&#xD560; &#xC218; &#xC788;&#xB294; Information disclosure &#xCDE8;&#xC57D;&#xC810;&#xC758; &#xC138;&#xBD80; &#xC815;&#xBCF4;&#xAC00; &#xACF5;&#xAC1C;&#xB418;&#xC5C8;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p> &#xC544;&#xB798; &#xCF54;&#xB4DC;&#xB294; &#xCDE8;&#xC57D;&#xC810;&#xC774; &#xBC1C;&#xC0DD;&#xD558;&#xB294; <code>npu_receive_event</code> &#xD568;&#xC218;&#xC758; &#xC77C;&#xBD80;&#xC785;&#xB2C8;&#xB2E4;. <code>MSM_NPU_RECEIVE_EVENT</code> IOCTL&#xC774; &#xD638;&#xCD9C;&#xB418;&#xBA74;  <code>msm_npu_event</code> &#xAD6C;&#xC870;&#xCCB4;&#xAC00; &#xC720;&#xC800;&#xB79C;&#xB4DC;&#xB85C; &#xBCF5;&#xC0AC;&#xB429;&#xB2C8;&#xB2E4;.  </p><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">npu_receive_event</span><span class="hljs-params">(struct npu_client *client, <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> arg)</span></span><span class="hljs-function"></span>{    ...<span class="hljs-keyword">if</span> (list_empty(&amp;client-&gt;evt_list)) {        ...} <span class="hljs-keyword">else</span> {kevt = list_first_entry(&amp;client-&gt;evt_list, struct npu_kevent, <span class="hljs-built_in">list</span>);list_del(&amp;kevt-&gt;<span class="hljs-built_in">list</span>);npu_process_kevent(kevt);  <span class="hljs-comment">/// copy to userland</span>ret = copy_to_user(argp, &amp;kevt-&gt;evt, <span class="hljs-keyword">sizeof</span>(struct msm_npu_event));...</code></pre><p>&#xC720;&#xC800;&#xB79C;&#xB4DC;&#xB85C; &#xBCF5;&#xC0AC;&#xB418;&#xB294; <code>msm_npu_event</code> &#xAD6C;&#xC870;&#xCCB4;&#xB294; &#xC544;&#xB798; &#xCF54;&#xB4DC;&#xC5D0;&#xC11C; &#xAC01;&#xAC01;&#xC758; &#xD544;&#xB4DC;&#xAC00; &#xCD08;&#xAE30;&#xD654;&#xB429;&#xB2C8;&#xB2E4;.</p><pre><code class="hljs c">kevt.evt.type = **MSM_NPU_EVENT_TYPE_EXEC_V2_DONE;**kevt.evt.u.exec_v2_done.network_hdl = exe_rsp_pkt-&gt;network_hdl;kevt.evt.u.exec_v2_done.exec_result = exe_rsp_pkt-&gt;header.status;kevt.evt.u.exec_v2_done.stats_buf_size = stats_size;kevt.reserved[<span class="hljs-number">0</span>] = (<span class="hljs-keyword">uint64_t</span>)network-&gt;stats_buf;kevt.reserved[<span class="hljs-number">1</span>] = (<span class="hljs-keyword">uint64_t</span>)network-&gt;stats_buf_u;<span class="hljs-keyword">if</span> (npu_queue_event(network-&gt;client, &amp;kevt))</code></pre><p>&#xC774; &#xC911; <code>msm_npu_event_execute_v2_done</code> &#xAD6C;&#xC870;&#xCCB4;&#xB294; 20 bytes &#xD06C;&#xAE30;&#xC774;&#xBA70; &#xC544;&#xB798; <code>msm_npu-event</code> &#xAD6C;&#xC870;&#xCCB4;&#xC758; union &#xD544;&#xB4DC; <code>u</code>&#xC5D0;  &#xC815;&#xC758;&#xB418;&#xC5B4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><pre><code class="hljs c"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">msm_npu_event</span> {</span><span class="hljs-keyword">uint32_t</span> type;<span class="hljs-keyword">union</span> {<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">msm_npu_event_execute_done</span> <span class="hljs-title">exec_done</span>;</span><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">msm_npu_event_execute_v2_done</span> <span class="hljs-title">exec_v2_done</span>;</span><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">msm_npu_event_ssr</span> <span class="hljs-title">ssr</span>;</span><span class="hljs-keyword">uint8_t</span> data[<span class="hljs-number">128</span>];} u;<span class="hljs-keyword">uint32_t</span> reserved[<span class="hljs-number">4</span>];};</code></pre><p><code>msm_npu_event_execute_v2_done</code> &#xB97C; &#xCD08;&#xAE30;&#xD654;&#xD558;&#xBA74; <code>u</code>&#xC758; &#xB098;&#xBA38;&#xC9C0; 108 bytes (<code>data[128] - sizeof(msm_npu_event_execute_v2_done)</code>) &#xBC0F; 32 bytes &#xD06C;&#xAE30;&#xC758; <code>reserved</code> &#xD544;&#xB4DC;&#xB294; &#xCD08;&#xAE30;&#xD654;&#xB418;&#xC9C0; &#xC54A;&#xC740; &#xC0C1;&#xD0DC;&#xB85C; &#xC874;&#xC7AC;&#xD569;&#xB2C8;&#xB2E4;. &#xB530;&#xB77C;&#xC11C; <code>npu_receive_event</code> &#xD568;&#xC218;&#xC5D0;&#xC11C; userland&#xB85C; &#xBCF5;&#xC0AC;&#xD560; &#xB54C; <code>sizeof(struct msm_npu_event)</code>&#xB85C; &#xC804;&#xCCB4; <code>msm_npu_event</code> &#xD06C;&#xAE30;&#xB9CC;&#xD07C; &#xBCF5;&#xC0AC;&#xD558;&#xBA74;&#xC11C; &#xCD08;&#xAE30;&#xD654;&#xB418;&#xC9C0; &#xC54A;&#xC740; &#xCEE4;&#xB110; &#xB370;&#xC774;&#xD130;&#xB3C4; &#xAC19;&#xC774; &#xBCF5;&#xC0AC;&#xB418;&#xACE0;, &#xC774;&#xB294; &#xCEE4;&#xB110; &#xC8FC;&#xC18C; &#xC720;&#xCD9C;&#xB85C; &#xC774;&#xC5B4;&#xC9C8; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>]]></content:encoded>
-      
-      
-      <category domain="https://hackyboiz.github.io/categories/1day1line/">1day1line</category>
-      
-      
-      <category domain="https://hackyboiz.github.io/tags/cve/">cve</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/information-disclosure/">information disclosure</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/kernel/">kernel</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/qualcomm/">qualcomm</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/L0ch/">L0ch</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/cve-2021-1969/">cve-2021-1969</category>
-      
-      
-      <comments>https://hackyboiz.github.io/2021/11/25/l0ch/2021-11-25/#disqus_thread</comments>
       
     </item>
     
