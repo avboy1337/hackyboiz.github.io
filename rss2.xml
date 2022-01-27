@@ -9,8 +9,42 @@
     <atom:link href="https://hackyboiz.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>hack &amp; life</description>
-    <pubDate>Wed, 26 Jan 2022 05:19:52 GMT</pubDate>
+    <pubDate>Thu, 27 Jan 2022 05:03:40 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>[하루한줄] CVE-2021-45608: NetUSB 원격 코드 실행 취약점</title>
+      <link>https://hackyboiz.github.io/2022/01/27/l0ch/2022-01-27/</link>
+      <guid>https://hackyboiz.github.io/2022/01/27/l0ch/2022-01-27/</guid>
+      <pubDate>Thu, 27 Jan 2022 05:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;URL&quot;&gt;&lt;a href=&quot;#URL&quot; class=&quot;headerlink&quot; title=&quot;URL&quot;&gt;&lt;/a&gt;URL&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://www.sentinelone.com/labs/cve-2021-45608-netusb-rc</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h2 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h2><p><a href="https://www.sentinelone.com/labs/cve-2021-45608-netusb-rce-flaw-in-millions-of-end-user-routers/">https://www.sentinelone.com/labs/cve-2021-45608-netusb-rce-flaw-in-millions-of-end-user-routers/</a></p><h2 id="Target"><a href="#Target" class="headerlink" title="Target"></a>Target</h2><ul><li>Kcodes NetUSB</li></ul><h2 id="Explain"><a href="#Explain" class="headerlink" title="Explain"></a>Explain</h2><p>NetUSB&#xB294; &#xD504;&#xB9B0;&#xD130;, &#xC6F9;&#xCEA0; &#xB4F1;&#xC758; USB &#xB514;&#xBC14;&#xC774;&#xC2A4;&#xB97C; &#xB124;&#xD2B8;&#xC6CC;&#xD06C;&#xC0C1;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xB3C4;&#xB85D; &#xD558;&#xB294; &#xB9AC;&#xB205;&#xC2A4;&#xC758; &#xCEE4;&#xB110; &#xBAA8;&#xB4C8;&#xC774;&#xBA70; Netgear, D-Link, Western Digital &#xB4F1; &#xC5EC;&#xB7EC; &#xC81C;&#xC870;&#xC0AC;&#xC758; &#xC218;&#xBC31;&#xB9CC;&#xB300;&#xC758; &#xB77C;&#xC6B0;&#xD130;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;. &#xC774;&#xB7EC;&#xD55C; NetUSB &#xCEE4;&#xB110; &#xBAA8;&#xB4C8;&#xC5D0;&#xC11C; integer overflow&#xB85C; &#xC778;&#xD55C; &#xC6D0;&#xACA9; &#xCF54;&#xB4DC; &#xC2E4;&#xD589; &#xCDE8;&#xC57D;&#xC810;&#xC774; &#xBC1C;&#xACAC;&#xB418;&#xC5C8;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p>&#xCDE8;&#xC57D;&#xC810;&#xC740; <code>0x805f</code>  command&#xB85C; &#xD638;&#xCD9C;&#xB418;&#xB294; <code>SoftwareBus_dispatchNormalEPMsgOut</code> &#xD568;&#xC218;&#xC5D0; &#xC874;&#xC7AC;&#xD569;&#xB2C8;&#xB2E4;.</p><pre><code class="hljs c">uVar17 = SoftwareBus_fillBuf(sbus_info, (<span class="hljs-keyword">char</span> *)&amp;supplied_size, <span class="hljs-number">4</span>);<span class="hljs-keyword">if</span>((<span class="hljs-keyword">int</span>)uVar17 == <span class="hljs-number">0</span>) {<span class="hljs-keyword">return</span>; }allocated_region = (<span class="hljs-keyword">char</span> *)__kmalloc(supplied_size + <span class="hljs-number">0x11</span>, <span class="hljs-number">0xd0</span>); <span class="hljs-comment">// Vuln!</span><span class="hljs-keyword">if</span>((soft_bus_info *)allocated_region == (soft_bus_info *)<span class="hljs-number">0x0</span>){log_msg = <span class="hljs-string">&quot;INFO%04X: Out of memory in USBSoftwareBus&quot;</span>;log_line = (<span class="hljs-keyword">char</span> *)<span class="hljs-number">0x1156</span>;<span class="hljs-keyword">goto</span> LAB_0001a8fc;}</code></pre><p>&#xC6D0;&#xACA9; PC&#xC5D0;&#xC11C; &#xAC00;&#xC838;&#xC628; 4byte  <code>supplied_size</code>&#xC5D0; <code>0x11</code>&#xC744; &#xB354;&#xD55C; &#xD06C;&#xAE30;&#xB9CC;&#xD07C; <code>kmalloc</code>&#xC73C;&#xB85C; &#xD560;&#xB2F9;&#xD569;&#xB2C8;&#xB2E4;. &#xC774; &#xB54C; <code>supplied_size</code> &#xD06C;&#xAE30;&#xC5D0; &#xB300;&#xD55C; &#xAC80;&#xC99D;&#xC774; &#xC5C6;&#xC5B4; integer overflow&#xAC00; &#xBC1C;&#xC0DD;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p>EX) <code>supplied_size</code>&#xAC00; <code>0xffffffff</code>&#xBA74; integer overflow&#xB85C; &#xC778;&#xD574; &#xCEE4;&#xB110; &#xD799;&#xC5D0; &#xD560;&#xB2F9;&#xB418;&#xB294; &#xD06C;&#xAE30;&#xB294; <code>0x10</code></p><p>&#xD560;&#xB2F9;&#xB41C; &#xCEE4;&#xB110; &#xD799;&#xC740; <code>SoftwareBus_fillBuf</code> &#xD568;&#xC218; &#xBC0F; &#xC5ED;&#xCC38;&#xC870;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4;.</p><pre><code class="hljs c">allocated_region-&gt;cmd_shifted = cmd_shifted_;allocated_region-&gt;partial_cmd = partial_cmd_;allocated_region-&gt;allocated_size = supplied_size;uVar14 = SoftwareBus_fillBuf(sbus_info, allocated_region-&gt;number_of_packets,<span class="hljs-number">4</span>);...</code></pre><p>&#xB530;&#xB77C;&#xC11C; integer overflow&#xB85C; &#xC778;&#xD574; <code>0x10</code> &#xC774;&#xD558;&#xB85C; &#xD560;&#xB2F9;&#xB41C; &#xCEE4;&#xB110; &#xD799;&#xC5D0; Out-Of-Bound Write&#xAC00; &#xD2B8;&#xB9AC;&#xAC70;&#xB418;&#xACE0; &#xC6D0;&#xACA9; &#xCF54;&#xB4DC; &#xC2E4;&#xD589;&#xC73C;&#xB85C; &#xC774;&#xC5B4;&#xC9C8; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p>&#xC81C;&#xC870;&#xC0AC;&#xC5D0;&#xC11C;&#xB294; &#xC544;&#xB798;&#xC640; &#xAC19;&#xC774; <code>supplied_size</code> &#xAC12;&#xC758; &#xAC80;&#xC99D; &#xB8E8;&#xD2F4;&#xC744; &#xCD94;&#xAC00;&#xD574; &#xCDE8;&#xC57D;&#xC810;&#xC744; &#xD328;&#xCE58;&#xD588;&#xC2B5;&#xB2C8;&#xB2E4;.</p><pre><code class="hljs c"><span class="hljs-keyword">if</span> (supplied_size &lt; <span class="hljs-number">0x1000000</span>) {allocated_region = (<span class="hljs-keyword">int</span> *)__kmalloc(supplied_size + <span class="hljs-number">0x11</span>, <span class="hljs-number">0xd0</span>);...</code></pre>]]></content:encoded>
+      
+      
+      <category domain="https://hackyboiz.github.io/categories/1day1line/">1day1line</category>
+      
+      
+      <category domain="https://hackyboiz.github.io/tags/cve/">cve</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/rce/">rce</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/integer-overflow/">integer overflow</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/L0ch/">L0ch</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/netusb/">netusb</category>
+      
+      
+      <comments>https://hackyboiz.github.io/2022/01/27/l0ch/2022-01-27/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>[해키피디아] JNDI(Java Naming and Directory Interface)</title>
@@ -97,13 +131,13 @@
       
       <category domain="https://hackyboiz.github.io/tags/cve/">cve</category>
       
-      <category domain="https://hackyboiz.github.io/tags/rce/">rce</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/deserialization/">deserialization</category>
-      
       <category domain="https://hackyboiz.github.io/tags/microsoft/">microsoft</category>
       
+      <category domain="https://hackyboiz.github.io/tags/rce/">rce</category>
+      
       <category domain="https://hackyboiz.github.io/tags/idioth/">idioth</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/deserialization/">deserialization</category>
       
       <category domain="https://hackyboiz.github.io/tags/microsoft-exchange/">microsoft exchange</category>
       
@@ -426,11 +460,11 @@
       <category domain="https://hackyboiz.github.io/categories/Hackypedia/">Hackypedia</category>
       
       
-      <category domain="https://hackyboiz.github.io/tags/network/">network</category>
-      
       <category domain="https://hackyboiz.github.io/tags/nanglam/">nanglam</category>
       
       <category domain="https://hackyboiz.github.io/tags/switch/">switch</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/network/">network</category>
       
       <category domain="https://hackyboiz.github.io/tags/network-switch/">network switch</category>
       
@@ -522,11 +556,11 @@
       <category domain="https://hackyboiz.github.io/categories/1day1line/">1day1line</category>
       
       
-      <category domain="https://hackyboiz.github.io/tags/Fabu1ous/">Fabu1ous</category>
+      <category domain="https://hackyboiz.github.io/tags/microsoft/">microsoft</category>
       
       <category domain="https://hackyboiz.github.io/tags/exchange/">exchange</category>
       
-      <category domain="https://hackyboiz.github.io/tags/microsoft/">microsoft</category>
+      <category domain="https://hackyboiz.github.io/tags/Fabu1ous/">Fabu1ous</category>
       
       <category domain="https://hackyboiz.github.io/tags/integer/">integer</category>
       
@@ -640,34 +674,6 @@
       
       
       <comments>https://hackyboiz.github.io/2021/12/16/l0ch/2021-12-16/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>[해키피디아] ORM(Object Relational Mapping)</title>
-      <link>https://hackyboiz.github.io/2021/12/15/y00n_nms/orm/</link>
-      <guid>https://hackyboiz.github.io/2021/12/15/y00n_nms/orm/</guid>
-      <pubDate>Wed, 15 Dec 2021 05:00:00 GMT</pubDate>
-      
-        
-        
-      <description>&lt;p&gt;ORM &amp;#xC774;&amp;#xC804;&amp;#xC5D0;&amp;#xB294; &amp;#xB370;&amp;#xC774;&amp;#xD130;&amp;#xBCA0;&amp;#xC774;&amp;#xC2A4;&amp;#xC5D0; &amp;#xC811;&amp;#xADFC;&amp;#xD558;&amp;#xAE30; &amp;#xC704;&amp;#</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<p>ORM &#xC774;&#xC804;&#xC5D0;&#xB294; &#xB370;&#xC774;&#xD130;&#xBCA0;&#xC774;&#xC2A4;&#xC5D0; &#xC811;&#xADFC;&#xD558;&#xAE30; &#xC704;&#xD558;&#xC5EC; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; SQL &#xCFFC;&#xB9AC;&#xB97C; &#xC791;&#xC131;&#xD569;&#xB2C8;&#xB2E4;. &#xD558;&#xC9C0;&#xB9CC; &#xC6F9; &#xC560;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158; &#xD504;&#xB85C;&#xC81D;&#xD2B8;&#xC758; &#xADDC;&#xBAA8;&#xC640; &#xBCF5;&#xC7A1;&#xC131;&#xC774; &#xC99D;&#xAC00;&#xD560; &#xC218;&#xB85D;, &#xD2B9;&#xD788; &#xCC98;&#xB9AC;&#xD574;&#xC57C; &#xD558;&#xB294; &#xBAA8;&#xB4E0; &#xB370;&#xC774;&#xD130; &#xD544;&#xD130;&#xB9C1;&#xC744; &#xACE0;&#xB824;&#xD560; &#xB54C; &#xB9E4;&#xC6B0; &#xB54C;&#xB54C;&#xB85C; &#xB9E4;&#xC6B0; &#xBCF5;&#xC7A1;&#xD574;&#xC9D1;&#xB2C8;&#xB2E4;. &#xB610;&#xD55C; &#xAC1D;&#xCCB4; &#xBAA8;&#xB378;&#xACFC; &#xAD00;&#xACC4;&#xD615; &#xB370;&#xC774;&#xD130;&#xBCA0;&#xC774;&#xC2A4; &#xAC04;&#xC758; &#xBD88;&#xC77C;&#xCE58;&#xB85C;, &#xAD00;&#xACC4;&#xD615; &#xB370;&#xC774;&#xD130;&#xBCA0;&#xC774;&#xC2A4;&#xC5D0; &#xAC1D;&#xCCB4;&#xB97C; &#xB85C;&#xB4DC;&#xD558;&#xACE0; &#xC800;&#xC7A5;&#xD558;&#xBA74; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; 5&#xAC00;&#xC9C0; &#xBD88;&#xC77C;&#xCE58; &#xBB38;&#xC81C;&#xAC00; &#xBC1C;&#xC0DD;&#xD569;&#xB2C8;&#xB2E4;.</p><ol><li>Granularity: &#xB54C;&#xB85C;&#xB294; &#xB370;&#xC774;&#xD130;&#xBCA0;&#xC774;&#xC2A4;&#xC758; &#xD14C;&#xC774;&#xBE14; &#xC218;&#xBCF4;&#xB2E4; &#xB354; &#xB9CE;&#xC740; &#xD074;&#xB798;&#xC2A4;&#xAC00; &#xC788;&#xB294; &#xAC1D;&#xCCB4; &#xBAA8;&#xB378;&#xC774; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</li><li>Inheritance: RDBMS&#xB294; &#xAC1D;&#xCCB4;&#xC9C0;&#xD5A5; &#xD504;&#xB85C;&#xADF8;&#xB798;&#xBC0D; &#xC5B8;&#xC5B4;&#xC758; &#xD2B9;&#xC9D5;&#xC778; &#xC0C1;&#xC18D; &#xAC1C;&#xB150;&#xC774; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.</li><li>Identity: RDBMS&#xB294; &#xB3D9;&#xC77C;&#xC131;&#xC744; &#xC815;&#xC758;&#xD558;&#xAE30; &#xC704;&#xD574; primary key&#xB97C; &#xC774;&#xC6A9;&#xD558;&#xC9C0;&#xB9CC; JAVA&#xB294; (a==b)&#xC640; (a.equals(b))&#xB97C; &#xBAA8;&#xB450; &#xC815;&#xC758;&#xD569;&#xB2C8;&#xB2E4;.</li><li>Associations: RDBMS&#xB294; &#xC5F0;&#xAD00;&#xC131;&#xC744; &#xB098;&#xD0C0;&#xB0B4;&#xAE30; &#xC704;&#xD574; foriegn key&#xB97C; &#xC774;&#xC6A9;&#xD558;&#xC9C0;&#xB9CC; &#xAC1D;&#xCCB4;&#xC9C0;&#xD5A5;&#xC5B8;&#xC5B4;&#xB294; &#xAC1D;&#xCCB4;&#xC758; &#xCC38;&#xC870;&#xB97C; &#xC774;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.</li><li>Navigation: Java&#xC640; RDBMS&#xC5D0;&#xC11C; &#xAC1D;&#xCCB4;&#xC5D0; &#xC561;&#xC138;&#xC2A4;&#xD558;&#xB294; &#xBC29;&#xBC95;&#xC740; &#xADFC;&#xBCF8;&#xC801;&#xC73C;&#xB85C; &#xB2E4;&#xB985;&#xB2C8;&#xB2E4;.</li></ol><p>ORM(Object-Relational Mapping)&#xC740; &#xC704;&#xC758; &#xBAA8;&#xB4E0; &#xBD88;&#xC77C;&#xCE58;&#xB97C; &#xCC98;&#xB9AC;&#xD558;&#xB294; &#xC194;&#xB8E8;&#xC158;&#xC73C;&#xB85C;, &#xAD00;&#xACC4;&#xD615; &#xB370;&#xC774;&#xD130;&#xBCA0;&#xC774;&#xC2A4;&#xC640; Java, C# &#xB4F1;&#xACFC; &#xAC19;&#xC740; &#xAC1D;&#xCCB4; &#xC9C0;&#xD5A5; &#xD504;&#xB85C;&#xADF8;&#xB798;&#xBC0D; &#xC5B8;&#xC5B4; &#xAC04;&#xC5D0; &#xB370;&#xC774;&#xD130;&#xB97C; &#xBCC0;&#xD658;&#xD558;&#xB294; &#xD504;&#xB85C;&#xADF8;&#xB798;&#xBC0D; &#xAE30;&#xC220;&#xC785;&#xB2C8;&#xB2E4;. &#xC989;, SQL &#xB300;&#xC2E0; &#xC774;&#xC678;&#xC758; &#xAC1D;&#xCCB4; &#xC9C0;&#xD5A5; &#xD504;&#xB85C;&#xADF8;&#xB798;&#xBC0D; &#xC5B8;&#xC5B4;&#xB97C; &#xC120;&#xD0DD;&#xD558;&#xC5EC; &#xB370;&#xC774;&#xD130;&#xBCA0;&#xC774;&#xC2A4;&#xC640; &#xC0C1;&#xD638;&#xC791;&#xC6A9; &#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">users</span> <span class="hljs-keyword">WHERE</span> email = <span class="hljs-string">&apos;test@test.com&apos;</span>;</code></pre><pre><code class="hljs java"><span class="hljs-keyword">var</span> orm = require(<span class="hljs-string">&apos;generic-orm-libarry&apos;</span>);<span class="hljs-keyword">var</span> user = orm(<span class="hljs-string">&quot;users&quot;</span>).where({ email: <span class="hljs-string">&apos;test@test.com&apos;</span> });</code></pre><p>ORM &#xD504;&#xB808;&#xC784;&#xC6CC;&#xD06C; &#xC885;&#xB958;&#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC2B5;&#xB2C8;&#xB2E4;.</p><ul><li>JAVA : JPA, Hibernate, EclipseLink, DataNucleus, Ebean &#xB4F1;</li><li>C++ : ODB, QxOrm &#xB4F1;</li><li>Python : Django, SQLAlchemy, Storm &#xB4F1;</li><li>iOS : DatabaseObjects, Core Data &#xB4F1;</li><li>.NET : NHibernate, DatabaseObject, Dapper &#xB4F1;</li><li>PHP : Doctrine, Propel, RedBean &#xB4F1;</li></ul>]]></content:encoded>
-      
-      
-      <category domain="https://hackyboiz.github.io/categories/Hackypedia/">Hackypedia</category>
-      
-      
-      <category domain="https://hackyboiz.github.io/tags/y00n-nms/">y00n_nms</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/orm/">orm</category>
-      
-      
-      <comments>https://hackyboiz.github.io/2021/12/15/y00n_nms/orm/#disqus_thread</comments>
       
     </item>
     
