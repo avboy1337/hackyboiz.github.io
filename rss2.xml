@@ -9,8 +9,44 @@
     <atom:link href="https://hackyboiz.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>hack &amp; life</description>
-    <pubDate>Fri, 04 Feb 2022 05:15:01 GMT</pubDate>
+    <pubDate>Sat, 05 Feb 2022 05:25:44 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>[하루한줄] CVE-2021-44790: Apache에서 발견된 integer underflow 코드 실행 취약점</title>
+      <link>https://hackyboiz.github.io/2022/02/05/idioth/2022-02-05/</link>
+      <guid>https://hackyboiz.github.io/2022/02/05/idioth/2022-02-05/</guid>
+      <pubDate>Sat, 05 Feb 2022 05:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;URL&quot;&gt;&lt;a href=&quot;#URL&quot; class=&quot;headerlink&quot; title=&quot;URL&quot;&gt;&lt;/a&gt;URL&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://www.zerodayinitiative.com/blog/2022/1/25/cve-2021</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h2 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h2><p><a href="https://www.zerodayinitiative.com/blog/2022/1/25/cve-2021-44790-code-execution-on-apache-via-an-integer-underflow">CVE-2021-44790: CODE EXECUTION ON APACHE VIA AN INTEGER UNDERFLOW</a></p><h2 id="Target"><a href="#Target" class="headerlink" title="Target"></a>Target</h2><ul><li>Apache HTTP Server 2.4.52 &#xBBF8;&#xB9CC; &#xBC84;&#xC804;</li></ul><h2 id="Explain"><a href="#Explain" class="headerlink" title="Explain"></a>Explain</h2><p>Apache httpd&#xC758; <code>mod_lua</code> &#xBAA8;&#xB4C8;&#xC5D0;&#xC11C; integer underflow &#xCDE8;&#xC57D;&#xC810;&#xC774; &#xBC1C;&#xACAC;&#xB418;&#xC5C8;&#xC2B5;&#xB2C8;&#xB2E4;. &#xD574;&#xB2F9; &#xCDE8;&#xC57D;&#xC810;&#xC740; Lua &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xC758; <code>r:parsebody()</code> &#xD568;&#xC218;&#xB97C; &#xD1B5;&#xD574; &#xD638;&#xCD9C;&#xB418;&#xB294; &#xBAA8;&#xB4C8;&#xC758; multipart parser request body&#xC5D0; &#xB300;&#xD55C; &#xBD80;&#xC801;&#xC808;&#xD55C; &#xC720;&#xD6A8;&#xC131; &#xAC80;&#xC0AC;&#xB97C; &#xD1B5;&#xD574; &#xBC1C;&#xC0DD;&#xD569;&#xB2C8;&#xB2E4;.</p><p>Apache HTTP &#xC11C;&#xBC84;&#xC758; &#xACF5;&#xC2DD; &#xD50C;&#xB7EC;&#xADF8;&#xC778; &#xBAA8;&#xB4C8; &#xC911; &#xD558;&#xB098;&#xC778; <code>mod_lua</code> &#xBAA8;&#xB4C8;&#xC740; HTTP &#xC11C;&#xBC84;&#xC758; extension&#xC73C;&#xB85C; Lua &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB97C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xAC8C; &#xB9CC;&#xB4E4;&#xC5B4;&#xC90D;&#xB2C8;&#xB2E4;. <code>mod_lua</code> &#xBAA8;&#xB4C8;&#xC758; &#xD568;&#xC218; &#xC911; &#xD558;&#xB098;&#xC778; <code>r:parsebody()</code>&#xB294; Lua &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xAC00; &#xC11C;&#xBC84;&#xB85C; &#xBCF4;&#xB0B8; HTTP POST request&#xC758; body&#xB97C; &#xD30C;&#xC2F1;&#xD569;&#xB2C8;&#xB2E4;. &#xD574;&#xB2F9; &#xD568;&#xC218;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; body&#xC5D0;&#xC11C; &#xD30C;&#xC2F1;&#xB41C; &#xB9E4;&#xAC1C; &#xBCC0;&#xC218;&#xC758; &#xC774;&#xB984;&#xACFC; &#xAC12;&#xC744; &#xB450; &#xAC1C;&#xC758; Lua &#xD14C;&#xC774;&#xBE14;&#xB85C; return &#xD569;&#xB2C8;&#xB2E4;.</p><p><code>r:parsebody()</code>&#xAC00; &#xD30C;&#xC2F1;&#xB41C; Lua &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xB0B4;&#xC5D0;&#xC11C; &#xD638;&#xCD9C;&#xB418;&#xBA74; <code>req_parsebody()</code>&#xAC00; &#xD638;&#xCD9C;&#xB429;&#xB2C8;&#xB2E4;. &#xD574;&#xB2F9; &#xD568;&#xC218;&#xB294; <code>multipart/form-data; boundary=&quot;</code> &#xBB38;&#xC790;&#xC5F4;&#xB85C; &#xC2DC;&#xC791;&#xD558;&#xB294; <code>Content-Type</code> &#xD5E4;&#xB354;&#xB97C; &#xD655;&#xC778;&#xD558;&#xC5EC; request body&#xAC00; <code>multipart/form-data</code>&#xB85C; &#xC778;&#xCF54;&#xB529; &#xB418;&#xC5B4; &#xC788;&#xB294;&#xC9C0; &#xD655;&#xC778;&#xD569;&#xB2C8;&#xB2E4;. &#xD574;&#xB2F9; &#xBB38;&#xC790;&#xC5F4;&#xC774; &#xC874;&#xC7AC;&#xD558;&#xBA74; <code>ContentType</code> &#xD5E4;&#xB354;&#xC5D0; &#xC815;&#xC758;&#xB41C; boundary string&#xC744; &#xAC80;&#xC0C9;&#xD55C; &#xD6C4; multipart variable&#xC5D0; &#xC800;&#xC7A5;&#xD569;&#xB2C8;&#xB2E4;. multipart string&#xC744; &#xAC01;&#xAC01; &#xB9E4;&#xCE58;&#xD55C; &#xD6C4; &#xB450; &#xBC88; &#xC5F0;&#xC18D;&#xC73C;&#xB85C; CRFL squence&#xAC00; &#xBC1C;&#xC0DD;&#xD558;&#xB294; &#xCCAB; &#xC9C0;&#xC810;&#xC744; &#xCC3E;&#xC544; CRLF variable&#xC5D0; &#xC800;&#xC7A5;&#xD569;&#xB2C8;&#xB2E4;. CRLF squence&#xB97C; &#xCC3E;&#xC544; &#xAC12;&#xC744; &#xC800;&#xC7A5;&#xD55C; &#xACBD;&#xC6B0; &#xB2E4;&#xB978; multipart variable &#xBC1C;&#xC0DD; &#xC9C0;&#xC810;&#xC744; &#xCC3E;&#xC544; form element data&#xC758; &#xB05D;&#xC744; &#xB098;&#xD0C0;&#xB0B4;&#xB294; end variable&#xC744; &#xC800;&#xC7A5;&#xD569;&#xB2C8;&#xB2E4;.</p><p>&#xADF8; &#xD6C4; end variable&#xC758; &#xAC12;&#xC5D0;&#xC11C; CRLF variable&#xACFC; 8&#xC744; &#xBE7C;&#xC11C; form element data&#xB97C; &#xACC4;&#xC0B0;&#xD55C; &#xB2E4;&#xC74C; <code>size_t</code> &#xD0C0;&#xC785;&#xC758; <code>vlen</code> &#xBCC0;&#xC218;&#xC5D0; &#xC800;&#xC7A5;&#xD558;&#xC5EC; <code>memcpy()</code>&#xB97C; &#xD1B5;&#xD574; <code>vlen</code> &#xB9CC;&#xD07C; &#xBC84;&#xD37C;&#xC5D0; &#xBCF5;&#xC0AC;&#xD569;&#xB2C8;&#xB2E4;. &#xD558;&#xC9C0;&#xB9CC; &#xC774; &#xB54C; form element&#xC758; &#xC798;&#xBABB;&#xB41C; &#xD3EC;&#xB9F7;&#xC73C;&#xB85C; &#xC778;&#xD574; &#xB450; &#xAC1C;&#xC758; CRLF &#xC2DC;&#xD000;&#xC2A4; &#xC774;&#xD6C4; &#xAE00;&#xC790;&#xC758; &#xC218;&#xAC00; 8&#xAC1C; &#xBBF8;&#xB9CC;&#xC77C; &#xACBD;&#xC6B0; &#xAC12;&#xC774; &#xC74C;&#xC218; &#xAC12;&#xC774; &#xB418;&#xC5B4; integer overflow&#xAC00; &#xBC1C;&#xC0DD;&#xD569;&#xB2C8;&#xB2E4;. &#xACC4;&#xC0B0; &#xAC12;&#xC774; -1&#xC77C; &#xACBD;&#xC6B0; <code>szie_t&#xC758; &#xCD5C;&#xB300; &#xD06C;&#xAE30; + 1</code>&#xC758; &#xD799;&#xC774; &#xD560;&#xB2F9;&#xB418;&#xC5B4; integer overflow&#xB97C; &#xD1B5;&#xD574; &#xD06C;&#xAE30;&#xAC00; 0&#xC778; &#xBC84;&#xD37C;&#xAC00; &#xD560;&#xB2F9;&#xB429;&#xB2C8;&#xB2E4;.</p><p>&#xD574;&#xB2F9; &#xCDE8;&#xC57D;&#xC810;&#xC744; &#xD1B5;&#xD574; <code>multipart/form-data</code> content-type&#xC73C;&#xB85C; &#xC778;&#xCF54;&#xB529;&#xD55C; &#xC870;&#xC791;&#xB41C; HTTP POST request&#xB97C; &#xC804;&#xC1A1;&#xD558;&#xC5EC; &#xC11C;&#xBC84; &#xD504;&#xB85C;&#xC138;&#xC2A4; &#xBCF4;&#xC548; &#xCEE8;&#xD14D;&#xC2A4;&#xD2B8;&#xC5D0;&#xC11C;&#xC758; &#xC6D0;&#xACA9; &#xCF54;&#xB4DC; &#xC2E4;&#xD589;&#xC774; &#xAC00;&#xB2A5;&#xD558;&#xBA70; RCE&#xC5D0; &#xC2E4;&#xD328;&#xD560; &#xACBD;&#xC6B0; DoS&#xAC00; &#xBC1C;&#xC0DD;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><pre><code class="hljs routeros">POST /example.lua HTTP/1.1 Accept-Encoding:<span class="hljs-built_in"> identity </span>Content-Length: 1082 Host: apache.local:80 Content-Type: multipart/form-data; <span class="hljs-attribute">boundary</span>=TMSR Connection: close User-Agent: Python-urllib/2.7  --TMSR Content-Disposition: form-data; <span class="hljs-attribute">name</span>=<span class="hljs-string">&quot;foo&quot;</span>; <span class="hljs-attribute">filename</span>=<span class="hljs-string">&quot;TMSR.txt&quot;</span>  123TMSRAAAAAA</code></pre>]]></content:encoded>
+      
+      
+      <category domain="https://hackyboiz.github.io/categories/1day1line/">1day1line</category>
+      
+      
+      <category domain="https://hackyboiz.github.io/tags/cve/">cve</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/dos/">dos</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/apache/">apache</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/integer-underflow/">integer underflow</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/idioth/">idioth</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/code-execution/">code execution</category>
+      
+      
+      <comments>https://hackyboiz.github.io/2022/02/05/idioth/2022-02-05/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>[해키피디아] Kerberos</title>
@@ -305,11 +341,11 @@
       
       <category domain="https://hackyboiz.github.io/tags/cve/">cve</category>
       
-      <category domain="https://hackyboiz.github.io/tags/microsoft/">microsoft</category>
-      
       <category domain="https://hackyboiz.github.io/tags/rce/">rce</category>
       
       <category domain="https://hackyboiz.github.io/tags/deserialization/">deserialization</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/microsoft/">microsoft</category>
       
       <category domain="https://hackyboiz.github.io/tags/idioth/">idioth</category>
       
@@ -644,40 +680,6 @@
       
       
       <comments>https://hackyboiz.github.io/2022/01/07/nanglam/network-switch/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>[하루한줄] 검사 결과를 위조 가능한 코로나 자가검사키트 취약점</title>
-      <link>https://hackyboiz.github.io/2022/01/06/l0ch/2022-01-06/</link>
-      <guid>https://hackyboiz.github.io/2022/01/06/l0ch/2022-01-06/</guid>
-      <pubDate>Thu, 06 Jan 2022 05:00:00 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;URL&quot;&gt;&lt;a href=&quot;#URL&quot; class=&quot;headerlink&quot; title=&quot;URL&quot;&gt;&lt;/a&gt;URL&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://labs.f-secure.com/blog/faking-a-positive-covid-te</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<h2 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h2><p><a href="https://labs.f-secure.com/blog/faking-a-positive-covid-test">https://labs.f-secure.com/blog/faking-a-positive-covid-test</a></p><h2 id="Target"><a href="#Target" class="headerlink" title="Target"></a>Target</h2><ul><li><a href="https://www.ellumehealth.com/products/consumer-products/covid-home-test">ellume covid-19 home test</a></li></ul><h2 id="Explain"><a href="#Explain" class="headerlink" title="Explain"></a>Explain</h2><p>Ellume &#xC0AC;&#xC758; &#xCF54;&#xB85C;&#xB098;&#xBC14;&#xC774;&#xB7EC;&#xC2A4; &#xAC10;&#xC5FC;&#xC99D;-19 &#xAC80;&#xC0AC;&#xAE30;&#xC5D0;&#xC11C; &#xAC80;&#xC0AC; &#xACB0;&#xACFC;&#xB97C; &#xC870;&#xC791;&#xD574; &#xC704;&#xC870;&#xB41C; &#xAC80;&#xC0AC; &#xC99D;&#xBA85;&#xC11C;&#xB97C; &#xBC1C;&#xAE09;&#xBC1B;&#xC744; &#xC218; &#xC788;&#xB294; &#xC2A4;&#xD478;&#xD551; &#xCDE8;&#xC57D;&#xC810;&#xC774; &#xBC1C;&#xACAC;&#xB418;&#xC5C8;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p>&#xAC80;&#xC0AC;&#xAE30;&#xC758; &#xBD84;&#xC11D;&#xAE30;&#xB294; &#xC0AC;&#xC6A9;&#xC790;&#xAC00; &#xC591;&#xC131;&#xC778;&#xC9C0; &#xC74C;&#xC131;&#xC778;&#xC9C0;&#xB97C; &#xBD84;&#xC11D;&#xD55C; &#xB4A4; &#xAC80;&#xC0AC; &#xACB0;&#xACFC;&#xB97C; &#xBAA8;&#xBC14;&#xC77C; &#xC571;&#xC5D0; &#xC54C;&#xB9AC;&#xB294;&#xB370;, &#xC774;&#xB54C; &#xBE14;&#xB8E8;&#xD22C;&#xC2A4;&#xB97C; &#xC0AC;&#xC6A9;&#xD574; &#xBAA8;&#xBC14;&#xC77C; &#xC571;&#xC758; <code>com.ellumehealth.homecovid.android/com.gsk.itreat.activities.BluetoothDebugActivity</code> &#xC11C;&#xBE44;&#xC2A4;&#xC640; &#xC0C1;&#xD638;&#xC791;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.  &#xC774; &#xACFC;&#xC815;&#xC5D0;&#xC11C; &#xC804;&#xC1A1;&#xB418;&#xB294; &#xBE14;&#xB8E8;&#xD22C;&#xC2A4; &#xBA54;&#xC2DC;&#xC9C0;&#xC5D0;&#xB294; <code>STATUS</code>&#xC640; <code>MEASUREMENT_CONTROL_DATA</code> bytes array&#xAC00; &#xC788;&#xB294;&#xB370;, &#xD574;&#xB2F9; &#xBA54;&#xC2DC;&#xC9C0;&#xAC00; &#xB09C;&#xB3C5;&#xD654;&#xB418;&#xC5B4;&#xC788;&#xC9C0; &#xC54A;&#xC544; &#xD574;&#xCEE4;&#xB294; bytes array&#xC758; &#xAC01; &#xD544;&#xB4DC;&#xC758; &#xC758;&#xBBF8;&#xB97C; &#xC720;&#xCD94;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC544;&#xB798;&#xB294; <code>MEASUREMENT_CONTROL_DATA</code> &#xBA54;&#xC2DC;&#xC9C0;&#xB97C; &#xD574;&#xC11D;&#xD558;&#xB294; <code>au.com.ellume.estick_sdk.messaging.comms.payloads.MeasurementControlDataPayload</code> &#xD074;&#xB798;&#xC2A4;&#xB97C; &#xBD84;&#xC11D;&#xD55C; &#xAC01; &#xD544;&#xB4DC;&#xC758; &#xC758;&#xBBF8;&#xC785;&#xB2C8;&#xB2E4;.</p><pre><code class="hljs jsx"><span class="hljs-comment">// MEASUREMENT_CONTROL_DAT</span><span class="hljs-built_in">Array</span>[<span class="hljs-number">0</span><span class="hljs-number">-1</span>] <span class="hljs-number">64</span>, <span class="hljs-number">-102</span>          &#xD2B8;&#xB798;&#xD53D; &#xC2DC;&#xC791; <span class="hljs-built_in">Array</span>[<span class="hljs-number">2</span>] <span class="hljs-number">12</span>                  &#xD2B8;&#xB798;&#xD53D; &#xC720;&#xD615;(<span class="hljs-number">12</span> = MEASUREMENT_CONTROL_DATA) <span class="hljs-built_in">Array</span>[<span class="hljs-number">3</span>] <span class="hljs-number">24</span>                  &#xBC14;&#xC774;&#xD2B8; &#xC218;&#xC758; &#xB370;&#xC774;&#xD130; &#xAE38;&#xC774; <span class="hljs-built_in">Array</span>[<span class="hljs-number">4</span><span class="hljs-number">-7</span>] <span class="hljs-number">-119</span>, <span class="hljs-number">85</span>, <span class="hljs-number">0</span>, <span class="hljs-number">11</span>   unsigned byte &#xAC12;&#xC758; &#xACE0;&#xC720; ID <span class="hljs-built_in">Array</span>[<span class="hljs-number">8</span><span class="hljs-number">-9</span>] <span class="hljs-number">-98</span>, <span class="hljs-number">0</span>            unsigned byte &#xAC12;&#xC758; &#xC2DC;&#xD000;&#xC2A4; &#xBC88;&#xD638;<span class="hljs-built_in">Array</span>[<span class="hljs-number">10</span><span class="hljs-number">-11</span>] <span class="hljs-number">-128</span>, <span class="hljs-number">7</span>         unsigned byte &#xAC12;&#xC758; &#xD0C0;&#xC784;&#xC2A4;&#xD0EC;&#xD504; <span class="hljs-built_in">Array</span>[<span class="hljs-number">12</span><span class="hljs-number">-14</span>] <span class="hljs-number">-81</span>, <span class="hljs-number">36</span>, <span class="hljs-number">0</span>      &#xB77C;&#xC778; <span class="hljs-number">1</span> <span class="hljs-built_in">Array</span>[<span class="hljs-number">15</span>] <span class="hljs-number">4</span>                  &#xC54C;&#xACE0;&#xB9AC;&#xC998; &#xC0C1;&#xD0DC; <span class="hljs-built_in">Array</span>[<span class="hljs-number">16</span><span class="hljs-number">-18</span>] <span class="hljs-number">80</span>, <span class="hljs-number">24</span>, <span class="hljs-number">0</span>       &#xB77C;&#xC778; <span class="hljs-number">2</span> <span class="hljs-built_in">Array</span>[<span class="hljs-number">19</span>] <span class="hljs-number">0</span>                  &#xD558;&#xB4DC;&#xC6E8;&#xC5B4; &#xC0C1;&#xD0DC;<span class="hljs-built_in">Array</span>[<span class="hljs-number">20</span><span class="hljs-number">-21</span>] <span class="hljs-number">62</span>, <span class="hljs-number">2</span>           unsigned byte &#xAC12;&#xC758; dark frequency number<span class="hljs-built_in">Array</span>[<span class="hljs-number">22</span>] <span class="hljs-number">0</span>                  &#xD14C;&#xC2A4;&#xD2B8; &#xACB0;&#xACFC; <span class="hljs-built_in">Array</span>[<span class="hljs-number">23</span><span class="hljs-number">-24</span>] <span class="hljs-number">19</span>, <span class="hljs-number">25</span>          unsigned byte &#xAC12;&#xC758; c1 <span class="hljs-built_in">Array</span>[<span class="hljs-number">25</span><span class="hljs-number">-26</span>] <span class="hljs-number">-124</span>, <span class="hljs-number">26</span>        unsigned byte &#xAC12;&#xC758; c2 <span class="hljs-built_in">Array</span>[<span class="hljs-number">27</span>] <span class="hljs-number">-119</span>               unsigned byte &#xAC12;&#xC758; &#xCE21;&#xC815; &#xB370;&#xC774;&#xD130; &#xCCB4;&#xD06C;&#xC12C; <span class="hljs-built_in">Array</span>[<span class="hljs-number">28</span><span class="hljs-number">-19</span>] <span class="hljs-number">-66</span>, <span class="hljs-number">-43</span>        unsigned byte &#xAC12;&#xC758; crc</code></pre><p>&#xAC80;&#xC0AC; &#xACB0;&#xACFC;&#xAC00; &#xC591;&#xC131;&#xC778;&#xC9C0; &#xC74C;&#xC131;&#xC778;&#xC9C0;&#xB97C; &#xACB0;&#xC815;&#xD558;&#xB294; &#xD544;&#xB4DC;&#xB97C; &#xBCC0;&#xC870;&#xD558;&#xBA74; &#xAC80;&#xC0AC; &#xACB0;&#xACFC;&#xB97C; &#xC870;&#xC791;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p>Ellume &#xAC80;&#xC0AC;&#xAE30;&#xC758; &#xACB0;&#xACFC;&#xB294; &#xCF54;&#xB85C;&#xB098;&#xBC14;&#xC774;&#xB7EC;&#xC2A4; &#xC74C;&#xC131; &#xC778;&#xC99D;&#xC11C;&#xB97C; &#xBC1C;&#xAE09;&#xBC1B;&#xB294; &#xB370; &#xC0AC;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4;. &#xD574;&#xB2F9; &#xCDE8;&#xC57D;&#xC810;&#xC73C;&#xB85C; &#xC778;&#xD574; &#xCF54;&#xB85C;&#xB098;&#xBC14;&#xC774;&#xB7EC;&#xC2A4; &#xD655;&#xC9C4;&#xC790; &#xD30C;&#xC545;&#xC5D0; &#xBB38;&#xC81C;&#xAC00; &#xBC1C;&#xC0DD;&#xD560; &#xC218; &#xC788;&#xC5B4; Ellume&#xC740; &#xC571;&#xC5D0;&#xC11C; &#xCD94;&#xAC00; &#xB09C;&#xB3C5;&#xD654; &#xBC0F; &#xAC80;&#xC0AC; &#xACFC;&#xC815;&#xC744; &#xAD6C;&#xD604;&#xD558;&#xB294; &#xB4F1;&#xC758; &#xD328;&#xCE58;&#xB97C; &#xBC1C;&#xD45C;&#xD588;&#xC2B5;&#xB2C8;&#xB2E4;.</p>]]></content:encoded>
-      
-      
-      <category domain="https://hackyboiz.github.io/categories/1day1line/">1day1line</category>
-      
-      
-      <category domain="https://hackyboiz.github.io/tags/spoofing/">spoofing</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/L0ch/">L0ch</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/covid-19/">covid-19</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/covid/">covid</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/bluetooth/">bluetooth</category>
-      
-      
-      <comments>https://hackyboiz.github.io/2022/01/06/l0ch/2022-01-06/#disqus_thread</comments>
       
     </item>
     
