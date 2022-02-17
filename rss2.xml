@@ -9,8 +9,42 @@
     <atom:link href="https://hackyboiz.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>hack &amp; life</description>
-    <pubDate>Wed, 16 Feb 2022 05:26:52 GMT</pubDate>
+    <pubDate>Thu, 17 Feb 2022 06:50:37 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>[하루한줄] CVE-2022-0435: 리눅스 커널의 원격 Stack Buffer Overflow 취약점</title>
+      <link>https://hackyboiz.github.io/2022/02/17/l0ch/2022-02-17/</link>
+      <guid>https://hackyboiz.github.io/2022/02/17/l0ch/2022-02-17/</guid>
+      <pubDate>Thu, 17 Feb 2022 05:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;URL&quot;&gt;&lt;a href=&quot;#URL&quot; class=&quot;headerlink&quot; title=&quot;URL&quot;&gt;&lt;/a&gt;URL&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://blog.immunityinc.com/p/a-remote-stack-overflow-in</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h2 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h2><p><a href="https://blog.immunityinc.com/p/a-remote-stack-overflow-in-the-linux-kernel/">CVE-2022-0435: A Remote Stack Overflow in The Linux Kernel</a></p><h2 id="Target"><a href="#Target" class="headerlink" title="Target"></a>Target</h2><ul><li>Linux Kernel 4.8 ~ 5.17-rc3</li></ul><h2 id="Explain"><a href="#Explain" class="headerlink" title="Explain"></a>Explain</h2><p>&#xC9C0;&#xB09C; 11&#xC6D4; &#xACF5;&#xAC1C;&#xB41C; TIPC &#xCDE8;&#xC57D;&#xC810; <a href="https://hackyboiz.github.io/2021/11/11/fabu1ous/2021-11-11/">[&#xD558;&#xB8E8;&#xD55C;&#xC904;] CVE-2021-43267: Remote Linux Kernel Heap Overflow | TIPC Module Allows Arbitrary Code Execution</a> &#xC5D0; &#xC774;&#xC5B4; TIPC &#xBAA8;&#xB4C8;&#xC758; &#xAE30;&#xB2A5; &#xC911; &#xBAA8;&#xB2C8;&#xD130;&#xB9C1; &#xD504;&#xB808;&#xC784;&#xC6CC;&#xD06C;&#xC5D0;&#xC11C; &#xC6D0;&#xACA9;&#xC5D0;&#xC11C; Stack Buffer Overflow&#xB97C; &#xD2B8;&#xB9AC;&#xAC70;&#xD560; &#xC218; &#xC788;&#xB294; &#xCDE8;&#xC57D;&#xC810;&#xC758; &#xC138;&#xBD80; &#xC815;&#xBCF4;&#xAC00; &#xACF5;&#xAC1C;&#xB418;&#xC5C8;&#xC2B5;&#xB2C8;&#xB2E4;. </p><p>TIPC&#xC758; &#xBAA8;&#xB2C8;&#xD130;&#xB9C1; &#xD504;&#xB808;&#xC784;&#xC6CC;&#xD06C;&#xB294; &#xB3D9;&#xC77C;&#xD55C; &#xB3C4;&#xBA54;&#xC778;&#xC758; &#xC778;&#xC811; &#xB178;&#xB4DC;&#xB97C; &#xBAA8;&#xB2C8;&#xD130;&#xB9C1;&#xD558;&#xAE30; &#xC704;&#xD574; <code>tipc_peer</code> &#xAD6C;&#xC870;&#xCCB4;&#xC5D0;&#xC11C; &#xCC38;&#xC870;&#xD558;&#xB294; <code>tipc_mon_domain</code> &#xAD6C;&#xC870;&#xCCB4;&#xB97C; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;. &#xAD6C;&#xC870;&#xCCB4; &#xD544;&#xB4DC;&#xB294; &#xC544;&#xB798;&#xC640; &#xAC19;&#xC73C;&#xBA70; memeber &#xC218;&#xC640; &#xAC19;&#xC740; TIPC &#xD1A0;&#xD3F4;&#xB85C;&#xC9C0;&#xB97C; &#xC815;&#xC758;&#xD558;&#xB294; &#xB370; &#xC0AC;&#xC6A9;&#xB418;&#xB294; &#xB3C4;&#xBA54;&#xC778; &#xB808;&#xCF54;&#xB4DC;&#xB97C; &#xB098;&#xD0C0;&#xB0C5;&#xB2C8;&#xB2E4;.</p><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> MAX_MON_DOMAIN       64</span><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">tipc_mon_domain</span> {</span>        u16 len;        u16 gen;        u16 ack_gen;        u16 member_cnt;        u64 up_map;        u32 members[MAX_MON_DOMAIN]; };</code></pre><p>&#xD574;&#xB2F9; &#xAD6C;&#xC870;&#xCCB4;&#xC758; <code>members</code> &#xD544;&#xB4DC;&#xB294; &#xCD5C;&#xB300; <code>MAX_MON_DOMAIN</code> , 64&#xAC1C;&#xC758; &#xB3C4;&#xBA54;&#xC778; &#xBA64;&#xBC84;&#xB97C; &#xCD94;&#xC801;&#xD560; &#xC218; &#xC788;&#xB3C4;&#xB85D; &#xC815;&#xC758;&#xB418;&#xC5B4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p>TIPC&#xC5D0;&#xC11C; &#xB178;&#xB4DC; &#xAC04; &#xBA54;&#xC2DC;&#xC9C0;&#xB294; &#xD5E4;&#xB354; &#xD544;&#xB4DC; <code>LINK_PROTOCOL</code> (TIPC message user)&#xC640; <code>STATE_MSG</code>(message type)&#xB97C; &#xD1B5;&#xD574; &#xB098;&#xB258;&#xB294;&#xB370;, <code>STATE_MSG</code> &#xB0B4;&#xC5D0; &#xB3C4;&#xBA54;&#xC778; &#xB808;&#xCF54;&#xB4DC;&#xAC00; &#xD3EC;&#xD568;&#xB41C; &#xACBD;&#xC6B0; &#xD53C;&#xC5B4;&#xC758; &#xB3C4;&#xBA54;&#xC778; &#xB808;&#xCF54;&#xB4DC;&#xB97C; &#xC5C5;&#xB370;&#xC774;&#xD2B8;&#xD558;&#xB294; <code>tipc_mon_rcv</code> &#xD568;&#xC218;&#xC5D0; &#xCDE8;&#xC57D;&#xC810;&#xC774; &#xC874;&#xC7AC;&#xD569;&#xB2C8;&#xB2E4;.</p><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">tipc_mon_rcv</span><span class="hljs-params">(struct net *net, <span class="hljs-keyword">void</span> *data, u16 dlen, u32 addr,</span></span><span class="hljs-function"><span class="hljs-params">    struct tipc_mon_state *state, <span class="hljs-keyword">int</span> bearer_id)</span></span><span class="hljs-function"></span>{    ...    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">tipc_mon_domain</span> *<span class="hljs-title">arrv_dom</span> = <span class="hljs-title">data</span>;</span>    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">tipc_mon_domain</span> <span class="hljs-title">dom_bef</span>;</span>                                       ...    <span class="hljs-comment">// new_member_cnt&#xC5D0; &#xB300;&#xD55C; &#xCD5C;&#xB300;&#xAC12; &#xAC80;&#xC0AC;&#xAC00; &#xC874;&#xC7AC;&#xD558;&#xC9C0; &#xC54A;&#xC74C;          </span>    <span class="hljs-keyword">if</span> (dlen &lt; dom_rec_len(arrv_dom, <span class="hljs-number">0</span>))                                      <span class="hljs-keyword">return</span>;    <span class="hljs-keyword">if</span> (dlen != dom_rec_len(arrv_dom, new_member_cnt))                        <span class="hljs-keyword">return</span>;    <span class="hljs-keyword">if</span> (dlen &lt; new_dlen || arrv_dlen != new_dlen)                             <span class="hljs-keyword">return</span>;    ...    <span class="hljs-comment">/* Cache current domain record for later use */</span>    dom_bef.member_cnt = <span class="hljs-number">0</span>;    dom = peer-&gt;domain;    <span class="hljs-keyword">if</span> (dom)                                                                  <span class="hljs-built_in">memcpy</span>(&amp;dom_bef, dom, dom-&gt;len);                                  <span class="hljs-comment">/* Transform and store received domain record */</span>    <span class="hljs-keyword">if</span> (!dom || (dom-&gt;len &lt; new_dlen)) {        kfree(dom);        dom = kmalloc(new_dlen, GFP_ATOMIC);                                  peer-&gt;domain = dom;                                                   <span class="hljs-keyword">if</span> (!dom)            <span class="hljs-keyword">goto</span> <span class="hljs-built_in">exit</span>;    }    ...</code></pre><p><code>tipc_mon_domain</code> &#xAD6C;&#xC870;&#xCCB4;&#xB97C; &#xC9C0;&#xC5ED; &#xBCC0;&#xC218;&#xB85C; &#xD560;&#xB2F9;&#xD55C; &#xB4A4; &#xD5E4;&#xB354;&#xC758; &#xC815;&#xC758;&#xB41C; <code>STATE_MSG</code> &#xAE38;&#xC774;&#xC778; <code>dlen</code>&#xC774; &#xCDA9;&#xBD84;&#xD788; &#xD070;&#xC9C0; &#xB4F1;&#xC744; &#xAC80;&#xC0AC;&#xD558;&#xB294; &#xB8E8;&#xD2F4;&#xC774; &#xC874;&#xC7AC;&#xD569;&#xB2C8;&#xB2E4;.&#xADF8;&#xB7EC;&#xB098; &#xD574;&#xB2F9; &#xAC80;&#xC0AC; &#xACFC;&#xC815;&#xC5D0;&#xC11C; <code>new_member_cnt</code>&#xC758; &#xCD5C;&#xB300; &#xD06C;&#xAE30;&#xB85C; &#xC815;&#xC758;&#xB418;&#xC5B4; &#xC788;&#xB294; <code>#define MAX_MON_DOMAIN 64</code>&#xBCF4;&#xB2E4; &#xC791;&#xC740;&#xC9C0; &#xD655;&#xC778;&#xD558;&#xB294; &#xAC80;&#xC0AC;&#xAC00; &#xC874;&#xC7AC;&#xD558;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;. </p><pre><code class="hljs cpp">dom = {        len = <span class="hljs-number">1072</span>,        gen = <span class="hljs-number">3</span>,        ack_gen = <span class="hljs-number">3</span>,        member_cnt = <span class="hljs-number">264</span>;        up_map = <span class="hljs-number">0xffffffffffffffff</span>;        u32 members[<span class="hljs-number">264</span>] = <span class="hljs-number">0x1337</span>...    };</code></pre><p>&#xB530;&#xB77C;&#xC11C; &#xD574;&#xCEE4;&#xAC00; &#xC704;&#xC640; &#xAC19;&#xC774; &#xC784;&#xC758;&#xC758; <code>member_cnt</code> &#xBC0F; <code>Members[]</code> &#xD544;&#xB4DC;&#xAC00; &#xC788;&#xB294; <code>tipc_mon_domain</code>&#xB97C; &#xBCF4;&#xB0B4;&#xBA74; <code>memcpy(&amp;dom_bef, dom, dom-&gt;len);</code> &#xC5D0;&#xC11C; &#xC2A4;&#xD0DD;&#xC5D0; 272 bytes &#xD06C;&#xAE30;&#xB85C; &#xD560;&#xB2F9;&#xD55C; <code>tipc_mon_domain</code> &#xAD6C;&#xC870;&#xCCB4;&#xC5D0; <code>len</code> &#xD544;&#xB4DC; &#xAC12;&#xC778; 1072 bytes&#xB97C; &#xBCF5;&#xC0AC;&#xD558;&#xAC8C;&#xB418;&#xACE0; stack buffer overflow&#xAC00; &#xD2B8;&#xB9AC;&#xAC70;&#xB429;&#xB2C8;&#xB2E4;.</p><p>&#xCDE8;&#xC57D;&#xC810;&#xC740; <code>new_member_cnt</code>&#xC5D0; &#xB300;&#xD55C; &#xCD5C;&#xB300; &#xD06C;&#xAE30; &#xAC80;&#xC0AC;&#xB97C; &#xCD94;&#xAC00;&#xD558;&#xB294; &#xAC83;&#xC73C;&#xB85C; &#xD328;&#xCE58;&#xB418;&#xC5C8;&#xC2B5;&#xB2C8;&#xB2E4;. </p><pre><code class="hljs cpp"><span class="hljs-comment">/* Sanity check received domain record */</span>+       <span class="hljs-keyword">if</span> (new_member_cnt &gt; MAX_MON_DOMAIN)                                                +               <span class="hljs-keyword">return</span>;        <span class="hljs-keyword">if</span> (dlen &lt; dom_rec_len(arrv_dom, <span class="hljs-number">0</span>))                <span class="hljs-keyword">return</span>;        <span class="hljs-keyword">if</span> (dlen != dom_rec_len(arrv_dom, new_member_cnt))</code></pre>]]></content:encoded>
+      
+      
+      <category domain="https://hackyboiz.github.io/categories/1day1line/">1day1line</category>
+      
+      
+      <category domain="https://hackyboiz.github.io/tags/cve/">cve</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/tipc/">tipc</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/L0ch/">L0ch</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/stack-buffer-overflow/">stack buffer overflow</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/remote-bof/">remote bof</category>
+      
+      
+      <comments>https://hackyboiz.github.io/2022/02/17/l0ch/2022-02-17/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>[해키피디아] LFI(Local File Inclusion)</title>
@@ -59,11 +93,11 @@
       <category domain="https://hackyboiz.github.io/categories/1day1line/">1day1line</category>
       
       
+      <category domain="https://hackyboiz.github.io/tags/Fabu1ous/">Fabu1ous</category>
+      
       <category domain="https://hackyboiz.github.io/tags/rce/">rce</category>
       
       <category domain="https://hackyboiz.github.io/tags/file-upload/">file upload</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/Fabu1ous/">Fabu1ous</category>
       
       <category domain="https://hackyboiz.github.io/tags/forced-authentication/">forced authentication</category>
       
@@ -93,13 +127,13 @@
       
       <category domain="https://hackyboiz.github.io/tags/fuzzing/">fuzzing</category>
       
-      <category domain="https://hackyboiz.github.io/tags/server/">server</category>
-      
       <category domain="https://hackyboiz.github.io/tags/network/">network</category>
       
       <category domain="https://hackyboiz.github.io/tags/rdp/">rdp</category>
       
       <category domain="https://hackyboiz.github.io/tags/winafl/">winafl</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/server/">server</category>
       
       <category domain="https://hackyboiz.github.io/tags/L0ch/">L0ch</category>
       
@@ -265,9 +299,9 @@
       <category domain="https://hackyboiz.github.io/categories/1day1line/">1day1line</category>
       
       
-      <category domain="https://hackyboiz.github.io/tags/rce/">rce</category>
-      
       <category domain="https://hackyboiz.github.io/tags/Fabu1ous/">Fabu1ous</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/rce/">rce</category>
       
       <category domain="https://hackyboiz.github.io/tags/deserialization/">deserialization</category>
       
@@ -638,11 +672,11 @@
       
       <category domain="https://hackyboiz.github.io/tags/cve/">cve</category>
       
-      <category domain="https://hackyboiz.github.io/tags/microsoft/">microsoft</category>
-      
       <category domain="https://hackyboiz.github.io/tags/rce/">rce</category>
       
       <category domain="https://hackyboiz.github.io/tags/deserialization/">deserialization</category>
+      
+      <category domain="https://hackyboiz.github.io/tags/microsoft/">microsoft</category>
       
       <category domain="https://hackyboiz.github.io/tags/idioth/">idioth</category>
       
@@ -650,40 +684,6 @@
       
       
       <comments>https://hackyboiz.github.io/2022/01/22/idioth/2022-01-22/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>[해키피디아] FTP, Telnet, SSH, SFTP</title>
-      <link>https://hackyboiz.github.io/2022/01/21/poosic/ftp/</link>
-      <guid>https://hackyboiz.github.io/2022/01/21/poosic/ftp/</guid>
-      <pubDate>Fri, 21 Jan 2022 05:00:00 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h3 id=&quot;FTP-File-Transfer-Protocol&quot;&gt;&lt;a href=&quot;#FTP-File-Transfer-Protocol&quot; class=&quot;headerlink&quot; title=&quot;FTP(File Transfer Protocol)&quot;&gt;&lt;/a&gt;FTP(Fil</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<h3 id="FTP-File-Transfer-Protocol"><a href="#FTP-File-Transfer-Protocol" class="headerlink" title="FTP(File Transfer Protocol)"></a>FTP(File Transfer Protocol)</h3><p>FTP&#xB780; &#xD30C;&#xC77C; &#xC804;&#xC1A1; &#xD504;&#xB85C;&#xD1A0;&#xCF5C;&#xC758; &#xC904;&#xC784;&#xB9D0; &#xC785;&#xB2C8;&#xB2E4;. &#xBC88;&#xC5ED; &#xADF8;&#xB300;&#xB85C; &#xD30C;&#xC77C; &#xC804;&#xC1A1;&#xC744; &#xC704;&#xD574; &#xC0AC;&#xC6A9;&#xB418;&#xB294; &#xD504;&#xB85C;&#xD1A0;&#xCF5C;&#xC785;&#xB2C8;&#xB2E4;. TCP/IP &#xAE30;&#xBC18;&#xC758; &#xD504;&#xD1A0;&#xCF5C;&#xB85C;&#xC368;, &#xB124;&#xD2B8;&#xC6CC;&#xD06C;&#xC5D0; &#xC5F0;&#xACB0;&#xB41C; &#xCEF4;&#xD4E8;&#xD130; &#xC0AC;&#xC774;&#xC5D0;&#xC11C; &#xD30C;&#xC77C; &#xAD50;&#xD658;&#xC744; &#xC704;&#xD574; &#xAC1C;&#xBC1C;&#xC774; &#xB418;&#xC5C8;&#xACE0; &#xC778;&#xD130;&#xB137; &#xD504;&#xB85C;&#xD1A0;&#xCF5C;&#xC758; 5&#xACC4;&#xCE35; &#xC911; &#xC751;&#xC6A9; &#xACC4;&#xCE35;&#xC5D0; &#xC18D;&#xD574; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p><a href="https://hackyboiz.github.io/2021/09/17/poosic/Shell/">GUI</a> &#xC774;&#xC804; <a href="https://hackyboiz.github.io/2021/09/17/poosic/Shell/">CLI</a> &#xD658;&#xACBD;&#xC5D0;&#xC11C;&#xB3C4; &#xB110;&#xB9AC; &#xC0AC;&#xC6A9;&#xB418;&#xB358; &#xD504;&#xB85C;&#xD1A0;&#xCF5C;&#xC774;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xD604;&#xC7AC;&#xB3C4; GUI&#xAC00; &#xC0AC;&#xC6A9;&#xC774; &#xBD88;&#xAC00;&#xB2A5;&#xD55C; &#xD658;&#xACBD;&#xC5D0;&#xC11C;&#xB294; &#xC0AC;&#xC6A9;&#xC911;&#xC785;&#xB2C8;&#xB2E4;.</p><p>FTP&#xB294; &#xD30C;&#xC77C; &#xC804;&#xC1A1;&#xC5D0; &#xC55E;&#xC11C; &#xC0AC;&#xC6A9;&#xC790;&#xC758; &#xC774;&#xB984;&#xACFC; &#xBE44;&#xBC00;&#xBC88;&#xD638;&#xB97C; &#xC778;&#xC99D;&#xD558;&#xB294; &#xACFC;&#xC815;&#xC774; &#xD544;&#xC694;&#xD55C;&#xB370; &#xC774; &#xACFC;&#xC815;&#xC5D0;&#xC11C; &#xC554;&#xD638;&#xD654; &#xB418;&#xC9C0;&#xC54A;&#xACE0; &#xD3C9;&#xBB38;&#xC73C;&#xB85C; &#xC804;&#xB2EC;&#xB418;&#xC5B4; &#xBCF4;&#xC548;&#xC131;&#xC774; &#xC88B;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;.</p><h3 id="Telnet"><a href="#Telnet" class="headerlink" title="Telnet"></a>Telnet</h3><p>Telnet&#xC740; &#xC778;&#xD130;&#xB137;&#xC774;&#xB098; &#xAC00;&#xAE4C;&#xC6B4; &#xC9C0;&#xC5ED;&#xC758; &#xCEF4;&#xD4E8;&#xD130;&#xB4E4;&#xB07C;&#xB9AC; &#xD1B5;&#xC2E0;&#xD558;&#xB294; &#xB85C;&#xCEEC; &#xC601;&#xC5ED; &#xB124;&#xD2B8;&#xC6CC;&#xD06C;&#xC5D0; &#xC0AC;&#xC6A9;&#xB418;&#xB294; &#xB124;&#xD2B8;&#xC6CC;&#xD06C; &#xD504;&#xB85C;&#xD1A0;&#xCF5C;&#xC785;&#xB2C8;&#xB2E4;. &#xAC00;&#xC0C1; &#xB2E8;&#xB9D0; &#xAE30;&#xB2A5;, &#xC989;, &#xC6D0;&#xACA9;&#xC73C;&#xB85C; &#xCEF4;&#xD4E8;&#xD130;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xAE30; &#xC704;&#xD574; &#xAC1C;&#xBC1C;&#xB418;&#xC5C8;&#xC2B5;&#xB2C8;&#xB2E4;.</p><p>&#xC0AC;&#xC6A9;&#xC790;&#xC5D0;&#xAC8C; &#xD638;&#xC2A4;&#xD2B8;&#xC640; &#xD074;&#xB77C;&#xC774;&#xC5B8;&#xD2B8;&#xAC04; &#xC2DC;&#xC2A4;&#xD15C;&#xC774; &#xB2E4;&#xB97C; &#xACBD;&#xC6B0;&#xC5D0;&#xB3C4; &#xB370;&#xC774;&#xD130;&#xB97C; &#xBCC0;&#xD658;&#xD574; &#xC6D0;&#xD65C;&#xD55C; &#xD1B5;&#xC2E0;&#xC744; &#xAC00;&#xB2A5;&#xD558;&#xAC8C; &#xD574;&#xC8FC;&#xB294; NVT(Network Virtual Terminal)&#xB77C;&#xB294; &#xAC00;&#xC0C1;&#xC758; &#xD130;&#xBBF8;&#xB110;&#xC744; &#xC81C;&#xACF5;&#xD569;&#xB2C8;&#xB2E4;.</p><p>&#xD604;&#xC7AC;&#xB294; FTP&#xC640; &#xB3D9;&#xC77C;&#xD558;&#xAC8C; &#xC778;&#xC99D; &#xACFC;&#xC815;&#xC5D0;&#xC11C; &#xC554;&#xD638;&#xD654;&#xB97C; &#xD558;&#xC9C0; &#xC54A;&#xC544; &#xD328;&#xD0B7; &#xC2A4;&#xB2C8;&#xD551; &#xB4F1;&#xC758; &#xC704;&#xD5D8;&#xC774; &#xC788;&#xC5B4; &#xC0AC;&#xC6A9;&#xD558;&#xC9C0; &#xC54A;&#xACE0; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p><h3 id="SSH-Secure-Shell"><a href="#SSH-Secure-Shell" class="headerlink" title="SSH(Secure Shell)"></a>SSH(Secure Shell)</h3><p>SSH&#xB294; &#xAE30;&#xC874;&#xC758; &#xC6D0;&#xACA9; &#xD1B5;&#xC2E0;&#xC744; &#xC704;&#xD574; &#xAC1C;&#xBC1C;&#xB41C; Telnet, rsh &#xB4F1;&#xC744; &#xB300;&#xCCB4;&#xD558;&#xAE30; &#xC704;&#xD574; &#xC124;&#xACC4;&#xB41C; &#xD504;&#xB85C;&#xD1A0;&#xCF5C;&#xC785;&#xB2C8;&#xB2E4;.</p><p>&#xC774;&#xB984;&#xC5D0;&#xB3C4; Secure&#xC774; &#xB4E4;&#xC5B4;&#xAC00;&#xB294; &#xAC83; &#xCC98;&#xB7FC; &#xAE30;&#xC874; &#xD504;&#xB85C;&#xD1A0;&#xCF5C;&#xC758; &#xBCF4;&#xC548;&#xC0C1; &#xBB38;&#xC81C;&#xC810;&#xC744; &#xBCF4;&#xC644;&#xD558;&#xC5EC; &#xB354; &#xAC15;&#xB3C4; &#xB192;&#xC740; &#xC778;&#xC99D;&#xACFC; &#xC554;&#xD638;&#xD654; &#xAE30;&#xBC95;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xC600;&#xC2B5;&#xB2C8;&#xB2E4;. &#xADF8;&#xB798;&#xC11C; Telnet&#xC774;&#xB098; FTP&#xC640; &#xB2E4;&#xB974;&#xAC8C; &#xBE44;&#xBC00;&#xBC88;&#xD638; &#xC815;&#xBCF4;&#xAC00; &#xB178;&#xCD9C;&#xB418;&#xB354;&#xB77C;&#xB3C4; &#xBCF5;&#xD638;&#xD654;&#xB97C; &#xD560; &#xC218; &#xC5C6;&#xB2E4;&#xBA74; &#xBE44;&#xBC00;&#xBC88;&#xD638;&#xB97C; &#xC720;&#xCD94;&#xD558;&#xB294; &#xAC83;&#xC774; &#xBD88;&#xAC00;&#xB2A5;&#xD569;&#xB2C8;&#xB2E4;.</p><h3 id="SFTP-Secure-File-Transfer-Protocol"><a href="#SFTP-Secure-File-Transfer-Protocol" class="headerlink" title="SFTP(Secure File Transfer Protocol)"></a>SFTP(Secure File Transfer Protocol)</h3><p>SFTP&#xB294; SSH&#xB97C; &#xC774;&#xC6A9;&#xD574; FTP&#xC758; &#xBCF4;&#xC548; &#xBB38;&#xC81C;&#xB97C; &#xBCF4;&#xC644;&#xD55C; &#xD504;&#xB85C;&#xD1A0;&#xCF5C;&#xC785;&#xB2C8;&#xB2E4;. &#xB2E8;&#xC21C;&#xD788; &#xD30C;&#xC77C;&#xC744; &#xC804;&#xC1A1;&#xD558;&#xB358; FTP&#xC640;&#xB294; &#xB2EC;&#xB9AC; &#xD30C;&#xC77C;&#xC744; &#xC554;&#xD638;&#xD654;&#xD574; SSH &#xD504;&#xB85C;&#xD1A0;&#xCF5C;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xC5EC; &#xC804;&#xC1A1;&#xD569;&#xB2C8;&#xB2E4;. SSH&#xC758; &#xACF5;&#xAC1C;&#xD0A4;&#xB97C; &#xC0AC;&#xC6A9;&#xD574; &#xC554;&#xD638;&#xD654;&#xD558;&#xACE0; &#xAC1C;&#xC778;&#xD0A4;&#xB97C; &#xC774;&#xC6A9;&#xD574; &#xAC80;&#xC99D;&#xD558;&#xB294; &#xC2DD;&#xC73C;&#xB85C; &#xC778;&#xC99D;&#xC744; &#xC9C4;&#xD589;&#xD569;&#xB2C8;&#xB2E4;.</p><p>&#xB2E4;&#xB9CC; &#xBCF4;&#xC548;&#xC744; &#xC704;&#xD574; &#xC554;&#xD638;&#xD654;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xB370;&#xC774;&#xD130; &#xAD50;&#xD658; &#xC18D;&#xB3C4;&#xAC00; &#xB290;&#xB9AC;&#xBA70; &#xAE30;&#xC874; FTP&#xC5D0; &#xBE44;&#xD574; SSH&#xB97C; &#xCD94;&#xAC00;&#xC801;&#xC73C;&#xB85C; &#xC0AC;&#xC6A9;&#xD558;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; SSH &#xC778;&#xC99D;&#xC744; &#xC704;&#xD55C; &#xD0A4; &#xAD00;&#xB9AC;&#xAC00; &#xBCC4;&#xB3C4;&#xB85C; &#xD544;&#xC694;&#xD569;&#xB2C8;&#xB2E4;.</p>]]></content:encoded>
-      
-      
-      <category domain="https://hackyboiz.github.io/categories/Hackypedia/">Hackypedia</category>
-      
-      
-      <category domain="https://hackyboiz.github.io/tags/ssh/">ssh</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/ftp/">ftp</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/poosic/">poosic</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/telnet/">telnet</category>
-      
-      <category domain="https://hackyboiz.github.io/tags/sftp/">sftp</category>
-      
-      
-      <comments>https://hackyboiz.github.io/2022/01/21/poosic/ftp/#disqus_thread</comments>
       
     </item>
     
